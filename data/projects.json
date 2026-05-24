@@ -1,0 +1,553 @@
+{
+  "schemaVersion": "2.0",
+  "lastUpdated": "2026-05-24",
+  "dashboardMode": "focus",
+  "todayMessage": "Focus on the few projects that actually move the system forward today.",
+  "projects": [
+    {
+      "id": "compliance",
+      "name": "COMPLIANCE",
+      "description": "Dial-norm-aware limiter and loudness compliance tool for stereo, 5.1, and 9.1.6 post workflows.",
+      "status": "active",
+      "confidence": "medium",
+      "priorityRank": 1,
+      "today": true,
+      "ignoreToday": false,
+      "latestVersion": "Active line \u2014 exact version needs confirmation.",
+      "nextAction": "Continue limiter gain-reduction meter integration.",
+      "firstAction": "Open latest COMPLIANCE chat/source and confirm current version.",
+      "blocker": "Exact current version needs confirmation.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows"
+      ],
+      "lastKnownStatus": "Multichannel limiter work active; Pro-L2-style output/gain-reduction metering in scope.",
+      "tomorrowFirstAction": "Lock the version number before writing more code.",
+      "notToday": "Do not polish visuals until version is confirmed.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs project-specific confirmation."
+    },
+    {
+      "id": "foley-engine",
+      "name": "FOLEY ENGINE",
+      "description": "Generative Foley and movement-sound engine for creating/editing synced sound effects.",
+      "status": "blocked",
+      "confidence": "medium",
+      "priorityRank": 2,
+      "today": true,
+      "ignoreToday": false,
+      "latestVersion": "v0.1.x early source/build line.",
+      "nextAction": "Fix host visibility / identity / validation.",
+      "firstAction": "Review the last install/build result and confirm plugin IDs.",
+      "blocker": "Installs but is not seen in Ableton.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "AAX"
+      ],
+      "lastKnownStatus": "Plugin installs, but Ableton does not see it.",
+      "tomorrowFirstAction": "Open the FOLEY ENGINE chat and diagnose Ableton visibility.",
+      "notToday": "Do not add features until host visibility is fixed.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs current build log continuation."
+    },
+    {
+      "id": "gesture",
+      "name": "GESTURE",
+      "description": "Performance modulation engine with XY pad, timeline, scenes, and Receiver companion plugin for cross-track modulation.",
+      "status": "blocked",
+      "confidence": "high",
+      "priorityRank": 3,
+      "today": true,
+      "ignoreToday": false,
+      "latestVersion": "No product plugin version yet; THETA_AAX_Sidechain_Spike_v0.1 packaged.",
+      "nextAction": "Run sidechain spike tests Q1\u2013Q8.",
+      "firstAction": "Build the spike locally and start the Q1\u2013Q8 test procedure.",
+      "blocker": "Spike has not been compiled/DAW-tested; PACE WCGUIDs needed for AAX test.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU",
+        "AAX",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "CLAP",
+        "Windows"
+      ],
+      "lastKnownStatus": "Source ZIP for AAX sidechain feasibility spike handed off.",
+      "tomorrowFirstAction": "Build VST3/AU first and record spike test results.",
+      "notToday": "Do not write Receiver protocol until spike results are known.",
+      "artifact": "THETA_AAX_Sidechain_Spike_v0.1",
+      "sourceConfidenceNote": "Claude extraction imported."
+    },
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "description": "Three-stage analog character processor: GRIT tape, AMBER tube, COMPRESS, limiter, and EQ.",
+      "status": "active",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v18.8.5 built; VST3/AU healthy.",
+      "nextAction": "v18.8.6 EQ master-off visual polish, or v18.9.0 larger character work.",
+      "firstAction": "Confirm whether the next pass is small EQ polish or larger character work.",
+      "blocker": "AAX pipeline depends on PACE/signing cleanup and correct product/sign IDs.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "formatsLater": [
+        "AAX"
+      ],
+      "lastKnownStatus": "EQ master OFF now gates processing correctly.",
+      "tomorrowFirstAction": "Only touch if CREOSOTE becomes today's focus.",
+      "notToday": "Do not touch AAX unless explicitly scoped.",
+      "artifact": "CREOSOTE_Plugin_v18.8.5_VST-AU-AAX_Source.zip",
+      "sourceConfidenceNote": "Claude extraction imported."
+    },
+    {
+      "id": "cathode",
+      "name": "CATHODE",
+      "description": "CRT/radio/interference-inspired degradation and damaged-receiver processor/instrument.",
+      "status": "active",
+      "confidence": "medium",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v16.48 known from handoff context.",
+      "nextAction": "v16.49 if resumed.",
+      "firstAction": "Confirm current chat/source state before build.",
+      "blocker": "Needs project-specific current chat confirmation before overwriting.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows"
+      ],
+      "lastKnownStatus": "Contextual visual bays and wide CRT/CRUSH layout work recently done.",
+      "tomorrowFirstAction": "Only touch if CATHODE becomes today's focus.",
+      "notToday": "Do not assume v16.48 is current without project confirmation.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs current project-specific confirmation."
+    },
+    {
+      "id": "atria",
+      "name": "ATRIA",
+      "description": "Modular macro-ring multi-effect / sound-design processor with linked movement controls.",
+      "status": "active",
+      "confidence": "medium",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v30.13 known.",
+      "nextAction": "Continue CREOSOTE limiter transplant / LIMITER behavior fixes.",
+      "firstAction": "Confirm latest ATRIA source/chat status.",
+      "blocker": "Needs current project-specific extraction to lock exact latest state.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows"
+      ],
+      "lastKnownStatus": "LIMITER section should copy CREOSOTE behavior/look/feel.",
+      "tomorrowFirstAction": "Only touch if ATRIA becomes today's focus.",
+      "notToday": "Do not rebuild until latest source/version is confirmed.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs current project-specific confirmation."
+    },
+    {
+      "id": "arecibo",
+      "name": "ARECIBO",
+      "description": "Receiver/transmission-inspired texture instrument/effect with static, drift, interference, and signal-capture aesthetics.",
+      "status": "active",
+      "confidence": "medium",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "Moving to v16; prior v15.11 source known.",
+      "nextAction": "v16 file reorg / WAVE mode button preservation.",
+      "firstAction": "Confirm exact v16.x source state.",
+      "blocker": "Needs current project-specific extraction to lock exact version.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "formatsLater": [
+        "Standalone",
+        "AAX",
+        "Windows"
+      ],
+      "lastKnownStatus": "v16 line started; WAVE mode must remain a cycling button, not a knob.",
+      "tomorrowFirstAction": "Only touch if ARECIBO becomes today's focus.",
+      "notToday": "Do not let WAVE mode regress to a knob.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs current project-specific confirmation."
+    },
+    {
+      "id": "twilight",
+      "name": "TWILIGHT",
+      "description": "Regenerative ambience instrument for drones, harmonic fields, sample layers, MIDI-triggered voices, and atmospheric output.",
+      "status": "active",
+      "confidence": "medium",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v15.61 / v16 context; exact active line needs confirmation.",
+      "nextAction": "File reorg phase / MIDI and preset stability continuation.",
+      "firstAction": "Confirm whether v15.61 or v16 is the true active line.",
+      "blocker": "Version line conflict needs project-specific confirmation.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows"
+      ],
+      "lastKnownStatus": "MIDI triggering and preset crash fixes were active.",
+      "tomorrowFirstAction": "Only touch if TWILIGHT becomes today's focus.",
+      "notToday": "Do not continue build work until active version line is locked.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs current project-specific confirmation."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "description": "Focus/productivity-inspired audio plugin concept; first-pass UI installed, DSP/features still to be built out.",
+      "status": "decision",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v0.1.3.",
+      "nextAction": "v0.1.4 feature/control/DSP planning or visual concept pass.",
+      "firstAction": "Decide whether to start DSP/control architecture or keep visual concepting.",
+      "blocker": "",
+      "decisionNeeded": "Start feature/DSP architecture now or continue visual concepts first.",
+      "recommendedChoice": "Start with feature/control architecture before heavy visual polish.",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "formatsLater": [
+        "AAX"
+      ],
+      "lastKnownStatus": "Plugin appears in host after install.",
+      "tomorrowFirstAction": "Choose the next pass before writing code.",
+      "notToday": "Do not expand features without deciding the control architecture.",
+      "artifact": "",
+      "sourceConfidenceNote": "High confidence from current chat context."
+    },
+    {
+      "id": "scenematch",
+      "name": "SceneMatch",
+      "description": "Post/audio tool for matching scene tone, ambience, and consistency across clips or takes.",
+      "status": "blocked",
+      "confidence": "medium",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v0.1.0 early source/build line.",
+      "nextAction": "Resolve compile/build errors and stabilize skeleton.",
+      "firstAction": "Open latest pasted build log and fix the first compile error.",
+      "blocker": "Build errors still need project-specific log fix.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "AAX"
+      ],
+      "lastKnownStatus": "Fresh JUCE project, build errors reported.",
+      "tomorrowFirstAction": "Continue from the latest build log.",
+      "notToday": "Do not add features until skeleton compiles.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs current build log continuation."
+    },
+    {
+      "id": "prismform",
+      "name": "PrismForm",
+      "description": "Musician/sound-designer instrument/effect concept focused on new sound-shaping territory.",
+      "status": "blocked",
+      "confidence": "medium",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v1.1 requested.",
+      "nextAction": "v1.1 synth lock compile fix / package fixed source ZIP.",
+      "firstAction": "Continue from the v1.1 compile-fix request.",
+      "blocker": "Needs source/build log continuation.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows"
+      ],
+      "lastKnownStatus": "Initial v1 build hit errors; v1.1 fix requested.",
+      "tomorrowFirstAction": "Fix compile blocker before design expansion.",
+      "notToday": "Do not add sound features until build is stable.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs current project-specific confirmation."
+    },
+    {
+      "id": "podboss",
+      "name": "PODBOSS",
+      "description": "End-to-end podcast/voiceover suite for leveling, cleanup, consistency, and possible video/audio export workflows.",
+      "status": "decision",
+      "confidence": "medium",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": true,
+      "latestVersion": "Early prototype.",
+      "nextAction": "Continue contrast/UI refinement, then architecture.",
+      "firstAction": "Define phased MVP before adding more systems.",
+      "blocker": "",
+      "decisionNeeded": "Large product scope needs phased MVP.",
+      "recommendedChoice": "Lock a small standalone-first MVP.",
+      "formatsNow": [
+        "Standalone app",
+        "DAW bridge/plugin concept"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows"
+      ],
+      "lastKnownStatus": "UI prototype accepted with request for more contrast.",
+      "tomorrowFirstAction": "Only touch if PODBOSS becomes today's focus.",
+      "notToday": "Do not expand video/export scope until MVP is defined.",
+      "artifact": "",
+      "sourceConfidenceNote": "Needs current product scope confirmation."
+    },
+    {
+      "id": "translate",
+      "name": "TRANSLATE",
+      "description": "Mix-translation lab comparing mixes against playback targets with Translation Score, delta waterfall, Fix List, and optional macros.",
+      "status": "decision",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v0.1 product validation; HTML wireframes v1\u2013v4.",
+      "nextAction": "Choose next UX pass: target-switched state or settings/preset browser.",
+      "firstAction": "Pick the next wireframe state.",
+      "blocker": "",
+      "decisionNeeded": "Target-switched state or settings/preset browser.",
+      "recommendedChoice": "Target-switched state.",
+      "formatsNow": [
+        "Planned VST3",
+        "AU",
+        "CLAP",
+        "AAX"
+      ],
+      "formatsLater": [],
+      "lastKnownStatus": "Four standalone HTML wireframes accepted; no JUCE/plugin source yet.",
+      "tomorrowFirstAction": "Only touch if TRANSLATE becomes today's focus.",
+      "notToday": "Do not start JUCE source until UX flow is locked.",
+      "artifact": "HTML wireframes v1\u2013v4",
+      "sourceConfidenceNote": "Claude extraction imported."
+    },
+    {
+      "id": "hierarchy",
+      "name": "HIERARCHY",
+      "description": "Multi-instance masking/priority processor where instances coordinate and perform per-band ducking.",
+      "status": "decision",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": true,
+      "latestVersion": "Pre-POC; no version assigned.",
+      "nextAction": "POC v0.1 candidate: two-instance shared-memory IPC + 4-band priority ducking in Reaper VST3.",
+      "firstAction": "Choose POC size and branding direction.",
+      "blocker": "",
+      "decisionNeeded": "POC scope size and visual/brand identity.",
+      "recommendedChoice": "Start with the smallest useful IPC + 4-band ducking POC.",
+      "formatsNow": [
+        "VST3 only for POC"
+      ],
+      "formatsLater": [
+        "AU",
+        "AAX",
+        "CLAP",
+        "Windows"
+      ],
+      "lastKnownStatus": "Concept handoff received; POC proposed.",
+      "tomorrowFirstAction": "Only touch if HIERARCHY becomes today's focus.",
+      "notToday": "Do not build full UI before IPC is proven.",
+      "artifact": "",
+      "sourceConfidenceNote": "Claude extraction imported."
+    },
+    {
+      "id": "adaptscore",
+      "name": "ADAPTSCORE",
+      "description": "DAW-to-game-audio bridge for auditioning adaptive scores against Wwise/FMOD-style game state from inside the DAW.",
+      "status": "blocked",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v0.2.0 source ZIP written/syntax-checked; not user-compiled/DAW-tested yet.",
+      "nextAction": "v0.3: remaining Sandbox slider attachments + first-pass LookAndFeel.",
+      "firstAction": "Run local build and WAAPI probe.",
+      "blocker": "User must run local build and WAAPI probe.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "AAX"
+      ],
+      "lastKnownStatus": "v0.1.0, v0.2.0, and WAAPI probe source ZIPs delivered.",
+      "tomorrowFirstAction": "Run the probe before deciding v0.3 scope.",
+      "notToday": "Do not integrate WAAPI into plugin until probe results are known.",
+      "artifact": "ADAPTSCORE_Plugin_v0.2.0_VST-AU-Standalone_Source.zip",
+      "sourceConfidenceNote": "Claude extraction imported."
+    },
+    {
+      "id": "polyglot",
+      "name": "POLYGLOT",
+      "description": "Universal plugin parameter translator: standalone app plus Bridge plugin for porting presets/chains across vendors.",
+      "status": "decision",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": true,
+      "latestVersion": "v0.1 partial source only; Common layer complete, not packaged/compiled.",
+      "nextAction": "Continue v0.1 toward first full source ZIP.",
+      "firstAction": "Choose Standalone GUI, Bridge plugin, or CMake scaffolding next.",
+      "blocker": "",
+      "decisionNeeded": "Next source chunk.",
+      "recommendedChoice": "CMake scaffolding first to prove Common/ layer links cleanly.",
+      "formatsNow": [
+        "macOS app",
+        "VST3",
+        "AU",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows",
+        "real DAW session parsers"
+      ],
+      "lastKnownStatus": "Common/ layer complete; awaiting next chunk choice.",
+      "tomorrowFirstAction": "Only touch if POLYGLOT becomes today's focus.",
+      "notToday": "Do not add more Common code until scaffolding strategy is chosen.",
+      "artifact": "",
+      "sourceConfidenceNote": "Claude extraction imported."
+    },
+    {
+      "id": "field",
+      "name": "FIELD",
+      "description": "Experimental texture/space processor involving XY control, grain delay/reverb blend, and end-of-chain stutter/smear behavior.",
+      "status": "parked",
+      "confidence": "low",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": true,
+      "latestVersion": "Version unclear.",
+      "nextAction": "Needs project-specific confirmation.",
+      "firstAction": "Find or create project handoff.",
+      "blocker": "Missing extraction/source of truth.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [],
+      "formatsLater": [],
+      "lastKnownStatus": "Known from memory as a THETA texture/space path.",
+      "tomorrowFirstAction": "Do not work until source of truth exists.",
+      "notToday": "Ignore today.",
+      "artifact": "",
+      "sourceConfidenceNote": "Low confidence."
+    },
+    {
+      "id": "erosion",
+      "name": "EROSION",
+      "description": "Historical predecessor to CREOSOTE; same core character/saturation line before rebrand.",
+      "status": "historical",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": true,
+      "latestVersion": "Final EROSION line v17.3.0; continues as CREOSOTE v18.x.",
+      "nextAction": "None; closed historical line.",
+      "firstAction": "No action.",
+      "blocker": "Do not treat as active unless intentionally revived.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [],
+      "formatsLater": [],
+      "lastKnownStatus": "Rebranded to CREOSOTE with byte-identical audio at boundary.",
+      "tomorrowFirstAction": "No action.",
+      "notToday": "Ignore today.",
+      "artifact": "",
+      "sourceConfidenceNote": "Historical context only."
+    },
+    {
+      "id": "theta-limiter",
+      "name": "THETA Limiter",
+      "description": "Planned standalone limiter product/extraction based on CREOSOTE limiter behavior.",
+      "status": "parked",
+      "confidence": "low",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": true,
+      "latestVersion": "Planned / not yet started as separate product.",
+      "nextAction": "v1.0.0 when dedicated deep-dive opens.",
+      "firstAction": "Confirm whether COMPLIANCE supersedes this.",
+      "blocker": "Need confirm whether COMPLIANCE supersedes this or remains separate.",
+      "decisionNeeded": "Separate product or folded into COMPLIANCE.",
+      "recommendedChoice": "Treat COMPLIANCE as the active limiter path unless confirmed otherwise.",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "formatsLater": [
+        "AAX"
+      ],
+      "lastKnownStatus": "Handoff exists conceptually from CREOSOTE context.",
+      "tomorrowFirstAction": "No action unless explicitly revived.",
+      "notToday": "Ignore today.",
+      "artifact": "",
+      "sourceConfidenceNote": "Low confidence."
+    }
+  ]
+}

@@ -1,11 +1,1041 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>THETA Control Dashboard</title>
-  </head>
-  <body style="background:#06080C;color:#F2F2EA;font-family:sans-serif;padding:40px;">
-    <h1>THETA Control Dashboard</h1>
-    <p>Vercel deploy test is working Steve.</p>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THETA Today — Control Dashboard</title>
+  <style>
+    :root {
+      --bg: #06080C;
+      --surface: #0D121B;
+      --surface-soft: #121A26;
+      --surface-quiet: #091019;
+      --border: #344156;
+      --border-soft: #253244;
+      --text-main: #F2F2EA;
+      --text-secondary: #C3CBD7;
+      --text-muted: #8792A2;
+      --gold: #C8A86B;
+      --blue-today: #73B7E6;
+      --green-active: #79D28A;
+      --amber-decision: #E7B75F;
+      --red-blocked: #E26D6D;
+      --gray-parked: #6F7886;
+      --focus-ring: #F2CF7A;
+      --shadow: rgba(0, 0, 0, 0.34);
+
+      --font-xs: 0.82rem;
+      --font-sm: 0.95rem;
+      --font-md: 1.08rem;
+      --font-lg: 1.35rem;
+      --font-xl: 1.75rem;
+
+      --space-1: 6px;
+      --space-2: 10px;
+      --space-3: 14px;
+      --space-4: 18px;
+      --space-5: 24px;
+      --space-6: 32px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text-main);
+      font-family: "Atkinson Hyperlegible", "Lexend", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 3px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-4);
+      align-items: center;
+      padding: var(--space-4) var(--space-5);
+      background: rgba(6, 8, 12, 0.97);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .theta-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(200,168,107,0.6);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 1.35rem;
+      font-weight: 800;
+      background: rgba(200,168,107,0.07);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      margin-bottom: 0;
+      color: var(--text-main);
+      font-size: var(--font-xl);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+
+    .topbar p {
+      margin: 4px 0 0;
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+    }
+
+    .clock {
+      text-align: right;
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+      min-width: 215px;
+    }
+
+    .nav-tabs {
+      position: sticky;
+      top: 83px;
+      z-index: 19;
+      display: flex;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-5);
+      overflow-x: auto;
+      background: rgba(6, 8, 12, 0.95);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .tab {
+      padding: 12px 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--text-secondary);
+      background: var(--surface-quiet);
+      white-space: nowrap;
+    }
+
+    .tab.is-active {
+      border-color: var(--gold);
+      color: var(--text-main);
+      background: rgba(200,168,107,0.11);
+    }
+
+    main {
+      max-width: 1480px;
+      margin: 0 auto;
+      padding: var(--space-5);
+    }
+
+    .view[hidden] {
+      display: none !important;
+    }
+
+    .section {
+      padding: var(--space-5);
+      margin-bottom: var(--space-5);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      box-shadow: 0 24px 80px var(--shadow);
+    }
+
+    .section-title {
+      margin-bottom: var(--space-4);
+      color: var(--gold);
+      font-size: var(--font-md);
+      letter-spacing: 0.03em;
+    }
+
+    .today-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: var(--space-5);
+      align-items: start;
+    }
+
+    .priority-list,
+    .mini-grid,
+    .detail-grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .priority-card,
+    .mini-card,
+    .detail-box,
+    .ritual-box {
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--surface-soft);
+      padding: var(--space-5);
+    }
+
+    .priority-card {
+      min-height: 210px;
+      border-left: 7px solid var(--blue-today);
+    }
+
+    .priority-card__top,
+    .mini-card__top,
+    .detail-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .rank-name {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      min-width: 0;
+    }
+
+    .priority-card__rank {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(115,183,230,0.14);
+      color: var(--blue-today);
+      border: 1px solid rgba(115,183,230,0.5);
+      font-weight: 800;
+    }
+
+    .priority-card__title,
+    .mini-card h3,
+    .detail-title {
+      margin: 0;
+      color: var(--text-main);
+      font-size: var(--font-lg);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    .field {
+      margin-bottom: var(--space-3);
+    }
+
+    .field__label {
+      color: var(--gold);
+      font-size: var(--font-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 3px;
+    }
+
+    .field__value {
+      color: var(--text-main);
+      font-size: var(--font-md);
+    }
+
+    .field--strong .field__value {
+      color: var(--text-main);
+      font-weight: 750;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text-main);
+      background: #08101A;
+    }
+
+    .button:hover {
+      border-color: var(--gold);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: var(--font-xs);
+      font-weight: 760;
+      white-space: nowrap;
+    }
+
+    .badge--today { color: var(--blue-today); border-color: rgba(115,183,230,0.7); }
+    .badge--active { color: var(--green-active); border-color: rgba(121,210,138,0.7); }
+    .badge--blocked { color: var(--red-blocked); border-color: rgba(226,109,109,0.75); }
+    .badge--decision { color: var(--amber-decision); border-color: rgba(231,183,95,0.75); }
+    .badge--parked,
+    .badge--historical { color: var(--gray-parked); border-color: rgba(111,120,134,0.75); }
+    .badge--high { color: var(--green-active); border-color: rgba(121,210,138,0.6); }
+    .badge--medium { color: var(--amber-decision); border-color: rgba(231,183,95,0.6); }
+    .badge--low { color: var(--red-blocked); border-color: rgba(226,109,109,0.6); }
+
+    .mini-card {
+      border-left: 6px solid var(--border);
+    }
+
+    .mini-card--active { border-left-color: var(--green-active); }
+    .mini-card--blocked { border-left-color: var(--red-blocked); }
+    .mini-card--decision { border-left-color: var(--amber-decision); }
+    .mini-card--parked,
+    .mini-card--historical { border-left-color: var(--gray-parked); }
+
+    .mini-card p {
+      margin-bottom: var(--space-4);
+      color: var(--text-secondary);
+      font-size: var(--font-md);
+    }
+
+    .side-stack {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .ignore-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .ignore-chip {
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      background: #081019;
+      font-weight: 700;
+    }
+
+    .active-controls,
+    .tracker-controls,
+    .detail-controls {
+      display: flex;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+
+    .search,
+    .select {
+      min-height: 48px;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text-main);
+      background: #081019;
+    }
+
+    .search {
+      min-width: 280px;
+      flex: 1;
+    }
+
+    .active-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .detail-panel {
+      display: grid;
+      gap: var(--space-5);
+    }
+
+    .detail-hero {
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface-soft);
+      padding: var(--space-5);
+    }
+
+    .detail-hero p {
+      color: var(--text-secondary);
+      font-size: var(--font-md);
+      max-width: 900px;
+      margin-bottom: 0;
+    }
+
+    .detail-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .detail-box h3,
+    .ritual-box h3 {
+      color: var(--gold);
+      font-size: var(--font-md);
+      margin-bottom: var(--space-2);
+    }
+
+    .detail-box p,
+    .ritual-box p,
+    .ritual-box pre {
+      color: var(--text-main);
+      font-size: var(--font-md);
+      margin-bottom: 0;
+    }
+
+    .detail-box--blocked { border-left: 7px solid var(--red-blocked); }
+    .detail-box--next { border-left: 7px solid var(--blue-today); }
+    .detail-box--first { border-left: 7px solid var(--green-active); }
+    .detail-box--not { border-left: 7px solid var(--gray-parked); }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #081019;
+    }
+
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-soft);
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--gold);
+      background: #09111C;
+      font-size: var(--font-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    td {
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+    }
+
+    td:first-child {
+      color: var(--text-main);
+      font-weight: 780;
+    }
+
+    tr {
+      cursor: pointer;
+    }
+
+    tr:hover td {
+      background: rgba(200,168,107,0.045);
+    }
+
+    .ritual-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    pre {
+      white-space: pre-wrap;
+      font-family: inherit;
+      line-height: 1.55;
+    }
+
+    .footer-note {
+      color: var(--text-muted);
+      font-size: var(--font-sm);
+      margin-top: var(--space-4);
+    }
+
+    .load-error {
+      border: 1px solid rgba(226,109,109,0.8);
+      border-left: 7px solid var(--red-blocked);
+      border-radius: 20px;
+      background: rgba(226,109,109,0.08);
+      padding: var(--space-5);
+      color: var(--text-main);
+      font-size: var(--font-md);
+    }
+
+    @media (max-width: 1100px) {
+      .today-grid,
+      .detail-grid,
+      .ritual-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        flex-direction: column;
+        position: static;
+      }
+
+      .clock {
+        text-align: left;
+      }
+
+      .nav-tabs {
+        top: 0;
+      }
+
+      main {
+        padding: var(--space-3);
+      }
+
+      .section,
+      .priority-card,
+      .mini-card,
+      .detail-box,
+      .detail-hero,
+      .ritual-box {
+        padding: var(--space-4);
+      }
+
+      .priority-card__top,
+      .mini-card__top,
+      .detail-panel__header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .priority-card__title,
+      .mini-card h3,
+      .detail-title {
+        font-size: 1.25rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="theta-mark" aria-hidden="true">θ</div>
+      <div>
+        <h1>THETA Today</h1>
+        <p>Focus Mode • Active delta only • Built for fewer decisions</p>
+      </div>
+    </div>
+    <div class="clock" id="clock">Loading…</div>
+  </header>
+
+  <nav class="nav-tabs" aria-label="Dashboard views">
+    <button class="tab is-active" data-view="todayView">Today</button>
+    <button class="tab" data-view="activeView">Active</button>
+    <button class="tab" data-view="detailView">Project Detail</button>
+    <button class="tab" data-view="trackerView">Tracker</button>
+    <button class="tab" data-view="ritualView">Ritual</button>
+  </nav>
+
+  <main>
+    <section id="todayView" class="view view--today"></section>
+    <section id="activeView" class="view" hidden></section>
+    <section id="detailView" class="view" hidden></section>
+    <section id="trackerView" class="view" hidden></section>
+    <section id="ritualView" class="view" hidden></section>
+  </main>
+
+  <script>
+    let dashboardData = null;
+    let projects = [];
+    let selectedProjectId = null;
+    let activeSearch = "";
+    let trackerSearch = "";
+    let trackerStatus = "all";
+
+    const fallbackData = {
+      schemaVersion: "2.0",
+      lastUpdated: "fallback",
+      dashboardMode: "focus",
+      projects: []
+    };
+
+    const viewIds = ["todayView", "activeView", "detailView", "trackerView", "ritualView"];
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      }[char]));
+    }
+
+    function statusLabel(status) {
+      const map = {
+        active: "Active",
+        blocked: "Blocked",
+        decision: "Decision",
+        parked: "Parked",
+        historical: "Historical"
+      };
+      return map[status] || "Unknown";
+    }
+
+    function badge(status) {
+      return `<span class="badge badge--${escapeHtml(status)}">${escapeHtml(statusLabel(status))}</span>`;
+    }
+
+    function confidenceBadge(confidence) {
+      return `<span class="badge badge--${escapeHtml(confidence)}">${escapeHtml(String(confidence || "unknown").toUpperCase())}</span>`;
+    }
+
+    function formatFormats(project) {
+      const now = project.formatsNow?.length ? project.formatsNow.join(" / ") : "Unclear";
+      const later = project.formatsLater?.length ? `Later: ${project.formatsLater.join(" / ")}` : "";
+      return later ? `${now} • ${later}` : now;
+    }
+
+    function sortConfidence(a, b) {
+      const rank = { high: 0, medium: 1, low: 2 };
+      return (rank[a.confidence] ?? 3) - (rank[b.confidence] ?? 3);
+    }
+
+    function getTodayProjects() {
+      return projects
+        .filter(p => p.today)
+        .sort((a, b) => (a.priorityRank ?? 99) - (b.priorityRank ?? 99))
+        .slice(0, 3);
+    }
+
+    function getBlockedProjects() {
+      return projects
+        .filter(p => p.status === "blocked")
+        .sort((a, b) => Number(b.today) - Number(a.today) || sortConfidence(a, b) || a.name.localeCompare(b.name))
+        .slice(0, 3);
+    }
+
+    function getDecisionProjects() {
+      return projects
+        .filter(p => p.status === "decision")
+        .sort((a, b) => Number(b.today) - Number(a.today) || sortConfidence(a, b) || a.name.localeCompare(b.name))
+        .slice(0, 3);
+    }
+
+    function getIgnoredProjects() {
+      return projects
+        .filter(p => p.ignoreToday || p.status === "parked" || p.status === "historical")
+        .sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    function priorityCard(project, index) {
+      const blockerLine = project.status === "blocked" && project.blocker
+        ? `<div class="field"><div class="field__label">Blocked</div><div class="field__value">${escapeHtml(project.blocker)}</div></div>`
+        : "";
+
+      return `
+        <article class="priority-card" data-project-id="${escapeHtml(project.id)}">
+          <div class="priority-card__top">
+            <div class="rank-name">
+              <div class="priority-card__rank">${index + 1}</div>
+              <h3 class="priority-card__title">${escapeHtml(project.name)}</h3>
+            </div>
+            <span class="badge badge--today">Today</span>
+          </div>
+
+          <div class="field">
+            <div class="field__label">Next</div>
+            <div class="field__value">${escapeHtml(project.nextAction)}</div>
+          </div>
+
+          <div class="field field--strong">
+            <div class="field__label">First action</div>
+            <div class="field__value">${escapeHtml(project.firstAction)}</div>
+          </div>
+
+          ${blockerLine}
+
+          <button class="button" data-action="open-detail" data-project-id="${escapeHtml(project.id)}">Open details</button>
+        </article>
+      `;
+    }
+
+    function miniCard(project, mode) {
+      const body = mode === "blocked"
+        ? `<strong>Need:</strong> ${escapeHtml(project.blocker || project.nextAction)}`
+        : mode === "decision"
+          ? `<strong>Decision:</strong> ${escapeHtml(project.decisionNeeded || project.nextAction)}`
+          : `<strong>Next:</strong> ${escapeHtml(project.nextAction)}`;
+
+      return `
+        <article class="mini-card mini-card--${escapeHtml(project.status)}" data-project-id="${escapeHtml(project.id)}">
+          <div class="mini-card__top">
+            <h3>${escapeHtml(project.name)}</h3>
+            ${badge(project.status)}
+          </div>
+          <p>${body}</p>
+          <button class="button" data-action="open-detail" data-project-id="${escapeHtml(project.id)}">Open details</button>
+        </article>
+      `;
+    }
+
+    function renderTodayView() {
+      const today = getTodayProjects();
+      const blocked = getBlockedProjects();
+      const decisions = getDecisionProjects();
+      const ignored = getIgnoredProjects();
+
+      document.getElementById("todayView").innerHTML = `
+        <div class="today-grid">
+          <div>
+            <section class="section">
+              <h2 class="section-title">Today — top 3 only</h2>
+              <div class="priority-list">
+                ${today.length ? today.map(priorityCard).join("") : `<div class="mini-card"><p>No priorities selected yet.</p></div>`}
+              </div>
+            </section>
+          </div>
+
+          <div class="side-stack">
+            <section class="section">
+              <h2 class="section-title">Blocked / waiting</h2>
+              <div class="mini-grid">
+                ${blocked.length ? blocked.map(p => miniCard(p, "blocked")).join("") : `<p>No blocked items marked.</p>`}
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">Needs decision</h2>
+              <div class="mini-grid">
+                ${decisions.length ? decisions.map(p => miniCard(p, "decision")).join("") : `<p>No decisions marked.</p>`}
+              </div>
+            </section>
+
+            <section class="section">
+              <h2 class="section-title">Ignore today</h2>
+              <div class="ignore-chips">
+                ${ignored.length ? ignored.map(p => `<button class="ignore-chip" data-action="open-detail" data-project-id="${escapeHtml(p.id)}">${escapeHtml(p.name)}</button>`).join("") : `<span class="badge badge--parked">Nothing parked</span>`}
+              </div>
+              <p class="footer-note">These projects are still tracked, but they should not pull focus today.</p>
+            </section>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderActiveView() {
+      const visible = projects.filter(p => {
+        const text = JSON.stringify(p).toLowerCase();
+        const q = activeSearch.trim().toLowerCase();
+        return !q || text.includes(q);
+      });
+
+      document.getElementById("activeView").innerHTML = `
+        <section class="section">
+          <h2 class="section-title">Active project landscape</h2>
+          <div class="active-controls">
+            <input class="search" id="activeSearch" type="search" placeholder="Search active projects…" value="${escapeHtml(activeSearch)}" />
+          </div>
+          <div class="active-grid">
+            ${visible.map(p => miniCard(p, p.status)).join("")}
+          </div>
+        </section>
+      `;
+
+      document.getElementById("activeSearch").addEventListener("input", (event) => {
+        activeSearch = event.target.value;
+        renderActiveView();
+      });
+    }
+
+    function renderDetailView(project = null) {
+      const selected = project || projects.find(p => p.id === selectedProjectId) || getTodayProjects()[0] || projects[0];
+
+      if (!selected) {
+        document.getElementById("detailView").innerHTML = `<div class="load-error">No project data loaded.</div>`;
+        return;
+      }
+
+      selectedProjectId = selected.id;
+
+      const options = projects
+        .slice()
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(p => `<option value="${escapeHtml(p.id)}" ${p.id === selected.id ? "selected" : ""}>${escapeHtml(p.name)}</option>`)
+        .join("");
+
+      document.getElementById("detailView").innerHTML = `
+        <section class="section detail-panel">
+          <div class="detail-panel__header">
+            <div class="detail-controls">
+              <select class="select" id="projectSelect" aria-label="Choose project">${options}</select>
+            </div>
+            <div class="tag-row">
+              ${badge(selected.status)}
+              ${confidenceBadge(selected.confidence)}
+            </div>
+          </div>
+
+          <div class="detail-hero">
+            <h2 class="detail-title">${escapeHtml(selected.name)}</h2>
+            <p>${escapeHtml(selected.description)}</p>
+          </div>
+
+          <div class="detail-grid">
+            <div class="detail-box">
+              <h3>Latest version</h3>
+              <p>${escapeHtml(selected.latestVersion)}</p>
+            </div>
+
+            <div class="detail-box">
+              <h3>Formats</h3>
+              <p>${escapeHtml(formatFormats(selected))}</p>
+            </div>
+
+            <div class="detail-box detail-box--blocked">
+              <h3>Current blocker</h3>
+              <p>${escapeHtml(selected.blocker || selected.decisionNeeded || "No current blocker marked.")}</p>
+            </div>
+
+            <div class="detail-box detail-box--next">
+              <h3>Next action</h3>
+              <p>${escapeHtml(selected.nextAction)}</p>
+            </div>
+
+            <div class="detail-box detail-box--first">
+              <h3>Tomorrow’s first action</h3>
+              <p>${escapeHtml(selected.tomorrowFirstAction || selected.firstAction)}</p>
+            </div>
+
+            <div class="detail-box detail-box--not">
+              <h3>Not today</h3>
+              <p>${escapeHtml(selected.notToday || "No restriction marked.")}</p>
+            </div>
+
+            <div class="detail-box">
+              <h3>Last known status</h3>
+              <p>${escapeHtml(selected.lastKnownStatus)}</p>
+            </div>
+
+            <div class="detail-box">
+              <h3>Artifact / note</h3>
+              <p>${escapeHtml(selected.artifact || selected.sourceConfidenceNote || "No artifact listed.")}</p>
+            </div>
+          </div>
+        </section>
+      `;
+
+      document.getElementById("projectSelect").addEventListener("change", (event) => {
+        const nextProject = projects.find(p => p.id === event.target.value);
+        renderDetailView(nextProject);
+      });
+    }
+
+    function renderTrackerView() {
+      const visible = projects.filter(p => {
+        const q = trackerSearch.trim().toLowerCase();
+        const matchesSearch = !q || JSON.stringify(p).toLowerCase().includes(q);
+        const matchesStatus = trackerStatus === "all" || p.status === trackerStatus;
+        return matchesSearch && matchesStatus;
+      });
+
+      document.getElementById("trackerView").innerHTML = `
+        <section class="section">
+          <h2 class="section-title">Full tracker — reference only</h2>
+          <div class="tracker-controls">
+            <input class="search" id="trackerSearch" type="search" placeholder="Search tracker…" value="${escapeHtml(trackerSearch)}" />
+            <select class="select" id="statusFilter" aria-label="Filter by status">
+              ${["all", "active", "blocked", "decision", "parked", "historical"].map(v => `<option value="${v}" ${trackerStatus === v ? "selected" : ""}>${v === "all" ? "All statuses" : statusLabel(v)}</option>`).join("")}
+            </select>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Project</th>
+                  <th>Version</th>
+                  <th>Status</th>
+                  <th>Next</th>
+                  <th>Blocker</th>
+                  <th>Formats</th>
+                  <th>Confidence</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${visible.map(p => `
+                  <tr data-action="open-detail" data-project-id="${escapeHtml(p.id)}">
+                    <td>${escapeHtml(p.name)}</td>
+                    <td>${escapeHtml(p.latestVersion)}</td>
+                    <td>${badge(p.status)}</td>
+                    <td>${escapeHtml(p.nextAction)}</td>
+                    <td>${escapeHtml(p.blocker || p.decisionNeeded || "")}</td>
+                    <td>${escapeHtml(formatFormats(p))}</td>
+                    <td>${confidenceBadge(p.confidence)}</td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      `;
+
+      document.getElementById("trackerSearch").addEventListener("input", (event) => {
+        trackerSearch = event.target.value;
+        renderTrackerView();
+      });
+
+      document.getElementById("statusFilter").addEventListener("change", (event) => {
+        trackerStatus = event.target.value;
+        renderTrackerView();
+      });
+    }
+
+    function renderRitualView() {
+      document.getElementById("ritualView").innerHTML = `
+        <section class="section">
+          <h2 class="section-title">Daily rhythm</h2>
+          <div class="ritual-grid">
+            <div class="ritual-box">
+              <h3>Morning prompt</h3>
+              <pre>Based on the THETA master tracker, what are we doing today?
+
+Give me:
+1. Top 3 priorities
+2. Blocked items
+3. Decisions needed
+4. What not to touch today
+5. First action for each priority</pre>
+            </div>
+
+            <div class="ritual-box">
+              <h3>End-of-day active delta</h3>
+              <pre>Give me an end-of-day active-delta update for the master tracker.
+Only report this project if we touched it today:
+
+Project:
+Latest confirmed version:
+Build/source artifact:
+Formats in scope now:
+What changed today:
+What is working:
+What is broken or uncertain:
+Current blocker:
+Next build/version:
+Tomorrow's first action:
+Any master-index updates needed:</pre>
+            </div>
+          </div>
+
+          <p class="footer-note">Rule: only touched projects need end-of-day updates. The dashboard should never make you read all projects to decide what to do next.</p>
+        </section>
+      `;
+    }
+
+    function setActiveView(viewId) {
+      viewIds.forEach(id => {
+        document.getElementById(id).hidden = id !== viewId;
+      });
+
+      document.querySelectorAll(".tab").forEach(button => {
+        button.classList.toggle("is-active", button.dataset.view === viewId);
+      });
+
+      if (viewId === "todayView") renderTodayView();
+      if (viewId === "activeView") renderActiveView();
+      if (viewId === "detailView") renderDetailView();
+      if (viewId === "trackerView") renderTrackerView();
+      if (viewId === "ritualView") renderRitualView();
+    }
+
+    function openProjectDetail(projectId) {
+      selectedProjectId = projectId;
+      setActiveView("detailView");
+    }
+
+    function updateClock() {
+      const d = new Date();
+      document.getElementById("clock").innerHTML = `
+        <div>${d.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric", year: "numeric" })}</div>
+        <div>${d.toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}</div>
+      `;
+    }
+
+    function attachGlobalEvents() {
+      document.querySelectorAll(".tab").forEach(button => {
+        button.addEventListener("click", () => setActiveView(button.dataset.view));
+      });
+
+      document.body.addEventListener("click", (event) => {
+        const target = event.target.closest("[data-action='open-detail']");
+        if (!target) return;
+        openProjectDetail(target.dataset.projectId);
+      });
+    }
+
+    async function loadData() {
+      try {
+        const response = await fetch("./data/projects.json", { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        dashboardData = await response.json();
+      } catch (error) {
+        dashboardData = fallbackData;
+        document.getElementById("todayView").innerHTML = `
+          <div class="load-error">
+            <strong>Dashboard data could not load.</strong><br />
+            Check that <code>data/projects.json</code> exists in the repo and was deployed with index.html.
+          </div>
+        `;
+        console.error(error);
+        return;
+      }
+
+      projects = dashboardData.projects || [];
+      selectedProjectId = getTodayProjects()[0]?.id || projects[0]?.id || null;
+
+      renderTodayView();
+      renderActiveView();
+      renderDetailView();
+      renderTrackerView();
+      renderRitualView();
+      setActiveView("todayView");
+    }
+
+    attachGlobalEvents();
+    updateClock();
+    setInterval(updateClock, 1000 * 30);
+    loadData();
+  </script>
+</body>
 </html>
