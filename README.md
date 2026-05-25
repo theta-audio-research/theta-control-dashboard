@@ -41,3 +41,22 @@ The dashboard is intentionally designed to show:
 - Click Project, Version, Status, Next, Blocker, Formats, or Confidence to sort.
 - Clicking the same header again toggles direction.
 - Updated CREOSOTE to remove Claude CREOSOTE as active source of truth.
+
+
+## v2.2 update
+
+- Updated HIERARCHY source of truth.
+- Claude HIERARCHY is now archived/reference only.
+- Active HIERARCHY work moves into the ChatGPT Control Room workflow.
+- HIERARCHY remains in decision state until POC scope and branding are confirmed here.
+
+
+## v2.3 update — corrected Control Room delta sweep
+
+- Corrected the Control Room sweep model to use all visible ChatGPT-side project deltas, not only the current Control Room thread.
+- Updated CREOSOTE from pending migration to ChatGPT-side v18.8.6 visual alignment pass.
+- Updated HIERARCHY as ChatGPT migration / decision state.
+- Updated FOCUSGRID to v0.3.1 sidechain DSP compile fix and test-needed state.
+- Updated PRISM FORM to v1.4 baseline / v1.5 Safe Playable Engine Pass requested.
+- Updated SCENEMATCH to v0.1.4 signing/install fix and verification-needed state.
+- Updated FOLEY ENGINE from host-visibility blocker to sound-realism/reference-calibration blocker.

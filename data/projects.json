@@ -2,7 +2,7 @@
   "schemaVersion": "2.0",
   "lastUpdated": "2026-05-25",
   "dashboardMode": "focus",
-  "todayMessage": "Focus on the few projects that actually move the system forward today.",
+  "todayMessage": "Delta sweep corrected: update only changed projects, but use all visible ChatGPT project context, not just the current Control Room chat.",
   "projects": [
     {
       "id": "compliance",
@@ -37,30 +37,31 @@
       "id": "foley-engine",
       "name": "FOLEY ENGINE",
       "description": "Generative Foley and movement-sound engine for creating/editing synced sound effects.",
-      "status": "blocked",
-      "confidence": "medium",
-      "priorityRank": 2,
-      "today": true,
+      "status": "decision",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
       "ignoreToday": false,
-      "latestVersion": "v0.1.x early source/build line.",
-      "nextAction": "Fix host visibility / identity / validation.",
-      "firstAction": "Review the last install/build result and confirm plugin IDs.",
-      "blocker": "Installs but is not seen in Ableton.",
-      "decisionNeeded": "",
-      "recommendedChoice": "",
+      "latestVersion": "v0.1.x early line; plugin now shows up, but sound realism is not acceptable.",
+      "nextAction": "Plan v0.2.0 \u2014 reference-calibrated Foley behavior model.",
+      "firstAction": "Collect short WAV references, 1\u20135 seconds each, ideally 3\u20135 per Foley category.",
+      "blocker": "Sounds still feel like modified drum hits/noise rather than realistic Foley events.",
+      "decisionNeeded": "Need reference examples and category anatomy before the next serious engine build.",
+      "recommendedChoice": "Use reference-calibrated event anatomy per category instead of drum-hit-plus-noise synthesis.",
       "formatsNow": [
         "VST3",
         "AU",
         "Standalone"
       ],
       "formatsLater": [
-        "AAX"
+        "AAX",
+        "Windows"
       ],
-      "lastKnownStatus": "Plugin installs, but Ableton does not see it.",
-      "tomorrowFirstAction": "Open the FOLEY ENGINE chat and diagnose Ableton visibility.",
-      "notToday": "Do not add features until host visibility is fixed.",
+      "lastKnownStatus": "Host visibility issue appears resolved; the major blocker shifted to realism and category-specific sound behavior.",
+      "tomorrowFirstAction": "Gather references and define event anatomy for the v0.2.0 Foley realism pass.",
+      "notToday": "Do not keep tailoring the same noise/drum-hit source; the engine needs category-specific anatomy.",
       "artifact": "",
-      "sourceConfidenceNote": "Needs current build log continuation."
+      "sourceConfidenceNote": "ChatGPT-side delta."
     },
     {
       "id": "gesture",
@@ -96,16 +97,16 @@
     {
       "id": "creosote",
       "name": "CREOSOTE",
-      "description": "Three-stage analog character processor evolved from EROSION, focused on tape/tube/compression character, limiter behavior, and EQ.",
+      "description": "Three-stage analog character processor evolved from EROSION, focused on tape/tube/compression character, limiter behavior, EQ, and CREOSOTE visual alignment.",
       "status": "active",
-      "confidence": "medium",
+      "confidence": "high",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "Pending import from old EROSION project.",
-      "nextAction": "Import current EROSION project state and define the first CREOSOTE build in this workflow.",
-      "firstAction": "Open the old EROSION project/source and lock the current CREOSOTE version.",
-      "blocker": "Claude CREOSOTE extraction removed; current source of truth must be rebuilt from the old EROSION project.",
+      "latestVersion": "v18.8.6 built \u2014 EQ/SUMMING visual alignment pass; no DSP changes.",
+      "nextAction": "Simplify CREOSOTE knobs toward ATRIA-style simple knobs if CREOSOTE is next focus.",
+      "firstAction": "Open the v18.8.6 CREOSOTE source/artifact and plan the simple knob pass.",
+      "blocker": "No active blocker; AAX remains gated and should not be touched unless explicitly scoped.",
       "decisionNeeded": "",
       "recommendedChoice": "",
       "formatsNow": [
@@ -116,11 +117,11 @@
         "AAX",
         "Windows"
       ],
-      "lastKnownStatus": "Migration starting: former EROSION project becomes the active CREOSOTE project.",
-      "tomorrowFirstAction": "Import current EROSION/CREOSOTE source state into the Control Room.",
-      "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth.",
-      "artifact": "",
-      "sourceConfidenceNote": "Claude CREOSOTE removed; pending ChatGPT/EROSION project import."
+      "lastKnownStatus": "v18.8.6 aligned EQ/SUMMING page origins, matched EQ ON/header baseline to SUMMING, gave SUMMING the same rounded page shell, moved EQ graph/controls into CREOSOTE palette, and dimmed static EQ curve when master OFF.",
+      "tomorrowFirstAction": "Only continue if CREOSOTE becomes the day\u2019s focus; next likely pass is simpler ATRIA-style knobs.",
+      "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
+      "artifact": "CREOSOTE v18.8.6 source ZIP from ChatGPT workflow",
+      "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived."
     },
     {
       "id": "cathode",
@@ -244,73 +245,45 @@
     {
       "id": "focusgrid",
       "name": "FOCUSGRID",
-      "description": "Focus/productivity-inspired audio plugin concept; first-pass UI installed, DSP/features still to be built out.",
-      "status": "decision",
+      "description": "Focus/masking-relief plugin concept for identifying priority sources, mask pressure, relief vectors, and target focus zones.",
+      "status": "blocked",
       "confidence": "high",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "v0.1.3.",
-      "nextAction": "v0.1.4 feature/control/DSP planning or visual concept pass.",
-      "firstAction": "Decide whether to start DSP/control architecture or keep visual concepting.",
-      "blocker": "",
-      "decisionNeeded": "Start feature/DSP architecture now or continue visual concepts first.",
-      "recommendedChoice": "Start with feature/control architecture before heavy visual polish.",
+      "latestVersion": "v0.3.1 built \u2014 sidechain DSP compile fix.",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Run the v0.3.1 build/install and confirm Ableton sees the plugin.",
+      "blocker": "Needs local build/install/host test after v0.3.1 compile fix.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
       "formatsNow": [
         "VST3",
         "AU"
       ],
       "formatsLater": [
-        "AAX"
+        "AAX",
+        "Windows"
       ],
-      "lastKnownStatus": "Plugin appears in host after install.",
-      "tomorrowFirstAction": "Choose the next pass before writing code.",
-      "notToday": "Do not expand features without deciding the control architecture.",
-      "artifact": "",
-      "sourceConfidenceNote": "High confidence from current chat context."
+      "lastKnownStatus": "v0.3.1 fixed the PluginEditor compile issue by adding reduction from audioProcessor.getGainReductionAmount() and removing unused relief; no DSP/UI changes beyond compile fix.",
+      "tomorrowFirstAction": "Test v0.3.1 in host before adding more visual or DSP scope.",
+      "notToday": "Do not expand UI/features until v0.3.1 is confirmed building and loading.",
+      "artifact": "FOCUSGRID v0.3.1 source/build package from ChatGPT workflow",
+      "sourceConfidenceNote": "ChatGPT-side delta."
     },
     {
       "id": "scenematch",
       "name": "SceneMatch",
       "description": "Post/audio tool for matching scene tone, ambience, and consistency across clips or takes.",
       "status": "blocked",
-      "confidence": "medium",
+      "confidence": "high",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "v0.1.0 early source/build line.",
-      "nextAction": "Resolve compile/build errors and stabilize skeleton.",
-      "firstAction": "Open latest pasted build log and fix the first compile error.",
-      "blocker": "Build errors still need project-specific log fix.",
-      "decisionNeeded": "",
-      "recommendedChoice": "",
-      "formatsNow": [
-        "VST3",
-        "AU",
-        "Standalone"
-      ],
-      "formatsLater": [
-        "AAX"
-      ],
-      "lastKnownStatus": "Fresh JUCE project, build errors reported.",
-      "tomorrowFirstAction": "Continue from the latest build log.",
-      "notToday": "Do not add features until skeleton compiles.",
-      "artifact": "",
-      "sourceConfidenceNote": "Needs current build log continuation."
-    },
-    {
-      "id": "prismform",
-      "name": "PrismForm",
-      "description": "Musician/sound-designer instrument/effect concept focused on new sound-shaping territory.",
-      "status": "blocked",
-      "confidence": "medium",
-      "priorityRank": null,
-      "today": false,
-      "ignoreToday": false,
-      "latestVersion": "v1.1 requested.",
-      "nextAction": "v1.1 synth lock compile fix / package fixed source ZIP.",
-      "firstAction": "Continue from the v1.1 compile-fix request.",
-      "blocker": "Needs source/build log continuation.",
+      "latestVersion": "v0.1.4 built \u2014 VST3 signing/install fix.",
+      "nextAction": "Reinstall v0.1.4, verify codesign, then rescan Ableton.",
+      "firstAction": "Run codesign verification on /Library/Audio/Plug-Ins/VST3/SCENEMATCH.vst3 after reinstall.",
+      "blocker": "Needs local reinstall/codesign verification/rescan after invalid VST3 signature caused by moduleinfo.json being added after signing.",
       "decisionNeeded": "",
       "recommendedChoice": "",
       "formatsNow": [
@@ -322,11 +295,41 @@
         "AAX",
         "Windows"
       ],
-      "lastKnownStatus": "Initial v1 build hit errors; v1.1 fix requested.",
-      "tomorrowFirstAction": "Fix compile blocker before design expansion.",
-      "notToday": "Do not add sound features until build is stable.",
-      "artifact": "",
-      "sourceConfidenceNote": "Needs current project-specific confirmation."
+      "lastKnownStatus": "v0.1.4 adds post-build/post-install signing, installs VST3 to system and user folders, with no DSP/parameter/UI/AAX changes.",
+      "tomorrowFirstAction": "Verify signing, rescan Ableton, and confirm visibility before adding features.",
+      "notToday": "Do not add DSP/features until v0.1.4 is confirmed signed and visible.",
+      "artifact": "SCENEMATCH v0.1.4 source/build package from ChatGPT workflow",
+      "sourceConfidenceNote": "ChatGPT-side delta."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "description": "Musician/sound-designer instrument/effect concept; current priority is turning the concept UI into a stable playable engine.",
+      "status": "active",
+      "confidence": "high",
+      "priorityRank": null,
+      "today": false,
+      "ignoreToday": false,
+      "latestVersion": "v1.4 exists; v1.5 requested but not yet confirmed built in Control Room.",
+      "nextAction": "Build PRISM FORM v1.5 \u2014 Safe Playable Engine Pass.",
+      "firstAction": "Preserve v1.4 UI and focus v1.5 on crackle reduction, playability, smoothing, loop/crossfade safety, headroom, and version/docs/scripts bump.",
+      "blocker": "v1.4 has lots of crackling and extremely limited functionality.",
+      "decisionNeeded": "",
+      "recommendedChoice": "",
+      "formatsNow": [
+        "VST3",
+        "AU",
+        "Standalone"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows"
+      ],
+      "lastKnownStatus": "Renamed to PRISM FORM; earlier v1.2 added crackle guard and product display naming, v1.3 concept UI was built, v1.4 exists but is crackly/limited.",
+      "tomorrowFirstAction": "Build v1.5 Safe Playable Engine Pass before any new UI expansion.",
+      "notToday": "Do not redesign the v1.4 UI during v1.5; preserve UI and fix the engine/playability.",
+      "artifact": "PRISM FORM v1.4 current baseline; v1.5 requested",
+      "sourceConfidenceNote": "ChatGPT-side delta."
     },
     {
       "id": "podboss",
@@ -388,18 +391,18 @@
     {
       "id": "hierarchy",
       "name": "HIERARCHY",
-      "description": "Multi-instance masking/priority processor where instances coordinate and perform per-band ducking.",
+      "description": "Multi-instance masking/priority processor where instances coordinate and perform per-band ducking; migrating from Claude into this ChatGPT workflow.",
       "status": "decision",
-      "confidence": "high",
+      "confidence": "medium",
       "priorityRank": null,
       "today": false,
       "ignoreToday": true,
-      "latestVersion": "Pre-POC; no version assigned.",
-      "nextAction": "POC v0.1 candidate: two-instance shared-memory IPC + 4-band priority ducking in Reaper VST3.",
-      "firstAction": "Choose POC size and branding direction.",
-      "blocker": "",
-      "decisionNeeded": "POC scope size and visual/brand identity.",
-      "recommendedChoice": "Start with the smallest useful IPC + 4-band ducking POC.",
+      "latestVersion": "Pre-POC; no version assigned. Claude handoff archived as reference only.",
+      "nextAction": "Import HIERARCHY handoff here, confirm POC size and branding, then build first VST3-only proof of concept.",
+      "firstAction": "Create/import the HIERARCHY handoff in this ChatGPT workflow and lock the first POC scope.",
+      "blocker": "Claude HIERARCHY is no longer the active source of truth; POC scope and branding still need confirmation here.",
+      "decisionNeeded": "POC scope size and visual/brand identity need to be confirmed in this ChatGPT workflow.",
+      "recommendedChoice": "Start with the smallest useful IPC + 4-band ducking POC in Reaper VST3 only.",
       "formatsNow": [
         "VST3 only for POC"
       ],
@@ -409,11 +412,11 @@
         "CLAP",
         "Windows"
       ],
-      "lastKnownStatus": "Concept handoff received; POC proposed.",
-      "tomorrowFirstAction": "Only touch if HIERARCHY becomes today's focus.",
-      "notToday": "Do not build full UI before IPC is proven.",
+      "lastKnownStatus": "Migration starting: Claude HIERARCHY extraction is archived; active work moves to ChatGPT.",
+      "tomorrowFirstAction": "Import the HIERARCHY handoff and define POC v0.1 scope.",
+      "notToday": "Do not build full UI, AAX, Windows, CLAP, or multi-host support until IPC/ducking behavior is proven.",
       "artifact": "",
-      "sourceConfidenceNote": "Claude extraction imported."
+      "sourceConfidenceNote": "Claude HIERARCHY removed as active source; pending ChatGPT project import."
     },
     {
       "id": "adaptscore",
