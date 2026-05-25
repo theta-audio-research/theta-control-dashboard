@@ -60,3 +60,26 @@ The dashboard is intentionally designed to show:
 - Updated PRISM FORM to v1.4 baseline / v1.5 Safe Playable Engine Pass requested.
 - Updated SCENEMATCH to v0.1.4 signing/install fix and verification-needed state.
 - Updated FOLEY ENGINE from host-visibility blocker to sound-realism/reference-calibration blocker.
+
+
+## v2.4 update — confidence split
+
+- Fixed misleading Confidence column.
+- Previous Confidence value represented tracker evidence/source certainty, not product trust/readiness.
+- Added `productConfidence` for actual confidence/readiness in the plugin itself.
+- Added `sourceCertainty` for evidence quality / how reliable the tracker row is.
+- Added `stage` to show whether a project is active product, early prototype, wireframe, pre-POC, historical, etc.
+- Tracker table now sorts by Stage, Product Confidence, and Evidence separately.
+
+
+## v2.5 update — Ship Readiness
+
+- Replaced user-facing Product Confidence column with Ship Readiness.
+- Ship Readiness is a 0–100 progress score:
+  - 0–19: Just begun / buggy / unproven
+  - 20–39: Prototype
+  - 40–64: Active build
+  - 65–84: Beta / close
+  - 85–100: Shippable
+- Tracker table now displays a visual progress bar and sorts by Ship Readiness.
+- Evidence remains separate and still means how reliable the tracker row/source data is.

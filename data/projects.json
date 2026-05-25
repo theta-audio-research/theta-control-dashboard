@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "2.0",
+  "schemaVersion": "2.5",
   "lastUpdated": "2026-05-25",
   "dashboardMode": "focus",
-  "todayMessage": "Delta sweep corrected: update only changed projects, but use all visible ChatGPT project context, not just the current Control Room chat.",
+  "todayMessage": "Ship Readiness is now the main progress column: low means just begun/buggy; high means shippable.",
   "projects": [
     {
       "id": "compliance",
@@ -31,14 +31,20 @@
       "tomorrowFirstAction": "Lock the version number before writing more code.",
       "notToday": "Do not polish visuals until version is confirmed.",
       "artifact": "",
-      "sourceConfidenceNote": "Needs project-specific confirmation."
+      "sourceConfidenceNote": "Needs project-specific confirmation.",
+      "sourceCertainty": "medium",
+      "productConfidence": "medium",
+      "stage": "Active build",
+      "shipReadiness": 48,
+      "readinessLabel": "Active build",
+      "readinessClass": "active"
     },
     {
       "id": "foley-engine",
       "name": "FOLEY ENGINE",
       "description": "Generative Foley and movement-sound engine for creating/editing synced sound effects.",
       "status": "decision",
-      "confidence": "high",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
@@ -61,14 +67,20 @@
       "tomorrowFirstAction": "Gather references and define event anatomy for the v0.2.0 Foley realism pass.",
       "notToday": "Do not keep tailoring the same noise/drum-hit source; the engine needs category-specific anatomy.",
       "artifact": "",
-      "sourceConfidenceNote": "ChatGPT-side delta."
+      "sourceConfidenceNote": "ChatGPT-side delta.",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
+      "stage": "Early prototype",
+      "shipReadiness": 18,
+      "readinessLabel": "Just begun",
+      "readinessClass": "early"
     },
     {
       "id": "gesture",
       "name": "GESTURE",
       "description": "Performance modulation engine with XY pad, timeline, scenes, and Receiver companion plugin for cross-track modulation.",
       "status": "blocked",
-      "confidence": "high",
+      "confidence": "low",
       "priorityRank": 3,
       "today": true,
       "ignoreToday": false,
@@ -92,7 +104,13 @@
       "tomorrowFirstAction": "Build VST3/AU first and record spike test results.",
       "notToday": "Do not write Receiver protocol until spike results are known.",
       "artifact": "THETA_AAX_Sidechain_Spike_v0.1",
-      "sourceConfidenceNote": "Claude extraction imported."
+      "sourceConfidenceNote": "Claude extraction imported.",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
+      "stage": "Feasibility spike",
+      "shipReadiness": 10,
+      "readinessLabel": "Feasibility spike",
+      "readinessClass": "early"
     },
     {
       "id": "creosote",
@@ -121,7 +139,13 @@
       "tomorrowFirstAction": "Only continue if CREOSOTE becomes the day\u2019s focus; next likely pass is simpler ATRIA-style knobs.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "CREOSOTE v18.8.6 source ZIP from ChatGPT workflow",
-      "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived."
+      "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
+      "sourceCertainty": "high",
+      "productConfidence": "medium",
+      "stage": "Active product",
+      "shipReadiness": 78,
+      "readinessLabel": "Beta / close",
+      "readinessClass": "beta"
     },
     {
       "id": "cathode",
@@ -151,7 +175,13 @@
       "tomorrowFirstAction": "Only touch if CATHODE becomes today's focus.",
       "notToday": "Do not assume v16.48 is current without project confirmation.",
       "artifact": "",
-      "sourceConfidenceNote": "Needs current project-specific confirmation."
+      "sourceConfidenceNote": "Needs current project-specific confirmation.",
+      "sourceCertainty": "medium",
+      "productConfidence": "medium",
+      "stage": "Active product",
+      "shipReadiness": 62,
+      "readinessLabel": "Active build",
+      "readinessClass": "active"
     },
     {
       "id": "atria",
@@ -180,7 +210,13 @@
       "tomorrowFirstAction": "Only touch if ATRIA becomes today's focus.",
       "notToday": "Do not rebuild until latest source/version is confirmed.",
       "artifact": "",
-      "sourceConfidenceNote": "Needs current project-specific confirmation."
+      "sourceConfidenceNote": "Needs current project-specific confirmation.",
+      "sourceCertainty": "medium",
+      "productConfidence": "medium",
+      "stage": "Active product",
+      "shipReadiness": 55,
+      "readinessLabel": "Active build",
+      "readinessClass": "active"
     },
     {
       "id": "arecibo",
@@ -210,7 +246,13 @@
       "tomorrowFirstAction": "Only touch if ARECIBO becomes today's focus.",
       "notToday": "Do not let WAVE mode regress to a knob.",
       "artifact": "",
-      "sourceConfidenceNote": "Needs current project-specific confirmation."
+      "sourceConfidenceNote": "Needs current project-specific confirmation.",
+      "sourceCertainty": "medium",
+      "productConfidence": "medium",
+      "stage": "Active build",
+      "shipReadiness": 45,
+      "readinessLabel": "Active build",
+      "readinessClass": "active"
     },
     {
       "id": "twilight",
@@ -240,14 +282,20 @@
       "tomorrowFirstAction": "Only touch if TWILIGHT becomes today's focus.",
       "notToday": "Do not continue build work until active version line is locked.",
       "artifact": "",
-      "sourceConfidenceNote": "Needs current project-specific confirmation."
+      "sourceConfidenceNote": "Needs current project-specific confirmation.",
+      "sourceCertainty": "medium",
+      "productConfidence": "medium",
+      "stage": "Active build",
+      "shipReadiness": 55,
+      "readinessLabel": "Active build",
+      "readinessClass": "active"
     },
     {
       "id": "focusgrid",
       "name": "FOCUSGRID",
       "description": "Focus/masking-relief plugin concept for identifying priority sources, mask pressure, relief vectors, and target focus zones.",
       "status": "blocked",
-      "confidence": "high",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
@@ -269,14 +317,20 @@
       "tomorrowFirstAction": "Test v0.3.1 in host before adding more visual or DSP scope.",
       "notToday": "Do not expand UI/features until v0.3.1 is confirmed building and loading.",
       "artifact": "FOCUSGRID v0.3.1 source/build package from ChatGPT workflow",
-      "sourceConfidenceNote": "ChatGPT-side delta."
+      "sourceConfidenceNote": "ChatGPT-side delta.",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
+      "stage": "Early prototype",
+      "shipReadiness": 18,
+      "readinessLabel": "Just begun",
+      "readinessClass": "early"
     },
     {
       "id": "scenematch",
       "name": "SceneMatch",
       "description": "Post/audio tool for matching scene tone, ambience, and consistency across clips or takes.",
       "status": "blocked",
-      "confidence": "high",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
@@ -299,14 +353,20 @@
       "tomorrowFirstAction": "Verify signing, rescan Ableton, and confirm visibility before adding features.",
       "notToday": "Do not add DSP/features until v0.1.4 is confirmed signed and visible.",
       "artifact": "SCENEMATCH v0.1.4 source/build package from ChatGPT workflow",
-      "sourceConfidenceNote": "ChatGPT-side delta."
+      "sourceConfidenceNote": "ChatGPT-side delta.",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
+      "stage": "Early prototype",
+      "shipReadiness": 20,
+      "readinessLabel": "Early prototype",
+      "readinessClass": "prototype"
     },
     {
       "id": "prismform",
       "name": "PRISM FORM",
       "description": "Musician/sound-designer instrument/effect concept; current priority is turning the concept UI into a stable playable engine.",
       "status": "active",
-      "confidence": "high",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
@@ -329,14 +389,20 @@
       "tomorrowFirstAction": "Build v1.5 Safe Playable Engine Pass before any new UI expansion.",
       "notToday": "Do not redesign the v1.4 UI during v1.5; preserve UI and fix the engine/playability.",
       "artifact": "PRISM FORM v1.4 current baseline; v1.5 requested",
-      "sourceConfidenceNote": "ChatGPT-side delta."
+      "sourceConfidenceNote": "ChatGPT-side delta.",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
+      "stage": "Early prototype",
+      "shipReadiness": 22,
+      "readinessLabel": "Early prototype",
+      "readinessClass": "prototype"
     },
     {
       "id": "podboss",
       "name": "PODBOSS",
       "description": "End-to-end podcast/voiceover suite for leveling, cleanup, consistency, and possible video/audio export workflows.",
       "status": "decision",
-      "confidence": "medium",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": true,
@@ -358,14 +424,20 @@
       "tomorrowFirstAction": "Only touch if PODBOSS becomes today's focus.",
       "notToday": "Do not expand video/export scope until MVP is defined.",
       "artifact": "",
-      "sourceConfidenceNote": "Needs current product scope confirmation."
+      "sourceConfidenceNote": "Needs current product scope confirmation.",
+      "sourceCertainty": "medium",
+      "productConfidence": "low",
+      "stage": "Concept prototype",
+      "shipReadiness": 12,
+      "readinessLabel": "Concept prototype",
+      "readinessClass": "early"
     },
     {
       "id": "translate",
       "name": "TRANSLATE",
       "description": "Mix-translation lab comparing mixes against playback targets with Translation Score, delta waterfall, Fix List, and optional macros.",
       "status": "decision",
-      "confidence": "high",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
@@ -386,14 +458,20 @@
       "tomorrowFirstAction": "Only touch if TRANSLATE becomes today's focus.",
       "notToday": "Do not start JUCE source until UX flow is locked.",
       "artifact": "HTML wireframes v1\u2013v4",
-      "sourceConfidenceNote": "Claude extraction imported."
+      "sourceConfidenceNote": "Claude extraction imported.",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
+      "stage": "UX wireframe",
+      "shipReadiness": 10,
+      "readinessLabel": "UX wireframe",
+      "readinessClass": "early"
     },
     {
       "id": "hierarchy",
       "name": "HIERARCHY",
       "description": "Multi-instance masking/priority processor where instances coordinate and perform per-band ducking; migrating from Claude into this ChatGPT workflow.",
       "status": "decision",
-      "confidence": "medium",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": true,
@@ -416,14 +494,20 @@
       "tomorrowFirstAction": "Import the HIERARCHY handoff and define POC v0.1 scope.",
       "notToday": "Do not build full UI, AAX, Windows, CLAP, or multi-host support until IPC/ducking behavior is proven.",
       "artifact": "",
-      "sourceConfidenceNote": "Claude HIERARCHY removed as active source; pending ChatGPT project import."
+      "sourceConfidenceNote": "Claude HIERARCHY removed as active source; pending ChatGPT project import.",
+      "sourceCertainty": "medium",
+      "productConfidence": "low",
+      "stage": "Pre-POC",
+      "shipReadiness": 5,
+      "readinessLabel": "Pre-POC",
+      "readinessClass": "early"
     },
     {
       "id": "adaptscore",
       "name": "ADAPTSCORE",
       "description": "DAW-to-game-audio bridge for auditioning adaptive scores against Wwise/FMOD-style game state from inside the DAW.",
       "status": "blocked",
-      "confidence": "high",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
@@ -445,14 +529,20 @@
       "tomorrowFirstAction": "Run the probe before deciding v0.3 scope.",
       "notToday": "Do not integrate WAAPI into plugin until probe results are known.",
       "artifact": "ADAPTSCORE_Plugin_v0.2.0_VST-AU-Standalone_Source.zip",
-      "sourceConfidenceNote": "Claude extraction imported."
+      "sourceConfidenceNote": "Claude extraction imported.",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
+      "stage": "Source prototype",
+      "shipReadiness": 20,
+      "readinessLabel": "Source prototype",
+      "readinessClass": "prototype"
     },
     {
       "id": "polyglot",
       "name": "POLYGLOT",
       "description": "Universal plugin parameter translator: standalone app plus Bridge plugin for porting presets/chains across vendors.",
       "status": "decision",
-      "confidence": "high",
+      "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": true,
@@ -477,7 +567,13 @@
       "tomorrowFirstAction": "Only touch if POLYGLOT becomes today's focus.",
       "notToday": "Do not add more Common code until scaffolding strategy is chosen.",
       "artifact": "",
-      "sourceConfidenceNote": "Claude extraction imported."
+      "sourceConfidenceNote": "Claude extraction imported.",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
+      "stage": "Partial source",
+      "shipReadiness": 15,
+      "readinessLabel": "Partial source",
+      "readinessClass": "early"
     },
     {
       "id": "field",
@@ -500,14 +596,20 @@
       "tomorrowFirstAction": "Do not work until source of truth exists.",
       "notToday": "Ignore today.",
       "artifact": "",
-      "sourceConfidenceNote": "Low confidence."
+      "sourceConfidenceNote": "Low confidence.",
+      "sourceCertainty": "low",
+      "productConfidence": "low",
+      "stage": "Unconfirmed",
+      "shipReadiness": 5,
+      "readinessLabel": "Unconfirmed",
+      "readinessClass": "early"
     },
     {
       "id": "erosion",
       "name": "EROSION",
       "description": "Historical name/predecessor for CREOSOTE; the old EROSION project is being migrated into the active CREOSOTE workflow.",
       "status": "historical",
-      "confidence": "medium",
+      "confidence": "historical",
       "priorityRank": null,
       "today": false,
       "ignoreToday": true,
@@ -523,7 +625,13 @@
       "tomorrowFirstAction": "No action.",
       "notToday": "Ignore today.",
       "artifact": "",
-      "sourceConfidenceNote": "Migration note only."
+      "sourceConfidenceNote": "Migration note only.",
+      "sourceCertainty": "medium",
+      "productConfidence": "low",
+      "stage": "Historical",
+      "shipReadiness": 0,
+      "readinessLabel": "Historical / not active",
+      "readinessClass": "na"
     },
     {
       "id": "theta-limiter",
@@ -551,7 +659,13 @@
       "tomorrowFirstAction": "No action unless explicitly revived.",
       "notToday": "Ignore today.",
       "artifact": "",
-      "sourceConfidenceNote": "Low confidence."
+      "sourceConfidenceNote": "Low confidence.",
+      "sourceCertainty": "low",
+      "productConfidence": "low",
+      "stage": "Parked concept",
+      "shipReadiness": 5,
+      "readinessLabel": "Parked concept",
+      "readinessClass": "early"
     }
   ]
 }

@@ -419,7 +419,7 @@
 
     table {
       width: 100%;
-      min-width: 980px;
+      min-width: 1220px;
       border-collapse: collapse;
     }
 
@@ -503,6 +503,68 @@
     th[aria-sort="ascending"] .sort-indicator,
     th[aria-sort="descending"] .sort-indicator {
       color: var(--gold);
+    }
+
+
+    .readiness-wrap {
+      display: grid;
+      gap: 7px;
+      min-width: 170px;
+    }
+
+    .readiness-top {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--text-main);
+      font-size: var(--font-sm);
+      font-weight: 780;
+    }
+
+    .readiness-label {
+      color: var(--text-secondary);
+      font-size: var(--font-xs);
+      font-weight: 700;
+    }
+
+    .readiness-bar {
+      width: 100%;
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #070D15;
+    }
+
+    .readiness-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: var(--red-blocked);
+    }
+
+    .readiness-fill--early { background: var(--red-blocked); }
+    .readiness-fill--prototype { background: var(--amber-decision); }
+    .readiness-fill--active { background: var(--blue-today); }
+    .readiness-fill--beta { background: var(--green-active); }
+    .readiness-fill--ship { background: var(--gold); }
+    .readiness-fill--na { background: var(--gray-parked); }
+
+    .readiness-scale {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+      color: var(--text-muted);
+      font-size: var(--font-xs);
+    }
+
+    .readiness-scale span {
+      padding: 8px 10px;
+      border: 1px solid var(--border-soft);
+      border-radius: 12px;
+      background: #081019;
+      text-align: center;
     }
 
     .footer-note {
@@ -656,8 +718,59 @@
       return `<span class="badge badge--${escapeHtml(status)}">${escapeHtml(statusLabel(status))}</span>`;
     }
 
+    function confidenceLabel(confidence) {
+      const map = {
+        high: "High",
+        medium: "Medium",
+        low: "Low",
+        historical: "Historical"
+      };
+      return map[confidence] || "Unknown";
+    }
+
     function confidenceBadge(confidence) {
-      return `<span class="badge badge--${escapeHtml(confidence)}">${escapeHtml(String(confidence || "unknown").toUpperCase())}</span>`;
+      return `<span class="badge badge--${escapeHtml(confidence)}">${escapeHtml(confidenceLabel(confidence))}</span>`;
+    }
+
+    function sourceBadge(sourceCertainty) {
+      return `<span class="badge badge--${escapeHtml(sourceCertainty)}">Evidence: ${escapeHtml(confidenceLabel(sourceCertainty))}</span>`;
+    }
+
+    function readinessClass(score) {
+      const value = Number(score || 0);
+      if (value >= 85) return "ship";
+      if (value >= 65) return "beta";
+      if (value >= 40) return "active";
+      if (value >= 20) return "prototype";
+      if (value > 0) return "early";
+      return "na";
+    }
+
+    function readinessLabel(project) {
+      if (project.readinessLabel) return project.readinessLabel;
+      const score = Number(project.shipReadiness || 0);
+      if (score >= 85) return "Shippable";
+      if (score >= 65) return "Beta / close";
+      if (score >= 40) return "Active build";
+      if (score >= 20) return "Prototype";
+      if (score > 0) return "Just begun";
+      return "N/A";
+    }
+
+    function readinessBar(project) {
+      const score = Math.max(0, Math.min(100, Number(project.shipReadiness || 0)));
+      const cls = readinessClass(score);
+      return `
+        <div class="readiness-wrap" title="${escapeHtml(readinessLabel(project))}: ${score}%">
+          <div class="readiness-top">
+            <span>${score}%</span>
+            <span class="readiness-label">${escapeHtml(readinessLabel(project))}</span>
+          </div>
+          <div class="readiness-bar" aria-label="Ship readiness ${score} percent">
+            <div class="readiness-fill readiness-fill--${cls}" style="width:${score}%"></div>
+          </div>
+        </div>
+      `;
     }
 
     function formatFormats(project) {
@@ -842,7 +955,8 @@
             </div>
             <div class="tag-row">
               ${badge(selected.status)}
-              ${confidenceBadge(selected.confidence)}
+              <span class="badge badge--${escapeHtml(readinessClass(selected.shipReadiness))}">Ship: ${escapeHtml(readinessLabel(selected))}</span>
+              ${sourceBadge(selected.sourceCertainty || selected.sourceConfidence || selected.confidence)}
             </div>
           </div>
 
@@ -860,6 +974,23 @@
             <div class="detail-box">
               <h3>Formats</h3>
               <p>${escapeHtml(formatFormats(selected))}</p>
+            </div>
+
+            <div class="detail-box">
+              <h3>Stage</h3>
+              <p>${escapeHtml(selected.stage || "Unclassified")}</p>
+            </div>
+
+            <div class="detail-box">
+              <h3>Ship readiness</h3>
+              ${readinessBar(selected)}
+              <div class="readiness-scale">
+                <span>Just begun</span>
+                <span>Prototype</span>
+                <span>Active build</span>
+                <span>Beta</span>
+                <span>Shippable</span>
+              </div>
             </div>
 
             <div class="detail-box detail-box--blocked">
@@ -918,11 +1049,15 @@
 
     function trackerSortValue(project, key) {
       const statusRank = { active: 1, blocked: 2, decision: 3, parked: 4, historical: 5 };
-      const confidenceRank = { high: 1, medium: 2, low: 3 };
+      const confidenceRank = { high: 1, medium: 2, low: 3, historical: 4 };
 
       if (key === "name") return normalizeSortValue(project.name);
       if (key === "latestVersion") return versionSortValue(project.latestVersion);
       if (key === "status") return statusRank[project.status] ?? 99;
+      if (key === "stage") return normalizeSortValue(project.stage || "");
+      if (key === "shipReadiness") return Number(project.shipReadiness || 0);
+      if (key === "productConfidence") return Number(project.shipReadiness || 0);
+      if (key === "sourceCertainty") return confidenceRank[project.sourceCertainty || project.sourceConfidence || project.confidence] ?? 99;
       if (key === "nextAction") return normalizeSortValue(project.nextAction);
       if (key === "blocker") return normalizeSortValue(project.blocker || project.decisionNeeded || "");
       if (key === "formats") return normalizeSortValue(formatFormats(project));
@@ -994,10 +1129,12 @@
                   ${sortableHeader("Project", "name")}
                   ${sortableHeader("Version", "latestVersion")}
                   ${sortableHeader("Status", "status")}
+                  ${sortableHeader("Stage", "stage")}
+                  ${sortableHeader("Ship Readiness", "shipReadiness")}
                   ${sortableHeader("Next", "nextAction")}
                   ${sortableHeader("Blocker", "blocker")}
                   ${sortableHeader("Formats", "formats")}
-                  ${sortableHeader("Confidence", "confidence")}
+                  ${sortableHeader("Evidence", "sourceCertainty")}
                 </tr>
               </thead>
               <tbody>
@@ -1006,10 +1143,12 @@
                     <td>${escapeHtml(p.name)}</td>
                     <td>${escapeHtml(p.latestVersion)}</td>
                     <td>${badge(p.status)}</td>
+                    <td>${escapeHtml(p.stage || "Unclassified")}</td>
+                    <td>${readinessBar(p)}</td>
                     <td>${escapeHtml(p.nextAction)}</td>
                     <td>${escapeHtml(p.blocker || p.decisionNeeded || "")}</td>
                     <td>${escapeHtml(formatFormats(p))}</td>
-                    <td>${confidenceBadge(p.confidence)}</td>
+                    <td>${sourceBadge(p.sourceCertainty || p.sourceConfidence || p.confidence)}</td>
                   </tr>
                 `).join("")}
               </tbody>
@@ -1036,7 +1175,7 @@
             trackerSortDir = trackerSortDir === "asc" ? "desc" : "asc";
           } else {
             trackerSortKey = key;
-            trackerSortDir = "asc";
+            trackerSortDir = key === "shipReadiness" ? "desc" : "asc";
           }
           renderTrackerView();
         });
