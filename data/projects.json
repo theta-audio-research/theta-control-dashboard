@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "2.5",
-  "lastUpdated": "2026-05-25",
+  "schemaVersion": "2.6",
+  "lastUpdated": "2026-05-24",
   "dashboardMode": "focus",
-  "todayMessage": "Ship Readiness is now the main progress column: low means just begun/buggy; high means shippable.",
+  "todayMessage": "End-of-night update applied. Tomorrow focus: CREOSOTE, FOCUSGRID, PRISM FORM. Changed projects only; unchanged projects left alone.",
   "projects": [
     {
       "id": "compliance",
@@ -10,8 +10,8 @@
       "description": "Dial-norm-aware limiter and loudness compliance tool for stereo, 5.1, and 9.1.6 post workflows.",
       "status": "active",
       "confidence": "medium",
-      "priorityRank": 1,
-      "today": true,
+      "priorityRank": null,
+      "today": false,
       "ignoreToday": false,
       "latestVersion": "Active line \u2014 exact version needs confirmation.",
       "nextAction": "Continue limiter gain-reduction meter integration.",
@@ -37,7 +37,8 @@
       "stage": "Active build",
       "shipReadiness": 48,
       "readinessLabel": "Active build",
-      "readinessClass": "active"
+      "readinessClass": "active",
+      "lastTouched": ""
     },
     {
       "id": "foley-engine",
@@ -64,7 +65,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Host visibility issue appears resolved; the major blocker shifted to realism and category-specific sound behavior.",
-      "tomorrowFirstAction": "Gather references and define event anatomy for the v0.2.0 Foley realism pass.",
+      "tomorrowFirstAction": "Gather realistic short Foley references and define category-specific event anatomy for v0.2.0.",
       "notToday": "Do not keep tailoring the same noise/drum-hit source; the engine needs category-specific anatomy.",
       "artifact": "",
       "sourceConfidenceNote": "ChatGPT-side delta.",
@@ -73,7 +74,8 @@
       "stage": "Early prototype",
       "shipReadiness": 18,
       "readinessLabel": "Just begun",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": "2026-05-24"
     },
     {
       "id": "gesture",
@@ -81,8 +83,8 @@
       "description": "Performance modulation engine with XY pad, timeline, scenes, and Receiver companion plugin for cross-track modulation.",
       "status": "blocked",
       "confidence": "low",
-      "priorityRank": 3,
-      "today": true,
+      "priorityRank": null,
+      "today": false,
       "ignoreToday": false,
       "latestVersion": "No product plugin version yet; THETA_AAX_Sidechain_Spike_v0.1 packaged.",
       "nextAction": "Run sidechain spike tests Q1\u2013Q8.",
@@ -110,7 +112,8 @@
       "stage": "Feasibility spike",
       "shipReadiness": 10,
       "readinessLabel": "Feasibility spike",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": ""
     },
     {
       "id": "creosote",
@@ -118,12 +121,12 @@
       "description": "Three-stage analog character processor evolved from EROSION, focused on tape/tube/compression character, limiter behavior, EQ, and CREOSOTE visual alignment.",
       "status": "active",
       "confidence": "high",
-      "priorityRank": null,
-      "today": false,
+      "priorityRank": 1,
+      "today": true,
       "ignoreToday": false,
       "latestVersion": "v18.8.6 built \u2014 EQ/SUMMING visual alignment pass; no DSP changes.",
-      "nextAction": "Simplify CREOSOTE knobs toward ATRIA-style simple knobs if CREOSOTE is next focus.",
-      "firstAction": "Open the v18.8.6 CREOSOTE source/artifact and plan the simple knob pass.",
+      "nextAction": "Lock CREOSOTE source of truth from the old EROSION project, then plan the simple ATRIA-style knob pass.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "No active blocker; AAX remains gated and should not be touched unless explicitly scoped.",
       "decisionNeeded": "",
       "recommendedChoice": "",
@@ -136,7 +139,7 @@
         "Windows"
       ],
       "lastKnownStatus": "v18.8.6 aligned EQ/SUMMING page origins, matched EQ ON/header baseline to SUMMING, gave SUMMING the same rounded page shell, moved EQ graph/controls into CREOSOTE palette, and dimmed static EQ curve when master OFF.",
-      "tomorrowFirstAction": "Only continue if CREOSOTE becomes the day\u2019s focus; next likely pass is simpler ATRIA-style knobs.",
+      "tomorrowFirstAction": "Open the old EROSION/active CREOSOTE source, confirm v18.8.6 as the baseline, and decide whether the next build is the ATRIA-style simple knob pass.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "CREOSOTE v18.8.6 source ZIP from ChatGPT workflow",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -145,7 +148,8 @@
       "stage": "Active product",
       "shipReadiness": 78,
       "readinessLabel": "Beta / close",
-      "readinessClass": "beta"
+      "readinessClass": "beta",
+      "lastTouched": "2026-05-24"
     },
     {
       "id": "cathode",
@@ -181,7 +185,8 @@
       "stage": "Active product",
       "shipReadiness": 62,
       "readinessLabel": "Active build",
-      "readinessClass": "active"
+      "readinessClass": "active",
+      "lastTouched": ""
     },
     {
       "id": "atria",
@@ -216,7 +221,8 @@
       "stage": "Active product",
       "shipReadiness": 55,
       "readinessLabel": "Active build",
-      "readinessClass": "active"
+      "readinessClass": "active",
+      "lastTouched": ""
     },
     {
       "id": "arecibo",
@@ -252,7 +258,8 @@
       "stage": "Active build",
       "shipReadiness": 45,
       "readinessLabel": "Active build",
-      "readinessClass": "active"
+      "readinessClass": "active",
+      "lastTouched": ""
     },
     {
       "id": "twilight",
@@ -288,7 +295,8 @@
       "stage": "Active build",
       "shipReadiness": 55,
       "readinessLabel": "Active build",
-      "readinessClass": "active"
+      "readinessClass": "active",
+      "lastTouched": ""
     },
     {
       "id": "focusgrid",
@@ -296,12 +304,12 @@
       "description": "Focus/masking-relief plugin concept for identifying priority sources, mask pressure, relief vectors, and target focus zones.",
       "status": "blocked",
       "confidence": "low",
-      "priorityRank": null,
-      "today": false,
+      "priorityRank": 2,
+      "today": true,
       "ignoreToday": false,
       "latestVersion": "v0.3.1 built \u2014 sidechain DSP compile fix.",
       "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
-      "firstAction": "Run the v0.3.1 build/install and confirm Ableton sees the plugin.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility.",
       "blocker": "Needs local build/install/host test after v0.3.1 compile fix.",
       "decisionNeeded": "",
       "recommendedChoice": "",
@@ -314,7 +322,7 @@
         "Windows"
       ],
       "lastKnownStatus": "v0.3.1 fixed the PluginEditor compile issue by adding reduction from audioProcessor.getGainReductionAmount() and removing unused relief; no DSP/UI changes beyond compile fix.",
-      "tomorrowFirstAction": "Test v0.3.1 in host before adding more visual or DSP scope.",
+      "tomorrowFirstAction": "Run the v0.3.1 build/install and confirm Ableton sees the plugin before adding any more DSP or UI.",
       "notToday": "Do not expand UI/features until v0.3.1 is confirmed building and loading.",
       "artifact": "FOCUSGRID v0.3.1 source/build package from ChatGPT workflow",
       "sourceConfidenceNote": "ChatGPT-side delta.",
@@ -323,7 +331,8 @@
       "stage": "Early prototype",
       "shipReadiness": 18,
       "readinessLabel": "Just begun",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": "2026-05-24"
     },
     {
       "id": "scenematch",
@@ -350,7 +359,7 @@
         "Windows"
       ],
       "lastKnownStatus": "v0.1.4 adds post-build/post-install signing, installs VST3 to system and user folders, with no DSP/parameter/UI/AAX changes.",
-      "tomorrowFirstAction": "Verify signing, rescan Ableton, and confirm visibility before adding features.",
+      "tomorrowFirstAction": "Verify v0.1.4 signing/install in /Library and rescan Ableton.",
       "notToday": "Do not add DSP/features until v0.1.4 is confirmed signed and visible.",
       "artifact": "SCENEMATCH v0.1.4 source/build package from ChatGPT workflow",
       "sourceConfidenceNote": "ChatGPT-side delta.",
@@ -359,7 +368,8 @@
       "stage": "Early prototype",
       "shipReadiness": 20,
       "readinessLabel": "Early prototype",
-      "readinessClass": "prototype"
+      "readinessClass": "prototype",
+      "lastTouched": "2026-05-24"
     },
     {
       "id": "prismform",
@@ -367,12 +377,12 @@
       "description": "Musician/sound-designer instrument/effect concept; current priority is turning the concept UI into a stable playable engine.",
       "status": "active",
       "confidence": "low",
-      "priorityRank": null,
-      "today": false,
+      "priorityRank": 3,
+      "today": true,
       "ignoreToday": false,
       "latestVersion": "v1.4 exists; v1.5 requested but not yet confirmed built in Control Room.",
       "nextAction": "Build PRISM FORM v1.5 \u2014 Safe Playable Engine Pass.",
-      "firstAction": "Preserve v1.4 UI and focus v1.5 on crackle reduction, playability, smoothing, loop/crossfade safety, headroom, and version/docs/scripts bump.",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction.",
       "blocker": "v1.4 has lots of crackling and extremely limited functionality.",
       "decisionNeeded": "",
       "recommendedChoice": "",
@@ -386,7 +396,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Renamed to PRISM FORM; earlier v1.2 added crackle guard and product display naming, v1.3 concept UI was built, v1.4 exists but is crackly/limited.",
-      "tomorrowFirstAction": "Build v1.5 Safe Playable Engine Pass before any new UI expansion.",
+      "tomorrowFirstAction": "Build PRISM FORM v1.5 Safe Playable Engine Pass and confirm crackle/playability improves before expanding UI.",
       "notToday": "Do not redesign the v1.4 UI during v1.5; preserve UI and fix the engine/playability.",
       "artifact": "PRISM FORM v1.4 current baseline; v1.5 requested",
       "sourceConfidenceNote": "ChatGPT-side delta.",
@@ -395,7 +405,8 @@
       "stage": "Early prototype",
       "shipReadiness": 22,
       "readinessLabel": "Early prototype",
-      "readinessClass": "prototype"
+      "readinessClass": "prototype",
+      "lastTouched": "2026-05-24"
     },
     {
       "id": "podboss",
@@ -430,7 +441,8 @@
       "stage": "Concept prototype",
       "shipReadiness": 12,
       "readinessLabel": "Concept prototype",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": ""
     },
     {
       "id": "translate",
@@ -464,7 +476,8 @@
       "stage": "UX wireframe",
       "shipReadiness": 10,
       "readinessLabel": "UX wireframe",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": ""
     },
     {
       "id": "hierarchy",
@@ -491,7 +504,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Migration starting: Claude HIERARCHY extraction is archived; active work moves to ChatGPT.",
-      "tomorrowFirstAction": "Import the HIERARCHY handoff and define POC v0.1 scope.",
+      "tomorrowFirstAction": "Import the HIERARCHY handoff into ChatGPT and lock the first VST3-only POC scope.",
       "notToday": "Do not build full UI, AAX, Windows, CLAP, or multi-host support until IPC/ducking behavior is proven.",
       "artifact": "",
       "sourceConfidenceNote": "Claude HIERARCHY removed as active source; pending ChatGPT project import.",
@@ -500,7 +513,8 @@
       "stage": "Pre-POC",
       "shipReadiness": 5,
       "readinessLabel": "Pre-POC",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": "2026-05-24"
     },
     {
       "id": "adaptscore",
@@ -535,7 +549,8 @@
       "stage": "Source prototype",
       "shipReadiness": 20,
       "readinessLabel": "Source prototype",
-      "readinessClass": "prototype"
+      "readinessClass": "prototype",
+      "lastTouched": ""
     },
     {
       "id": "polyglot",
@@ -573,7 +588,8 @@
       "stage": "Partial source",
       "shipReadiness": 15,
       "readinessLabel": "Partial source",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": ""
     },
     {
       "id": "field",
@@ -602,7 +618,8 @@
       "stage": "Unconfirmed",
       "shipReadiness": 5,
       "readinessLabel": "Unconfirmed",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": ""
     },
     {
       "id": "erosion",
@@ -631,7 +648,8 @@
       "stage": "Historical",
       "shipReadiness": 0,
       "readinessLabel": "Historical / not active",
-      "readinessClass": "na"
+      "readinessClass": "na",
+      "lastTouched": ""
     },
     {
       "id": "theta-limiter",
@@ -665,7 +683,23 @@
       "stage": "Parked concept",
       "shipReadiness": 5,
       "readinessLabel": "Parked concept",
-      "readinessClass": "early"
+      "readinessClass": "early",
+      "lastTouched": ""
     }
-  ]
+  ],
+  "lastControlRoomSweep": {
+    "date": "2026-05-24",
+    "type": "end_of_night_delta",
+    "changedProjects": [
+      "creosote",
+      "focusgrid",
+      "foley-engine",
+      "hierarchy",
+      "prismform",
+      "scenematch"
+    ],
+    "dashboardDataChanged": true,
+    "package": "THETA_Control_Dashboard_v2.6_EndOfNight_2026-05-24.zip",
+    "tomorrowFirstControlRoomAction": "Commit v2.6 to GitHub, verify Cloudflare redeploy, then confirm Access login works on control.theta.audio."
+  }
 }

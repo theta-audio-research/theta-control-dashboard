@@ -83,3 +83,12 @@ The dashboard is intentionally designed to show:
   - 85–100: Shippable
 - Tracker table now displays a visual progress bar and sorts by Ship Readiness.
 - Evidence remains separate and still means how reliable the tracker row/source data is.
+
+
+## v2.6 update — End-of-night 2026-05-24
+
+- Added end-of-night delta report at `reports/end-of-night-2026-05-24.md`.
+- Updated tomorrow Focus Mode priorities to CREOSOTE, FOCUSGRID, and PRISM FORM.
+- Recorded changed projects: CREOSOTE, HIERARCHY, FOCUSGRID, PRISM FORM, SCENEMATCH, FOLEY ENGINE.
+- Left unchanged projects alone.
+- Added `lastControlRoomSweep` metadata to `data/projects.json`.
