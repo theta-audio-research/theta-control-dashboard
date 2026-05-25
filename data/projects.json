@@ -1,6 +1,6 @@
 {
   "schemaVersion": "2.0",
-  "lastUpdated": "2026-05-24",
+  "lastUpdated": "2026-05-25",
   "dashboardMode": "focus",
   "todayMessage": "Focus on the few projects that actually move the system forward today.",
   "projects": [
@@ -96,16 +96,16 @@
     {
       "id": "creosote",
       "name": "CREOSOTE",
-      "description": "Three-stage analog character processor: GRIT tape, AMBER tube, COMPRESS, limiter, and EQ.",
+      "description": "Three-stage analog character processor evolved from EROSION, focused on tape/tube/compression character, limiter behavior, and EQ.",
       "status": "active",
-      "confidence": "high",
+      "confidence": "medium",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "v18.8.5 built; VST3/AU healthy.",
-      "nextAction": "v18.8.6 EQ master-off visual polish, or v18.9.0 larger character work.",
-      "firstAction": "Confirm whether the next pass is small EQ polish or larger character work.",
-      "blocker": "AAX pipeline depends on PACE/signing cleanup and correct product/sign IDs.",
+      "latestVersion": "Pending import from old EROSION project.",
+      "nextAction": "Import current EROSION project state and define the first CREOSOTE build in this workflow.",
+      "firstAction": "Open the old EROSION project/source and lock the current CREOSOTE version.",
+      "blocker": "Claude CREOSOTE extraction removed; current source of truth must be rebuilt from the old EROSION project.",
       "decisionNeeded": "",
       "recommendedChoice": "",
       "formatsNow": [
@@ -113,13 +113,14 @@
         "AU"
       ],
       "formatsLater": [
-        "AAX"
+        "AAX",
+        "Windows"
       ],
-      "lastKnownStatus": "EQ master OFF now gates processing correctly.",
-      "tomorrowFirstAction": "Only touch if CREOSOTE becomes today's focus.",
-      "notToday": "Do not touch AAX unless explicitly scoped.",
-      "artifact": "CREOSOTE_Plugin_v18.8.5_VST-AU-AAX_Source.zip",
-      "sourceConfidenceNote": "Claude extraction imported."
+      "lastKnownStatus": "Migration starting: former EROSION project becomes the active CREOSOTE project.",
+      "tomorrowFirstAction": "Import current EROSION/CREOSOTE source state into the Control Room.",
+      "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth.",
+      "artifact": "",
+      "sourceConfidenceNote": "Claude CREOSOTE removed; pending ChatGPT/EROSION project import."
     },
     {
       "id": "cathode",
@@ -501,25 +502,25 @@
     {
       "id": "erosion",
       "name": "EROSION",
-      "description": "Historical predecessor to CREOSOTE; same core character/saturation line before rebrand.",
+      "description": "Historical name/predecessor for CREOSOTE; the old EROSION project is being migrated into the active CREOSOTE workflow.",
       "status": "historical",
-      "confidence": "high",
+      "confidence": "medium",
       "priorityRank": null,
       "today": false,
       "ignoreToday": true,
-      "latestVersion": "Final EROSION line v17.3.0; continues as CREOSOTE v18.x.",
-      "nextAction": "None; closed historical line.",
+      "latestVersion": "Historical EROSION line; exact active CREOSOTE import pending.",
+      "nextAction": "Use the old EROSION project as the starting point for active CREOSOTE.",
       "firstAction": "No action.",
-      "blocker": "Do not treat as active unless intentionally revived.",
+      "blocker": "Do not maintain EROSION as a separate active project unless intentionally revived.",
       "decisionNeeded": "",
       "recommendedChoice": "",
       "formatsNow": [],
       "formatsLater": [],
-      "lastKnownStatus": "Rebranded to CREOSOTE with byte-identical audio at boundary.",
+      "lastKnownStatus": "EROSION is now a historical/migration note, not a separate active plugin line.",
       "tomorrowFirstAction": "No action.",
       "notToday": "Ignore today.",
       "artifact": "",
-      "sourceConfidenceNote": "Historical context only."
+      "sourceConfidenceNote": "Migration note only."
     },
     {
       "id": "theta-limiter",

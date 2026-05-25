@@ -468,6 +468,43 @@
       line-height: 1.55;
     }
 
+
+    .sort-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: 100%;
+      min-height: 36px;
+      padding: 0;
+      border: 0;
+      border-radius: 8px;
+      color: var(--gold);
+      background: transparent;
+      text-align: left;
+      font: inherit;
+      font-size: var(--font-xs);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+    }
+
+    .sort-button:hover {
+      color: var(--text-main);
+    }
+
+    .sort-indicator {
+      display: inline-flex;
+      min-width: 1.2em;
+      color: var(--text-secondary);
+      font-size: 0.95em;
+    }
+
+    th[aria-sort="ascending"] .sort-indicator,
+    th[aria-sort="descending"] .sort-indicator {
+      color: var(--gold);
+    }
+
     .footer-note {
       color: var(--text-muted);
       font-size: var(--font-sm);
@@ -582,6 +619,8 @@
     let activeSearch = "";
     let trackerSearch = "";
     let trackerStatus = "all";
+    let trackerSortKey = "name";
+    let trackerSortDir = "asc";
 
     const fallbackData = {
       schemaVersion: "2.0",
@@ -862,13 +901,81 @@
       });
     }
 
+
+    function normalizeSortValue(value) {
+      return String(value ?? "").toLowerCase().trim();
+    }
+
+    function versionSortValue(value) {
+      const text = normalizeSortValue(value);
+      const match = text.match(/v?(\d+)(?:\.(\d+))?(?:\.(\d+))?/);
+      if (!match) return text;
+      const major = String(match[1] || "0").padStart(4, "0");
+      const minor = String(match[2] || "0").padStart(4, "0");
+      const patch = String(match[3] || "0").padStart(4, "0");
+      return `${major}.${minor}.${patch}.${text}`;
+    }
+
+    function trackerSortValue(project, key) {
+      const statusRank = { active: 1, blocked: 2, decision: 3, parked: 4, historical: 5 };
+      const confidenceRank = { high: 1, medium: 2, low: 3 };
+
+      if (key === "name") return normalizeSortValue(project.name);
+      if (key === "latestVersion") return versionSortValue(project.latestVersion);
+      if (key === "status") return statusRank[project.status] ?? 99;
+      if (key === "nextAction") return normalizeSortValue(project.nextAction);
+      if (key === "blocker") return normalizeSortValue(project.blocker || project.decisionNeeded || "");
+      if (key === "formats") return normalizeSortValue(formatFormats(project));
+      if (key === "confidence") return confidenceRank[project.confidence] ?? 99;
+      return normalizeSortValue(project.name);
+    }
+
+    function compareTrackerProjects(a, b) {
+      const av = trackerSortValue(a, trackerSortKey);
+      const bv = trackerSortValue(b, trackerSortKey);
+      let result = 0;
+
+      if (typeof av === "number" && typeof bv === "number") {
+        result = av - bv;
+      } else {
+        result = String(av).localeCompare(String(bv), undefined, { numeric: true, sensitivity: "base" });
+      }
+
+      if (result === 0) {
+        result = a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" });
+      }
+
+      return trackerSortDir === "asc" ? result : -result;
+    }
+
+    function sortIndicator(key) {
+      if (trackerSortKey !== key) return "↕";
+      return trackerSortDir === "asc" ? "↑" : "↓";
+    }
+
+    function ariaSortValue(key) {
+      if (trackerSortKey !== key) return "none";
+      return trackerSortDir === "asc" ? "ascending" : "descending";
+    }
+
+    function sortableHeader(label, key) {
+      return `
+        <th aria-sort="${ariaSortValue(key)}">
+          <button class="sort-button" data-action="sort-tracker" data-sort-key="${escapeHtml(key)}">
+            <span>${escapeHtml(label)}</span>
+            <span class="sort-indicator" aria-hidden="true">${escapeHtml(sortIndicator(key))}</span>
+          </button>
+        </th>
+      `;
+    }
+
     function renderTrackerView() {
       const visible = projects.filter(p => {
         const q = trackerSearch.trim().toLowerCase();
         const matchesSearch = !q || JSON.stringify(p).toLowerCase().includes(q);
         const matchesStatus = trackerStatus === "all" || p.status === trackerStatus;
         return matchesSearch && matchesStatus;
-      });
+      }).sort(compareTrackerProjects);
 
       document.getElementById("trackerView").innerHTML = `
         <section class="section">
@@ -884,13 +991,13 @@
             <table>
               <thead>
                 <tr>
-                  <th>Project</th>
-                  <th>Version</th>
-                  <th>Status</th>
-                  <th>Next</th>
-                  <th>Blocker</th>
-                  <th>Formats</th>
-                  <th>Confidence</th>
+                  ${sortableHeader("Project", "name")}
+                  ${sortableHeader("Version", "latestVersion")}
+                  ${sortableHeader("Status", "status")}
+                  ${sortableHeader("Next", "nextAction")}
+                  ${sortableHeader("Blocker", "blocker")}
+                  ${sortableHeader("Formats", "formats")}
+                  ${sortableHeader("Confidence", "confidence")}
                 </tr>
               </thead>
               <tbody>
@@ -920,6 +1027,21 @@
         trackerStatus = event.target.value;
         renderTrackerView();
       });
+
+      document.querySelectorAll("[data-action='sort-tracker']").forEach(button => {
+        button.addEventListener("click", (event) => {
+          event.stopPropagation();
+          const key = button.dataset.sortKey;
+          if (trackerSortKey === key) {
+            trackerSortDir = trackerSortDir === "asc" ? "desc" : "asc";
+          } else {
+            trackerSortKey = key;
+            trackerSortDir = "asc";
+          }
+          renderTrackerView();
+        });
+      });
+
     }
 
     function renderRitualView() {

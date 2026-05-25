@@ -33,3 +33,11 @@ The dashboard is intentionally designed to show:
 - Decisions needed
 - Ignore-today projects
 - Full tracker only when requested
+
+
+## v2.1 update
+
+- Added ascending/descending sorting to all Tracker table headers.
+- Click Project, Version, Status, Next, Blocker, Formats, or Confidence to sort.
+- Clicking the same header again toggles direction.
+- Updated CREOSOTE to remove Claude CREOSOTE as active source of truth.
