@@ -92,3 +92,67 @@ The dashboard is intentionally designed to show:
 - Recorded changed projects: CREOSOTE, HIERARCHY, FOCUSGRID, PRISM FORM, SCENEMATCH, FOLEY ENGINE.
 - Left unchanged projects alone.
 - Added `lastControlRoomSweep` metadata to `data/projects.json`.
+
+
+## v3.0 update — Delta Inbox Automation
+
+This version adds the first true automation layer.
+
+### New automation files
+
+```text
+control-room-worker/
+  wrangler.toml
+  package.json
+  src/index.js
+  examples/example-delta.json
+
+tools/
+  send_delta.sh
+  make_delta_template.py
+  control_room_build_hook_snippet.sh
+
+docs/
+  CONTROL_ROOM_DELTA_API.md
+  CLOUDFLARE_AUTOMATION_SETUP.md
+```
+
+### Requested schedule
+
+The automation Worker writes checkpoint reports at these local times:
+
+```text
+6 AM
+9 AM
+12 PM
+2 PM
+4 PM
+11 PM
+```
+
+Timezone:
+
+```text
+America/Los_Angeles
+```
+
+### What becomes automated
+
+- Delta JSON intake
+- `data/projects.json` update
+- delta archive into `deltas/`
+- markdown report into `reports/`
+- GitHub commit
+- Cloudflare redeploy
+- scheduled checkpoint reports
+
+### What still needs an event source
+
+The automation needs one of these to emit delta JSON:
+
+- plugin build scripts
+- GitHub workflows
+- ChatGPT/Claude/Gemini outputs routed into the API
+- manual test delta while setting up
+
+Consumer AI chats do not auto-publish updates by themselves.

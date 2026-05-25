@@ -1,0 +1,15 @@
+name = "theta-control-room-automation"
+main = "src/index.js"
+compatibility_date = "2026-05-25"
+
+# Runs hourly in UTC; Worker code checks America/Los_Angeles local hour
+# and only writes checkpoints at 6 AM, 9 AM, 12 PM, 2 PM, 4 PM, and 11 PM.
+[triggers]
+crons = ["0 * * * *"]
+
+[vars]
+GITHUB_OWNER = "theta-audio-research"
+GITHUB_REPO = "theta-control-dashboard"
+GITHUB_BRANCH = "main"
+TIMEZONE = "America/Los_Angeles"
+SCHEDULE_HOURS = "6,9,12,14,16,23"

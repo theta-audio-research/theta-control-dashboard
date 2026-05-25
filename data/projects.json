@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "2.7",
-  "lastUpdated": "2026-05-24",
+  "schemaVersion": "3.0",
+  "lastUpdated": "2026-05-25",
   "dashboardMode": "focus",
-  "todayMessage": "Delta Intake System installed. Future Control Room updates can be applied from structured JSON deltas through GitHub Actions.",
+  "todayMessage": "v3.0 Delta Inbox Automation added. Automation checkpoints scheduled for 6 AM, 9 AM, 12 PM, 2 PM, 4 PM, and 11 PM Los Angeles time.",
   "projects": [
     {
       "id": "compliance",
@@ -703,11 +703,25 @@
     "tomorrowFirstControlRoomAction": "Commit v2.6 to GitHub, verify Cloudflare redeploy, then confirm Access login works on control.theta.audio."
   },
   "automation": {
-    "version": "2.7",
-    "mode": "manual_github_action_delta_intake",
-    "workflow": ".github/workflows/apply-control-room-delta.yml",
-    "tool": "tools/apply_delta.py",
-    "deltaSchemaExample": "schema/control-room-delta.example.json",
-    "notes": "Paste a Control Room delta JSON into the GitHub Actions manual workflow. The workflow updates data/projects.json, writes a report, and commits the result."
+    "version": "3.0",
+    "mode": "cloudflare_worker_delta_inbox",
+    "workerFolder": "control-room-worker",
+    "apiEndpoint": "/api/delta",
+    "scheduleLocalTimezone": "America/Los_Angeles",
+    "scheduleLocalHours": [
+      6,
+      9,
+      12,
+      14,
+      16,
+      23
+    ],
+    "automatedAfterSetup": [
+      "Scheduled checkpoint reports",
+      "Delta JSON intake via API",
+      "GitHub commit of projects.json/reports/deltas",
+      "Cloudflare redeploy from GitHub commit"
+    ],
+    "stillRequiresEventSource": "Build scripts, AI assistants, or user workflows must emit delta JSON events into the inbox."
   }
 }

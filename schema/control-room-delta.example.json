@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "type": "end_of_day_delta",
+  "date": "2026-05-25",
+  "title": "THETA Control Room — Example Delta",
+  "mode": "Changed projects only. Unchanged projects left alone.",
+  "allowNewProjects": false,
+  "todayMessage": "Example delta applied. Tomorrow focus updated.",
+  "tomorrowFocus": [
+    "creosote",
+    "focusgrid",
+    "prismform"
+  ],
+  "ignoreToday": [
+    "podboss",
+    "polyglot",
+    "field"
+  ],
+  "changedProjects": [
+    {
+      "id": "focusgrid",
+      "changeType": "Build result",
+      "status": "blocked",
+      "stage": "Early prototype",
+      "shipReadiness": 18,
+      "sourceCertainty": "high",
+      "latestVersion": "v0.3.1 built — sidechain DSP compile fix.",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "formatsLater": [
+        "AAX",
+        "Windows"
+      ],
+      "artifact": "FOCUSGRID v0.3.1 source/build package",
+      "lastKnownStatus": "v0.3.1 compile fix is current known state; local host test required.",
+      "blocker": "Needs local build/install/host test after v0.3.1 compile fix.",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "tomorrowFirstAction": "Run the v0.3.1 build/install and confirm Ableton sees the plugin.",
+      "notToday": "Do not expand UI/features until v0.3.1 is confirmed building and loading.",
+      "endStatus": "v0.3.1 sidechain DSP compile fix is current known state."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Verify automation checkpoint, then continue the top Focus Mode project."
+  },
+  "notes": [
+    "Only changed projects are included.",
+    "Ship Readiness is the practical progress meter.",
+    "Evidence/sourceCertainty means tracker data reliability."
+  ]
+}

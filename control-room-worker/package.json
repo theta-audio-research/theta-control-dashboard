@@ -1,0 +1,14 @@
+{
+  "name": "theta-control-room-automation-worker",
+  "version": "3.0.0",
+  "private": true,
+  "description": "THETA Control Room Delta Inbox API and scheduled checkpoint worker.",
+  "scripts": {
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
