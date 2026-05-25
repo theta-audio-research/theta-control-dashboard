@@ -13,3 +13,9 @@ GITHUB_REPO = "theta-control-dashboard"
 GITHUB_BRANCH = "main"
 TIMEZONE = "America/Los_Angeles"
 SCHEDULE_HOURS = "6,9,12,14,16,23"
+
+# This automation Worker is API-only.
+# Do not upload the dashboard repo as static assets.
+[assets]
+directory = "./empty-assets"
+binding = "ASSETS"

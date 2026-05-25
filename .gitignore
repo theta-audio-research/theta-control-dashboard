@@ -4,3 +4,8 @@
 !.dev.vars.example
 .env*
 !.env.example
+
+# Local Worker dependencies
+control-room-worker/node_modules/
+control-room-worker/.wrangler/
+.wrangler/
