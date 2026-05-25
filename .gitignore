@@ -9,3 +9,8 @@
 control-room-worker/node_modules/
 control-room-worker/.wrangler/
 .wrangler/
+
+.DS_Store
+control-room-worker/node_modules/
+control-room-worker/.wrangler/
+control-room-worker/empty-assets/
