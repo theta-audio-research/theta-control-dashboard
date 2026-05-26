@@ -2,8 +2,8 @@
   "date": "2026-05-26",
   "localHour": 14,
   "timezone": "America/Los_Angeles",
-  "source": "scheduled-cron",
-  "createdAt": "2026-05-26T21:00:51.074Z",
+  "source": "manual-api",
+  "createdAt": "2026-05-26T21:58:30.693Z",
   "today": [
     {
       "id": "creosote",
