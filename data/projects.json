@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "3.2",
-  "lastUpdated": "2026-05-25",
+  "schemaVersion": "3.0",
+  "lastUpdated": "2026-05-26",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -2611,19 +2611,13 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-05-24",
-    "type": "end_of_night_delta",
-    "changedProjects": [
-      "creosote",
-      "focusgrid",
-      "foley-engine",
-      "hierarchy",
-      "prismform",
-      "scenematch"
-    ],
-    "dashboardDataChanged": true,
-    "package": "THETA_Control_Dashboard_v2.6_EndOfNight_2026-05-24.zip",
-    "tomorrowFirstControlRoomAction": "Commit v2.6 to GitHub, verify Cloudflare redeploy, then confirm Access login works on control.theta.audio."
+    "date": "2026-05-26",
+    "type": "control_room_delta",
+    "source": "api",
+    "changedProjects": [],
+    "dashboardDataChanged": false,
+    "lastAppliedAt": "2026-05-26T23:06:52.216Z",
+    "tomorrowFirstControlRoomAction": "Review dashboard and continue active projects."
   },
   "automation": {
     "version": "3.0",
