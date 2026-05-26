@@ -1,0 +1,12 @@
+{
+  "project": "CATHODE",
+  "latest_version": "v16.56",
+  "source_artifact": "CATHODE_Plugin_v16.56_VST-AU-AAX-Standalone_DMG_Source.zip",
+  "build_artifact": "CATHODE_VST-AU-Standalone_v16.56.dmg",
+  "formats_in_scope": "VST3, AU, Standalone, DMG",
+  "status": "build artifacts completed",
+  "blocker": "none",
+  "next_action": "Test CATHODE v16.56 in Ableton/standalone and verify UI, presets, CRUSH, INTERFERENCE, installer behavior, and Control Room delta receipt.",
+  "tomorrows_first_action": "Review v16.56 test notes, then patch only confirmed regressions.",
+  "ship_readiness": 80
+}
