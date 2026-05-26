@@ -619,6 +619,113 @@
       }
     }
 
+
+    .ticket-panel {
+      margin-top: var(--space-5);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: var(--surface);
+      padding: var(--space-5);
+    }
+    .ticket-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+    }
+    .ticket-header h3 {
+      margin: 0;
+      color: var(--gold);
+      font-size: var(--font-md);
+    }
+    .ticket-settings {
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) minmax(240px, 1fr);
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      padding: var(--space-4);
+      border: 1px solid var(--border-soft);
+      border-radius: 18px;
+      background: #081019;
+    }
+    .ticket-list {
+      display: grid;
+      gap: var(--space-3);
+    }
+    .ticket-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      border: 1px solid var(--border);
+      border-left: 7px solid var(--blue-today);
+      border-radius: 18px;
+      background: var(--surface-soft);
+    }
+    .ticket-card[data-status="passed"] { border-left-color: var(--green-active); }
+    .ticket-card[data-status="failed"] { border-left-color: var(--red-blocked); }
+    .ticket-card[data-status="blocked"] { border-left-color: var(--amber-decision); }
+    .ticket-checkbox {
+      width: 24px;
+      height: 24px;
+      margin-top: 3px;
+      accent-color: var(--green-active);
+    }
+    .ticket-question {
+      color: var(--text-main);
+      font-size: var(--font-md);
+      font-weight: 760;
+      margin-bottom: var(--space-3);
+    }
+    .ticket-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(150px, 1fr));
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    .ticket-notes {
+      width: 100%;
+      min-height: 78px;
+      resize: vertical;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text-main);
+      background: #070D15;
+      font: inherit;
+      font-size: var(--font-sm);
+      line-height: 1.5;
+    }
+    .ticket-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+    .ticket-empty {
+      color: var(--text-secondary);
+      padding: var(--space-4);
+      border: 1px dashed var(--border);
+      border-radius: 18px;
+    }
+    .return-packet-box {
+      margin-top: var(--space-4);
+      white-space: pre-wrap;
+      max-height: 340px;
+      overflow: auto;
+      padding: var(--space-4);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      color: var(--text-main);
+      background: #070D15;
+      font-family: inherit;
+      font-size: var(--font-sm);
+    }
+    @media (max-width: 900px) {
+      .ticket-settings, .ticket-meta { grid-template-columns: 1fr; }
+    }
+
     .footer-note {
       color: var(--text-muted);
       font-size: var(--font-sm);
@@ -1030,6 +1137,143 @@
       });
     }
 
+
+    function getApiSettings() {
+      return {
+        api: localStorage.getItem("thetaControlRoomApi") || "https://theta-control-room-automation.steveneal.workers.dev",
+        token: localStorage.getItem("thetaControlRoomToken") || ""
+      };
+    }
+
+    function saveApiSettings() {
+      const api = document.getElementById("ticketApiBase")?.value?.trim() || "";
+      const token = document.getElementById("ticketApiToken")?.value?.trim() || "";
+      if (api) localStorage.setItem("thetaControlRoomApi", api);
+      if (token) localStorage.setItem("thetaControlRoomToken", token);
+      alert("Control Room API settings saved locally in this browser.");
+    }
+
+    async function controlRoomPost(path, payload) {
+      const settings = getApiSettings();
+      if (!settings.token) throw new Error("CONTROL_ROOM_TOKEN is not configured in this browser.");
+      const response = await fetch(`${settings.api}${path}`, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${settings.token}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+      const json = await response.json().catch(() => ({}));
+      if (!response.ok || json.ok === false) throw new Error(json.error || `Request failed: ${response.status}`);
+      return json;
+    }
+
+    function ticketStatusOptions(status) {
+      return ["open", "passed", "failed", "blocked"]
+        .map(value => `<option value="${value}" ${value === status ? "selected" : ""}>${value}</option>`)
+        .join("");
+    }
+
+    function splitTickets(project) {
+      const tickets = project.testTickets || [];
+      return {
+        open: tickets.filter(t => (t.status || "open") !== "passed"),
+        completed: tickets.filter(t => (t.status || "open") === "passed")
+      };
+    }
+
+    function ticketCard(project, ticket) {
+      const status = ticket.status || "open";
+      const checked = status === "passed" ? "checked" : "";
+      return `
+        <article class="ticket-card" data-status="${escapeHtml(status)}" data-ticket-id="${escapeHtml(ticket.id)}">
+          <input class="ticket-checkbox" type="checkbox" ${checked} data-action="ticket-toggle" data-project-id="${escapeHtml(project.id)}" data-ticket-id="${escapeHtml(ticket.id)}" aria-label="Mark ticket passed" />
+          <div>
+            <div class="ticket-question">${escapeHtml(ticket.question)}</div>
+            <div class="ticket-meta">
+              <select class="select" data-ticket-field="status" aria-label="Ticket status">${ticketStatusOptions(status)}</select>
+              <input class="search" data-ticket-field="tester" placeholder="Tester name" value="${escapeHtml(ticket.tester || "")}" />
+              <input class="search" data-ticket-field="version" placeholder="Version tested" value="${escapeHtml(ticket.version || "")}" />
+            </div>
+            <textarea class="ticket-notes" data-ticket-field="notes" placeholder="Tester notes, observations, failure details, or pass criteria...">${escapeHtml(ticket.notes || "")}</textarea>
+            <div class="ticket-actions">
+              <button class="button" data-action="ticket-save" data-project-id="${escapeHtml(project.id)}" data-ticket-id="${escapeHtml(ticket.id)}">Save ticket</button>
+              <button class="button" data-action="ticket-complete" data-project-id="${escapeHtml(project.id)}" data-ticket-id="${escapeHtml(ticket.id)}">Mark passed</button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderTicketPanel(project) {
+      const settings = getApiSettings();
+      const groups = splitTickets(project);
+      return `
+        <section class="ticket-panel">
+          <div class="ticket-header">
+            <h3>Open Test Questions</h3>
+            <span class="badge badge--today">${groups.open.length} open</span>
+          </div>
+          <div class="ticket-settings">
+            <input class="search" id="ticketApiBase" value="${escapeHtml(settings.api)}" placeholder="Control Room API URL" />
+            <input class="search" id="ticketApiToken" value="" type="password" placeholder="CONTROL_ROOM_TOKEN for this browser" />
+            <button class="button" onclick="saveApiSettings()">Save API settings</button>
+            <button class="button" data-action="return-packet" data-project-id="${escapeHtml(project.id)}">Generate return packet</button>
+          </div>
+          <div class="ticket-list">
+            ${groups.open.length ? groups.open.map(t => ticketCard(project, t)).join("") : `<div class="ticket-empty">No open tickets.</div>`}
+          </div>
+          <div class="ticket-header" style="margin-top: var(--space-5);">
+            <h3>Completed / Archive</h3>
+            <span class="badge badge--active">${groups.completed.length} passed</span>
+          </div>
+          <div class="ticket-list">
+            ${groups.completed.length ? groups.completed.map(t => ticketCard(project, t)).join("") : `<div class="ticket-empty">No completed tickets yet.</div>`}
+          </div>
+          <div id="returnPacketBox" class="return-packet-box" hidden></div>
+        </section>
+      `;
+    }
+
+    function collectTicketPayload(button) {
+      const card = button.closest(".ticket-card");
+      return {
+        projectId: button.dataset.projectId,
+        ticketId: button.dataset.ticketId,
+        status: card.querySelector('[data-ticket-field="status"]')?.value || "open",
+        tester: card.querySelector('[data-ticket-field="tester"]')?.value || "",
+        version: card.querySelector('[data-ticket-field="version"]')?.value || "",
+        notes: card.querySelector('[data-ticket-field="notes"]')?.value || ""
+      };
+    }
+
+    async function saveTicket(button, forceStatus = null) {
+      const payload = collectTicketPayload(button);
+      if (forceStatus) payload.status = forceStatus;
+      try {
+        await controlRoomPost(forceStatus === "passed" ? "/api/ticket/complete" : "/api/ticket", payload);
+        alert("Ticket saved to Control Room.");
+      } catch (error) {
+        alert(`Ticket save failed: ${error.message}`);
+      }
+    }
+
+    async function generateReturnPacket(projectId) {
+      try {
+        const json = await controlRoomPost("/api/return-packet", { projectId });
+        const box = document.getElementById("returnPacketBox");
+        if (box) {
+          box.hidden = false;
+          box.textContent = json.packet || JSON.stringify(json, null, 2);
+        }
+        if (json.packet && navigator.clipboard) await navigator.clipboard.writeText(json.packet).catch(() => {});
+        alert("Return packet generated. If clipboard access is allowed, it was copied.");
+      } catch (error) {
+        alert(`Return packet failed: ${error.message}`);
+      }
+    }
+
     function renderDetailView(project = null) {
       const selected = project || projects.find(p => p.id === selectedProjectId) || getTodayProjects()[0] || projects[0];
 
@@ -1122,6 +1366,7 @@
               <p>${escapeHtml(selected.artifact || selected.sourceConfidenceNote || "No artifact listed.")}</p>
             </div>
           </div>
+          ${renderTicketPanel(selected)}
         </section>
       `;
 
@@ -1358,9 +1603,33 @@ Any master-index updates needed:</pre>
       });
 
       document.body.addEventListener("click", (event) => {
-        const target = event.target.closest("[data-action='open-detail']");
+        const target = event.target.closest("[data-action]");
         if (!target) return;
-        openProjectDetail(target.dataset.projectId);
+        const action = target.dataset.action;
+        if (action === "open-detail") {
+          openProjectDetail(target.dataset.projectId);
+          return;
+        }
+        if (action === "ticket-save") {
+          saveTicket(target);
+          return;
+        }
+        if (action === "ticket-complete") {
+          saveTicket(target, "passed");
+          return;
+        }
+        if (action === "ticket-toggle") {
+          const status = target.checked ? "passed" : "open";
+          const card = target.closest(".ticket-card");
+          const select = card?.querySelector('[data-ticket-field="status"]');
+          if (select) select.value = status;
+          saveTicket(target, status);
+          return;
+        }
+        if (action === "return-packet") {
+          generateReturnPacket(target.dataset.projectId);
+          return;
+        }
       });
     }
 

@@ -164,3 +164,17 @@ Consumer AI chats do not auto-publish updates by themselves.
 - The readout uses `data/projects.json → lastControlRoomSync`.
 - Delta API updates now write `lastControlRoomSync`.
 - Scheduled checkpoint runs now also update `data/projects.json` so the dashboard reflects the latest automated sync time.
+
+
+## v3.2 update — Test Tickets + Return Packets
+
+- Added `testTickets[]` to every project.
+- Added Open Test Questions to Project Detail.
+- Added status dropdown, checkbox, tester field, version field, and notes textbox.
+- Added completed/archive view.
+- Added Worker endpoints:
+  - `POST /api/ticket`
+  - `POST /api/ticket/complete`
+  - `POST /api/return-packet`
+- Added return packet generation into `reports/return-packets/`.
+- Added passed-ticket JSON archive into `tickets/archive/`.

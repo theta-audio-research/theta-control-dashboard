@@ -60,10 +60,43 @@ export default {
       }
     }
 
+    if (request.method === "POST" && url.pathname === "/api/ticket") {
+      try {
+        await requireAuth(request, env);
+        const payload = await request.json();
+        const result = await updateTicketInGitHub(payload, env, false);
+        return json({ ok: true, result });
+      } catch (error) {
+        return json({ ok: false, error: String(error?.message || error) }, 400);
+      }
+    }
+
+    if (request.method === "POST" && url.pathname === "/api/ticket/complete") {
+      try {
+        await requireAuth(request, env);
+        const payload = await request.json();
+        const result = await updateTicketInGitHub(payload, env, true);
+        return json({ ok: true, result });
+      } catch (error) {
+        return json({ ok: false, error: String(error?.message || error) }, 400);
+      }
+    }
+
+    if (request.method === "POST" && url.pathname === "/api/return-packet") {
+      try {
+        await requireAuth(request, env);
+        const payload = await request.json();
+        const result = await generateReturnPacketInGitHub(payload, env);
+        return json({ ok: true, ...result });
+      } catch (error) {
+        return json({ ok: false, error: String(error?.message || error) }, 400);
+      }
+    }
+
     return json({
       ok: false,
       error: "Not found",
-      available: ["GET /api/health", "POST /api/delta", "POST /api/checkpoint"],
+      available: ["GET /api/health", "POST /api/delta", "POST /api/checkpoint", "POST /api/ticket", "POST /api/ticket/complete", "POST /api/return-packet"],
     }, 404);
   },
 
@@ -458,6 +491,152 @@ This checkpoint is automated. It does not invent project changes; it records the
 
   return { jsonPath, mdPath, local };
 }
+
+
+function findProjectOrThrow(projectsData, projectId) {
+  const pid = normalizeProjectId(projectId);
+  const project = (projectsData.projects || []).find(p => p.id === pid);
+  if (!project) throw new Error(`Unknown project: ${pid}`);
+  return project;
+}
+
+function findTicketOrCreate(project, ticketId, payload) {
+  project.testTickets = project.testTickets || [];
+  let ticket = project.testTickets.find(t => t.id === ticketId);
+  if (!ticket) {
+    ticket = {
+      id: ticketId || `${project.id}-ticket-${Date.now()}`,
+      question: payload.question || "New test question",
+      status: "open",
+      priority: payload.priority || "normal",
+      tester: "",
+      notes: "",
+      version: payload.version || project.latestVersion || "",
+      createdAt: new Date().toISOString(),
+      updatedAt: "",
+      completedAt: "",
+      result: "",
+    };
+    project.testTickets.push(ticket);
+  }
+  return ticket;
+}
+
+async function updateTicketInGitHub(payload, env, complete) {
+  const projectId = normalizeProjectId(payload.projectId || payload.project || payload.id);
+  const ticketId = payload.ticketId || payload.ticket_id;
+  if (!projectId) throw new Error("projectId is required.");
+  if (!ticketId) throw new Error("ticketId is required.");
+
+  const projectsFile = await githubGetFile(env, "data/projects.json");
+  const projectsData = JSON.parse(projectsFile.text);
+  const project = findProjectOrThrow(projectsData, projectId);
+  const ticket = findTicketOrCreate(project, ticketId, payload);
+  const now = new Date().toISOString();
+
+  ticket.status = complete ? "passed" : (payload.status || ticket.status || "open");
+  ticket.tester = payload.tester ?? ticket.tester ?? "";
+  ticket.notes = payload.notes ?? ticket.notes ?? "";
+  ticket.version = payload.version ?? ticket.version ?? project.latestVersion ?? "";
+  ticket.result = payload.result ?? ticket.result ?? "";
+  ticket.updatedAt = now;
+  if (complete || ticket.status === "passed") {
+    ticket.completedAt = ticket.completedAt || now;
+    ticket.result = ticket.result || "passed";
+  } else if (ticket.status === "open") {
+    ticket.completedAt = "";
+  }
+
+  projectsData.lastUpdated = now.slice(0, 10);
+  projectsData.lastControlRoomSync = {
+    type: "ticket_update",
+    source: "dashboard-ticket-ui",
+    createdAt: now,
+    localDate: now.slice(0, 10),
+    timezone: env.TIMEZONE || "America/Los_Angeles",
+    summary: `${project.name} ticket updated: ${ticket.question}`,
+  };
+
+  const message = `Update ${project.name} test ticket`;
+  await githubPutFile(env, "data/projects.json", JSON.stringify(projectsData, null, 2) + "\\n", projectsFile.sha, message);
+
+  if (ticket.status === "passed") {
+    const archivePath = `tickets/archive/${project.id}/${now.slice(0,10)}-${ticket.id}.json`;
+    await githubPutFile(env, archivePath, JSON.stringify({ project: project.name, ticket }, null, 2) + "\\n", null, message);
+  }
+
+  return { projectId: project.id, ticketId: ticket.id, status: ticket.status };
+}
+
+function buildReturnPacket(project) {
+  const tickets = project.testTickets || [];
+  const open = tickets.filter(t => (t.status || "open") !== "passed");
+  const passed = tickets.filter(t => (t.status || "open") === "passed");
+  const failed = tickets.filter(t => t.status === "failed");
+  const blocked = tickets.filter(t => t.status === "blocked");
+  const linesFor = (items) => items.length
+    ? items.map(t => `- [${t.status === "passed" ? "x" : " "}] ${t.question}${t.notes ? `\\n  Notes: ${t.notes}` : ""}`).join("\\n")
+    : "- None";
+
+  return `# ${project.name} — Test Return Packet
+
+## Project state
+
+- Latest version/state: ${project.latestVersion || "Needs confirmation"}
+- Status: ${project.status || "unknown"}
+- Stage: ${project.stage || "unknown"}
+- Ship readiness: ${project.shipReadiness ?? "N/A"}%
+- Current blocker: ${project.blocker || "None listed"}
+- Next action: ${project.nextAction || "None listed"}
+
+## Open test questions
+
+${linesFor(open)}
+
+## Passed tests
+
+${linesFor(passed)}
+
+## Failed tests
+
+${linesFor(failed)}
+
+## Blocked tests
+
+${linesFor(blocked)}
+
+## Recommended project-chat instruction
+
+Use this return packet as the latest tester/control-room feedback. Update the next build plan around failed/blocked tests first, preserve passed behavior, and update the project Control Room hook after the next build.
+`;
+}
+
+async function generateReturnPacketInGitHub(payload, env) {
+  const projectId = normalizeProjectId(payload.projectId || payload.project || payload.id);
+  if (!projectId) throw new Error("projectId is required.");
+  const projectsFile = await githubGetFile(env, "data/projects.json");
+  const projectsData = JSON.parse(projectsFile.text);
+  const project = findProjectOrThrow(projectsData, projectId);
+  const packet = buildReturnPacket(project);
+  const now = new Date().toISOString();
+  const path = `reports/return-packets/${project.id}-${now.slice(0,10)}-${now.replace(/[:.]/g, "-")}.md`;
+
+  projectsData.lastUpdated = now.slice(0, 10);
+  projectsData.lastControlRoomSync = {
+    type: "return_packet",
+    source: "dashboard-ticket-ui",
+    createdAt: now,
+    localDate: now.slice(0, 10),
+    timezone: env.TIMEZONE || "America/Los_Angeles",
+    summary: `${project.name} return packet generated.`,
+  };
+
+  const message = `Generate ${project.name} return packet`;
+  await githubPutFile(env, "data/projects.json", JSON.stringify(projectsData, null, 2) + "\\n", projectsFile.sha, message);
+  await githubPutFile(env, path, packet, null, message);
+  return { projectId: project.id, path, packet };
+}
+
 
 async function githubGetFile(env, path) {
   const url = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${encodeURIComponentPath(path)}?ref=${encodeURIComponent(env.GITHUB_BRANCH || "main")}`;
