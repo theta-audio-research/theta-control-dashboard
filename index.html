@@ -567,6 +567,58 @@
       text-align: center;
     }
 
+
+    .sync-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-4);
+      align-items: center;
+      margin-bottom: var(--space-5);
+      padding: var(--space-4) var(--space-5);
+      border: 1px solid var(--border);
+      border-left: 7px solid var(--gold);
+      border-radius: 22px;
+      background: var(--surface-soft);
+    }
+
+    .sync-card__label {
+      color: var(--gold);
+      font-size: var(--font-xs);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .sync-card__time {
+      color: var(--text-main);
+      font-size: var(--font-lg);
+      font-weight: 820;
+      line-height: 1.2;
+    }
+
+    .sync-card__detail {
+      color: var(--text-secondary);
+      font-size: var(--font-sm);
+      margin-top: 4px;
+    }
+
+    .sync-card__badge {
+      justify-self: end;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .sync-card {
+        grid-template-columns: 1fr;
+      }
+
+      .sync-card__badge {
+        justify-self: start;
+      }
+    }
+
     .footer-note {
       color: var(--text-muted);
       font-size: var(--font-sm);
@@ -862,6 +914,52 @@
       `;
     }
 
+
+    function getLastSyncInfo() {
+      const sync = dashboardData?.lastControlRoomSync || dashboardData?.lastControlRoomSweep || {};
+      const rawTime = sync.createdAt || sync.lastAppliedAt || dashboardData?.lastUpdated || "";
+      let date = null;
+
+      if (rawTime) {
+        date = new Date(rawTime);
+        if (Number.isNaN(date.getTime()) && /^\d{4}-\d{2}-\d{2}$/.test(rawTime)) {
+          date = new Date(`${rawTime}T12:00:00`);
+        }
+      }
+
+      const timeText = date && !Number.isNaN(date.getTime())
+        ? date.toLocaleString(undefined, {
+            weekday: "short",
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+          })
+        : "No sync recorded";
+
+      const type = sync.type || "dashboard";
+      const source = sync.source || "Control Room";
+      const summary = sync.summary || sync.tomorrowFirstControlRoomAction || dashboardData?.todayMessage || "Waiting for first automation sync.";
+
+      return { timeText, type, source, summary };
+    }
+
+    function renderLastSyncCard() {
+      const info = getLastSyncInfo();
+      return `
+        <div class="sync-card" aria-label="Last Control Room sync">
+          <div>
+            <div class="sync-card__label">Last Control Room Sync</div>
+            <div class="sync-card__time">${escapeHtml(info.timeText)}</div>
+            <div class="sync-card__detail">${escapeHtml(info.summary)}</div>
+          </div>
+          <div class="sync-card__badge">
+            <span class="badge badge--today">${escapeHtml(info.source)}</span>
+          </div>
+        </div>
+      `;
+    }
+
     function renderTodayView() {
       const today = getTodayProjects();
       const blocked = getBlockedProjects();
@@ -872,6 +970,7 @@
         <div class="today-grid">
           <div>
             <section class="section">
+              ${renderLastSyncCard()}
               <h2 class="section-title">Today — top 3 only</h2>
               <div class="priority-list">
                 ${today.length ? today.map(priorityCard).join("") : `<div class="mini-card"><p>No priorities selected yet.</p></div>`}

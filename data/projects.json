@@ -1,8 +1,8 @@
 {
-  "schemaVersion": "3.0",
+  "schemaVersion": "3.1",
   "lastUpdated": "2026-05-25",
   "dashboardMode": "focus",
-  "todayMessage": "Example delta applied. Tomorrow focus updated.",
+  "todayMessage": "v3.1 adds Last Control Room Sync readout in the Today view.",
   "projects": [
     {
       "id": "compliance",
@@ -321,10 +321,10 @@
         "AAX",
         "Windows"
       ],
-      "lastKnownStatus": "v0.3.1 compile fix is current known state; local host test required.",
-      "tomorrowFirstAction": "Run the v0.3.1 build/install and confirm Ableton sees the plugin.",
+      "lastKnownStatus": "v0.3.1 fixed the PluginEditor compile issue by adding reduction from audioProcessor.getGainReductionAmount() and removing unused relief; no DSP/UI changes beyond compile fix.",
+      "tomorrowFirstAction": "Run the v0.3.1 build/install and confirm Ableton sees the plugin before adding any more DSP or UI.",
       "notToday": "Do not expand UI/features until v0.3.1 is confirmed building and loading.",
-      "artifact": "FOCUSGRID v0.3.1 source/build package",
+      "artifact": "FOCUSGRID v0.3.1 source/build package from ChatGPT workflow",
       "sourceConfidenceNote": "ChatGPT-side delta.",
       "sourceCertainty": "high",
       "productConfidence": "low",
@@ -332,7 +332,7 @@
       "shipReadiness": 18,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-05-25"
+      "lastTouched": "2026-05-24"
     },
     {
       "id": "scenematch",
@@ -688,15 +688,19 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-05-25",
-    "type": "end_of_day_delta",
-    "source": "api",
+    "date": "2026-05-24",
+    "type": "end_of_night_delta",
     "changedProjects": [
-      "focusgrid"
+      "creosote",
+      "focusgrid",
+      "foley-engine",
+      "hierarchy",
+      "prismform",
+      "scenematch"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-05-25T17:43:05.038Z",
-    "tomorrowFirstControlRoomAction": "Verify automation checkpoint, then continue the top Focus Mode project."
+    "package": "THETA_Control_Dashboard_v2.6_EndOfNight_2026-05-24.zip",
+    "tomorrowFirstControlRoomAction": "Commit v2.6 to GitHub, verify Cloudflare redeploy, then confirm Access login works on control.theta.audio."
   },
   "automation": {
     "version": "3.0",
@@ -719,5 +723,14 @@
       "Cloudflare redeploy from GitHub commit"
     ],
     "stillRequiresEventSource": "Build scripts, AI assistants, or user workflows must emit delta JSON events into the inbox."
+  },
+  "lastControlRoomSync": {
+    "type": "package_build",
+    "source": "dashboard-package",
+    "createdAt": "2026-05-25T00:00:00-07:00",
+    "localDate": "2026-05-25",
+    "localHour": null,
+    "timezone": "America/Los_Angeles",
+    "summary": "Initial v3.1 package build. Live sync time updates after Worker delta or checkpoint."
   }
 }

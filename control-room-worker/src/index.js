@@ -320,14 +320,23 @@ async function applyDeltaToGitHub(delta, env, source) {
   projectsData.schemaVersion = "3.0";
   projectsData.lastUpdated = date;
   projectsData.todayMessage = delta.todayMessage || projectsData.todayMessage || "Control Room delta applied.";
+  const appliedAt = new Date().toISOString();
   projectsData.lastControlRoomSweep = {
     date,
     type: delta.type || "control_room_delta",
     source,
     changedProjects: applied.map(x => x.id),
     dashboardDataChanged: applied.length > 0,
-    lastAppliedAt: new Date().toISOString(),
+    lastAppliedAt: appliedAt,
     tomorrowFirstControlRoomAction: delta.dashboardUpdateDecision?.tomorrowFirstControlRoomAction || "Review dashboard and continue active projects.",
+  };
+  projectsData.lastControlRoomSync = {
+    type: delta.type || "control_room_delta",
+    source,
+    createdAt: appliedAt,
+    localDate: date,
+    timezone: env.TIMEZONE || "America/Los_Angeles",
+    summary: `${applied.length} project delta${applied.length === 1 ? "" : "s"} applied: ${applied.map(x => x.name).join(", ") || "none"}.`,
   };
 
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
@@ -394,15 +403,27 @@ async function writeCheckpoint(env, source) {
   const blocked = projects.filter(p => p.status === "blocked");
   const decisions = projects.filter(p => p.status === "decision");
 
+  const checkpointCreatedAt = now.toISOString();
   const checkpoint = {
     date: local.date,
     localHour: local.hour,
     timezone: env.TIMEZONE,
     source,
-    createdAt: now.toISOString(),
+    createdAt: checkpointCreatedAt,
     today: today.map(p => ({ id: p.id, name: p.name, nextAction: p.nextAction, firstAction: p.firstAction })),
     blockedCount: blocked.length,
     decisionCount: decisions.length,
+  };
+
+  projectsData.lastUpdated = local.date;
+  projectsData.lastControlRoomSync = {
+    type: "scheduled_checkpoint",
+    source,
+    createdAt: checkpointCreatedAt,
+    localDate: local.date,
+    localHour: local.hour,
+    timezone: env.TIMEZONE || "America/Los_Angeles",
+    summary: `Automated checkpoint at ${String(local.hour).padStart(2, "0")}:00. Today focus: ${today.map(p => p.name).join(", ") || "none"}.`,
   };
 
   const hour = String(local.hour).padStart(2, "0");
@@ -431,6 +452,7 @@ ${today.map((p, i) => `${i + 1}. **${p.name}** — ${p.firstAction || p.nextActi
 This checkpoint is automated. It does not invent project changes; it records the current dashboard state at the scheduled time.
 `;
 
+  await githubPutFile(env, "data/projects.json", JSON.stringify(projectsData, null, 2) + "\n", projectsFile.sha, `Control Room checkpoint ${local.date} ${hour}:00`);
   await githubPutFile(env, jsonPath, JSON.stringify(checkpoint, null, 2) + "\n", null, `Control Room checkpoint ${local.date} ${hour}:00`);
   await githubPutFile(env, mdPath, md, null, `Control Room checkpoint ${local.date} ${hour}:00`);
 

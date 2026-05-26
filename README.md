@@ -156,3 +156,11 @@ The automation needs one of these to emit delta JSON:
 - manual test delta while setting up
 
 Consumer AI chats do not auto-publish updates by themselves.
+
+
+## v3.1 update — Last Sync Readout
+
+- Added a clear `Last Control Room Sync` readout to the Today view.
+- The readout uses `data/projects.json → lastControlRoomSync`.
+- Delta API updates now write `lastControlRoomSync`.
+- Scheduled checkpoint runs now also update `data/projects.json` so the dashboard reflects the latest automated sync time.
