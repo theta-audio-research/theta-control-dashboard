@@ -955,6 +955,89 @@
     }
     /* end v3.3 Visual Comfort + Ticket Category Grouping */
 
+
+    /* v3.4 Collapsible Ticket Category Folders */
+    .ticket-category-folder {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      overflow: hidden;
+    }
+
+    .ticket-category-folder + .ticket-category-folder {
+      margin-top: var(--space-3);
+    }
+
+    .ticket-category-folder summary {
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .ticket-category-folder summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .ticket-category-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-3);
+      align-items: center;
+      padding: var(--space-4);
+      border-bottom: 1px solid transparent;
+      transition: background 140ms ease, border-color 140ms ease;
+    }
+
+    .ticket-category-folder[open] .ticket-category-head {
+      border-bottom-color: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .ticket-category-main {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      min-width: 0;
+    }
+
+    .ticket-folder-caret {
+      width: 1.1rem;
+      height: 1.1rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      color: var(--text-muted);
+      font-size: 0.72rem;
+      line-height: 1;
+      margin-top: 0.05rem;
+      flex: 0 0 auto;
+    }
+
+    .ticket-folder-caret::before {
+      content: "›";
+      transform: translateX(0.02rem);
+      transition: transform 140ms ease;
+    }
+
+    .ticket-category-folder[open] .ticket-folder-caret::before {
+      transform: rotate(90deg);
+    }
+
+    .ticket-category-body {
+      padding: var(--space-4);
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .ticket-category-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 5.8rem;
+    }
+    /* end v3.4 Collapsible Ticket Category Folders */
+
   </style>
 </head>
 
@@ -1425,19 +1508,23 @@
 
     function ticketCategoryGroup(project, category, tickets, mode) {
       const description = TICKET_CATEGORY_DESCRIPTIONS[category] || TICKET_CATEGORY_DESCRIPTIONS.UNCATEGORIZED;
+      const countLabel = `${tickets.length} ${tickets.length === 1 ? "ticket" : "tickets"}`;
       return `
-        <section class="ticket-category-group" data-ticket-category="${escapeHtml(category)}" data-ticket-mode="${escapeHtml(mode)}">
-          <div class="ticket-category-head">
-            <div>
-              <h4 class="ticket-category-title">${escapeHtml(category)}</h4>
-              <div class="ticket-category-description">${escapeHtml(description)}</div>
+        <details class="ticket-category-folder" data-ticket-category="${escapeHtml(category)}" data-ticket-mode="${escapeHtml(mode)}">
+          <summary class="ticket-category-head">
+            <div class="ticket-category-main">
+              <span class="ticket-folder-caret" aria-hidden="true"></span>
+              <div>
+                <h4 class="ticket-category-title">${escapeHtml(category)}</h4>
+                <div class="ticket-category-description">${escapeHtml(description)}</div>
+              </div>
             </div>
-            <span class="badge ticket-category-count">${tickets.length} ${tickets.length === 1 ? "ticket" : "tickets"}</span>
-          </div>
-          <div class="ticket-list">
+            <span class="badge ticket-category-count">${escapeHtml(countLabel)}</span>
+          </summary>
+          <div class="ticket-category-body">
             ${tickets.map(t => ticketCard(project, t)).join("")}
           </div>
-        </section>
+        </details>
       `;
     }
 
