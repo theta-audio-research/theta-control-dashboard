@@ -1991,7 +1991,6 @@
                   ${sortableHeader("Next", "nextAction")}
                   ${sortableHeader("Blocker", "blocker")}
                   ${sortableHeader("Formats", "formats")}
-                  ${sortableHeader("Evidence", "sourceCertainty")}
                 </tr>
               </thead>
               <tbody>
@@ -2005,7 +2004,6 @@
                     <td>${escapeHtml(p.nextAction)}</td>
                     <td>${escapeHtml(p.blocker || p.decisionNeeded || "")}</td>
                     <td>${escapeHtml(formatFormats(p))}</td>
-                    <td>${sourceBadge(p.sourceCertainty || p.sourceConfidence || p.confidence)}</td>
                   </tr>
                 `).join("")}
               </tbody>
