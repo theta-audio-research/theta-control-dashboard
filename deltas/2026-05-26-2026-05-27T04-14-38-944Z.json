@@ -1,0 +1,12 @@
+{
+  "project": "ARECIBO",
+  "version": "v16.3",
+  "event": "manual-hook-test",
+  "status": "hook-test",
+  "source_artifact": "ARECIBO_Plugin_v16.3_VST-AU_Source.zip",
+  "build_artifact": "",
+  "summary": "ARECIBO Control Room manual hook test.",
+  "next_action": "run ARECIBO smoke tests and Control Room ticket folders",
+  "hook": "Scripts/control_room_report.sh",
+  "created_at": "2026-05-27T04:14:38Z"
+}
