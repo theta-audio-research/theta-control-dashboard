@@ -1,0 +1,13 @@
+{
+  "project": "CREOSOTE",
+  "manufacturer": "THETA Audio Research",
+  "event": "build",
+  "version": "v18.8.8",
+  "status": "build-reported",
+  "source_artifact": "/Users/steveneal/Downloads/CREOSOTE_Plugin_v18.8.8_VST-AU-AAX_Source.zip",
+  "build_artifact": "/Users/steveneal/Downloads/CREOSOTE_Plugin_v18.8.8_VST-AU-AAX_Source.zip",
+  "summary": "CREOSOTE build completed successfully and emitted a Control Room build delta.",
+  "next_action": "run CREOSOTE smoke tests and category-based Deep QA tickets",
+  "hook": "Scripts/control_room_report.sh",
+  "created_at": "2026-05-27T00:29:32Z"
+}
