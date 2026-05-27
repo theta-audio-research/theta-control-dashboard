@@ -1044,8 +1044,8 @@
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "v16.48 known from handoff context.",
-      "nextAction": "v16.49 if resumed.",
+      "latestVersion": "v16.56",
+      "nextAction": "Test CATHODE v16.56 in Ableton/standalone and verify UI, presets, CRUSH, INTERFERENCE, installer behavior, and Control Room delta receipt.",
       "firstAction": "Confirm current chat/source state before build.",
       "blocker": "Needs project-specific current chat confirmation before overwriting.",
       "decisionNeeded": "",
@@ -1189,7 +1189,21 @@
           "completedAt": "",
           "result": ""
         }
-      ]
+      ],
+      "currentVersion": "v16.56",
+      "lastBuild": "v16.56",
+      "lastUpdated": "2026-05-27T01:24:06.926390+00:00",
+      "lastControlRoomSync": {
+        "type": "delta_backfill",
+        "source": "latest-cathode-delta",
+        "createdAt": "2026-05-27T01:24:06.926390+00:00",
+        "deltaFile": "deltas/2026-05-26-2026-05-26T23-19-03-714Z.json",
+        "summary": "CATHODE backfilled from latest delta: v16.56"
+      },
+      "lastDeltaStatus": "signed/notarized DMG build completed",
+      "sourceArtifact": "CATHODE_Plugin_v16.56_VST-AU-AAX-Standalone_DMG_Source.zip",
+      "buildArtifact": "CATHODE_VST-AU-Standalone_v16.56.dmg",
+      "summary": "signed/notarized DMG build completed"
     },
     {
       "id": "atria",
@@ -3112,12 +3126,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "package_build",
-    "source": "dashboard-package",
-    "createdAt": "2026-05-25T00:00:00-07:00",
-    "localDate": "2026-05-25",
-    "localHour": null,
+    "type": "delta_backfill",
+    "source": "latest-cathode-delta",
+    "createdAt": "2026-05-27T01:24:06.926390+00:00",
+    "localDate": "2026-05-26",
     "timezone": "America/Los_Angeles",
-    "summary": "Initial v3.1 package build. Live sync time updates after Worker delta or checkpoint."
+    "summary": "CATHODE visible card backfilled to v16.56 from 2026-05-26-2026-05-26T23-19-03-714Z.json",
+    "localHour": 18
   }
 }
