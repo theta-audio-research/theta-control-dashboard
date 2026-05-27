@@ -802,6 +802,159 @@
         scroll-behavior: auto !important;
       }
     }
+
+    /* v3.3 Visual Comfort + Ticket Category Grouping */
+    :root {
+      --font-xs: 0.72rem;
+      --font-sm: 0.80rem;
+      --font-md: 0.88rem;
+      --font-lg: 1.00rem;
+      --font-xl: 1.16rem;
+      --font-xxl: 1.34rem;
+      --reading-line-height: 1.48;
+    }
+
+    body {
+      font-size: 14px;
+      line-height: var(--reading-line-height);
+    }
+
+    h1 {
+      font-size: 1.38rem;
+      letter-spacing: 0.06em;
+    }
+
+    h2 {
+      font-size: 1.08rem;
+    }
+
+    h3 {
+      font-size: 0.98rem;
+    }
+
+    .card,
+    .project-card,
+    .detail-card,
+    .ticket-panel {
+      line-height: var(--reading-line-height);
+    }
+
+    .badge,
+    .button,
+    .select,
+    .search {
+      font-size: var(--font-sm);
+    }
+
+    .ticket-panel {
+      padding: var(--space-4);
+    }
+
+    .ticket-header h3 {
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
+    }
+
+    .ticket-list {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .ticket-category-group {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.025);
+      padding: var(--space-4);
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .ticket-category-head {
+      display: flex;
+      justify-content: space-between;
+      gap: var(--space-3);
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: var(--space-3);
+    }
+
+    .ticket-category-title {
+      font-size: 0.86rem;
+      line-height: 1.25;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--text-strong);
+      margin: 0;
+    }
+
+    .ticket-category-description {
+      margin-top: 0.25rem;
+      color: var(--text-muted);
+      font-size: var(--font-sm);
+      line-height: 1.45;
+      max-width: 70ch;
+    }
+
+    .ticket-category-count {
+      white-space: nowrap;
+      opacity: 0.88;
+    }
+
+    .ticket-card {
+      grid-template-columns: 24px 1fr;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      border-radius: 14px;
+    }
+
+    .ticket-question {
+      font-size: 0.88rem;
+      line-height: 1.46;
+      letter-spacing: 0.005em;
+    }
+
+    .ticket-submeta {
+      margin-top: 0.28rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      font-size: var(--font-xs);
+    }
+
+    .ticket-detail-grid {
+      display: grid;
+      gap: 0.35rem;
+      margin-top: 0.55rem;
+      color: var(--text-muted);
+      font-size: var(--font-sm);
+      line-height: 1.42;
+    }
+
+    .ticket-detail-label {
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.68rem;
+      margin-right: 0.35rem;
+    }
+
+    .ticket-meta {
+      margin-top: 0.65rem;
+    }
+
+    .ticket-notes {
+      font-size: 0.82rem;
+      line-height: 1.45;
+      min-height: 84px;
+    }
+
+    .return-packet-box {
+      font-size: 0.80rem;
+      line-height: 1.45;
+    }
+    /* end v3.3 Visual Comfort + Ticket Category Grouping */
+
   </style>
 </head>
 
@@ -1175,6 +1328,53 @@
         .join("");
     }
 
+    const TICKET_CATEGORY_ORDER = [
+      "INSTALL / HOST",
+      "BASIC AUDIO / STABILITY",
+      "SONIC CHARACTER",
+      "MODULE BEHAVIOR",
+      "EQ / OUTPUT SURGERY",
+      "INTERFACE / UX",
+      "PRESETS / STATE / AUTOMATION",
+      "PERFORMANCE / REGRESSION",
+      "ROADMAP / EVIDENCE",
+      "UNCATEGORIZED"
+    ];
+
+    const TICKET_CATEGORY_DESCRIPTIONS = {
+      "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+      "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+      "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+      "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+      "EQ / OUTPUT SURGERY": "Do EQ, filters, dynamic curves, and output-shaping tools match what the UI shows and what the ear expects?",
+      "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+      "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+      "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+      "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence.",
+      "UNCATEGORIZED": "Tickets that need a category assignment."
+    };
+
+    function ticketCategory(ticket) {
+      return ticket.category || ticket.type || ticket.qaCategory || "UNCATEGORIZED";
+    }
+
+    function ticketCategorySort(category) {
+      const idx = TICKET_CATEGORY_ORDER.indexOf(category);
+      return idx === -1 ? TICKET_CATEGORY_ORDER.length : idx;
+    }
+
+    function groupTicketsByCategory(tickets) {
+      const grouped = new Map();
+      for (const ticket of tickets) {
+        const category = ticketCategory(ticket);
+        if (!grouped.has(category)) grouped.set(category, []);
+        grouped.get(category).push(ticket);
+      }
+
+      return [...grouped.entries()]
+        .sort(([a], [b]) => ticketCategorySort(a) - ticketCategorySort(b) || a.localeCompare(b));
+    }
+
     function splitTickets(project) {
       const tickets = project.testTickets || [];
       return {
@@ -1183,18 +1383,35 @@
       };
     }
 
+    function ticketDetailLine(label, value) {
+      if (!value) return "";
+      return `<div><span class="ticket-detail-label">${escapeHtml(label)}</span>${escapeHtml(value)}</div>`;
+    }
+
     function ticketCard(project, ticket) {
       const status = ticket.status || "open";
       const checked = status === "passed" ? "checked" : "";
+      const priority = ticket.priority || "";
+      const layer = ticket.qaLayer || ticket.layer || "";
+      const versionValue = ticket.versionTested || ticket.version || "";
+      const submeta = [priority, layer, ticket.id].filter(Boolean).join(" · ");
+      const details = [
+        ticketDetailLine("Acceptance", ticket.acceptance),
+        ticketDetailLine("Test material", ticket.testMaterial),
+        ticketDetailLine("Notes target", ticket.notesTarget)
+      ].join("");
+
       return `
         <article class="ticket-card" data-status="${escapeHtml(status)}" data-ticket-id="${escapeHtml(ticket.id)}">
           <input class="ticket-checkbox" type="checkbox" ${checked} data-action="ticket-toggle" data-project-id="${escapeHtml(project.id)}" data-ticket-id="${escapeHtml(ticket.id)}" aria-label="Mark ticket passed" />
           <div>
             <div class="ticket-question">${escapeHtml(ticket.question)}</div>
+            ${submeta ? `<div class="ticket-submeta">${escapeHtml(submeta)}</div>` : ""}
+            ${details ? `<div class="ticket-detail-grid">${details}</div>` : ""}
             <div class="ticket-meta">
               <select class="select" data-ticket-field="status" aria-label="Ticket status">${ticketStatusOptions(status)}</select>
               <input class="search" data-ticket-field="tester" placeholder="Tester name" value="${escapeHtml(ticket.tester || "")}" />
-              <input class="search" data-ticket-field="version" placeholder="Version tested" value="${escapeHtml(ticket.version || "")}" />
+              <input class="search" data-ticket-field="version" placeholder="Version tested" value="${escapeHtml(versionValue)}" />
             </div>
             <textarea class="ticket-notes" data-ticket-field="notes" placeholder="Tester notes, observations, failure details, or pass criteria...">${escapeHtml(ticket.notes || "")}</textarea>
             <div class="ticket-actions">
@@ -1204,6 +1421,32 @@
           </div>
         </article>
       `;
+    }
+
+    function ticketCategoryGroup(project, category, tickets, mode) {
+      const description = TICKET_CATEGORY_DESCRIPTIONS[category] || TICKET_CATEGORY_DESCRIPTIONS.UNCATEGORIZED;
+      return `
+        <section class="ticket-category-group" data-ticket-category="${escapeHtml(category)}" data-ticket-mode="${escapeHtml(mode)}">
+          <div class="ticket-category-head">
+            <div>
+              <h4 class="ticket-category-title">${escapeHtml(category)}</h4>
+              <div class="ticket-category-description">${escapeHtml(description)}</div>
+            </div>
+            <span class="badge ticket-category-count">${tickets.length} ${tickets.length === 1 ? "ticket" : "tickets"}</span>
+          </div>
+          <div class="ticket-list">
+            ${tickets.map(t => ticketCard(project, t)).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderTicketGroups(project, tickets, mode) {
+      const grouped = groupTicketsByCategory(tickets);
+      if (!grouped.length) {
+        return `<div class="ticket-empty">${mode === "completed" ? "No completed tickets yet." : "No open tickets."}</div>`;
+      }
+      return grouped.map(([category, items]) => ticketCategoryGroup(project, category, items, mode)).join("");
     }
 
     function renderTicketPanel(project) {
@@ -1222,28 +1465,31 @@
             <button class="button" data-action="return-packet" data-project-id="${escapeHtml(project.id)}">Generate return packet</button>
           </div>
           <div class="ticket-list">
-            ${groups.open.length ? groups.open.map(t => ticketCard(project, t)).join("") : `<div class="ticket-empty">No open tickets.</div>`}
+            ${renderTicketGroups(project, groups.open, "open")}
           </div>
           <div class="ticket-header" style="margin-top: var(--space-5);">
             <h3>Completed / Archive</h3>
             <span class="badge badge--active">${groups.completed.length} passed</span>
           </div>
           <div class="ticket-list">
-            ${groups.completed.length ? groups.completed.map(t => ticketCard(project, t)).join("") : `<div class="ticket-empty">No completed tickets yet.</div>`}
+            ${renderTicketGroups(project, groups.completed, "completed")}
           </div>
           <div id="returnPacketBox" class="return-packet-box" hidden></div>
         </section>
       `;
     }
 
+
     function collectTicketPayload(button) {
       const card = button.closest(".ticket-card");
+      const version = card.querySelector('[data-ticket-field="version"]')?.value || "";
       return {
         projectId: button.dataset.projectId,
         ticketId: button.dataset.ticketId,
         status: card.querySelector('[data-ticket-field="status"]')?.value || "open",
         tester: card.querySelector('[data-ticket-field="tester"]')?.value || "",
-        version: card.querySelector('[data-ticket-field="version"]')?.value || "",
+        version,
+        versionTested: version,
         notes: card.querySelector('[data-ticket-field="notes"]')?.value || ""
       };
     }

@@ -1,5 +1,5 @@
 /**
- * THETA Control Room — Delta Inbox Automation Worker v3.0
+ * THETA Control Room — Delta Inbox Automation Worker v3.3
  *
  * What this Worker automates:
  * - POST /api/delta receives Control Room delta JSON.
@@ -33,7 +33,7 @@ export default {
       return json({
         ok: true,
         service: "THETA Control Room Delta Inbox",
-        version: "3.0",
+        version: "3.3",
         scheduleTimezone: env.TIMEZONE,
         scheduleHours: parseScheduleHours(env),
       });
@@ -196,6 +196,134 @@ function readinessClass(score) {
   return "na";
 }
 
+function semverScore(value) {
+  return String(value || "")
+    .replace(/^v/i, "")
+    .split(".")
+    .map(part => Number(part) || 0);
+}
+
+function compareSemver(a, b) {
+  const aa = semverScore(a);
+  const bb = semverScore(b);
+  const max = Math.max(aa.length, bb.length);
+  for (let i = 0; i < max; i++) {
+    const av = aa[i] || 0;
+    const bv = bb[i] || 0;
+    if (av !== bv) return av - bv;
+  }
+  return 0;
+}
+
+function inferVersionFromDelta(...sources) {
+  const blob = sources
+    .filter(Boolean)
+    .map(source => {
+      if (typeof source === "string") return source;
+      return [
+        source.version,
+        source.latestVersion,
+        source.latest_confirmed_version,
+        source.currentVersion,
+        source.lastBuild,
+        source.source_artifact,
+        source.sourceArtifact,
+        source.build_artifact,
+        source.buildArtifact,
+        source.artifact,
+        source.summary,
+        source.status,
+        source.next_action,
+        source.nextAction,
+      ].filter(Boolean).join(" ");
+    })
+    .join(" ");
+
+  const versions = [];
+  const regex = /(?:^|[^A-Za-z0-9])v?(\d+\.\d+(?:\.\d+)*)/g;
+  let match;
+  while ((match = regex.exec(blob)) !== null) {
+    versions.push(`v${match[1]}`);
+  }
+
+  if (!versions.length) return "";
+  versions.sort(compareSemver);
+  return versions[versions.length - 1];
+}
+
+function isLifecycleStatus(value) {
+  const normalized = String(value || "").trim().toLowerCase();
+  return new Set([
+    "active",
+    "paused",
+    "blocked",
+    "decision",
+    "prototype",
+    "research",
+    "archive",
+    "archived",
+    "shipping",
+    "shipped",
+    "complete",
+    "completed"
+  ]).has(normalized);
+}
+
+function setProjectField(project, key, value, changed) {
+  if (value === undefined || value === null || value === "") return;
+  if (JSON.stringify(project[key]) !== JSON.stringify(value)) {
+    project[key] = value;
+    if (!changed.includes(key)) changed.push(key);
+  }
+}
+
+function getChangedProjectsFromDelta(delta) {
+  const direct = Array.isArray(delta.changedProjects) ? delta.changedProjects.slice() : [];
+  if (direct.length) {
+    return direct.map(item => {
+      const inferred = inferVersionFromDelta(item, delta);
+      return {
+        ...item,
+        version: item.version || item.latestVersion || item.latest_confirmed_version || inferred,
+        latestVersion: item.latestVersion || item.latest_confirmed_version || item.version || inferred,
+        currentVersion: item.currentVersion || item.version || item.latestVersion || inferred,
+        lastBuild: item.lastBuild || item.version || item.latestVersion || inferred,
+      };
+    });
+  }
+
+  const projectName = delta.project || delta.projectId || delta.id || delta.name;
+  if (!projectName) return [];
+
+  const inferred = inferVersionFromDelta(delta);
+
+  return [{
+    id: delta.id || delta.projectId || normalizeProjectId(projectName),
+    name: delta.name || String(projectName).trim(),
+    version: delta.version || inferred,
+    latestVersion: delta.latestVersion || delta.latest_confirmed_version || delta.version || inferred,
+    currentVersion: delta.currentVersion || delta.version || inferred,
+    lastBuild: delta.lastBuild || delta.version || inferred,
+    next_action: delta.next_action || delta.nextAction || "",
+    first_action: delta.first_action || delta.firstAction || "",
+    blocker: delta.blocker || delta.currentBlocker || delta.current_blocker || "",
+    summary: delta.summary || delta.status || "",
+    status: delta.status || "",
+    lastDeltaStatus: delta.status || "",
+    sourceArtifact: delta.sourceArtifact || delta.source_artifact || "",
+    source_artifact: delta.source_artifact || delta.sourceArtifact || "",
+    buildArtifact: delta.buildArtifact || delta.build_artifact || "",
+    build_artifact: delta.build_artifact || delta.buildArtifact || "",
+    artifact: delta.artifact || delta.build_artifact || delta.source_artifact || "",
+    formats_in_scope: delta.formats_in_scope || delta.formats || delta.formatsNow || "",
+    ship_readiness: delta.ship_readiness || delta.shipReadiness || "",
+    changeType: delta.event || delta.changeType || delta.change_type || "Build/install delta",
+    endStatus: delta.status || delta.summary || "",
+    tomorrow_first_action: delta.tomorrow_first_action || delta.tomorrowFirstAction || "",
+  }];
+}
+
+
 function makeBlankProject(projectId, name) {
   return {
     id: projectId,
@@ -233,10 +361,14 @@ function applyProjectDelta(project, delta, date) {
   const fieldMap = {
     name: "name",
     description: "description",
-    status: "status",
     stage: "stage",
     latestVersion: "latestVersion",
     latest_confirmed_version: "latestVersion",
+    version: "latestVersion",
+    currentVersion: "currentVersion",
+    current_version: "currentVersion",
+    lastBuild: "lastBuild",
+    last_build: "lastBuild",
     nextAction: "nextAction",
     next_action: "nextAction",
     firstAction: "firstAction",
@@ -254,13 +386,19 @@ function applyProjectDelta(project, delta, date) {
     deferred_formats: "formatsLater",
     lastKnownStatus: "lastKnownStatus",
     last_known_status: "lastKnownStatus",
+    summary: "summary",
+    lastDeltaStatus: "lastDeltaStatus",
+    last_delta_status: "lastDeltaStatus",
     tomorrowFirstAction: "tomorrowFirstAction",
     tomorrow_first_action: "tomorrowFirstAction",
     notToday: "notToday",
     not_today: "notToday",
     artifact: "artifact",
-    sourceArtifact: "artifact",
-    build_source_artifact: "artifact",
+    sourceArtifact: "sourceArtifact",
+    source_artifact: "sourceArtifact",
+    buildArtifact: "buildArtifact",
+    build_artifact: "buildArtifact",
+    build_source_artifact: "sourceArtifact",
     sourceCertainty: "sourceCertainty",
     source_certainty: "sourceCertainty",
     sourceConfidenceNote: "sourceConfidenceNote",
@@ -291,19 +429,43 @@ function applyProjectDelta(project, delta, date) {
     }
   }
 
+  const inferredVersion = inferVersionFromDelta(delta);
+  if (inferredVersion) {
+    setProjectField(project, "latestVersion", inferredVersion, changed);
+    setProjectField(project, "currentVersion", inferredVersion, changed);
+    setProjectField(project, "lastBuild", inferredVersion, changed);
+  }
+
+  const incomingStatus = delta.status || delta.endStatus || delta.end_status || "";
+  if (incomingStatus) {
+    if (isLifecycleStatus(incomingStatus)) {
+      setProjectField(project, "status", String(incomingStatus).trim().toLowerCase(), changed);
+    } else {
+      setProjectField(project, "lastDeltaStatus", incomingStatus, changed);
+      if (!delta.summary) setProjectField(project, "summary", incomingStatus, changed);
+    }
+  }
+
+  setProjectField(project, "summary", delta.summary || project.summary || "", changed);
+  setProjectField(project, "sourceArtifact", delta.sourceArtifact || delta.source_artifact || "", changed);
+  setProjectField(project, "buildArtifact", delta.buildArtifact || delta.build_artifact || "", changed);
+
   project.lastTouched = date;
   return changed;
 }
 
 async function applyDeltaToGitHub(delta, env, source) {
-  const date = delta.date || new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const local = getLocalParts(now, env.TIMEZONE || "America/Los_Angeles");
+  const date = delta.date || local.date;
+  const appliedAt = now.toISOString();
   const projectsFile = await githubGetFile(env, "data/projects.json");
   const projectsData = JSON.parse(projectsFile.text);
   const projects = projectsData.projects || [];
   projectsData.projects = projects;
 
   const projectMap = new Map(projects.map(p => [p.id, p]));
-  const changedProjects = delta.changedProjects || [];
+  const changedProjects = getChangedProjectsFromDelta(delta);
   const applied = [];
 
   for (const item of changedProjects) {
@@ -319,6 +481,19 @@ async function applyDeltaToGitHub(delta, env, source) {
 
     const project = projectMap.get(id);
     const fields = applyProjectDelta(project, item, date);
+    project.lastUpdated = appliedAt;
+    project.lastControlRoomSync = {
+      type: delta.type || "control_room_delta",
+      source,
+      createdAt: appliedAt,
+      localDate: local.date,
+      localHour: local.hour,
+      timezone: env.TIMEZONE || "America/Los_Angeles",
+      summary: `${project.name || id} updated from Control Room delta${project.latestVersion ? `: ${project.latestVersion}` : ""}.`,
+    };
+    if (!fields.includes("lastUpdated")) fields.push("lastUpdated");
+    if (!fields.includes("lastControlRoomSync")) fields.push("lastControlRoomSync");
+
     applied.push({
       id,
       name: project.name,
@@ -353,7 +528,6 @@ async function applyDeltaToGitHub(delta, env, source) {
   projectsData.schemaVersion = "3.0";
   projectsData.lastUpdated = date;
   projectsData.todayMessage = delta.todayMessage || projectsData.todayMessage || "Control Room delta applied.";
-  const appliedAt = new Date().toISOString();
   projectsData.lastControlRoomSweep = {
     date,
     type: delta.type || "control_room_delta",
@@ -367,7 +541,8 @@ async function applyDeltaToGitHub(delta, env, source) {
     type: delta.type || "control_room_delta",
     source,
     createdAt: appliedAt,
-    localDate: date,
+    localDate: local.date,
+    localHour: local.hour,
     timezone: env.TIMEZONE || "America/Los_Angeles",
     summary: `${applied.length} project delta${applied.length === 1 ? "" : "s"} applied: ${applied.map(x => x.name).join(", ") || "none"}.`,
   };
