@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-05-26",
+  "lastUpdated": "2026-05-27",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -2611,12 +2611,12 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-05-26",
+    "date": "2026-05-27",
     "type": "control_room_delta",
     "source": "api",
     "changedProjects": [],
     "dashboardDataChanged": false,
-    "lastAppliedAt": "2026-05-26T23:19:03.714Z",
+    "lastAppliedAt": "2026-05-27T00:29:33.167Z",
     "tomorrowFirstControlRoomAction": "Review dashboard and continue active projects."
   },
   "automation": {
