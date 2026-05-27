@@ -1038,6 +1038,88 @@
     }
     /* end v3.4 Collapsible Ticket Category Folders */
 
+
+    /* v3.5 Product Detail Sync Timestamps */
+    .detail-sync-panel {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.026);
+      padding: var(--space-4);
+      margin-top: var(--space-4);
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .detail-sync-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+      border-bottom: 1px solid rgba(255,255,255,0.075);
+      padding-bottom: var(--space-3);
+    }
+
+    .detail-sync-title {
+      margin: 0;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-strong);
+    }
+
+    .sync-freshness {
+      white-space: nowrap;
+    }
+
+    .sync-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-3);
+    }
+
+    .sync-row {
+      min-width: 0;
+      border: 1px solid rgba(255,255,255,0.065);
+      border-radius: 13px;
+      padding: 0.7rem 0.75rem;
+      background: rgba(0,0,0,0.16);
+    }
+
+    .sync-label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .sync-value {
+      display: block;
+      color: var(--text-strong);
+      font-size: 0.82rem;
+      line-height: 1.38;
+      overflow-wrap: anywhere;
+    }
+
+    .sync-value--mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.76rem;
+      color: var(--text-soft);
+    }
+
+    .sync-empty {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 880px) {
+      .sync-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* end v3.5 Product Detail Sync Timestamps */
+
   </style>
 </head>
 
@@ -1607,6 +1689,102 @@
       }
     }
 
+    function formatControlRoomTimestamp(value) {
+      if (!value) return { label: "Not reported yet", raw: "" };
+
+      let raw = "";
+      if (typeof value === "string") {
+        raw = value;
+      } else if (typeof value === "object") {
+        raw = value.createdAt || value.timestamp || value.lastAppliedAt || value.date || "";
+      }
+
+      if (!raw) return { label: "Not reported yet", raw: "" };
+
+      const date = new Date(raw);
+      if (Number.isNaN(date.getTime())) {
+        return { label: raw, raw };
+      }
+
+      const label = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/Los_Angeles",
+        month: "short",
+        day: "2-digit",
+        year: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+        timeZoneName: "short"
+      }).format(date);
+
+      return { label, raw };
+    }
+
+    function syncFreshnessBadge(project) {
+      const sync = project.lastControlRoomSync || {};
+      const raw = sync.createdAt || project.lastUpdated || project.lastTouched || "";
+      const date = raw ? new Date(raw) : null;
+
+      if (!date || Number.isNaN(date.getTime())) {
+        return `<span class="badge sync-freshness">No hook sync yet</span>`;
+      }
+
+      const ageHours = (Date.now() - date.getTime()) / 36e5;
+      if (ageHours <= 24) return `<span class="badge badge--active sync-freshness">Fresh</span>`;
+      if (ageHours <= 168) return `<span class="badge badge--today sync-freshness">Recent</span>`;
+      return `<span class="badge badge--blocked sync-freshness">Stale</span>`;
+    }
+
+    function syncRow(label, value, mono = false, title = "") {
+      const safeValue = value ? escapeHtml(value) : `<span class="sync-empty">Not reported yet</span>`;
+      const titleAttr = title ? ` title="${escapeHtml(title)}"` : "";
+      return `
+        <div class="sync-row"${titleAttr}>
+          <span class="sync-label">${escapeHtml(label)}</span>
+          <span class="sync-value ${mono ? "sync-value--mono" : ""}">${safeValue}</span>
+        </div>
+      `;
+    }
+
+    function renderProjectSyncPanel(project) {
+      const projectSync = project.lastControlRoomSync || {};
+      const rootSync = dashboardData?.lastControlRoomSync || dashboardData?.lastControlRoomSweep || {};
+
+      const projectTime = formatControlRoomTimestamp(
+        projectSync.createdAt ? projectSync : (project.lastUpdated || project.lastTouched || "")
+      );
+      const rootTime = formatControlRoomTimestamp(rootSync);
+      const localStamp = [
+        projectSync.localDate || "",
+        projectSync.localHour !== undefined && projectSync.localHour !== null ? `${String(projectSync.localHour).padStart(2, "0")}:00` : "",
+        projectSync.timezone || rootSync.timezone || ""
+      ].filter(Boolean).join(" ");
+
+      const sourceArtifact = project.sourceArtifact || project.source_artifact || "";
+      const buildArtifact = project.buildArtifact || project.build_artifact || project.artifact || "";
+      const lastStatus = project.lastDeltaStatus || project.summary || project.lastKnownStatus || "";
+      const syncSummary = projectSync.summary || rootSync.summary || "";
+
+      return `
+        <section class="detail-sync-panel">
+          <div class="detail-sync-head">
+            <h3 class="detail-sync-title">Control Room Sync</h3>
+            ${syncFreshnessBadge(project)}
+          </div>
+          <div class="sync-grid">
+            ${syncRow("Last project update", projectTime.label, false, projectTime.raw)}
+            ${syncRow("Dashboard/root sync", rootTime.label, false, rootTime.raw)}
+            ${syncRow("Project local stamp", localStamp)}
+            ${syncRow("Latest version", project.currentVersion || project.latestVersion || project.lastBuild || "")}
+            ${syncRow("Last delta status", lastStatus)}
+            ${syncRow("Sync summary", syncSummary)}
+            ${syncRow("Source artifact", sourceArtifact, true)}
+            ${syncRow("Build artifact", buildArtifact, true)}
+          </div>
+        </section>
+      `;
+    }
+
+
     function renderDetailView(project = null) {
       const selected = project || projects.find(p => p.id === selectedProjectId) || getTodayProjects()[0] || projects[0];
 
@@ -1640,6 +1818,8 @@
             <h2 class="detail-title">${escapeHtml(selected.name)}</h2>
             <p>${escapeHtml(selected.description)}</p>
           </div>
+
+          ${renderProjectSyncPanel(selected)}
 
           <div class="detail-grid">
             <div class="detail-box">
