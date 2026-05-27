@@ -1120,6 +1120,21 @@
     }
     /* end v3.5 Product Detail Sync Timestamps */
 
+
+    /* v3.8 Tester Name Dropdown */
+    .tester-select-disabled {
+      opacity: 0.58;
+      cursor: not-allowed;
+      filter: grayscale(0.15);
+    }
+
+    .tester-select-disabled[disabled] {
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba(255, 255, 255, 0.08);
+    }
+    /* end v3.8 Tester Name Dropdown */
+
   </style>
 </head>
 
@@ -1553,6 +1568,14 @@
       return `<div><span class="ticket-detail-label">${escapeHtml(label)}</span>${escapeHtml(value)}</div>`;
     }
 
+    function testerNameOptions(current) {
+      const names = ["Steve Neal"];
+      const selected = current || "Steve Neal";
+      return names
+        .map(name => `<option value="${escapeHtml(name)}" ${name === selected ? "selected" : ""}>${escapeHtml(name)}</option>`)
+        .join("");
+    }
+
     function ticketCard(project, ticket) {
       const status = ticket.status || "open";
       const checked = status === "passed" ? "checked" : "";
@@ -1575,7 +1598,9 @@
             ${details ? `<div class="ticket-detail-grid">${details}</div>` : ""}
             <div class="ticket-meta">
               <select class="select" data-ticket-field="status" aria-label="Ticket status">${ticketStatusOptions(status)}</select>
-              <input class="search" data-ticket-field="tester" placeholder="Tester name" value="${escapeHtml(ticket.tester || "")}" />
+              <select class="select tester-select-disabled" data-ticket-field="tester" aria-label="Tester name" disabled title="Tester selection is locked for now">
+                ${testerNameOptions(ticket.tester)}
+              </select>
               <input class="search" data-ticket-field="version" placeholder="Version tested" value="${escapeHtml(versionValue)}" />
             </div>
             <textarea class="ticket-notes" data-ticket-field="notes" placeholder="Tester notes, observations, failure details, or pass criteria...">${escapeHtml(ticket.notes || "")}</textarea>
