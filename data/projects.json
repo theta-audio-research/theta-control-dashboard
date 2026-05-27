@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-05-26",
+  "lastUpdated": "2026-05-27",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -51,7 +51,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "compliance-instantiate",
@@ -64,7 +66,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "compliance-version-visible",
@@ -77,7 +81,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "compliance-basic-audio",
@@ -90,7 +96,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "compliance-preset-state",
@@ -103,7 +111,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "compliance-format-check",
@@ -116,7 +126,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "compliance-install-replace",
@@ -129,9 +141,215 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "compliance-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does COMPLIANCE build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does COMPLIANCE pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does COMPLIANCE sound like a broadcast/dialnorm-aware limiter that controls loudness transparently without flattening dialogue or transient life?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does COMPLIANCE remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do limiter modes, oversampling, ceiling/input behavior, multichannel handling, LFE behavior, meters, and loudness target coloring behave correctly?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do COMPLIANCE module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can COMPLIANCE be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does COMPLIANCE show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do COMPLIANCE presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does COMPLIANCE automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does COMPLIANCE stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did COMPLIANCE keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the COMPLIANCE project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "compliance-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for COMPLIANCE?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
-      ]
+      ],
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "foley-engine",
@@ -181,7 +399,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "ROADMAP / EVIDENCE",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "foley-engine-category-difference",
@@ -194,7 +414,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "ROADMAP / EVIDENCE",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "foley-engine-host-visibility",
@@ -207,7 +429,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "foley-engine-instantiate",
@@ -220,7 +444,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "foley-engine-version-visible",
@@ -233,7 +459,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "foley-engine-basic-audio",
@@ -246,7 +474,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "foley-engine-preset-state",
@@ -259,7 +489,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "foley-engine-format-check",
@@ -272,7 +504,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "foley-engine-install-replace",
@@ -285,9 +519,215 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "foley-engine-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does FOLEY ENGINE build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does FOLEY ENGINE pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does FOLEY ENGINE create believable Foley events instead of modified drum hits or generic noise bursts?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does FOLEY ENGINE remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do category-separated engines, event anatomy, material selection, transient/body/tail behavior, and realism controls work correctly?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do FOLEY ENGINE module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can FOLEY ENGINE be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does FOLEY ENGINE show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do FOLEY ENGINE presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does FOLEY ENGINE automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does FOLEY ENGINE stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did FOLEY ENGINE keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the FOLEY ENGINE project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "foley-engine-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for FOLEY ENGINE?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
-      ]
+      ],
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "gesture",
@@ -1026,14 +1466,23 @@
         "BASIC AUDIO / STABILITY",
         "SONIC CHARACTER",
         "MODULE BEHAVIOR",
-        "EQ / OUTPUT SURGERY",
         "INTERFACE / UX",
         "PRESETS / STATE / AUTOMATION",
         "PERFORMANCE / REGRESSION",
         "ROADMAP / EVIDENCE"
       ],
-      "qaStrategy": "Keep smoke tickets as ship gates; use Deep QA tickets for sonic identity, module behavior, regression, and next-build evidence.",
-      "lastTicketPackUpdate": "2026-05-27T00:14:24.613625+00:00"
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T00:14:24.613625+00:00",
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      }
     },
     {
       "id": "cathode",
@@ -1083,7 +1532,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "cathode-module-character",
@@ -1096,7 +1547,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "MODULE BEHAVIOR",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "cathode-host-visibility",
@@ -1109,7 +1562,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "cathode-instantiate",
@@ -1122,7 +1577,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "cathode-version-visible",
@@ -1135,7 +1592,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "cathode-basic-audio",
@@ -1148,7 +1607,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "cathode-preset-state",
@@ -1161,7 +1622,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "cathode-format-check",
@@ -1174,7 +1637,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "cathode-install-replace",
@@ -1187,7 +1652,191 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "cathode-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does CATHODE build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does CATHODE pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does CATHODE still feel like a receiver/CRT degradation instrument with LOCK, HEAD, INTERFERENCE, CRUSH, and visual character working as one identity?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does CATHODE remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do LOCK, HEAD, RECEIVER, INTERFERENCE, CRUSH, contextual visual bays, and presets behave musically and visually without regression?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do CATHODE module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can CATHODE be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does CATHODE show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do CATHODE presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does CATHODE automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does CATHODE stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did CATHODE keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the CATHODE project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "cathode-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for CATHODE?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
       ],
       "currentVersion": "v16.56",
@@ -1203,7 +1852,29 @@
       "lastDeltaStatus": "signed/notarized DMG build completed",
       "sourceArtifact": "CATHODE_Plugin_v16.56_VST-AU-AAX-Standalone_DMG_Source.zip",
       "buildArtifact": "CATHODE_VST-AU-Standalone_v16.56.dmg",
-      "summary": "signed/notarized DMG build completed"
+      "summary": "signed/notarized DMG build completed",
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "atria",
@@ -1252,7 +1923,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "atria-instantiate",
@@ -1265,7 +1938,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "atria-version-visible",
@@ -1278,7 +1953,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "atria-basic-audio",
@@ -1291,7 +1968,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "atria-preset-state",
@@ -1304,7 +1983,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "atria-format-check",
@@ -1317,7 +1998,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "atria-install-replace",
@@ -1330,9 +2013,215 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "atria-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does ATRIA build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does ATRIA pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does ATRIA still feel like a macro-driven experimental effects instrument with expressive ring control and coherent signal-flow motion?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does ATRIA remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do rings, link modes, stutter engines, transient, crush, phase/flange, drive, pitch/speed, compressor, limiter, and macro mappings behave correctly?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do ATRIA module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can ATRIA be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does ATRIA show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do ATRIA presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does ATRIA automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does ATRIA stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did ATRIA keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the ATRIA project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "atria-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for ATRIA?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
-      ]
+      ],
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "arecibo",
@@ -1379,7 +2268,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "arecibo-instantiate",
@@ -1392,7 +2283,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "arecibo-version-visible",
@@ -1405,7 +2298,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "arecibo-basic-audio",
@@ -1418,7 +2313,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "arecibo-preset-state",
@@ -1431,7 +2328,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "arecibo-format-check",
@@ -1444,7 +2343,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "arecibo-install-replace",
@@ -1457,7 +2358,191 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "arecibo-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does ARECIBO build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does ARECIBO pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does ARECIBO still feel like a receiver/granular transmission instrument with believable motion, interference, static, and source transformation?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does ARECIBO remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do receiver, generator modes, interference/static, drift/head-style controls, presets, and visual feedback behave as intended?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do ARECIBO module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can ARECIBO be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does ARECIBO show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do ARECIBO presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does ARECIBO automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does ARECIBO stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did ARECIBO keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the ARECIBO project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "arecibo-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for ARECIBO?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
       ],
       "currentVersion": "v16.3",
@@ -1475,7 +2560,29 @@
         "localHour": 21,
         "timezone": "America/Los_Angeles",
         "summary": "ARECIBO updated from Control Room delta: v16.3."
-      }
+      },
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "twilight",
@@ -1525,7 +2632,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "twilight-instantiate",
@@ -1538,7 +2647,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "twilight-version-visible",
@@ -1551,7 +2662,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "twilight-basic-audio",
@@ -1564,7 +2677,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "twilight-preset-state",
@@ -1577,7 +2692,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "twilight-format-check",
@@ -1590,7 +2707,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "twilight-install-replace",
@@ -1603,9 +2722,215 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "twilight-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does TWILIGHT build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does TWILIGHT pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does TWILIGHT still create immersive regenerative ambience, playable drones, evolving harmonic fields, and finished atmospheric output?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does TWILIGHT remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do MIDI mode, four voices, loaded clip/V5, harmony, stutter, recorder, master bus, and output matrix behave correctly through the full signal chain?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do TWILIGHT module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can TWILIGHT be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does TWILIGHT show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do TWILIGHT presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does TWILIGHT automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does TWILIGHT stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did TWILIGHT keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the TWILIGHT project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "twilight-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for TWILIGHT?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
-      ]
+      ],
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "focusgrid",
@@ -1654,7 +2979,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "ROADMAP / EVIDENCE",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "focusgrid-four-band-behavior",
@@ -1667,7 +2994,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "ROADMAP / EVIDENCE",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "focusgrid-host-visibility",
@@ -1680,7 +3009,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "focusgrid-instantiate",
@@ -1693,7 +3024,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "focusgrid-version-visible",
@@ -1706,7 +3039,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "focusgrid-basic-audio",
@@ -1719,7 +3054,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "focusgrid-preset-state",
@@ -1732,7 +3069,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "focusgrid-format-check",
@@ -1745,7 +3084,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "focusgrid-install-replace",
@@ -1758,9 +3099,215 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "focusgrid-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does FOCUSGRID build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does FOCUSGRID pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does FOCUSGRID create useful sidechain masking relief that feels frequency-aware rather than simple full-band ducking?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does FOCUSGRID remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do FOCUSGRID NODE, sidechain routing, four-band relief, calibration controls, band behavior, and audible masking reduction work correctly?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do FOCUSGRID module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can FOCUSGRID be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does FOCUSGRID show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do FOCUSGRID presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does FOCUSGRID automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does FOCUSGRID stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did FOCUSGRID keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the FOCUSGRID project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "focusgrid-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for FOCUSGRID?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
-      ]
+      ],
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "scenematch",
@@ -1810,7 +3357,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "scenematch-instantiate",
@@ -1823,7 +3372,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "scenematch-version-visible",
@@ -1836,7 +3387,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "scenematch-basic-audio",
@@ -1849,7 +3402,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "scenematch-preset-state",
@@ -1862,7 +3417,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "scenematch-format-check",
@@ -1875,7 +3432,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "scenematch-install-replace",
@@ -1888,9 +3447,215 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "scenematch-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does SCENEMATCH build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does SCENEMATCH pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does SCENEMATCH create believable scene/space matching that helps audio sit naturally with reference material?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does SCENEMATCH remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do analysis, matching, import/reference handling, rendering, host visibility, and signed install behavior work correctly?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do SCENEMATCH module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can SCENEMATCH be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does SCENEMATCH show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do SCENEMATCH presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does SCENEMATCH automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does SCENEMATCH stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did SCENEMATCH keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the SCENEMATCH project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "scenematch-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for SCENEMATCH?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
-      ]
+      ],
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "prismform",
@@ -1940,7 +3705,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "prismform-v14-ui-preserved",
@@ -1953,7 +3720,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "prismform-host-visibility",
@@ -1966,7 +3735,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "prismform-instantiate",
@@ -1979,7 +3750,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "prismform-version-visible",
@@ -1992,7 +3765,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "prismform-basic-audio",
@@ -2005,7 +3780,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "prismform-preset-state",
@@ -2018,7 +3795,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "prismform-format-check",
@@ -2031,7 +3810,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "prismform-install-replace",
@@ -2044,9 +3825,215 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "prism-form-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does PRISM FORM build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does PRISM FORM pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does PRISM FORM feel like a playable spectral instrument with useful selection, transformation, and performance control rather than a visual-only prototype?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does PRISM FORM remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do spectral selection, wand behavior, audio output, macro controls, keyboard deck, pitch/mod wheels, and pool/range controls behave correctly?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do PRISM FORM module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can PRISM FORM be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does PRISM FORM show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do PRISM FORM presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does PRISM FORM automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does PRISM FORM stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did PRISM FORM keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the PRISM FORM project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "prism-form-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for PRISM FORM?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
-      ]
+      ],
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "podboss",
@@ -2353,7 +4340,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "hierarchy-ipc-risk",
@@ -2366,7 +4355,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "hierarchy-host-visibility",
@@ -2379,7 +4370,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "hierarchy-instantiate",
@@ -2392,7 +4385,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "hierarchy-version-visible",
@@ -2405,7 +4400,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INTERFACE / UX",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "hierarchy-basic-audio",
@@ -2418,7 +4415,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "BASIC AUDIO / STABILITY",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "hierarchy-preset-state",
@@ -2431,7 +4430,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "hierarchy-format-check",
@@ -2444,7 +4445,9 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
         },
         {
           "id": "hierarchy-install-replace",
@@ -2457,9 +4460,215 @@
           "createdAt": "2026-05-26",
           "updatedAt": "",
           "completedAt": "",
-          "result": ""
+          "result": "",
+          "category": "INSTALL / HOST",
+          "qaLayer": "Smoke / Ship Gate"
+        },
+        {
+          "id": "hierarchy-install-host-build-install",
+          "category": "INSTALL / HOST",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does HIERARCHY build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+          "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+          "testMaterial": "Ableton/Logic/Standalone as applicable",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-basic-audio-stability-pass",
+          "category": "BASIC AUDIO / STABILITY",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does HIERARCHY pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+          "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+          "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-sonic-identity-level-matched",
+          "category": "SONIC CHARACTER",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Does HIERARCHY make mix priority and ducking decisions feel intentional, transparent, and controllable?",
+          "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+          "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-sonic-useful-range",
+          "category": "SONIC CHARACTER",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Across subtle, medium, and extreme settings, does HIERARCHY remain musically useful instead of only working in one narrow range?",
+          "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+          "testMaterial": "subtle setting, medium setting, pushed/extreme setting",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-module-core-behavior",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do routing, shared-memory/IPC if present, priority lanes, band ducking, host visibility, and session behavior work correctly?",
+          "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+          "testMaterial": "module-by-module sweep",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-module-edge-cases",
+          "category": "MODULE BEHAVIOR",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Do HIERARCHY module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+          "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+          "testMaterial": "extreme parameter sweep, rapid toggle/mode changes",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-interface-readability-hitboxes",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Can HIERARCHY be read, clicked, resized, and understood without fighting the interface?",
+          "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+          "testMaterial": "default scale, common laptop display, resize if supported",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-interface-version-identity",
+          "category": "INTERFACE / UX",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does HIERARCHY show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+          "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+          "testMaterial": "UI footer/header, plugin browser, installed bundles",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-presets-session-recall",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Do HIERARCHY presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+          "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+          "testMaterial": "factory presets, user preset if available, DAW save/reopen",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-automation-render-match",
+          "category": "PRESETS / STATE / AUTOMATION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does HIERARCHY automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+          "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+          "testMaterial": "automation lanes, realtime playback, offline bounce",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-performance-cpu-repaint",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Does HIERARCHY stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+          "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+          "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-regression-previous-good-build",
+          "category": "PERFORMANCE / REGRESSION",
+          "priority": "P1",
+          "qaLayer": "Deep QA",
+          "question": "Compared with the previous known-good build, did HIERARCHY keep the important behavior while avoiding new regressions?",
+          "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+          "testMaterial": "previous known-good build notes, current build",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-evidence-reference-material",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P2",
+          "qaLayer": "Deep QA",
+          "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the HIERARCHY project chat?",
+          "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+          "testMaterial": "screenshots, audio examples, tester notes, return packet",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
+        },
+        {
+          "id": "hierarchy-next-build-decision",
+          "category": "ROADMAP / EVIDENCE",
+          "priority": "P0",
+          "qaLayer": "Deep QA",
+          "question": "Based on testing, what is the exact next build direction for HIERARCHY?",
+          "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+          "testMaterial": "completed smoke/deep QA tickets",
+          "status": "open",
+          "tester": "",
+          "versionTested": "",
+          "notes": ""
         }
-      ]
+      ],
+      "ticketTaxonomy": [
+        "INSTALL / HOST",
+        "BASIC AUDIO / STABILITY",
+        "SONIC CHARACTER",
+        "MODULE BEHAVIOR",
+        "INTERFACE / UX",
+        "PRESETS / STATE / AUTOMATION",
+        "PERFORMANCE / REGRESSION",
+        "ROADMAP / EVIDENCE"
+      ],
+      "ticketCategoryDescriptions": {
+        "INSTALL / HOST": "Does it build, install, appear, instantiate, validate, and replace old versions?",
+        "BASIC AUDIO / STABILITY": "Does audio pass, avoid silence/crackle/hum/level jumps, and survive normal use?",
+        "SONIC CHARACTER": "Does the product sound like itself? Does it improve material in a level-matched test?",
+        "MODULE BEHAVIOR": "Do individual modules, modes, macros, and edge cases behave as designed?",
+        "INTERFACE / UX": "Can you see, read, click, understand, resize, and operate it without fighting the UI?",
+        "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
+        "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
+        "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
     },
     {
       "id": "adaptscore",
@@ -3141,12 +5350,10 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "control_room_delta",
-    "source": "api",
-    "createdAt": "2026-05-27T04:14:38.458Z",
-    "localDate": "2026-05-26",
-    "localHour": 21,
+    "type": "ticket_pack_update",
+    "source": "v3.7-universal-deep-qa",
+    "createdAt": "2026-05-27T04:17:55.595079+00:00",
     "timezone": "America/Los_Angeles",
-    "summary": "1 project delta applied: ARECIBO."
+    "summary": "Universal Deep QA ticket packs applied to 11 projects."
   }
 }
