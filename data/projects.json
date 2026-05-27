@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-05-27",
+  "lastUpdated": "2026-05-26",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -1343,33 +1343,30 @@
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "Moving to v16; prior v15.11 source known.",
-      "nextAction": "v16 file reorg / WAVE mode button preservation.",
-      "firstAction": "Confirm exact v16.x source state.",
-      "blocker": "Needs current project-specific extraction to lock exact version.",
+      "latestVersion": "v16.3",
+      "nextAction": "Verify ARECIBO project card updates from direct /api/delta test.",
+      "firstAction": "",
+      "blocker": "",
       "decisionNeeded": "",
       "recommendedChoice": "",
-      "formatsNow": [
-        "VST3",
-        "AU"
-      ],
+      "formatsNow": "",
       "formatsLater": [
         "Standalone",
         "AAX",
         "Windows"
       ],
       "lastKnownStatus": "v16 line started; WAVE mode must remain a cycling button, not a knob.",
-      "tomorrowFirstAction": "Only touch if ARECIBO becomes today's focus.",
+      "tomorrowFirstAction": "",
       "notToday": "Do not let WAVE mode regress to a knob.",
-      "artifact": "",
+      "artifact": "ARECIBO.vst3 / ARECIBO.component",
       "sourceConfidenceNote": "Needs current project-specific confirmation.",
       "sourceCertainty": "medium",
-      "productConfidence": "medium",
+      "productConfidence": "low",
       "stage": "Active build",
-      "shipReadiness": 45,
-      "readinessLabel": "Active build",
-      "readinessClass": "active",
-      "lastTouched": "",
+      "shipReadiness": 0,
+      "readinessLabel": "N/A",
+      "readinessClass": "na",
+      "lastTouched": "2026-05-26",
       "testTickets": [
         {
           "id": "arecibo-host-visibility",
@@ -1462,7 +1459,23 @@
           "completedAt": "",
           "result": ""
         }
-      ]
+      ],
+      "currentVersion": "v16.3",
+      "lastBuild": "v16.3",
+      "summary": "ARECIBO v16.3 direct Control Room API test after regenerated GitHub token.",
+      "lastDeltaStatus": "hook-test",
+      "sourceArtifact": "arecibo_src_v16.3",
+      "buildArtifact": "ARECIBO.vst3 / ARECIBO.component",
+      "lastUpdated": "2026-05-27T04:14:17.731Z",
+      "lastControlRoomSync": {
+        "type": "control_room_delta",
+        "source": "api",
+        "createdAt": "2026-05-27T04:14:17.731Z",
+        "localDate": "2026-05-26",
+        "localHour": 21,
+        "timezone": "America/Los_Angeles",
+        "summary": "ARECIBO updated from Control Room delta: v16.3."
+      }
     },
     {
       "id": "twilight",
@@ -3085,12 +3098,14 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-05-27",
+    "date": "2026-05-26",
     "type": "control_room_delta",
     "source": "api",
-    "changedProjects": [],
-    "dashboardDataChanged": false,
-    "lastAppliedAt": "2026-05-27T00:29:37.572Z",
+    "changedProjects": [
+      "arecibo"
+    ],
+    "dashboardDataChanged": true,
+    "lastAppliedAt": "2026-05-27T04:14:17.731Z",
     "tomorrowFirstControlRoomAction": "Review dashboard and continue active projects."
   },
   "automation": {
@@ -3126,12 +3141,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "delta_backfill",
-    "source": "latest-cathode-delta",
-    "createdAt": "2026-05-27T01:24:06.926390+00:00",
+    "type": "control_room_delta",
+    "source": "api",
+    "createdAt": "2026-05-27T04:14:17.731Z",
     "localDate": "2026-05-26",
+    "localHour": 21,
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE visible card backfilled to v16.56 from 2026-05-26-2026-05-26T23-19-03-714Z.json",
-    "localHour": 18
+    "summary": "1 project delta applied: ARECIBO."
   }
 }
