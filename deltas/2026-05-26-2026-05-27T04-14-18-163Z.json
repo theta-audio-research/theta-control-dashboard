@@ -1,0 +1,11 @@
+{
+  "project": "ARECIBO",
+  "version": "v16.3",
+  "event": "manual-hook-test",
+  "status": "hook-test",
+  "summary": "ARECIBO v16.3 direct Control Room API test after regenerated GitHub token.",
+  "next_action": "Verify ARECIBO project card updates from direct /api/delta test.",
+  "source_artifact": "arecibo_src_v16.3",
+  "build_artifact": "ARECIBO.vst3 / ARECIBO.component",
+  "hook": "direct-terminal-test"
+}
