@@ -3671,38 +3671,37 @@
       "id": "prismform",
       "name": "PRISM FORM",
       "description": "Musician/sound-designer instrument/effect concept; current priority is turning the concept UI into a stable playable engine.",
-      "status": "active",
+      "status": "decision",
       "confidence": "low",
       "priorityRank": 3,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v1.4 exists; v1.5 requested but not yet confirmed built in Control Room.",
-      "nextAction": "Build PRISM FORM v1.5 — Safe Playable Engine Pass.",
+      "latestVersion": "v1.17",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
       "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction.",
-      "blocker": "v1.4 has lots of crackling and extremely limited functionality.",
+      "blocker": "Needs test result.",
       "decisionNeeded": "",
       "recommendedChoice": "",
       "formatsNow": [
         "VST3",
-        "AU",
-        "Standalone"
+        "AU"
       ],
       "formatsLater": [
         "AAX",
         "Windows"
       ],
-      "lastKnownStatus": "Renamed to PRISM FORM; earlier v1.2 added crackle guard and product display naming, v1.3 concept UI was built, v1.4 exists but is crackly/limited.",
-      "tomorrowFirstAction": "Build PRISM FORM v1.5 Safe Playable Engine Pass and confirm crackle/playability improves before expanding UI.",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "tomorrowFirstAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
       "notToday": "Do not redesign the v1.4 UI during v1.5; preserve UI and fix the engine/playability.",
-      "artifact": "PRISM FORM v1.4 current baseline; v1.5 requested",
+      "artifact": "/Applications/THETA Audio Research/PRISM FORM.app",
       "sourceConfidenceNote": "ChatGPT-side delta.",
       "sourceCertainty": "high",
       "productConfidence": "low",
       "stage": "Early prototype",
-      "shipReadiness": 22,
-      "readinessLabel": "Early prototype",
-      "readinessClass": "prototype",
-      "lastTouched": "2026-05-24",
+      "shipReadiness": 10,
+      "readinessLabel": "Just begun",
+      "readinessClass": "early",
+      "lastTouched": "2026-06-06",
       "testTickets": [
         {
           "id": "prismform-playable-5min",
@@ -4043,7 +4042,19 @@
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
       "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
-      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00",
+      "currentVersion": "v1.17",
+      "lastBuild": "v1.17",
+      "lastUpdated": "2026-06-07T05:44:23.496Z",
+      "lastControlRoomSync": {
+        "type": "build_hook_delta",
+        "source": "api",
+        "createdAt": "2026-06-07T05:44:23.496Z",
+        "localDate": "2026-06-06",
+        "localHour": 22,
+        "timezone": "America/Los_Angeles",
+        "summary": "PRISM FORM updated from Control Room delta: v1.17."
+      }
     },
     {
       "id": "podboss",
@@ -5398,11 +5409,11 @@
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
-      "atria"
+      "prismform"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T05:43:59.601Z",
-    "tomorrowFirstControlRoomAction": "Review build-hook update for ATRIA."
+    "lastAppliedAt": "2026-06-07T05:44:23.496Z",
+    "tomorrowFirstControlRoomAction": "Review build-hook update for PRISM FORM."
   },
   "automation": {
     "version": "3.0",
@@ -5439,10 +5450,10 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-06-07T05:43:59.601Z",
+    "createdAt": "2026-06-07T05:44:23.496Z",
     "localDate": "2026-06-06",
     "localHour": 22,
     "timezone": "America/Los_Angeles",
-    "summary": "1 project delta applied: ATRIA."
+    "summary": "1 project delta applied: PRISM FORM."
   }
 }
