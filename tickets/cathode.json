@@ -1,0 +1,195 @@
+{
+  "source": "tickets/cathode.json",
+  "version": "v16.57",
+  "tickets": [
+    {
+      "id": "cathode-crt-views",
+      "question": "Do contextual CRT/CRUSH/MOTION views appear in the correct locations without covering controls?",
+      "priority": "high",
+      "category": "INTERFACE / UX",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-module-character",
+      "question": "Do LOCK/HEAD/RECEIVER/INTERFERENCE/CRUSH still retain the intended CATHODE character?",
+      "priority": "normal",
+      "category": "MODULE BEHAVIOR",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-host-visibility",
+      "question": "Does CATHODE appear in the expected host/plugin browser under THETA Audio Research?",
+      "priority": "normal",
+      "category": "INSTALL / HOST",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-instantiate",
+      "question": "Does CATHODE instantiate without crash or stuck scan?",
+      "priority": "normal",
+      "category": "INSTALL / HOST",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-version-visible",
+      "question": "Does the UI/build display the expected current version or build identity?",
+      "priority": "normal",
+      "category": "INTERFACE / UX",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-basic-audio",
+      "question": "Does audio pass/process correctly with no unexpected silence, crackle, hum, or level jump?",
+      "priority": "normal",
+      "category": "BASIC AUDIO / STABILITY",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-preset-state",
+      "question": "Do presets/session reload preserve the current state correctly?",
+      "priority": "normal",
+      "category": "PRESETS / STATE / AUTOMATION",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-format-check",
+      "question": "Do the in-scope formats load as expected: VST3 / AU / Standalone?",
+      "priority": "normal",
+      "category": "INSTALL / HOST",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-install-replace",
+      "question": "Does the install/build command replace the previous build cleanly?",
+      "priority": "normal",
+      "category": "INSTALL / HOST",
+      "qaLayer": "Smoke / Ship Gate"
+    },
+    {
+      "id": "cathode-install-host-build-install",
+      "category": "INSTALL / HOST",
+      "priority": "P0",
+      "qaLayer": "Deep QA",
+      "question": "Does CATHODE build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
+      "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
+      "testMaterial": "Ableton/Logic/Standalone as applicable"
+    },
+    {
+      "id": "cathode-basic-audio-stability-pass",
+      "category": "BASIC AUDIO / STABILITY",
+      "priority": "P0",
+      "qaLayer": "Deep QA",
+      "question": "Does CATHODE pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
+      "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
+      "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles"
+    },
+    {
+      "id": "cathode-sonic-identity-level-matched",
+      "category": "SONIC CHARACTER",
+      "priority": "P0",
+      "qaLayer": "Deep QA",
+      "question": "Does CATHODE still feel like a receiver/CRT degradation instrument with LOCK, HEAD, INTERFERENCE, CRUSH, and visual character working as one identity?",
+      "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
+      "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant"
+    },
+    {
+      "id": "cathode-sonic-useful-range",
+      "category": "SONIC CHARACTER",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "Across subtle, medium, and extreme settings, does CATHODE remain musically useful instead of only working in one narrow range?",
+      "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
+      "testMaterial": "subtle setting, medium setting, pushed/extreme setting"
+    },
+    {
+      "id": "cathode-module-core-behavior",
+      "category": "MODULE BEHAVIOR",
+      "priority": "P0",
+      "qaLayer": "Deep QA",
+      "question": "Do LOCK, HEAD, RECEIVER, INTERFERENCE, CRUSH, contextual visual bays, and presets behave musically and visually without regression?",
+      "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
+      "testMaterial": "module-by-module sweep"
+    },
+    {
+      "id": "cathode-module-edge-cases",
+      "category": "MODULE BEHAVIOR",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "Do CATHODE module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
+      "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
+      "testMaterial": "extreme parameter sweep, rapid toggle/mode changes"
+    },
+    {
+      "id": "cathode-interface-readability-hitboxes",
+      "category": "INTERFACE / UX",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "Can CATHODE be read, clicked, resized, and understood without fighting the interface?",
+      "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
+      "testMaterial": "default scale, common laptop display, resize if supported"
+    },
+    {
+      "id": "cathode-interface-version-identity",
+      "category": "INTERFACE / UX",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "Does CATHODE show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
+      "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
+      "testMaterial": "UI footer/header, plugin browser, installed bundles"
+    },
+    {
+      "id": "cathode-presets-session-recall",
+      "category": "PRESETS / STATE / AUTOMATION",
+      "priority": "P0",
+      "qaLayer": "Deep QA",
+      "question": "Do CATHODE presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
+      "acceptance": "Pass only if save/reopen restores both sound and visible state.",
+      "testMaterial": "factory presets, user preset if available, DAW save/reopen"
+    },
+    {
+      "id": "cathode-automation-render-match",
+      "category": "PRESETS / STATE / AUTOMATION",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "Does CATHODE automation and offline render match realtime playback without clicks, zippering, or missing processing?",
+      "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
+      "testMaterial": "automation lanes, realtime playback, offline bounce"
+    },
+    {
+      "id": "cathode-performance-cpu-repaint",
+      "category": "PERFORMANCE / REGRESSION",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "Does CATHODE stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
+      "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
+      "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters"
+    },
+    {
+      "id": "cathode-regression-previous-good-build",
+      "category": "PERFORMANCE / REGRESSION",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "Compared with the previous known-good build, did CATHODE keep the important behavior while avoiding new regressions?",
+      "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
+      "testMaterial": "previous known-good build notes, current build"
+    },
+    {
+      "id": "cathode-evidence-reference-material",
+      "category": "ROADMAP / EVIDENCE",
+      "priority": "P2",
+      "qaLayer": "Deep QA",
+      "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the CATHODE project chat?",
+      "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
+      "testMaterial": "screenshots, audio examples, tester notes, return packet"
+    },
+    {
+      "id": "cathode-next-build-decision",
+      "category": "ROADMAP / EVIDENCE",
+      "priority": "P0",
+      "qaLayer": "Deep QA",
+      "question": "Based on testing, what is the exact next build direction for CATHODE?",
+      "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
+      "testMaterial": "completed smoke/deep QA tickets"
+    }
+  ]
+}
