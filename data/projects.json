@@ -1504,28 +1504,31 @@
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "v16.57",
-      "nextAction": "Deliver CATHODE v16.57 DMG to testers and run CATHODE ticket folders.",
+      "latestVersion": "v16.74",
+      "nextAction": "Tester installs signed/notarized v16.74 DMG (Developer ID + THETA_NOTARY, AAX off); verify WIDTH relocation — green header pill, MIX restored in PHOSPHOR. If install fails, capture /var/log/install.log to confirm the cause.",
       "firstAction": "",
-      "blocker": "",
+      "blocker": "Needs test result.",
       "decisionNeeded": "",
       "recommendedChoice": "",
-      "formatsNow": "",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
       "formatsLater": [
         "AAX",
         "Windows"
       ],
-      "lastKnownStatus": "Contextual visual bays and wide CRT/CRUSH layout work recently done.",
-      "tomorrowFirstAction": "",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "tomorrowFirstAction": "Tester installs signed/notarized v16.74 DMG (Developer ID + THETA_NOTARY, AAX off); verify WIDTH relocation — green header pill, MIX restored in PHOSPHOR. If install fails, capture /var/log/install.log to confirm the cause.",
       "notToday": "Do not assume v16.48 is current without project confirmation.",
-      "artifact": "/Users/steveneal/Desktop/CATHODE_VST-AU-Standalone_v16.57.dmg",
+      "artifact": "/Users/steveneal/Desktop/CATHODE_VST-AU-Standalone_v16.74.0.dmg",
       "sourceConfidenceNote": "Needs current project-specific confirmation.",
-      "sourceCertainty": "medium",
+      "sourceCertainty": "high",
       "productConfidence": "low",
       "stage": "Active product",
-      "shipReadiness": 0,
-      "readinessLabel": "N/A",
-      "readinessClass": "na",
+      "shipReadiness": 10,
+      "readinessLabel": "Just begun",
+      "readinessClass": "early",
       "lastTouched": "2026-06-06",
       "testTickets": [
         {
@@ -1846,17 +1849,17 @@
           "notes": ""
         }
       ],
-      "currentVersion": "v16.57",
-      "lastBuild": "v16.57",
-      "lastUpdated": "2026-06-07T04:38:48.109Z",
+      "currentVersion": "v16.74",
+      "lastBuild": "v16.74",
+      "lastUpdated": "2026-06-07T05:45:34.001Z",
       "lastControlRoomSync": {
-        "type": "control_room_delta",
+        "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-06-07T04:38:48.109Z",
+        "createdAt": "2026-06-07T05:45:34.001Z",
         "localDate": "2026-06-06",
-        "localHour": 21,
+        "localHour": 22,
         "timezone": "America/Los_Angeles",
-        "summary": "CATHODE updated from Control Room delta: v16.57."
+        "summary": "CATHODE updated from Control Room delta: v16.74."
       },
       "lastDeltaStatus": "package-reported",
       "sourceArtifact": "cathode_src_v16.57",
@@ -5446,11 +5449,11 @@
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
-      "ariadne"
+      "cathode"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T05:45:21.603Z",
-    "tomorrowFirstControlRoomAction": "Review build-hook update for ARIADNE."
+    "lastAppliedAt": "2026-06-07T05:45:34.001Z",
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CATHODE."
   },
   "automation": {
     "version": "3.0",
@@ -5487,10 +5490,10 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-06-07T05:45:21.603Z",
+    "createdAt": "2026-06-07T05:45:34.001Z",
     "localDate": "2026-06-06",
     "localHour": 22,
     "timezone": "America/Los_Angeles",
-    "summary": "1 project delta applied: ARIADNE."
+    "summary": "1 project delta applied: CATHODE."
   }
 }
