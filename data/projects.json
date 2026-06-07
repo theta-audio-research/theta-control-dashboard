@@ -1579,15 +1579,15 @@
         {
           "id": "cathode-instantiate",
           "question": "Does CATHODE instantiate without crash or stuck scan?",
-          "status": "open",
+          "status": "passed",
           "priority": "normal",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "",
           "version": "v16.48 known from handoff context.",
           "createdAt": "2026-05-26",
-          "updatedAt": "",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-07T06:44:49.648Z",
+          "completedAt": "2026-06-07T06:44:49.648Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Smoke / Ship Gate"
         },
@@ -5490,9 +5490,9 @@
   "lastControlRoomSync": {
     "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-07T06:30:23.928Z",
+    "createdAt": "2026-06-07T06:44:49.648Z",
     "localDate": "2026-06-07",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Does CATHODE appear in the expected host/plugin browser under THETA Audio Research?"
+    "summary": "CATHODE ticket updated: Does CATHODE instantiate without crash or stuck scan?"
   }
 }
