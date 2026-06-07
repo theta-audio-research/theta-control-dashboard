@@ -1878,15 +1878,15 @@
       "id": "atria",
       "name": "ATRIA",
       "description": "Modular macro-ring multi-effect / sound-design processor with linked movement controls.",
-      "status": "active",
+      "status": "blocked",
       "confidence": "medium",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "v30.13 known.",
-      "nextAction": "Continue CREOSOTE limiter transplant / LIMITER behavior fixes.",
+      "latestVersion": "v30.2",
+      "nextAction": "Verify v30.1 in DAW (vendor grouping under THETA Audio Research + STUTTER repitch); then v30.2 host BPM-sync for STUTTER",
       "firstAction": "Confirm latest ATRIA source/chat status.",
-      "blocker": "Needs current project-specific extraction to lock exact latest state.",
+      "blocker": "Needs test result.",
       "decisionNeeded": "",
       "recommendedChoice": "",
       "formatsNow": [
@@ -1897,18 +1897,18 @@
         "AAX",
         "Windows"
       ],
-      "lastKnownStatus": "LIMITER section should copy CREOSOTE behavior/look/feel.",
-      "tomorrowFirstAction": "Only touch if ATRIA becomes today's focus.",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "tomorrowFirstAction": "Verify v30.1 in DAW (vendor grouping under THETA Audio Research + STUTTER repitch); then v30.2 host BPM-sync for STUTTER",
       "notToday": "Do not rebuild until latest source/version is confirmed.",
-      "artifact": "",
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/A T R I A.vst3",
       "sourceConfidenceNote": "Needs current project-specific confirmation.",
-      "sourceCertainty": "medium",
-      "productConfidence": "medium",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
       "stage": "Active product",
-      "shipReadiness": 55,
-      "readinessLabel": "Active build",
-      "readinessClass": "active",
-      "lastTouched": "",
+      "shipReadiness": 10,
+      "readinessLabel": "Just begun",
+      "readinessClass": "early",
+      "lastTouched": "2026-06-06",
       "testTickets": [
         {
           "id": "atria-host-visibility",
@@ -2219,7 +2219,19 @@
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
       "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
-      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00",
+      "currentVersion": "v30.2",
+      "lastBuild": "v30.2",
+      "lastUpdated": "2026-06-07T05:43:59.601Z",
+      "lastControlRoomSync": {
+        "type": "build_hook_delta",
+        "source": "api",
+        "createdAt": "2026-06-07T05:43:59.601Z",
+        "localDate": "2026-06-06",
+        "localHour": 22,
+        "timezone": "America/Los_Angeles",
+        "summary": "ATRIA updated from Control Room delta: v30.2."
+      }
     },
     {
       "id": "arecibo",
@@ -5386,11 +5398,11 @@
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
-      "theseus"
+      "atria"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T05:43:38.171Z",
-    "tomorrowFirstControlRoomAction": "Review build-hook update for THESEUS."
+    "lastAppliedAt": "2026-06-07T05:43:59.601Z",
+    "tomorrowFirstControlRoomAction": "Review build-hook update for ATRIA."
   },
   "automation": {
     "version": "3.0",
@@ -5427,10 +5439,10 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-06-07T05:43:38.171Z",
+    "createdAt": "2026-06-07T05:43:59.601Z",
     "localDate": "2026-06-06",
     "localHour": 22,
     "timezone": "America/Los_Angeles",
-    "summary": "1 project delta applied: THESEUS."
+    "summary": "1 project delta applied: ATRIA."
   }
 }
