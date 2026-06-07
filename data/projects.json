@@ -355,38 +355,37 @@
       "id": "foley-engine",
       "name": "FOLEY ENGINE",
       "description": "Generative Foley and movement-sound engine for creating/editing synced sound effects.",
-      "status": "decision",
+      "status": "active",
       "confidence": "low",
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "v0.1.x early line; plugin now shows up, but sound realism is not acceptable.",
-      "nextAction": "Plan v0.2.0 — reference-calibrated Foley behavior model.",
+      "latestVersion": "v0.2.0",
+      "nextAction": "Compile via build.sh + load/test in Ableton; then calibrate MaterialProfile.h from reference WAVs (v0.2.0 event-anatomy engine is uncalibrated)",
       "firstAction": "Collect short WAV references, 1–5 seconds each, ideally 3–5 per Foley category.",
-      "blocker": "Sounds still feel like modified drum hits/noise rather than realistic Foley events.",
+      "blocker": "Needs test result.",
       "decisionNeeded": "Need reference examples and category anatomy before the next serious engine build.",
       "recommendedChoice": "Use reference-calibrated event anatomy per category instead of drum-hit-plus-noise synthesis.",
       "formatsNow": [
         "VST3",
-        "AU",
-        "Standalone"
+        "AU"
       ],
       "formatsLater": [
         "AAX",
         "Windows"
       ],
-      "lastKnownStatus": "Host visibility issue appears resolved; the major blocker shifted to realism and category-specific sound behavior.",
-      "tomorrowFirstAction": "Gather realistic short Foley references and define category-specific event anatomy for v0.2.0.",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "tomorrowFirstAction": "Compile via build.sh + load/test in Ableton; then calibrate MaterialProfile.h from reference WAVs (v0.2.0 event-anatomy engine is uncalibrated)",
       "notToday": "Do not keep tailoring the same noise/drum-hit source; the engine needs category-specific anatomy.",
-      "artifact": "",
+      "artifact": "/Library/Audio/Plug-Ins/VST3/FOLEY ENGINE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta.",
       "sourceCertainty": "high",
       "productConfidence": "low",
       "stage": "Early prototype",
-      "shipReadiness": 18,
+      "shipReadiness": 10,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-05-24",
+      "lastTouched": "2026-06-06",
       "testTickets": [
         {
           "id": "foley-engine-realism-check",
@@ -727,7 +726,19 @@
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
       "qaStrategy": "Smoke tickets are ship gates; Deep QA tickets are grouped by category and should drive return packets.",
-      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00"
+      "lastTicketPackUpdate": "2026-05-27T04:17:55.595079+00:00",
+      "currentVersion": "v0.2.0",
+      "lastBuild": "v0.2.0",
+      "lastUpdated": "2026-06-07T05:44:46.270Z",
+      "lastControlRoomSync": {
+        "type": "build_hook_delta",
+        "source": "api",
+        "createdAt": "2026-06-07T05:44:46.270Z",
+        "localDate": "2026-06-06",
+        "localHour": 22,
+        "timezone": "America/Los_Angeles",
+        "summary": "FOLEY ENGINE updated from Control Room delta: v0.2.0."
+      }
     },
     {
       "id": "gesture",
@@ -5409,11 +5420,11 @@
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
-      "prismform"
+      "foley-engine"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T05:44:23.496Z",
-    "tomorrowFirstControlRoomAction": "Review build-hook update for PRISM FORM."
+    "lastAppliedAt": "2026-06-07T05:44:46.270Z",
+    "tomorrowFirstControlRoomAction": "Review build-hook update for FOLEY ENGINE."
   },
   "automation": {
     "version": "3.0",
@@ -5450,10 +5461,10 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-06-07T05:44:23.496Z",
+    "createdAt": "2026-06-07T05:44:46.270Z",
     "localDate": "2026-06-06",
     "localHour": 22,
     "timezone": "America/Los_Angeles",
-    "summary": "1 project delta applied: PRISM FORM."
+    "summary": "1 project delta applied: FOLEY ENGINE."
   }
 }
