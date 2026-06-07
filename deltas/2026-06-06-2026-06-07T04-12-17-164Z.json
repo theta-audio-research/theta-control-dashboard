@@ -1,0 +1,10 @@
+{
+  "project": "CATHODE",
+  "version": "v16.57",
+  "event": "package",
+  "status": "package-reported",
+  "summary": "CATHODE v16.57 signed and notarized DMG completed.",
+  "next_action": "Deliver CATHODE v16.57 DMG to testers and run CATHODE ticket folders.",
+  "source_artifact": "cathode_src_v16.57",
+  "build_artifact": "/Users/steveneal/Desktop/CATHODE_VST-AU-Standalone_v16.57.dmg"
+}
