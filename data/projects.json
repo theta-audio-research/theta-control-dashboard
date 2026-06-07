@@ -5343,39 +5343,54 @@
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "",
-      "nextAction": "Add Control Room build hook and report first build.",
+      "latestVersion": "v0.2.12",
+      "nextAction": "DAW-test v0.2.12 (FDN core + preset menu); on sign-off, start Module 2 — spatial placement: per-zone positioning, early reflections, width.",
       "firstAction": "",
-      "blocker": "",
+      "blocker": "Needs test result.",
       "decisionNeeded": "",
       "recommendedChoice": "",
-      "formatsNow": [],
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
       "formatsLater": [],
-      "lastKnownStatus": "New project — no build reported yet.",
-      "tomorrowFirstAction": "",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "tomorrowFirstAction": "DAW-test v0.2.12 (FDN core + preset menu); on sign-off, start Module 2 — spatial placement: per-zone positioning, early reflections, width.",
       "notToday": "",
-      "artifact": "",
+      "artifact": "/Library/Audio/Plug-Ins/VST3/THESEUS.vst3",
       "sourceConfidenceNote": "",
-      "sourceCertainty": "",
-      "productConfidence": "",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
       "stage": "",
-      "shipReadiness": 0,
-      "readinessLabel": "",
-      "readinessClass": "",
-      "lastTouched": "",
-      "testTickets": []
+      "shipReadiness": 10,
+      "readinessLabel": "Just begun",
+      "readinessClass": "early",
+      "lastTouched": "2026-06-06",
+      "testTickets": [],
+      "currentVersion": "v0.2.12",
+      "lastBuild": "v0.2.12",
+      "lastUpdated": "2026-06-07T05:43:38.171Z",
+      "lastControlRoomSync": {
+        "type": "build_hook_delta",
+        "source": "api",
+        "createdAt": "2026-06-07T05:43:38.171Z",
+        "localDate": "2026-06-06",
+        "localHour": 22,
+        "timezone": "America/Los_Angeles",
+        "summary": "THESEUS updated from Control Room delta: v0.2.12."
+      }
     }
   ],
   "lastControlRoomSweep": {
     "date": "2026-06-06",
-    "type": "control_room_delta",
+    "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
-      "cathode"
+      "theseus"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T04:38:48.109Z",
-    "tomorrowFirstControlRoomAction": "Review dashboard and continue active projects."
+    "lastAppliedAt": "2026-06-07T05:43:38.171Z",
+    "tomorrowFirstControlRoomAction": "Review build-hook update for THESEUS."
   },
   "automation": {
     "version": "3.0",
@@ -5410,12 +5425,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "control_room_delta",
+    "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-06-07T04:38:48.109Z",
+    "createdAt": "2026-06-07T05:43:38.171Z",
     "localDate": "2026-06-06",
-    "localHour": 21,
+    "localHour": 22,
     "timezone": "America/Los_Angeles",
-    "summary": "1 project delta applied: CATHODE."
+    "summary": "1 project delta applied: THESEUS."
   }
 }
