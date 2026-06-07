@@ -1,5 +1,5 @@
 # THETA Control Room — per-project config for GESTURE
-# Static identity only; the build supplies version/artifact/status at call time.
+# Sourced by the build hook. Static identity only; build supplies version/artifact/status.
 export PROJECT_NAME="GESTURE"
 export PROJECT_ID="gesture"
 export PROJECT_FORMATS_JSON='["VST3","AU"]'

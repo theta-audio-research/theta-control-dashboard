@@ -1,5 +1,5 @@
 # THETA Control Room — per-project config for FOCUS GRID
-# Static identity only; the build supplies version/artifact/status at call time.
+# Sourced by the build hook. Static identity only; build supplies version/artifact/status.
 export PROJECT_NAME="FOCUS GRID"
 export PROJECT_ID="focusgrid"
 export PROJECT_FORMATS_JSON='["VST3","AU"]'

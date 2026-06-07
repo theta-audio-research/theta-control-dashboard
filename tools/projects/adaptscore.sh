@@ -1,5 +1,5 @@
 # THETA Control Room — per-project config for ADAPT SCORE
-# Static identity only; the build supplies version/artifact/status at call time.
+# Sourced by the build hook. Static identity only; build supplies version/artifact/status.
 export PROJECT_NAME="ADAPT SCORE"
 export PROJECT_ID="adaptscore"
 export PROJECT_FORMATS_JSON='["VST3","AU"]'

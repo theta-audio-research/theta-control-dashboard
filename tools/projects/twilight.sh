@@ -1,5 +1,5 @@
 # THETA Control Room — per-project config for TWILIGHT
-# Static identity only; the build supplies version/artifact/status at call time.
+# Sourced by the build hook. Static identity only; build supplies version/artifact/status.
 export PROJECT_NAME="TWILIGHT"
 export PROJECT_ID="twilight"
 export PROJECT_FORMATS_JSON='["VST3","AU"]'
