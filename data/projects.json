@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-06-06",
+  "lastUpdated": "2026-06-07",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -1564,15 +1564,15 @@
         {
           "id": "cathode-host-visibility",
           "question": "Does CATHODE appear in the expected host/plugin browser under THETA Audio Research?",
-          "status": "open",
+          "status": "passed",
           "priority": "normal",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "",
           "version": "v16.48 known from handoff context.",
           "createdAt": "2026-05-26",
-          "updatedAt": "",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-07T06:30:23.928Z",
+          "completedAt": "2026-06-07T06:30:23.928Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Smoke / Ship Gate"
         },
@@ -5488,12 +5488,11 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-06-07T06:00:19.694Z",
-    "localDate": "2026-06-06",
-    "localHour": 23,
+    "type": "ticket_update",
+    "source": "dashboard-ticket-ui",
+    "createdAt": "2026-06-07T06:30:23.928Z",
+    "localDate": "2026-06-07",
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 23:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "CATHODE ticket updated: Does CATHODE appear in the expected host/plugin browser under THETA Audio Research?"
   }
-}
+}\n
