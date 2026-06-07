@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-host-visibility",
+    "question": "Does CATHODE appear in the expected host/plugin browser under THETA Audio Research?",
+    "status": "passed",
+    "priority": "normal",
+    "tester": "Steve Neal",
+    "notes": "",
+    "version": "v16.48 known from handoff context.",
+    "createdAt": "2026-05-26",
+    "updatedAt": "2026-06-07T06:30:23.928Z",
+    "completedAt": "2026-06-07T06:30:23.928Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Smoke / Ship Gate"
+  }
+}\n
