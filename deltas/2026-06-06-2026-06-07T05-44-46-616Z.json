@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-06-06",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "foley-engine",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.2.0",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Library/Audio/Plug-Ins/VST3/FOLEY ENGINE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "Compile via build.sh + load/test in Ableton; then calibrate MaterialProfile.h from reference WAVs (v0.2.0 event-anatomy engine is uncalibrated)",
+      "tomorrowFirstAction": "Compile via build.sh + load/test in Ableton; then calibrate MaterialProfile.h from reference WAVs (v0.2.0 event-anatomy engine is uncalibrated)",
+      "endStatus": "Build hook reported FOLEY ENGINE v0.2.0."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for FOLEY ENGINE."
+  }
+}
