@@ -1837,11 +1837,11 @@
       ],
       "currentVersion": "v16.57",
       "lastBuild": "v16.57",
-      "lastUpdated": "2026-06-07T04:12:16.798Z",
+      "lastUpdated": "2026-06-07T04:38:48.109Z",
       "lastControlRoomSync": {
         "type": "control_room_delta",
         "source": "api",
-        "createdAt": "2026-06-07T04:12:16.798Z",
+        "createdAt": "2026-06-07T04:38:48.109Z",
         "localDate": "2026-06-06",
         "localHour": 21,
         "timezone": "America/Los_Angeles",
@@ -5312,7 +5312,7 @@
       "cathode"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T04:12:16.798Z",
+    "lastAppliedAt": "2026-06-07T04:38:48.109Z",
     "tomorrowFirstControlRoomAction": "Review dashboard and continue active projects."
   },
   "automation": {
@@ -5350,7 +5350,7 @@
   "lastControlRoomSync": {
     "type": "control_room_delta",
     "source": "api",
-    "createdAt": "2026-06-07T04:12:16.798Z",
+    "createdAt": "2026-06-07T04:38:48.109Z",
     "localDate": "2026-06-06",
     "localHour": 21,
     "timezone": "America/Los_Angeles",
