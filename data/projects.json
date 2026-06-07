@@ -1851,11 +1851,11 @@
       ],
       "currentVersion": "v16.74",
       "lastBuild": "v16.74",
-      "lastUpdated": "2026-06-07T05:45:34.001Z",
+      "lastUpdated": "2026-06-07T05:47:10.967Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-06-07T05:45:34.001Z",
+        "createdAt": "2026-06-07T05:47:10.967Z",
         "localDate": "2026-06-06",
         "localHour": 22,
         "timezone": "America/Los_Angeles",
@@ -5452,7 +5452,7 @@
       "cathode"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T05:45:34.001Z",
+    "lastAppliedAt": "2026-06-07T05:47:10.967Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CATHODE."
   },
   "automation": {
@@ -5490,7 +5490,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-06-07T05:45:34.001Z",
+    "createdAt": "2026-06-07T05:47:10.967Z",
     "localDate": "2026-06-06",
     "localHour": 22,
     "timezone": "America/Los_Angeles",
