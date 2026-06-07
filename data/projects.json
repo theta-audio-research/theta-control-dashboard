@@ -5357,27 +5357,42 @@
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "",
-      "nextAction": "Add Control Room build hook and report first build.",
+      "latestVersion": "v0.5.5",
+      "nextAction": "Verify AL auto-level toggle + tap tempo in a DAW; then begin surround Increment A (multichannel bus declaration + layout support).",
       "firstAction": "",
-      "blocker": "",
+      "blocker": "Needs test result.",
       "decisionNeeded": "",
       "recommendedChoice": "",
-      "formatsNow": [],
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
       "formatsLater": [],
-      "lastKnownStatus": "New project — no build reported yet.",
-      "tomorrowFirstAction": "",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "tomorrowFirstAction": "Verify AL auto-level toggle + tap tempo in a DAW; then begin surround Increment A (multichannel bus declaration + layout support).",
       "notToday": "",
-      "artifact": "",
+      "artifact": "/Library/Audio/Plug-Ins/VST3/ARIADNE.vst3",
       "sourceConfidenceNote": "",
-      "sourceCertainty": "",
-      "productConfidence": "",
+      "sourceCertainty": "high",
+      "productConfidence": "low",
       "stage": "",
-      "shipReadiness": 0,
-      "readinessLabel": "",
-      "readinessClass": "",
-      "lastTouched": "",
-      "testTickets": []
+      "shipReadiness": 10,
+      "readinessLabel": "Just begun",
+      "readinessClass": "early",
+      "lastTouched": "2026-06-06",
+      "testTickets": [],
+      "currentVersion": "v0.5.5",
+      "lastBuild": "v0.5.5",
+      "lastUpdated": "2026-06-07T05:45:21.603Z",
+      "lastControlRoomSync": {
+        "type": "build_hook_delta",
+        "source": "api",
+        "createdAt": "2026-06-07T05:45:21.603Z",
+        "localDate": "2026-06-06",
+        "localHour": 22,
+        "timezone": "America/Los_Angeles",
+        "summary": "ARIADNE updated from Control Room delta: v0.5.5."
+      }
     },
     {
       "id": "theseus",
@@ -5431,11 +5446,11 @@
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
-      "twilight"
+      "ariadne"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T05:44:55.250Z",
-    "tomorrowFirstControlRoomAction": "Review build-hook update for TWILIGHT."
+    "lastAppliedAt": "2026-06-07T05:45:21.603Z",
+    "tomorrowFirstControlRoomAction": "Review build-hook update for ARIADNE."
   },
   "automation": {
     "version": "3.0",
@@ -5472,10 +5487,10 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-06-07T05:44:55.250Z",
+    "createdAt": "2026-06-07T05:45:21.603Z",
     "localDate": "2026-06-06",
     "localHour": 22,
     "timezone": "America/Los_Angeles",
-    "summary": "1 project delta applied: TWILIGHT."
+    "summary": "1 project delta applied: ARIADNE."
   }
 }
