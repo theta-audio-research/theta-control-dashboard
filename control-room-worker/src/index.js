@@ -20,14 +20,26 @@
  * - SCHEDULE_HOURS
  */
 
+const CORS_HEADERS = {
+  "access-control-allow-origin": "*",
+  "access-control-allow-methods": "GET, POST, OPTIONS",
+  "access-control-allow-headers": "Authorization, Content-Type",
+  "access-control-max-age": "86400",
+};
+
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
   "cache-control": "no-store",
+  ...CORS_HEADERS,
 };
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    if (request.method === "OPTIONS") {
+      return new Response(null, { status: 204, headers: CORS_HEADERS });
+    }
 
     if (request.method === "GET" && url.pathname === "/api/health") {
       return json({
