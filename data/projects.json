@@ -5426,11 +5426,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "ticket_update",
-    "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-07T06:44:49.648Z",
+    "type": "scheduled_checkpoint",
+    "source": "scheduled-cron",
+    "createdAt": "2026-06-07T13:00:13.973Z",
     "localDate": "2026-06-07",
+    "localHour": 6,
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Does CATHODE instantiate without crash or stuck scan?"
+    "summary": "Automated checkpoint at 06:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
   }
 }
