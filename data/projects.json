@@ -1504,7 +1504,7 @@
       "priorityRank": null,
       "today": false,
       "ignoreToday": false,
-      "latestVersion": "v16.74",
+      "latestVersion": "v16.76",
       "nextAction": "Tester installs signed/notarized v16.74 DMG (Developer ID + THETA_NOTARY, AAX off); verify WIDTH relocation — green header pill, MIX restored in PHOSPHOR. If install fails, capture /var/log/install.log to confirm the cause.",
       "firstAction": "",
       "blocker": "Needs test result.",
@@ -1529,7 +1529,7 @@
       "shipReadiness": 10,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-06-06",
+      "lastTouched": "2026-06-07",
       "testTickets": [
         {
           "id": "cathode-rel-installer-clean-mac",
@@ -1787,17 +1787,17 @@
           "qaLayer": "Ship Gate"
         }
       ],
-      "currentVersion": "v16.74",
-      "lastBuild": "v16.74",
-      "lastUpdated": "2026-06-07T05:47:10.967Z",
+      "currentVersion": "v16.76",
+      "lastBuild": "v16.76",
+      "lastUpdated": "2026-06-07T17:28:28.492Z",
       "lastControlRoomSync": {
-        "type": "build_hook_delta",
+        "type": "control_room_delta",
         "source": "api",
-        "createdAt": "2026-06-07T05:47:10.967Z",
-        "localDate": "2026-06-06",
-        "localHour": 22,
+        "createdAt": "2026-06-07T17:28:28.492Z",
+        "localDate": "2026-06-07",
+        "localHour": 10,
         "timezone": "America/Los_Angeles",
-        "summary": "CATHODE updated from Control Room delta: v16.74."
+        "summary": "CATHODE updated from Control Room delta: v16.76."
       },
       "lastDeltaStatus": "package-reported",
       "sourceArtifact": "cathode_src_v16.57",
@@ -5383,15 +5383,15 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-06-06",
-    "type": "build_hook_delta",
+    "date": "2026-06-07",
+    "type": "control_room_delta",
     "source": "api",
     "changedProjects": [
       "cathode"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T05:47:10.967Z",
-    "tomorrowFirstControlRoomAction": "Review build-hook update for CATHODE."
+    "lastAppliedAt": "2026-06-07T17:28:28.492Z",
+    "tomorrowFirstControlRoomAction": "Review dashboard and continue active projects."
   },
   "automation": {
     "version": "3.0",
@@ -5426,12 +5426,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-06-07T16:00:14.010Z",
+    "type": "control_room_delta",
+    "source": "api",
+    "createdAt": "2026-06-07T17:28:28.492Z",
     "localDate": "2026-06-07",
-    "localHour": 9,
+    "localHour": 10,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 09:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CATHODE."
   }
 }
