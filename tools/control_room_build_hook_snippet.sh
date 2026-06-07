@@ -57,5 +57,10 @@ cat > "$TMP_DELTA" <<JSON
 }
 JSON
 
+# v3.8: attach optional ticketPacket if PROJECT_TICKETS_FILE is set (never fails the build)
+if [[ -n "${PROJECT_TICKETS_FILE:-}" && -f "${PROJECT_TICKETS_FILE}" ]]; then
+  python3 "$(dirname "$0")/_attach_ticketpacket.py" "$TMP_DELTA" "$PROJECT_TICKETS_FILE" "${PROJECT_VERSION:-}" || true
+fi
+
 ./tools/send_delta.sh "$TMP_DELTA" "$CONTROL_ROOM_API"
 rm -f "$TMP_DELTA"
