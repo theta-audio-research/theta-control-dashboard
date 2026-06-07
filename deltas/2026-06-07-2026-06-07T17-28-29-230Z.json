@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "changedProjects": [
+    {
+      "id": "cathode",
+      "name": "CATHODE",
+      "version": "v16.76",
+      "status": "active",
+      "today": true
+    }
+  ]
+}
