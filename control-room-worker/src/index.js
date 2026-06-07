@@ -33,7 +33,7 @@ export default {
       return json({
         ok: true,
         service: "THETA Control Room Delta Inbox",
-        version: "3.3",
+        version: "3.8",
         scheduleTimezone: env.TIMEZONE,
         scheduleHours: parseScheduleHours(env),
       });
@@ -454,6 +454,83 @@ function applyProjectDelta(project, delta, date) {
   return changed;
 }
 
+// ---- v3.8: Delta Ticket Packet Auto-Merge ------------------------------------
+function mergeTicketPacketIntoProject(project, ticketPacket, nowIso) {
+  const norm = v => String(v ?? "").trim().toLowerCase();
+  const normText = v => norm(v).replace(/\s+/g, " ");
+  project.testTickets = Array.isArray(project.testTickets) ? project.testTickets : [];
+
+  const incoming = Array.isArray(ticketPacket && ticketPacket.tickets) ? ticketPacket.tickets : [];
+  const packetVersion = (ticketPacket && ticketPacket.version) || "";
+  const packetSource = (ticketPacket && ticketPacket.source) || "";
+
+  // Static definition fields a packet MAY update. Live test state
+  // (status, tester, version, versionTested, notes, result, completed,
+  //  completedAt, updatedAt, createdAt, archive metadata) is never copied here.
+  const STATIC_FIELDS = ["question", "title", "slug", "category", "section", "module",
+    "qaCategory", "qaLayer", "layer", "priority", "description", "steps", "expected",
+    "acceptance", "testMaterial", "notesTarget"];
+
+  const byId = new Map(), bySlug = new Map(), byTitle = new Map(), byQ = new Map();
+  const index = t => {
+    if (t.id) byId.set(norm(t.id), t);
+    if (t.slug) bySlug.set(norm(t.slug), t);
+    if (t.title) byTitle.set(normText(t.title), t);
+    if (t.question) byQ.set(normText(t.question), t);
+  };
+  project.testTickets.forEach(index);
+
+  const findExisting = inc => {
+    if (inc.id && byId.has(norm(inc.id))) return byId.get(norm(inc.id));
+    if (inc.slug && bySlug.has(norm(inc.slug))) return bySlug.get(norm(inc.slug));
+    if (inc.title && byTitle.has(normText(inc.title))) return byTitle.get(normText(inc.title));
+    if (inc.question && byQ.has(normText(inc.question))) return byQ.get(normText(inc.question));
+    return null;
+  };
+
+  let added = 0, updated = 0, preserved = 0, seq = 0;
+
+  for (const inc of incoming) {
+    if (!inc || typeof inc !== "object") continue;
+    const existing = findExisting(inc);
+
+    if (!existing) {
+      const fresh = {
+        id: inc.id || inc.slug || (project.id + "-ticket-" + Date.now() + "-" + (seq++)),
+        question: inc.question || inc.title || "New test question",
+        status: "open",
+        priority: inc.priority || "normal",
+        tester: "",
+        notes: "",
+        version: inc.version || packetVersion || project.latestVersion || "",
+        versionTested: "",
+        result: "",
+        createdAt: nowIso,
+        updatedAt: "",
+        completedAt: "",
+      };
+      for (const f of STATIC_FIELDS) {
+        if (inc[f] !== undefined && inc[f] !== null && inc[f] !== "") fresh[f] = inc[f];
+      }
+      if (packetSource) fresh.ticketSource = packetSource;
+      if (packetVersion) fresh.ticketPacketVersion = packetVersion;
+      project.testTickets.push(fresh);
+      index(fresh);
+      added++;
+    } else {
+      let changed = false;
+      for (const f of STATIC_FIELDS) {
+        if (inc[f] === undefined || inc[f] === null) continue;
+        if (inc[f] === "" && existing[f]) continue;
+        if (existing[f] !== inc[f]) { existing[f] = inc[f]; changed = true; }
+      }
+      changed ? updated++ : preserved++;
+    }
+  }
+
+  return { added, updated, preserved, total: project.testTickets.length };
+}
+
 async function applyDeltaToGitHub(delta, env, source) {
   const now = new Date();
   const local = getLocalParts(now, env.TIMEZONE || "America/Los_Angeles");
@@ -502,6 +579,19 @@ async function applyDeltaToGitHub(delta, env, source) {
       endStatus: item.endStatus || item.end_status || project.lastKnownStatus || "",
       tomorrowFirstAction: project.tomorrowFirstAction || "",
     });
+  }
+
+  // v3.8: merge optional ticketPacket.tickets into the named project's testTickets
+  let ticketMergeStats = null;
+  if (delta.ticketPacket && Array.isArray(delta.ticketPacket.tickets) && delta.ticketPacket.tickets.length) {
+    const ticketTargetId = normalizeProjectId(
+      delta.ticketPacket.project || delta.project ||
+      (changedProjects[0] && (changedProjects[0].id || changedProjects[0].project || changedProjects[0].name))
+    );
+    const ticketTarget = ticketTargetId ? projectMap.get(ticketTargetId) : null;
+    if (ticketTarget) {
+      ticketMergeStats = mergeTicketPacketIntoProject(ticketTarget, delta.ticketPacket, appliedAt);
+    }
   }
 
   if (Array.isArray(delta.tomorrowFocus)) {
@@ -563,6 +653,7 @@ async function applyDeltaToGitHub(delta, env, source) {
     date,
     appliedCount: applied.length,
     changedProjects: applied.map(x => x.id),
+    ticketMerge: ticketMergeStats,
     updatedFiles: ["data/projects.json", deltaPath, reportPath],
   };
 }
