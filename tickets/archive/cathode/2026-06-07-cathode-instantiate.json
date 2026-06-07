@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-instantiate",
+    "question": "Does CATHODE instantiate without crash or stuck scan?",
+    "status": "passed",
+    "priority": "normal",
+    "tester": "Steve Neal",
+    "notes": "",
+    "version": "v16.48 known from handoff context.",
+    "createdAt": "2026-05-26",
+    "updatedAt": "2026-06-07T06:44:49.648Z",
+    "completedAt": "2026-06-07T06:44:49.648Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Smoke / Ship Gate"
+  }
+}\n
