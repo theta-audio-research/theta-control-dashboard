@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-06-06",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "cathode",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v16.74.0",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Desktop/CATHODE_VST-AU-Standalone_v16.74.0.dmg",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "Tester installs signed/notarized v16.74 DMG (Developer ID + THETA_NOTARY, AAX off); verify WIDTH relocation — green header pill, MIX restored in PHOSPHOR. If install fails, capture /var/log/install.log to confirm the cause.",
+      "tomorrowFirstAction": "Tester installs signed/notarized v16.74 DMG (Developer ID + THETA_NOTARY, AAX off); verify WIDTH relocation — green header pill, MIX restored in PHOSPHOR. If install fails, capture /var/log/install.log to confirm the cause.",
+      "endStatus": "Build hook reported CATHODE v16.74.0."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CATHODE."
+  }
+}
