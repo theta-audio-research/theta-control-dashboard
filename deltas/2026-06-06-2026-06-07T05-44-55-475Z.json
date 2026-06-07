@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-06-06",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "twilight",
+      "changeType": "Build hook update",
+      "status": "blocked",
+      "latestVersion": "v16.0.0",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/TWILIGHT Dev.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "Phase 2: reconstruct DSP for FIELD grain (FIELD_GRAIN_*) and master-bus MODE/RING/FREQ; A/B against v15.51 reference",
+      "tomorrowFirstAction": "Phase 2: reconstruct DSP for FIELD grain (FIELD_GRAIN_*) and master-bus MODE/RING/FREQ; A/B against v15.51 reference",
+      "endStatus": "Build hook reported TWILIGHT v16.0.0."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for TWILIGHT."
+  }
+}
