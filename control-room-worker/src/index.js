@@ -836,7 +836,7 @@ async function updateTicketInGitHub(payload, env, complete) {
   };
 
   const message = `Update ${project.name} test ticket`;
-  await githubPutFile(env, "data/projects.json", JSON.stringify(projectsData, null, 2) + "\\n", projectsFile.sha, message);
+  await githubPutFile(env, "data/projects.json", JSON.stringify(projectsData, null, 2) + "\n", projectsFile.sha, message);
 
   if (ticket.status === "passed") {
     const archivePath = `tickets/archive/${project.id}/${now.slice(0,10)}-${ticket.id}.json`;
@@ -910,7 +910,7 @@ async function generateReturnPacketInGitHub(payload, env) {
   };
 
   const message = `Generate ${project.name} return packet`;
-  await githubPutFile(env, "data/projects.json", JSON.stringify(projectsData, null, 2) + "\\n", projectsFile.sha, message);
+  await githubPutFile(env, "data/projects.json", JSON.stringify(projectsData, null, 2) + "\n", projectsFile.sha, message);
   await githubPutFile(env, path, packet, null, message);
   return { projectId: project.id, path, packet };
 }
