@@ -1,195 +1,230 @@
 {
-  "source": "tickets/cathode.json",
-  "version": "v16.57",
+  "projectId": "cathode",
+  "projectName": "CATHODE",
+  "ticketPacketVersion": "1.0",
+  "source": "CATHODE 2-week release sprint",
+  "targetVersion": "v16.74",
   "tickets": [
     {
-      "id": "cathode-crt-views",
-      "question": "Do contextual CRT/CRUSH/MOTION views appear in the correct locations without covering controls?",
-      "priority": "high",
-      "category": "INTERFACE / UX",
-      "qaLayer": "Smoke / Ship Gate"
-    },
-    {
-      "id": "cathode-module-character",
-      "question": "Do LOCK/HEAD/RECEIVER/INTERFERENCE/CRUSH still retain the intended CATHODE character?",
-      "priority": "normal",
-      "category": "MODULE BEHAVIOR",
-      "qaLayer": "Smoke / Ship Gate"
-    },
-    {
-      "id": "cathode-host-visibility",
-      "question": "Does CATHODE appear in the expected host/plugin browser under THETA Audio Research?",
-      "priority": "normal",
+      "id": "cathode-rel-installer-clean-mac",
       "category": "INSTALL / HOST",
-      "qaLayer": "Smoke / Ship Gate"
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "Does the v16.74 signed + notarized DMG install cleanly on a clean tester Mac, resolving the prior 'installation failed' error?",
+      "acceptance": "Install completes with no error dialog; CATHODE lands in /Library; loads in a DAW. The earlier generic installer failure does not recur.",
+      "testMaterial": "Tester Mac without dev tools. Mount the v16.74 DMG, run the pkg, open in Ableton/Logic.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1 - THE release blocker. Built Developer-ID-signed + notarized (THETA_NOTARY), ENABLE_AAX=0."
     },
     {
-      "id": "cathode-instantiate",
-      "question": "Does CATHODE instantiate without crash or stuck scan?",
-      "priority": "normal",
+      "id": "cathode-rel-install-log-on-fail",
       "category": "INSTALL / HOST",
-      "qaLayer": "Smoke / Ship Gate"
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "If any install fails, is /var/log/install.log captured so we confirm root cause instead of guessing?",
+      "acceptance": "On failure, the CATHODE/PackageKit/installd lines from install.log are captured and attached, and the cause (signature, payload, permissions) is identified.",
+      "testMaterial": "grep install.log for cathode/PKInstall/Avid, or 'installer -verbose -dumplog -pkg ... -target /'.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1 - diagnostic gate. The prior tester failure was never logged; do not let that repeat."
     },
     {
-      "id": "cathode-version-visible",
-      "question": "Does the UI/build display the expected current version or build identity?",
-      "priority": "normal",
+      "id": "cathode-rel-gatekeeper-notarization",
+      "category": "INSTALL / HOST",
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "Does the installer pass Gatekeeper on a clean machine (Developer ID signed, notarized, stapled)?",
+      "acceptance": "spctl --assess --type install passes; pkg is Developer ID Installer signed and notarization-stapled; no 'unidentified developer' prompt.",
+      "testMaterial": "spctl --assess --type install on the DMG/pkg on a clean Mac; xcrun notarytool history --keychain-profile THETA_NOTARY.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1 - most likely root cause of the original tester failure (unsigned/ad-hoc pkg)."
+    },
+    {
+      "id": "cathode-rel-auval-pass",
+      "category": "INSTALL / HOST",
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "Does the AU pass auval cleanly under the new Thet identity, including NEEDS_MIDI_INPUT?",
+      "acceptance": "auval -v aufx Cath Thet passes with no errors or warnings; the MIDI-input effect instantiates and validates in Logic.",
+      "testMaterial": "auval -v aufx Cath Thet; Logic AU validation on launch.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1 - CATHODE declares NEEDS_MIDI_INPUT for MOTION note-retrig; confirm auval is happy with an Fx that requests MIDI."
+    },
+    {
+      "id": "cathode-rel-au-identity-no-stale-dup",
+      "category": "PERFORMANCE / REGRESSION",
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "After the Atri to Thet change and install, does only the new Thet CATHODE appear, with no stale Atri or older-version duplicate?",
+      "acceptance": "Exactly one CATHODE (Thet, v16.74) in hosts; no leftover Atri-coded or older-version bundle in /Library or ~/Library shadowing it.",
+      "testMaterial": "Enumerate VST3/AU bundles + versions/owners; auval -a | grep -i cathode; Ableton/Logic browser.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1 - finalize the Atri->Thet migration. Old sessions saved under Atri will not recall (expected, pre-beta)."
+    },
+    {
+      "id": "cathode-rel-width-relocation-signoff",
       "category": "INTERFACE / UX",
-      "qaLayer": "Smoke / Ship Gate"
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "In the shipping build, is WIDTH an always-active green header control, with PHOSPHOR MIX restored and behavior unchanged?",
+      "acceptance": "Green WIDTH pill sits left of the 1X toggle; PHOSPHOR shows AGE/HEAT/MIX with MIX visible; WIDTH still moves the stereo image with PHOSPHOR MIX at 0 and PHOSPHOR bypassed; default 0.5 = neutral.",
+      "testMaterial": "Open v16.74 in DAW + standalone; test WIDTH with PHOSPHOR off and MIX at 0.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1 - the relocation feature; confirm the always-active behavior survived the UI move."
     },
     {
-      "id": "cathode-basic-audio",
-      "question": "Does audio pass/process correctly with no unexpected silence, crackle, hum, or level jump?",
-      "priority": "normal",
-      "category": "BASIC AUDIO / STABILITY",
-      "qaLayer": "Smoke / Ship Gate"
-    },
-    {
-      "id": "cathode-preset-state",
-      "question": "Do presets/session reload preserve the current state correctly?",
-      "priority": "normal",
+      "id": "cathode-rel-preset-session-compat",
       "category": "PRESETS / STATE / AUTOMATION",
-      "qaLayer": "Smoke / Ship Gate"
-    },
-    {
-      "id": "cathode-format-check",
-      "question": "Do the in-scope formats load as expected: VST3 / AU / Standalone?",
-      "priority": "normal",
-      "category": "INSTALL / HOST",
-      "qaLayer": "Smoke / Ship Gate"
-    },
-    {
-      "id": "cathode-install-replace",
-      "question": "Does the install/build command replace the previous build cleanly?",
-      "priority": "normal",
-      "category": "INSTALL / HOST",
-      "qaLayer": "Smoke / Ship Gate"
-    },
-    {
-      "id": "cathode-install-host-build-install",
-      "category": "INSTALL / HOST",
       "priority": "P0",
-      "qaLayer": "Deep QA",
-      "question": "Does CATHODE build, install, appear in the expected host/plugin browser, instantiate, validate, and replace older builds cleanly?",
-      "acceptance": "Pass only if the current build installs cleanly, appears under THETA Audio Research where applicable, and opens without scan or instantiation failure.",
-      "testMaterial": "Ableton/Logic/Standalone as applicable"
+      "qaLayer": "Ship Gate",
+      "question": "Do presets and DAW sessions recall correctly after the identity change?",
+      "acceptance": "Factory/user .cathode presets load; DEFAULT is silent on first open; saved DAW projects restore module on/off, params, MOTION sync/retrig, module presets, and global preset selection.",
+      "testMaterial": "Load factory + user presets; save and reopen Ableton/Logic projects with active CATHODE settings.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1 - WIDTH relocation is UI-only (same PHOS_WIDTH param), so presets should remain compatible; verify."
     },
     {
-      "id": "cathode-basic-audio-stability-pass",
+      "id": "cathode-rel-audio-stability-smoke",
       "category": "BASIC AUDIO / STABILITY",
       "priority": "P0",
-      "qaLayer": "Deep QA",
-      "question": "Does CATHODE pass and process audio without unexpected silence, crackle, hum, unsafe level jumps, or host instability?",
-      "acceptance": "Fail immediately for silence, runaway level, persistent crackle, stuck output, or repeatable host crash.",
-      "testMaterial": "default preset, INIT/START preset, heavy preset, bypass toggles"
+      "qaLayer": "Smoke",
+      "question": "Are first-open dry, module toggles, and global BYPASS all clean (no clicks, jumps, or artifacts)?",
+      "acceptance": "Dry on first open with all modules off; smooth module and bypass crossfades; no zipper, NaN, or denormal artifacts.",
+      "testMaterial": "Music loop, vocal, sustained sine/pad; toggle modules and BYPASS during playback.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1."
     },
     {
-      "id": "cathode-sonic-identity-level-matched",
+      "id": "cathode-rel-cross-daw-smoke",
+      "category": "INSTALL / HOST",
+      "priority": "P0",
+      "qaLayer": "Smoke",
+      "question": "Does CATHODE load and process in Ableton (VST3 + AU) and Logic (AU)?",
+      "acceptance": "Loads, processes, renders UI, and automates in both hosts. Pro Tools / AAX is gated on the AAX decision ticket.",
+      "testMaterial": "Ableton VST3 + AU, Logic AU. Insert, automate, save/reopen.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1."
+    },
+    {
+      "id": "cathode-rel-aax-scope-decision",
+      "category": "ROADMAP / EVIDENCE",
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "DECISION: ship AAX in this release, or defer it and ship AU/VST3/Standalone only?",
+      "acceptance": "A clear GO or DEFER decision is recorded. GO schedules the AAX build + PACE/wraptool signing (needs iLok) + Pro Tools test + AAX-inclusive installer. DEFER requires reconciling the website copy that currently claims AAX.",
+      "testMaterial": "iLok availability, PACE env (wraptool, account smneal, WCGUID 05D8AB40-50E3-11F1-8F29-00505692AD3E), Pro Tools test machine.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 1 - decide early; it gates Week 2 scope and the website AAX claim."
+    },
+    {
+      "id": "cathode-rel-aax-build-sign-protools",
+      "category": "INSTALL / HOST",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "If AAX is in scope, does the PACE-signed AAX build pass and load/process in Pro Tools?",
+      "acceptance": "ENABLE_AAX=1 build wraps with wraptool; the AAX loads in Pro Tools, passes its scan, and processes correctly.",
+      "testMaterial": "iLok inserted; make_installer.sh ENABLE_AAX=1 with full PACE env; Pro Tools.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 2 - only if the AAX scope decision is GO."
+    },
+    {
+      "id": "cathode-rel-final-installer",
+      "category": "INSTALL / HOST",
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "Is the final release installer built with the decided format set, signed + notarized?",
+      "acceptance": "One DMG installs the agreed formats (AU/VST3/Standalone, plus AAX if GO) to /Library, Developer-ID signed + notarized + stapled, and passes Gatekeeper.",
+      "testMaterial": "make_installer.sh with release env; spctl assess; clean-Mac install.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 2."
+    },
+    {
+      "id": "cathode-rel-website-copy-finalize",
+      "category": "ROADMAP / EVIDENCE",
+      "priority": "P1",
+      "qaLayer": "Deep QA",
+      "question": "Is the website copy reconciled with the shipped reality (AAX claim, global WIDTH) and ready to publish?",
+      "acceptance": "AAX claim matches the format decision; WIDTH described as an always-active global control; the v16.72/74 copy update reviewed; a 'What's new' blurb is ready.",
+      "testMaterial": "Updated CATHODE web descriptions + WHAT'S NEW section.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 2 - depends on the AAX scope decision."
+    },
+    {
+      "id": "cathode-rel-beta-distribution",
+      "category": "ROADMAP / EVIDENCE",
+      "priority": "P0",
+      "qaLayer": "Ship Gate",
+      "question": "Is the signed installer distributed to beta testers with install + first-run instructions?",
+      "acceptance": "Testers receive the notarized DMG, install with no Gatekeeper friction, and confirm the build loads with the WIDTH feature; a feedback channel is open.",
+      "testMaterial": "DMG + README (preset path), tester roster.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 2."
+    },
+    {
+      "id": "cathode-rel-beta-feedback-triage",
+      "category": "ROADMAP / EVIDENCE",
+      "priority": "P0",
+      "qaLayer": "Deep QA",
+      "question": "Is beta feedback triaged into must-fix vs post-release, with release-blocking fixes landed and re-verified?",
+      "acceptance": "Feedback collected and prioritized; release-blocking bugs fixed and re-tested; non-blockers logged for a follow-up build.",
+      "testMaterial": "Tester reports with audio/screenshots/logs.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 2."
+    },
+    {
+      "id": "cathode-rel-deep-qa-pass",
       "category": "SONIC CHARACTER",
       "priority": "P0",
       "qaLayer": "Deep QA",
-      "question": "Does CATHODE still feel like a receiver/CRT degradation instrument with LOCK, HEAD, INTERFERENCE, CRUSH, and visual character working as one identity?",
-      "acceptance": "Pass only if the sonic identity remains clear in level-matched bypass comparisons and on at least three source types.",
-      "testMaterial": "drums, bass, vocal/dialogue, synth/drone, full mix as relevant"
+      "question": "Does the full sonic + module Deep QA pass on the release build?",
+      "acceptance": "Module character and behavior checks pass: LOCK/HEAD/RECEIVER/PHOSPHOR/INTERFERENCE/CRUSH identity, MOTION sync/retrig, CRUSH ADV anti-crackle, INTERFERENCE static de-loop, CRUSH units, module presets isolation, contextual visual bays, CPU under visuals.",
+      "testMaterial": "Vocal, drums, full mix, pad, sparse loop; per-module sweeps. (Consolidates the prior detailed QA tickets.)",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 2 - preserves the deep-QA coverage from the previous ticket set so it is not lost in the wipe."
     },
     {
-      "id": "cathode-sonic-useful-range",
-      "category": "SONIC CHARACTER",
-      "priority": "P1",
-      "qaLayer": "Deep QA",
-      "question": "Across subtle, medium, and extreme settings, does CATHODE remain musically useful instead of only working in one narrow range?",
-      "acceptance": "Notes must identify best setting range, failure range, and at least one ideal use case.",
-      "testMaterial": "subtle setting, medium setting, pushed/extreme setting"
-    },
-    {
-      "id": "cathode-module-core-behavior",
-      "category": "MODULE BEHAVIOR",
-      "priority": "P0",
-      "qaLayer": "Deep QA",
-      "question": "Do LOCK, HEAD, RECEIVER, INTERFERENCE, CRUSH, contextual visual bays, and presets behave musically and visually without regression?",
-      "acceptance": "Pass only if each major module/control has audible or visible cause-and-effect and no stale UI/audio state.",
-      "testMaterial": "module-by-module sweep"
-    },
-    {
-      "id": "cathode-module-edge-cases",
-      "category": "MODULE BEHAVIOR",
-      "priority": "P1",
-      "qaLayer": "Deep QA",
-      "question": "Do CATHODE module toggles, modes, macros, bypass states, and extreme settings avoid stuck states, clicks, NaN, runaway feedback, or inconsistent behavior?",
-      "acceptance": "Fail if any control path can break audio, desync UI, or require plugin reload to recover.",
-      "testMaterial": "extreme parameter sweep, rapid toggle/mode changes"
-    },
-    {
-      "id": "cathode-interface-readability-hitboxes",
-      "category": "INTERFACE / UX",
-      "priority": "P1",
-      "qaLayer": "Deep QA",
-      "question": "Can CATHODE be read, clicked, resized, and understood without fighting the interface?",
-      "acceptance": "Pass only if labels are readable, hit areas feel correct, active states are obvious, and the flow is understandable within 30 seconds.",
-      "testMaterial": "default scale, common laptop display, resize if supported"
-    },
-    {
-      "id": "cathode-interface-version-identity",
-      "category": "INTERFACE / UX",
-      "priority": "P1",
-      "qaLayer": "Deep QA",
-      "question": "Does CATHODE show the expected version/build identity and no stale legacy product naming in user-facing UI or installed artifacts?",
-      "acceptance": "Fail if version is wrong/missing or old product identity leaks into visible labels, package names, or host display.",
-      "testMaterial": "UI footer/header, plugin browser, installed bundles"
-    },
-    {
-      "id": "cathode-presets-session-recall",
-      "category": "PRESETS / STATE / AUTOMATION",
-      "priority": "P0",
-      "qaLayer": "Deep QA",
-      "question": "Do CATHODE presets and DAW session reload preserve audio state, UI state, selected modes, and bypass states correctly?",
-      "acceptance": "Pass only if save/reopen restores both sound and visible state.",
-      "testMaterial": "factory presets, user preset if available, DAW save/reopen"
-    },
-    {
-      "id": "cathode-automation-render-match",
-      "category": "PRESETS / STATE / AUTOMATION",
-      "priority": "P1",
-      "qaLayer": "Deep QA",
-      "question": "Does CATHODE automation and offline render match realtime playback without clicks, zippering, or missing processing?",
-      "acceptance": "Fail if common automated parameters click badly or offline bounce differs obviously from realtime.",
-      "testMaterial": "automation lanes, realtime playback, offline bounce"
-    },
-    {
-      "id": "cathode-performance-cpu-repaint",
-      "category": "PERFORMANCE / REGRESSION",
-      "priority": "P1",
-      "qaLayer": "Deep QA",
-      "question": "Does CATHODE stay responsive with acceptable CPU, stable meters/visuals, and no denormal spikes during silence or heavy use?",
-      "acceptance": "Notes should identify default CPU, heavy CPU, silence behavior, and any UI redraw sluggishness.",
-      "testMaterial": "host CPU meter, silence, heavy preset, moving UI/meters"
-    },
-    {
-      "id": "cathode-regression-previous-good-build",
-      "category": "PERFORMANCE / REGRESSION",
-      "priority": "P1",
-      "qaLayer": "Deep QA",
-      "question": "Compared with the previous known-good build, did CATHODE keep the important behavior while avoiding new regressions?",
-      "acceptance": "Notes must identify what improved, what regressed, and whether the build is safer than the previous baseline.",
-      "testMaterial": "previous known-good build notes, current build"
-    },
-    {
-      "id": "cathode-evidence-reference-material",
-      "category": "ROADMAP / EVIDENCE",
-      "priority": "P2",
-      "qaLayer": "Deep QA",
-      "question": "What reference audio, screenshots, tester notes, or external examples should be brought back into the CATHODE project chat?",
-      "acceptance": "Pass when there is enough evidence to guide the next build without relying on memory.",
-      "testMaterial": "screenshots, audio examples, tester notes, return packet"
-    },
-    {
-      "id": "cathode-next-build-decision",
+      "id": "cathode-rel-release-candidate-ship",
       "category": "ROADMAP / EVIDENCE",
       "priority": "P0",
-      "qaLayer": "Deep QA",
-      "question": "Based on testing, what is the exact next build direction for CATHODE?",
-      "acceptance": "Pass only when the next action is clear: bugfix, DSP pass, UI pass, installer pass, or ship/hold.",
-      "testMaterial": "completed smoke/deep QA tickets"
+      "qaLayer": "Ship Gate",
+      "question": "Is the release candidate finalized (version/tag, CHANGELOG, release notes) and shipped?",
+      "acceptance": "Final version chosen and bumped in all four places (CMake, build.sh banner, build.sh success string, UI string), git-tagged, CHANGELOG + public release notes written, signed/notarized installer published, store/site updated.",
+      "testMaterial": "Final source tree, installer DMG, website, changelog.",
+      "status": "open",
+      "tester": "",
+      "versionTested": "",
+      "notes": "WEEK 2 - ship gate."
     }
   ]
 }
