@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-05-26",
+  "lastUpdated": "2026-06-06",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -1515,7 +1515,7 @@
       "shipReadiness": 0,
       "readinessLabel": "N/A",
       "readinessClass": "na",
-      "lastTouched": "2026-05-26",
+      "lastTouched": "2026-06-06",
       "testTickets": [
         {
           "id": "cathode-crt-views",
@@ -1837,13 +1837,13 @@
       ],
       "currentVersion": "v16.57",
       "lastBuild": "v16.57",
-      "lastUpdated": "2026-05-27T06:06:52.244Z",
+      "lastUpdated": "2026-06-07T04:12:16.798Z",
       "lastControlRoomSync": {
         "type": "control_room_delta",
         "source": "api",
-        "createdAt": "2026-05-27T06:06:52.244Z",
-        "localDate": "2026-05-26",
-        "localHour": 23,
+        "createdAt": "2026-06-07T04:12:16.798Z",
+        "localDate": "2026-06-06",
+        "localHour": 21,
         "timezone": "America/Los_Angeles",
         "summary": "CATHODE updated from Control Room delta: v16.57."
       },
@@ -5305,14 +5305,14 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-05-26",
+    "date": "2026-06-06",
     "type": "control_room_delta",
     "source": "api",
     "changedProjects": [
       "cathode"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-05-27T06:06:52.244Z",
+    "lastAppliedAt": "2026-06-07T04:12:16.798Z",
     "tomorrowFirstControlRoomAction": "Review dashboard and continue active projects."
   },
   "automation": {
@@ -5350,9 +5350,9 @@
   "lastControlRoomSync": {
     "type": "control_room_delta",
     "source": "api",
-    "createdAt": "2026-05-27T06:06:52.244Z",
-    "localDate": "2026-05-26",
-    "localHour": 23,
+    "createdAt": "2026-06-07T04:12:16.798Z",
+    "localDate": "2026-06-06",
+    "localHour": 21,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CATHODE."
   }
