@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-ui-trans-page",
+    "question": "Does the button read TRANS (not EDIT), click into the transient page, and BACK return to main?",
+    "status": "passed",
+    "priority": "normal",
+    "tester": "Steve Neal",
+    "notes": "",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-09T04:16:39.423Z",
+    "completedAt": "2026-06-09T04:16:39.423Z",
+    "result": "passed",
+    "category": "INTERFACE / UX",
+    "qaLayer": "Smoke"
+  }
+}\n
