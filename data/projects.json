@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-06-08",
+  "lastUpdated": "2026-06-09",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -2059,13 +2059,13 @@
         {
           "id": "cathode-pre-branding",
           "question": "Do the logo and THETA / AUDIO RESEARCH render correctly?",
-          "status": "open",
+          "status": "failed",
           "priority": "normal",
-          "tester": "",
-          "notes": "",
+          "tester": "Steve Neal",
+          "notes": "we need to figure this one out . ",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
+          "updatedAt": "2026-06-09T03:37:28.866Z",
           "completedAt": "",
           "result": "",
           "category": "PRE-RELEASE",
@@ -5756,12 +5756,11 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-06-08T23:00:15.707Z",
-    "localDate": "2026-06-08",
-    "localHour": 16,
+    "type": "ticket_update",
+    "source": "dashboard-ticket-ui",
+    "createdAt": "2026-06-09T03:37:28.866Z",
+    "localDate": "2026-06-09",
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "CATHODE ticket updated: Do the logo and THETA / AUDIO RESEARCH render correctly?"
   }
 }
