@@ -2029,15 +2029,15 @@
         {
           "id": "cathode-ui-trans-page",
           "question": "Does the button read TRANS (not EDIT), click into the transient page, and BACK return to main?",
-          "status": "open",
+          "status": "passed",
           "priority": "normal",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-09T04:16:39.423Z",
+          "completedAt": "2026-06-09T04:16:39.423Z",
+          "result": "passed",
           "category": "INTERFACE / UX",
           "qaLayer": "Smoke"
         },
@@ -5861,11 +5861,11 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "return_packet",
+    "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-09T03:37:43.478Z",
+    "createdAt": "2026-06-09T04:16:39.423Z",
     "localDate": "2026-06-09",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE return packet generated."
+    "summary": "CATHODE ticket updated: Does the button read TRANS (not EDIT), click into the transient page, and BACK return to main?"
   }
 }
