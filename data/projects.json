@@ -1720,7 +1720,7 @@
           "notes": "",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-09T23:21:53.256Z",
+          "updatedAt": "2026-06-09T23:22:17.877Z",
           "completedAt": "2026-06-09T23:21:53.256Z",
           "result": "passed",
           "category": "BASIC AUDIO / STABILITY",
@@ -5863,7 +5863,7 @@
   "lastControlRoomSync": {
     "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-09T23:21:53.256Z",
+    "createdAt": "2026-06-09T23:22:17.877Z",
     "localDate": "2026-06-09",
     "timezone": "America/Los_Angeles",
     "summary": "CATHODE ticket updated: Do host bypass and plugin BYPASS both null cleanly with no level jump?"
