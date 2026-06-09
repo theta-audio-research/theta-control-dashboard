@@ -5756,11 +5756,11 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "ticket_update",
+    "type": "return_packet",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-09T03:37:28.866Z",
+    "createdAt": "2026-06-09T03:37:43.478Z",
     "localDate": "2026-06-09",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Do the logo and THETA / AUDIO RESEARCH render correctly?"
+    "summary": "CATHODE return packet generated."
   }
 }
