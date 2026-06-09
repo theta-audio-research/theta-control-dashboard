@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-audio-bypass",
+    "question": "Do host bypass and plugin BYPASS both null cleanly with no level jump?",
+    "status": "passed",
+    "priority": "normal",
+    "tester": "Steve Neal",
+    "notes": "",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-09T23:21:53.256Z",
+    "completedAt": "2026-06-09T23:21:53.256Z",
+    "result": "passed",
+    "category": "BASIC AUDIO / STABILITY",
+    "qaLayer": "Smoke"
+  }
+}\n
