@@ -2,36 +2,36 @@
   "projectId": "cathode",
   "projectName": "CATHODE",
   "ticketPacketVersion": "1.0",
-  "source": "CATHODE v16.96 Beta-Candidate Test Plan",
-  "targetVersion": "v16.96",
+  "source": "CATHODE v16.97 Beta-Candidate Test Plan",
+  "targetVersion": "v16.97",
   "tickets": [
     {
-      "id": "cathode-install-notarized-build",
-      "question": "Does make_installer.sh produce a Developer-ID-signed + notarised installer, with Apple's notary service returning success (stapled ticket)?",
+      "id": "cathode-install-notarized-dmg",
+      "question": "Does 'ENABLE_AAX=1 ./make_installer.sh' run clean end to end — AAX PACE-signs and verifies, the pkg builds, and Apple's notary returns success (stapled) for BOTH the pkg and the DMG?",
       "category": "INSTALL / HOST",
       "qaLayer": "Ship Gate",
       "priority": "high",
-      "notes": "Run make_installer.sh (Developer ID sign + THETA_NOTARY notarisation). If this fails it is the first ticket — everything downstream depends on it."
+      "notes": "Watch point: the AAX surviving notarisation. If notary rejects it, that is the first ticket — grab the log, do not hand-fix."
     },
     {
       "id": "cathode-install-gatekeeper",
-      "question": "Does the notarised installer launch without Gatekeeper/quarantine blocking (no 'unidentified developer', 'damaged', or quarantine warning)?",
+      "question": "Installing the notarised DMG and launching the host, is there no Gatekeeper/quarantine block or warn ('unidentified developer', 'damaged', quarantine)?",
       "category": "INSTALL / HOST",
       "qaLayer": "Ship Gate",
       "priority": "high",
-      "notes": "Install via the notarised installer on the clean Mac, then launch the host. Record the EXACT dialog wording if anything appears. Expected on a working notarised build: no block."
+      "notes": "Clean rig. Record the EXACT dialog wording if anything appears. Expected: none."
     },
     {
       "id": "cathode-install-adhoc-ab",
-      "question": "Does the plain ad-hoc (codesign --sign -) build get blocked on the same clean rig, confirming notarisation is the fix?",
+      "question": "Does a plain ad-hoc (codesign --sign -) build get blocked on the same clean rig, proving notarisation is the fix?",
       "category": "INSTALL / HOST",
       "qaLayer": "Ship Gate",
-      "priority": "normal",
-      "notes": "Optional A/B: side-load the ad-hoc build on the clean rig and confirm it DOES get blocked."
+      "priority": "high",
+      "notes": "Optional A/B. Items 0-2 are the beta gate."
     },
     {
       "id": "cathode-install-vst3",
-      "question": "Is CATHODE.vst3 present in /Library/Audio/Plug-Ins/VST3 and seen by the host?",
+      "question": "Is CATHODE.vst3 in /Library/Audio/Plug-Ins/VST3 and seen by the host (no iLok needed)?",
       "category": "INSTALL / HOST",
       "qaLayer": "Ship Gate",
       "priority": "normal",
@@ -39,15 +39,23 @@
     },
     {
       "id": "cathode-install-au-scan",
-      "question": "Is CATHODE.component in /Library/Audio/Plug-Ins/Components and does it pass the host's first-launch AU scan?",
+      "question": "Is CATHODE.component in /Library/Audio/Plug-Ins/Components and does it pass the host's first-launch AU scan (no iLok needed)?",
       "category": "INSTALL / HOST",
       "qaLayer": "Ship Gate",
       "priority": "normal",
-      "notes": "Clean rig is safe to let it scan; nothing to re-authorise."
+      "notes": ""
+    },
+    {
+      "id": "cathode-install-aax-presence",
+      "question": "Does CATHODE.aaxplugin land in /Library/Application Support/Avid/Audio/Plug-Ins (install + presence only here)?",
+      "category": "INSTALL / HOST",
+      "qaLayer": "Ship Gate",
+      "priority": "normal",
+      "notes": "Actual loading is in the AAX / PRO TOOLS section, since it needs your iLok present."
     },
     {
       "id": "cathode-install-ableton",
-      "question": "Does CATHODE load and instantiate on a track in Ableton Live, with the window opening?",
+      "question": "Does CATHODE load and instantiate in Ableton Live, with the window opening?",
       "category": "INSTALL / HOST",
       "qaLayer": "Smoke",
       "priority": "normal",
@@ -63,7 +71,7 @@
     },
     {
       "id": "cathode-install-third-host",
-      "question": "Does CATHODE load in one more host (Reaper / Bitwig / Studio One) to confirm it is not host-specific?",
+      "question": "Does CATHODE load in one more host (Reaper / Bitwig / Studio One), confirming it is not host-specific?",
       "category": "INSTALL / HOST",
       "qaLayer": "Smoke",
       "priority": "normal",
@@ -71,7 +79,7 @@
     },
     {
       "id": "cathode-install-window",
-      "question": "Does the window open at 1280x640, render fully, and show 'v16.96'?",
+      "question": "Does the window open at 1280x640, render fully, and show 'v16.97'?",
       "category": "INSTALL / HOST",
       "qaLayer": "Smoke",
       "priority": "normal",
@@ -79,7 +87,7 @@
     },
     {
       "id": "cathode-install-churn",
-      "question": "Does adding/removing the plugin and opening/closing the UI ~10x stay stable (no crash, no creeping slowdown)?",
+      "question": "Does adding/removing the plugin and opening/closing the UI ~10x stay stable (no crash, no creep)?",
       "category": "INSTALL / HOST",
       "qaLayer": "Stability",
       "priority": "normal",
@@ -87,7 +95,7 @@
     },
     {
       "id": "cathode-install-project-recall",
-      "question": "Does a saved project with CATHODE + custom settings reopen with state intact?",
+      "question": "Does a saved project with CATHODE + settings reopen with state intact?",
       "category": "INSTALL / HOST",
       "qaLayer": "Smoke",
       "priority": "normal",
@@ -111,7 +119,7 @@
     },
     {
       "id": "cathode-audio-trans-sustain",
-      "question": "Does SUSTAIN shape the body just after the hit in the correct direction, audibly?",
+      "question": "Does SUSTAIN shape the body just after the hit in the correct direction?",
       "category": "BASIC AUDIO / STABILITY",
       "qaLayer": "Smoke",
       "priority": "normal",
@@ -123,11 +131,11 @@
       "category": "BASIC AUDIO / STABILITY",
       "qaLayer": "Smoke",
       "priority": "normal",
-      "notes": "New transient control in this build."
+      "notes": "New transient control."
     },
     {
       "id": "cathode-audio-routing-toggle",
-      "question": "With heavy CRUSH/WARBLE running, does flipping LFO INPUT to CHAIN END move where the shaping lands, with no click/pop on the switch?",
+      "question": "With heavy CRUSH/WARBLE running, does flipping LFO INPUT to CHAIN END move where the shaping lands, with no click on the switch?",
       "category": "BASIC AUDIO / STABILITY",
       "qaLayer": "Smoke",
       "priority": "normal",
@@ -135,7 +143,7 @@
     },
     {
       "id": "cathode-audio-tone-throw",
-      "question": "With TONE depth armed on a full-band source, is the dark-to-bright wobble clearly stronger (now +/-15 dB) yet still usable at full depth, not blown out?",
+      "question": "With TONE depth armed on a full-band source, is the dark-to-bright wobble clearly stronger (now +/-15 dB) and still usable at full depth?",
       "category": "BASIC AUDIO / STABILITY",
       "qaLayer": "Smoke",
       "priority": "normal",
@@ -167,7 +175,7 @@
     },
     {
       "id": "cathode-audio-automation",
-      "question": "Do LT_TRANS_DEC, LT_TRANS_POS and a few other params automate cleanly (track, no zipper noise, no crash)?",
+      "question": "Do LT_TRANS_DEC, LT_TRANS_POS and a couple of other params automate cleanly (track, no zipper, no crash)?",
       "category": "BASIC AUDIO / STABILITY",
       "qaLayer": "Smoke",
       "priority": "normal",
@@ -175,7 +183,7 @@
     },
     {
       "id": "cathode-audio-sample-rates",
-      "question": "At 44.1 / 48 / 96 kHz, do the transient meter and DSP behave with no broken-sounding tuning?",
+      "question": "At 44.1 / 48 / 96 kHz, do the meter and DSP behave?",
       "category": "BASIC AUDIO / STABILITY",
       "qaLayer": "Stability",
       "priority": "normal",
@@ -191,7 +199,7 @@
     },
     {
       "id": "cathode-audio-silence-nan",
-      "question": "Is silence-in silence-out (no idle hiss), and does hammering params during playback produce no NaN blow-up?",
+      "question": "Is silence-in silence-out, and does hammering params during playback produce no NaN blow-up?",
       "category": "BASIC AUDIO / STABILITY",
       "qaLayer": "Stability",
       "priority": "normal",
@@ -199,8 +207,64 @@
     },
     {
       "id": "cathode-audio-long-run",
-      "question": "Over a few minutes with LFO + transient both active, is there no drift and no crash?",
+      "question": "Over a few minutes with LFO + transient active, is there no drift and no crash?",
       "category": "BASIC AUDIO / STABILITY",
+      "qaLayer": "Stability",
+      "priority": "normal",
+      "notes": ""
+    },
+    {
+      "id": "cathode-aax-pt-scan",
+      "question": "Does Pro Tools scan and validate CATHODE on launch, appearing in the plugin list with no 'failed to load' or blacklist?",
+      "category": "AAX / PRO TOOLS",
+      "qaLayer": "Ship Gate",
+      "priority": "normal",
+      "notes": "Run on the rig where your iLok / PACE auth lives."
+    },
+    {
+      "id": "cathode-aax-pace-auth",
+      "question": "Does the AAX load without an auth/licence error (wraptool verify --verbose --in <installed .aaxplugin> passes)?",
+      "category": "AAX / PRO TOOLS",
+      "qaLayer": "Ship Gate",
+      "priority": "normal",
+      "notes": "AAX is PACE-signed to your account; it needs that authorisation present to load."
+    },
+    {
+      "id": "cathode-aax-insert-ui",
+      "question": "Inserting CATHODE on a PT track, does the UI open at full size and audio pass?",
+      "category": "AAX / PRO TOOLS",
+      "qaLayer": "Smoke",
+      "priority": "normal",
+      "notes": ""
+    },
+    {
+      "id": "cathode-aax-feature-parity",
+      "question": "In PT, do the transient designer (ATTACK/SUSTAIN/DECAY), live meter, routing toggle, and LFO destinations all behave as in the other formats?",
+      "category": "AAX / PRO TOOLS",
+      "qaLayer": "Smoke",
+      "priority": "normal",
+      "notes": ""
+    },
+    {
+      "id": "cathode-aax-pt-automation",
+      "question": "Writing and reading automation on a couple of PT params, is there no glitch?",
+      "category": "AAX / PRO TOOLS",
+      "qaLayer": "Smoke",
+      "priority": "normal",
+      "notes": ""
+    },
+    {
+      "id": "cathode-aax-pt-session-recall",
+      "question": "Does saving and reopening a PT session with CATHODE keep state intact?",
+      "category": "AAX / PRO TOOLS",
+      "qaLayer": "Smoke",
+      "priority": "normal",
+      "notes": ""
+    },
+    {
+      "id": "cathode-aax-pt-stability",
+      "question": "Does inserting/removing/rescanning a few times in PT produce no PT-specific crash?",
+      "category": "AAX / PRO TOOLS",
       "qaLayer": "Stability",
       "priority": "normal",
       "notes": ""
@@ -263,7 +327,7 @@
     },
     {
       "id": "cathode-ui-page-churn",
-      "question": "Bouncing main to TRANS to scope repeatedly, does nothing get stuck shown/hidden and the meter resume cleanly?",
+      "question": "Bouncing main to TRANS to scope repeatedly, does nothing get stuck and the meter resume cleanly?",
       "category": "INTERFACE / UX",
       "qaLayer": "Stability",
       "priority": "normal",
@@ -279,7 +343,7 @@
     },
     {
       "id": "cathode-pre-version-string",
-      "question": "Does 'v16.96' appear everywhere the version is shown?",
+      "question": "Does 'v16.97' appear everywhere the version is shown?",
       "category": "PRE-RELEASE",
       "qaLayer": "Ship Gate",
       "priority": "normal",
@@ -295,7 +359,7 @@
     },
     {
       "id": "cathode-pre-transient-feel",
-      "question": "With ATTACK/SUSTAIN now reading off the fast/mid envelope pair (changed in v16.95), does the onset response feel right, or does it want re-tuning before beta?",
+      "question": "With ATTACK/SUSTAIN now reading off the fast/mid envelope pair (changed in v16.95), does the onset response feel right, or want re-tuning before beta?",
       "category": "PRE-RELEASE",
       "qaLayer": "Ship Gate",
       "priority": "normal",
@@ -308,14 +372,6 @@
       "qaLayer": "Ship Gate",
       "priority": "normal",
       "notes": ""
-    },
-    {
-      "id": "cathode-pre-aax-scope",
-      "question": "Confirm this build is VST3 + AU only. AAX is the next build; do not test Pro Tools here.",
-      "category": "PRE-RELEASE",
-      "qaLayer": "Ship Gate",
-      "priority": "normal",
-      "notes": "Scope note, not a Pro Tools test."
     }
   ]
 }
