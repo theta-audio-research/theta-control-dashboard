@@ -1714,15 +1714,15 @@
         {
           "id": "cathode-audio-bypass",
           "question": "Do host bypass and plugin BYPASS both null cleanly with no level jump?",
-          "status": "open",
+          "status": "passed",
           "priority": "normal",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-09T23:21:53.256Z",
+          "completedAt": "2026-06-09T23:21:53.256Z",
+          "result": "passed",
           "category": "BASIC AUDIO / STABILITY",
           "qaLayer": "Smoke"
         },
@@ -5861,12 +5861,11 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-06-09T23:00:23.614Z",
+    "type": "ticket_update",
+    "source": "dashboard-ticket-ui",
+    "createdAt": "2026-06-09T23:21:53.256Z",
     "localDate": "2026-06-09",
-    "localHour": 16,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "CATHODE ticket updated: Do host bypass and plugin BYPASS both null cleanly with no level jump?"
   }
 }
