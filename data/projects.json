@@ -5861,11 +5861,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "ticket_update",
-    "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-09T23:22:17.877Z",
+    "type": "scheduled_checkpoint",
+    "source": "scheduled-cron",
+    "createdAt": "2026-06-10T06:00:23.634Z",
     "localDate": "2026-06-09",
+    "localHour": 23,
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Do host bypass and plugin BYPASS both null cleanly with no level jump?"
+    "summary": "Automated checkpoint at 23:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
   }
 }
