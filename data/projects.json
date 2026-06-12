@@ -1579,15 +1579,15 @@
         {
           "id": "cathode-install-vst3",
           "question": "Is CATHODE.vst3 in /Library/Audio/Plug-Ins/VST3 and seen by the host (no iLok needed)?",
-          "status": "open",
+          "status": "passed",
           "priority": "normal",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-12T03:14:45.074Z",
+          "completedAt": "2026-06-12T03:14:45.074Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Ship Gate"
         },
@@ -5863,9 +5863,9 @@
   "lastControlRoomSync": {
     "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-12T03:14:35.731Z",
+    "createdAt": "2026-06-12T03:14:45.074Z",
     "localDate": "2026-06-12",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Does a plain ad-hoc (codesign --sign -) build get blocked on the same clean rig, proving notarisation is the fix?"
+    "summary": "CATHODE ticket updated: Is CATHODE.vst3 in /Library/Audio/Plug-Ins/VST3 and seen by the host (no iLok needed)?"
   }
 }
