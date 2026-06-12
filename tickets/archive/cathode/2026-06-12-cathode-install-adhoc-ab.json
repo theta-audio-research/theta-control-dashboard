@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-install-adhoc-ab",
+    "question": "Does a plain ad-hoc (codesign --sign -) build get blocked on the same clean rig, proving notarisation is the fix?",
+    "status": "passed",
+    "priority": "high",
+    "tester": "Steve Neal",
+    "notes": "Optional A/B. Items 0-2 are the beta gate.",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-12T03:14:35.731Z",
+    "completedAt": "2026-06-12T03:14:35.731Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Ship Gate"
+  }
+}\n
