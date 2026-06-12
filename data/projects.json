@@ -1564,15 +1564,15 @@
         {
           "id": "cathode-install-adhoc-ab",
           "question": "Does a plain ad-hoc (codesign --sign -) build get blocked on the same clean rig, proving notarisation is the fix?",
-          "status": "open",
+          "status": "passed",
           "priority": "high",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "Optional A/B. Items 0-2 are the beta gate.",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-12T03:14:35.731Z",
+          "completedAt": "2026-06-12T03:14:35.731Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Ship Gate"
         },
@@ -5863,9 +5863,9 @@
   "lastControlRoomSync": {
     "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-12T03:13:56.531Z",
+    "createdAt": "2026-06-12T03:14:35.731Z",
     "localDate": "2026-06-12",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Installing the notarised DMG and launching the host, is there no Gatekeeper/quarantine block or warn ('unidentified developer', 'damaged', quarantine)?"
+    "summary": "CATHODE ticket updated: Does a plain ad-hoc (codesign --sign -) build get blocked on the same clean rig, proving notarisation is the fix?"
   }
 }
