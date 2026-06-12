@@ -1669,15 +1669,15 @@
         {
           "id": "cathode-install-window",
           "question": "Does the window open at 1280x640, render fully, and show 'v16.97'?",
-          "status": "open",
+          "status": "passed",
           "priority": "normal",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-12T03:16:38.722Z",
+          "completedAt": "2026-06-12T03:16:38.722Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Smoke"
         },
@@ -5863,9 +5863,9 @@
   "lastControlRoomSync": {
     "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-12T03:16:29.820Z",
+    "createdAt": "2026-06-12T03:16:38.722Z",
     "localDate": "2026-06-12",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Does CATHODE load and instantiate in Ableton Live, with the window opening?"
+    "summary": "CATHODE ticket updated: Does the window open at 1280x640, render fully, and show 'v16.97'?"
   }
 }
