@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-install-vst3",
+    "question": "Is CATHODE.vst3 in /Library/Audio/Plug-Ins/VST3 and seen by the host (no iLok needed)?",
+    "status": "passed",
+    "priority": "normal",
+    "tester": "Steve Neal",
+    "notes": "",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-12T03:14:45.074Z",
+    "completedAt": "2026-06-12T03:14:45.074Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Ship Gate"
+  }
+}\n
