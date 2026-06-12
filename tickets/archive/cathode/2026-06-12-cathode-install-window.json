@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-install-window",
+    "question": "Does the window open at 1280x640, render fully, and show 'v16.97'?",
+    "status": "passed",
+    "priority": "normal",
+    "tester": "Steve Neal",
+    "notes": "",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-12T03:16:38.722Z",
+    "completedAt": "2026-06-12T03:16:38.722Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Smoke"
+  }
+}\n
