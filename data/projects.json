@@ -1549,15 +1549,15 @@
         {
           "id": "cathode-install-gatekeeper",
           "question": "Installing the notarised DMG and launching the host, is there no Gatekeeper/quarantine block or warn ('unidentified developer', 'damaged', quarantine)?",
-          "status": "open",
+          "status": "passed",
           "priority": "high",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "Clean rig. Record the EXACT dialog wording if anything appears. Expected: none.",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-12T03:13:56.531Z",
+          "completedAt": "2026-06-12T03:13:56.531Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Ship Gate"
         },
@@ -5863,9 +5863,9 @@
   "lastControlRoomSync": {
     "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-12T03:13:46.368Z",
+    "createdAt": "2026-06-12T03:13:56.531Z",
     "localDate": "2026-06-12",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Does 'ENABLE_AAX=1 ./make_installer.sh' run clean end to end — AAX PACE-signs and verifies, the pkg builds, and Apple's notary returns success (stapled) for BOTH the pkg and the DMG?"
+    "summary": "CATHODE ticket updated: Installing the notarised DMG and launching the host, is there no Gatekeeper/quarantine block or warn ('unidentified developer', 'damaged', quarantine)?"
   }
 }
