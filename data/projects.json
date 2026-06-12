@@ -1624,15 +1624,15 @@
         {
           "id": "cathode-install-ableton",
           "question": "Does CATHODE load and instantiate in Ableton Live, with the window opening?",
-          "status": "open",
+          "status": "passed",
           "priority": "normal",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-12T03:16:22.678Z",
+          "completedAt": "2026-06-12T03:16:22.678Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Smoke"
         },
@@ -5863,9 +5863,9 @@
   "lastControlRoomSync": {
     "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-12T03:16:11.251Z",
+    "createdAt": "2026-06-12T03:16:22.678Z",
     "localDate": "2026-06-12",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Does CATHODE.aaxplugin land in /Library/Application Support/Avid/Audio/Plug-Ins (install + presence only here)?"
+    "summary": "CATHODE ticket updated: Does CATHODE load and instantiate in Ableton Live, with the window opening?"
   }
 }
