@@ -1609,15 +1609,15 @@
         {
           "id": "cathode-install-aax-presence",
           "question": "Does CATHODE.aaxplugin land in /Library/Application Support/Avid/Audio/Plug-Ins (install + presence only here)?",
-          "status": "open",
+          "status": "passed",
           "priority": "normal",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "Actual loading is in the AAX / PRO TOOLS section, since it needs your iLok present.",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-12T03:16:11.251Z",
+          "completedAt": "2026-06-12T03:16:11.251Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Ship Gate"
         },
@@ -5863,9 +5863,9 @@
   "lastControlRoomSync": {
     "type": "ticket_update",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-12T03:14:45.074Z",
+    "createdAt": "2026-06-12T03:16:11.251Z",
     "localDate": "2026-06-12",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Is CATHODE.vst3 in /Library/Audio/Plug-Ins/VST3 and seen by the host (no iLok needed)?"
+    "summary": "CATHODE ticket updated: Does CATHODE.aaxplugin land in /Library/Application Support/Avid/Audio/Plug-Ins (install + presence only here)?"
   }
 }
