@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-06-11",
+  "lastUpdated": "2026-06-12",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -1534,15 +1534,15 @@
         {
           "id": "cathode-install-notarized-dmg",
           "question": "Does 'ENABLE_AAX=1 ./make_installer.sh' run clean end to end — AAX PACE-signs and verifies, the pkg builds, and Apple's notary returns success (stapled) for BOTH the pkg and the DMG?",
-          "status": "open",
+          "status": "passed",
           "priority": "high",
-          "tester": "",
+          "tester": "Steve Neal",
           "notes": "Watch point: the AAX surviving notarisation. If notary rejects it, that is the first ticket — grab the log, do not hand-fix.",
           "version": "",
           "createdAt": "2026-06-08",
-          "updatedAt": "2026-06-08",
-          "completedAt": "",
-          "result": "",
+          "updatedAt": "2026-06-12T03:13:46.368Z",
+          "completedAt": "2026-06-12T03:13:46.368Z",
+          "result": "passed",
           "category": "INSTALL / HOST",
           "qaLayer": "Ship Gate"
         },
@@ -5861,12 +5861,11 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-06-11T23:00:49.318Z",
-    "localDate": "2026-06-11",
-    "localHour": 16,
+    "type": "ticket_update",
+    "source": "dashboard-ticket-ui",
+    "createdAt": "2026-06-12T03:13:46.368Z",
+    "localDate": "2026-06-12",
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "CATHODE ticket updated: Does 'ENABLE_AAX=1 ./make_installer.sh' run clean end to end — AAX PACE-signs and verifies, the pkg builds, and Apple's notary returns success (stapled) for BOTH the pkg and the DMG?"
   }
 }
