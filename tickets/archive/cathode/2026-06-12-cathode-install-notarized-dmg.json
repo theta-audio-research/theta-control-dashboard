@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-install-notarized-dmg",
+    "question": "Does 'ENABLE_AAX=1 ./make_installer.sh' run clean end to end — AAX PACE-signs and verifies, the pkg builds, and Apple's notary returns success (stapled) for BOTH the pkg and the DMG?",
+    "status": "passed",
+    "priority": "high",
+    "tester": "Steve Neal",
+    "notes": "Watch point: the AAX surviving notarisation. If notary rejects it, that is the first ticket — grab the log, do not hand-fix.",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-12T03:13:46.368Z",
+    "completedAt": "2026-06-12T03:13:46.368Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Ship Gate"
+  }
+}\n
