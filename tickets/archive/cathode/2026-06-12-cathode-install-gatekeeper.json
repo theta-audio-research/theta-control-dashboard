@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-install-gatekeeper",
+    "question": "Installing the notarised DMG and launching the host, is there no Gatekeeper/quarantine block or warn ('unidentified developer', 'damaged', quarantine)?",
+    "status": "passed",
+    "priority": "high",
+    "tester": "Steve Neal",
+    "notes": "Clean rig. Record the EXACT dialog wording if anything appears. Expected: none.",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-12T03:13:56.531Z",
+    "completedAt": "2026-06-12T03:13:56.531Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Ship Gate"
+  }
+}\n
