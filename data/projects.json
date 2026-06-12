@@ -5861,11 +5861,11 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "ticket_update",
+    "type": "return_packet",
     "source": "dashboard-ticket-ui",
-    "createdAt": "2026-06-12T03:16:38.722Z",
+    "createdAt": "2026-06-12T03:17:04.628Z",
     "localDate": "2026-06-12",
     "timezone": "America/Los_Angeles",
-    "summary": "CATHODE ticket updated: Does the window open at 1280x640, render fully, and show 'v16.97'?"
+    "summary": "CATHODE return packet generated."
   }
 }
