@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-install-ableton",
+    "question": "Does CATHODE load and instantiate in Ableton Live, with the window opening?",
+    "status": "passed",
+    "priority": "normal",
+    "tester": "Steve Neal",
+    "notes": "",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-12T03:16:29.820Z",
+    "completedAt": "2026-06-12T03:16:22.678Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Smoke"
+  }
+}\n
