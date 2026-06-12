@@ -1,0 +1,18 @@
+{
+  "project": "CATHODE",
+  "ticket": {
+    "id": "cathode-install-aax-presence",
+    "question": "Does CATHODE.aaxplugin land in /Library/Application Support/Avid/Audio/Plug-Ins (install + presence only here)?",
+    "status": "passed",
+    "priority": "normal",
+    "tester": "Steve Neal",
+    "notes": "Actual loading is in the AAX / PRO TOOLS section, since it needs your iLok present.",
+    "version": "",
+    "createdAt": "2026-06-08",
+    "updatedAt": "2026-06-12T03:16:11.251Z",
+    "completedAt": "2026-06-12T03:16:11.251Z",
+    "result": "passed",
+    "category": "INSTALL / HOST",
+    "qaLayer": "Ship Gate"
+  }
+}\n
