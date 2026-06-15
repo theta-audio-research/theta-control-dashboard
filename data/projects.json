@@ -5863,10 +5863,10 @@
   "lastControlRoomSync": {
     "type": "scheduled_checkpoint",
     "source": "scheduled-cron",
-    "createdAt": "2026-06-14T23:00:59.727Z",
+    "createdAt": "2026-06-15T06:01:03.243Z",
     "localDate": "2026-06-14",
-    "localHour": 16,
+    "localHour": 23,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "Automated checkpoint at 23:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
   }
 }
