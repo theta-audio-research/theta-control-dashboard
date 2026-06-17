@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v19.2.3",
-      "nextAction": "Audition CLEAN mode (true-transparent output); confirm all-modules-off nulls; decide safety-ceiling + DC-block behavior.",
+      "latestVersion": "v19.2.4",
+      "nextAction": "CLEAN now default; DIRTY opt-in on MASTER TWEAK. Verify fresh=clean, old sessions/presets recall dirty (unchanged).",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "Audition CLEAN mode (true-transparent output); confirm all-modules-off nulls; decide safety-ceiling + DC-block behavior.",
+      "tomorrowFirstAction": "CLEAN now default; DIRTY opt-in on MASTER TWEAK. Verify fresh=clean, old sessions/presets recall dirty (unchanged).",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v19.2.3",
-      "lastBuild": "v19.2.3",
-      "lastUpdated": "2026-06-17T21:33:15.107Z",
+      "currentVersion": "v19.2.4",
+      "lastBuild": "v19.2.4",
+      "lastUpdated": "2026-06-17T21:51:03.667Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-06-17T21:33:15.107Z",
+        "createdAt": "2026-06-17T21:51:03.667Z",
         "localDate": "2026-06-17",
         "localHour": 14,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v19.2.3."
+        "summary": "CREOSOTE updated from Control Room delta: v19.2.4."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-17T21:33:15.107Z",
+    "lastAppliedAt": "2026-06-17T21:51:03.667Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-06-17T21:33:15.107Z",
+    "createdAt": "2026-06-17T21:51:03.667Z",
     "localDate": "2026-06-17",
     "localHour": 14,
     "timezone": "America/Los_Angeles",
