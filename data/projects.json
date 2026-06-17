@@ -880,10 +880,10 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v18.8.6 built — EQ/SUMMING visual alignment pass; no DSP changes.",
-      "nextAction": "Lock CREOSOTE source of truth from the old EROSION project, then plan the simple ATRIA-style knob pass.",
+      "latestVersion": "v19.2.3",
+      "nextAction": "Audition CLEAN mode (true-transparent output); confirm all-modules-off nulls; decide safety-ceiling + DC-block behavior.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
-      "blocker": "No active blocker; AAX remains gated and should not be touched unless explicitly scoped.",
+      "blocker": "Needs test result.",
       "decisionNeeded": "",
       "recommendedChoice": "",
       "formatsNow": [
@@ -894,18 +894,18 @@
         "AAX",
         "Windows"
       ],
-      "lastKnownStatus": "v18.8.6 aligned EQ/SUMMING page origins, matched EQ ON/header baseline to SUMMING, gave SUMMING the same rounded page shell, moved EQ graph/controls into CREOSOTE palette, and dimmed static EQ curve when master OFF.",
-      "tomorrowFirstAction": "Open the old EROSION/active CREOSOTE source, confirm v18.8.6 as the baseline, and decide whether the next build is the ATRIA-style simple knob pass.",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "tomorrowFirstAction": "Audition CLEAN mode (true-transparent output); confirm all-modules-off nulls; decide safety-ceiling + DC-block behavior.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
-      "artifact": "CREOSOTE v18.8.6 source ZIP from ChatGPT workflow",
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
       "sourceCertainty": "high",
-      "productConfidence": "medium",
+      "productConfidence": "low",
       "stage": "Active product",
-      "shipReadiness": 78,
-      "readinessLabel": "Beta / close",
-      "readinessClass": "beta",
-      "lastTouched": "2026-05-24",
+      "shipReadiness": 10,
+      "readinessLabel": "Just begun",
+      "readinessClass": "early",
+      "lastTouched": "2026-06-17",
       "testTickets": [
         {
           "id": "creosote-eq-summing-alignment",
@@ -1493,6 +1493,18 @@
         "PRESETS / STATE / AUTOMATION": "Do presets, session recall, bypass, automation, offline render, and state restoration work?",
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
+      },
+      "currentVersion": "v19.2.3",
+      "lastBuild": "v19.2.3",
+      "lastUpdated": "2026-06-17T21:33:15.107Z",
+      "lastControlRoomSync": {
+        "type": "build_hook_delta",
+        "source": "api",
+        "createdAt": "2026-06-17T21:33:15.107Z",
+        "localDate": "2026-06-17",
+        "localHour": 14,
+        "timezone": "America/Los_Angeles",
+        "summary": "CREOSOTE updated from Control Room delta: v19.2.3."
       }
     },
     {
@@ -5818,15 +5830,15 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-06-07",
+    "date": "2026-06-17",
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
-      "cathode"
+      "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-07T17:54:17.182Z",
-    "tomorrowFirstControlRoomAction": "Review build-hook update for CATHODE."
+    "lastAppliedAt": "2026-06-17T21:33:15.107Z",
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
     "version": "3.0",
@@ -5861,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-06-17T21:00:56.407Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-06-17T21:33:15.107Z",
     "localDate": "2026-06-17",
     "localHour": 14,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 14:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
