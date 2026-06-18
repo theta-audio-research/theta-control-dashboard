@@ -905,7 +905,7 @@
       "shipReadiness": 10,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-06-17",
+      "lastTouched": "2026-06-18",
       "testTickets": [
         {
           "id": "creosote-eq-summing-alignment",
@@ -1496,13 +1496,13 @@
       },
       "currentVersion": "v19.2.5",
       "lastBuild": "v19.2.5",
-      "lastUpdated": "2026-06-18T01:30:51.595Z",
+      "lastUpdated": "2026-06-18T17:09:02.933Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-06-18T01:30:51.595Z",
-        "localDate": "2026-06-17",
-        "localHour": 18,
+        "createdAt": "2026-06-18T17:09:02.933Z",
+        "localDate": "2026-06-18",
+        "localHour": 10,
         "timezone": "America/Los_Angeles",
         "summary": "CREOSOTE updated from Control Room delta: v19.2.5."
       }
@@ -5830,14 +5830,14 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-06-17",
+    "date": "2026-06-18",
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-18T01:30:51.595Z",
+    "lastAppliedAt": "2026-06-18T17:09:02.933Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-06-18T16:00:57.071Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-06-18T17:09:02.933Z",
     "localDate": "2026-06-18",
-    "localHour": 9,
+    "localHour": 10,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 09:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
