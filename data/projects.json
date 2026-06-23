@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v19.2.5",
-      "nextAction": "Clean-default everywhere (no force-DIRTY). Awaiting new factory presets to wire in (Resources/Presets + registry + BinaryData).",
+      "latestVersion": "v19.2.6",
+      "nextAction": "Fixed COMPRESS G/R meter freeze on transport stop (meter-clock freshness gate). Verify; consider same for METERING L/R/GR. Awaiting new presets.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "Clean-default everywhere (no force-DIRTY). Awaiting new factory presets to wire in (Resources/Presets + registry + BinaryData).",
+      "tomorrowFirstAction": "Fixed COMPRESS G/R meter freeze on transport stop (meter-clock freshness gate). Verify; consider same for METERING L/R/GR. Awaiting new presets.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -905,7 +905,7 @@
       "shipReadiness": 10,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-06-18",
+      "lastTouched": "2026-06-22",
       "testTickets": [
         {
           "id": "creosote-eq-summing-alignment",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v19.2.5",
-      "lastBuild": "v19.2.5",
-      "lastUpdated": "2026-06-18T17:09:02.933Z",
+      "currentVersion": "v19.2.6",
+      "lastBuild": "v19.2.6",
+      "lastUpdated": "2026-06-23T01:42:38.691Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-06-18T17:09:02.933Z",
-        "localDate": "2026-06-18",
-        "localHour": 10,
+        "createdAt": "2026-06-23T01:42:38.691Z",
+        "localDate": "2026-06-22",
+        "localHour": 18,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v19.2.5."
+        "summary": "CREOSOTE updated from Control Room delta: v19.2.6."
       }
     },
     {
@@ -5830,14 +5830,14 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-06-18",
+    "date": "2026-06-22",
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-06-18T17:09:02.933Z",
+    "lastAppliedAt": "2026-06-23T01:42:38.691Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-06-22T23:00:13.010Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-06-23T01:42:38.691Z",
     "localDate": "2026-06-22",
-    "localHour": 16,
+    "localHour": 18,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
