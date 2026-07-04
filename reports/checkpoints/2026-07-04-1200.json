@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-04",
+  "localHour": 12,
+  "timezone": "America/Los_Angeles",
+  "source": "scheduled-cron",
+  "createdAt": "2026-07-04T19:00:38.677Z",
+  "today": [
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "nextAction": "Fixed COMPRESS G/R meter freeze on transport stop (meter-clock freshness gate). Verify; consider same for METERING L/R/GR. Awaiting new presets.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction."
+    }
+  ],
+  "blockedCount": 5,
+  "decisionCount": 4
+}
