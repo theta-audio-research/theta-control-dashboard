@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-13",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.2.4",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.2.4 — compressor output coloration now clean-oversampled (HQ mode). Validate: high-drive/high-GR material on FET/Zener/VariMu is less fizzy/aliased at HQ 4x-8x; old presets (COMPRESS v1) unchanged. Oversampler feature now complete across GRIT/AMBER/COMPRESS.",
+      "tomorrowFirstAction": "v0.2.4 — compressor output coloration now clean-oversampled (HQ mode). Validate: high-drive/high-GR material on FET/Zener/VariMu is less fizzy/aliased at HQ 4x-8x; old presets (COMPRESS v1) unchanged. Oversampler feature now complete across GRIT/AMBER/COMPRESS.",
+      "endStatus": "Build hook reported CREOSOTE v0.2.4."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
