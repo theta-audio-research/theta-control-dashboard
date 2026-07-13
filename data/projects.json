@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.2.3",
-      "nextAction": "v0.2.3 — fixed MASTER-tab help text overflow (condensed to one line per mode). Validate: no bottom text cutoff in TWEAK MASTER. Next: compressor oversampling.",
+      "latestVersion": "v0.2.4",
+      "nextAction": "v0.2.4 — compressor output coloration now clean-oversampled (HQ mode). Validate: high-drive/high-GR material on FET/Zener/VariMu is less fizzy/aliased at HQ 4x-8x; old presets (COMPRESS v1) unchanged. Oversampler feature now complete across GRIT/AMBER/COMPRESS.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.2.3 — fixed MASTER-tab help text overflow (condensed to one line per mode). Validate: no bottom text cutoff in TWEAK MASTER. Next: compressor oversampling.",
+      "tomorrowFirstAction": "v0.2.4 — compressor output coloration now clean-oversampled (HQ mode). Validate: high-drive/high-GR material on FET/Zener/VariMu is less fizzy/aliased at HQ 4x-8x; old presets (COMPRESS v1) unchanged. Oversampler feature now complete across GRIT/AMBER/COMPRESS.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.2.3",
-      "lastBuild": "v0.2.3",
-      "lastUpdated": "2026-07-13T23:11:44.008Z",
+      "currentVersion": "v0.2.4",
+      "lastBuild": "v0.2.4",
+      "lastUpdated": "2026-07-13T23:52:13.641Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-13T23:11:44.008Z",
+        "createdAt": "2026-07-13T23:52:13.641Z",
         "localDate": "2026-07-13",
         "localHour": 16,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.2.3."
+        "summary": "CREOSOTE updated from Control Room delta: v0.2.4."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-13T23:11:44.008Z",
+    "lastAppliedAt": "2026-07-13T23:52:13.641Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-13T23:11:44.008Z",
+    "createdAt": "2026-07-13T23:52:13.641Z",
     "localDate": "2026-07-13",
     "localHour": 16,
     "timezone": "America/Los_Angeles",
