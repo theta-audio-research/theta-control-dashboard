@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "build_hook_delta",
-    "source": "api",
-    "createdAt": "2026-07-13T09:09:26.440Z",
+    "type": "scheduled_checkpoint",
+    "source": "scheduled-cron",
+    "createdAt": "2026-07-13T13:00:36.653Z",
     "localDate": "2026-07-13",
-    "localHour": 2,
+    "localHour": 6,
     "timezone": "America/Los_Angeles",
-    "summary": "1 project delta applied: CREOSOTE."
+    "summary": "Automated checkpoint at 06:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
   }
 }
