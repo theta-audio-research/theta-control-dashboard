@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-13",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.2.1",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.2.1 — SUMMING trimmed to PREGAIN/WIDTH/BALANCE (LEVEL/CROSSTALK/HEADROOM removed; old presets frozen at SUMMING v2). Validate: new instance shows 3 summing knobs, old presets recall unchanged. Still pending: OS Character UI control + compressor oversampling.",
+      "tomorrowFirstAction": "v0.2.1 — SUMMING trimmed to PREGAIN/WIDTH/BALANCE (LEVEL/CROSSTALK/HEADROOM removed; old presets frozen at SUMMING v2). Validate: new instance shows 3 summing knobs, old presets recall unchanged. Still pending: OS Character UI control + compressor oversampling.",
+      "endStatus": "Build hook reported CREOSOTE v0.2.1."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
