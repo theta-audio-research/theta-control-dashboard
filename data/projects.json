@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.3",
-      "nextAction": "v0.4.3 — MODULE WIDTHS: COMPRESS is now the widest (4/10 of the row), GRIT and AMBER are EQUAL width (3/10 each) — was COMPRESS 2u / GRIT 2u / AMBER 1u. Matches the mockup: outboard widest, the two color modules the same size. Pure width-split change on top of the v0.4.2 uniform grid; DSP untouched. VERIFY: GRIT and AMBER read as the same size, COMPRESS wider. Next: move GRIT SPEED/CAL/BIAS/AGE/LFO into TWEAK, AMBER vertical stage-tags, raise the bottom section under COMPRESS/GRIT.",
+      "latestVersion": "v0.4.4",
+      "nextAction": "v0.4.4 — GRIT tiles as WIDE as possible: layoutGrid gained a per-module padX arg; GRIT now uses tight side-padding + gap (6/6) instead of 10/8 so its tiles fill the panel width. Also ParamSlider fills its whole cell now (dropped the old 2px inset that made value tiles read narrower than selector tiles). COMPRESS/AMBER unchanged (10/8). DSP untouched. VERIFY: GRIT's tiles look maximally wide. Then apply the same widen treatment to whichever module is next. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, raise bottom section.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.3 — MODULE WIDTHS: COMPRESS is now the widest (4/10 of the row), GRIT and AMBER are EQUAL width (3/10 each) — was COMPRESS 2u / GRIT 2u / AMBER 1u. Matches the mockup: outboard widest, the two color modules the same size. Pure width-split change on top of the v0.4.2 uniform grid; DSP untouched. VERIFY: GRIT and AMBER read as the same size, COMPRESS wider. Next: move GRIT SPEED/CAL/BIAS/AGE/LFO into TWEAK, AMBER vertical stage-tags, raise the bottom section under COMPRESS/GRIT.",
+      "tomorrowFirstAction": "v0.4.4 — GRIT tiles as WIDE as possible: layoutGrid gained a per-module padX arg; GRIT now uses tight side-padding + gap (6/6) instead of 10/8 so its tiles fill the panel width. Also ParamSlider fills its whole cell now (dropped the old 2px inset that made value tiles read narrower than selector tiles). COMPRESS/AMBER unchanged (10/8). DSP untouched. VERIFY: GRIT's tiles look maximally wide. Then apply the same widen treatment to whichever module is next. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, raise bottom section.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.3",
-      "lastBuild": "v0.4.3",
-      "lastUpdated": "2026-07-14T04:24:53.390Z",
+      "currentVersion": "v0.4.4",
+      "lastBuild": "v0.4.4",
+      "lastUpdated": "2026-07-14T04:42:23.149Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-14T04:24:53.390Z",
+        "createdAt": "2026-07-14T04:42:23.149Z",
         "localDate": "2026-07-13",
         "localHour": 21,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.3."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.4."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-14T04:24:53.390Z",
+    "lastAppliedAt": "2026-07-14T04:42:23.149Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-14T04:24:53.390Z",
+    "createdAt": "2026-07-14T04:42:23.149Z",
     "localDate": "2026-07-13",
     "localHour": 21,
     "timezone": "America/Los_Angeles",
