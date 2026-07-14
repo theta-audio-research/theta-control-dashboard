@@ -881,7 +881,7 @@
       "today": true,
       "ignoreToday": false,
       "latestVersion": "v0.4.1",
-      "nextAction": "v0.4.0 — C1 UI, stage 1: value controls (DRIVE/TONE/WEAR/MIX/INPUT/THRESH/... every ParamSlider) render as C1 value-tiles — label + big value + a thin heat strip that fills/warms with value, no protruding thumb. Pure front-end (ParamSlider paint only), DSP untouched, zero layout change. Confirm the value-tile look feels right in a DAW. Stage 2 (v0.4.1): full tile-GRID layout — selectors → tiles/dropdowns, COMPRESS→GRIT→AMBER reorder, AMBER vertical stage-tags, top-down GR meters, header restyle, GRIT SPEED/CAL/BIAS/AGE → TWEAK.",
+      "nextAction": "v0.4.1 — C1 UI, stage 2a (layout): (1) selectors now render as FILLED C1 tiles (drawC1SelectorTile on the three selector LookAndFeels) instead of hollow outlined buttons, so they read like the value tiles; (2) module row reordered COMPRESS -> GRIT -> AMBER to match the mockup. DSP untouched. Remaining to fully match the mockup (stage 2b): GRIT SPEED/CAL/BIAS/AGE -> TWEAK, AMBER stage labels -> vertical side-tags, selector labels inside the tile, top-down GR meter, bottom section raised. Confirm the selector tiles + new order look right, then I roll the rest.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.0 — C1 UI, stage 1: value controls (DRIVE/TONE/WEAR/MIX/INPUT/THRESH/... every ParamSlider) render as C1 value-tiles — label + big value + a thin heat strip that fills/warms with value, no protruding thumb. Pure front-end (ParamSlider paint only), DSP untouched, zero layout change. Confirm the value-tile look feels right in a DAW. Stage 2 (v0.4.1): full tile-GRID layout — selectors → tiles/dropdowns, COMPRESS→GRIT→AMBER reorder, AMBER vertical stage-tags, top-down GR meters, header restyle, GRIT SPEED/CAL/BIAS/AGE → TWEAK.",
+      "tomorrowFirstAction": "v0.4.1 — C1 UI, stage 2a (layout): (1) selectors now render as FILLED C1 tiles (drawC1SelectorTile on the three selector LookAndFeels) instead of hollow outlined buttons, so they read like the value tiles; (2) module row reordered COMPRESS -> GRIT -> AMBER to match the mockup. DSP untouched. Remaining to fully match the mockup (stage 2b): GRIT SPEED/CAL/BIAS/AGE -> TWEAK, AMBER stage labels -> vertical side-tags, selector labels inside the tile, top-down GR meter, bottom section raised. Confirm the selector tiles + new order look right, then I roll the rest.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1496,11 +1496,11 @@
       },
       "currentVersion": "v0.4.1",
       "lastBuild": "v0.4.1",
-      "lastUpdated": "2026-07-14T03:34:47.982Z",
+      "lastUpdated": "2026-07-14T03:49:20.549Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-14T03:34:47.982Z",
+        "createdAt": "2026-07-14T03:49:20.549Z",
         "localDate": "2026-07-13",
         "localHour": 20,
         "timezone": "America/Los_Angeles",
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-14T03:34:47.982Z",
+    "lastAppliedAt": "2026-07-14T03:49:20.549Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-14T03:34:47.982Z",
+    "createdAt": "2026-07-14T03:49:20.549Z",
     "localDate": "2026-07-13",
     "localHour": 20,
     "timezone": "America/Los_Angeles",
