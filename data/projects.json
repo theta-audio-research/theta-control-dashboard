@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.2.4",
-      "nextAction": "v0.2.4 — compressor output coloration now clean-oversampled (HQ mode). Validate: high-drive/high-GR material on FET/Zener/VariMu is less fizzy/aliased at HQ 4x-8x; old presets (COMPRESS v1) unchanged. Oversampler feature now complete across GRIT/AMBER/COMPRESS.",
+      "latestVersion": "v19.2.7",
+      "nextAction": "v0.2.5 — foundation catch-up: adopted the COMPLETE v19.2.7 Phase 0A (LIMITER v2 = CLEAN is strict delay-only/no 0.999 clamp; deterministic flutter+AGE RNG reseed; zero-length buffer guards; resetToCanonicalDefaults). Validate: full-scale CLEAN nulls now; old presets unchanged; offline rerenders are repeatable.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.2.4 — compressor output coloration now clean-oversampled (HQ mode). Validate: high-drive/high-GR material on FET/Zener/VariMu is less fizzy/aliased at HQ 4x-8x; old presets (COMPRESS v1) unchanged. Oversampler feature now complete across GRIT/AMBER/COMPRESS.",
+      "tomorrowFirstAction": "v0.2.5 — foundation catch-up: adopted the COMPLETE v19.2.7 Phase 0A (LIMITER v2 = CLEAN is strict delay-only/no 0.999 clamp; deterministic flutter+AGE RNG reseed; zero-length buffer guards; resetToCanonicalDefaults). Validate: full-scale CLEAN nulls now; old presets unchanged; offline rerenders are repeatable.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.2.4",
-      "lastBuild": "v0.2.4",
-      "lastUpdated": "2026-07-13T23:52:13.641Z",
+      "currentVersion": "v19.2.7",
+      "lastBuild": "v19.2.7",
+      "lastUpdated": "2026-07-14T00:06:23.000Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-13T23:52:13.641Z",
+        "createdAt": "2026-07-14T00:06:23.000Z",
         "localDate": "2026-07-13",
-        "localHour": 16,
+        "localHour": 17,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.2.4."
+        "summary": "CREOSOTE updated from Control Room delta: v19.2.7."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-13T23:52:13.641Z",
+    "lastAppliedAt": "2026-07-14T00:06:23.000Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-13T23:52:13.641Z",
+    "createdAt": "2026-07-14T00:06:23.000Z",
     "localDate": "2026-07-13",
-    "localHour": 16,
+    "localHour": 17,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
