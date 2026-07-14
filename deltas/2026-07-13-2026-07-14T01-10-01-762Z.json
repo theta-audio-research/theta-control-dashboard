@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-13",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.3.0",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.3.0 — TAPE consolidation: new WEAR macro (one knob, fresh->worn) scales hysteresis/flutter/HF-loss + drives dropouts (GRIT v5; old presets unchanged). Validate the WEAR feel by ear and check GRIT panel layout with the added knob. Fast-follow (v0.3.1): tape-breathing modulation noise, retire the AGE LFO tab, tune the mapping.",
+      "tomorrowFirstAction": "v0.3.0 — TAPE consolidation: new WEAR macro (one knob, fresh->worn) scales hysteresis/flutter/HF-loss + drives dropouts (GRIT v5; old presets unchanged). Validate the WEAR feel by ear and check GRIT panel layout with the added knob. Fast-follow (v0.3.1): tape-breathing modulation noise, retire the AGE LFO tab, tune the mapping.",
+      "endStatus": "Build hook reported CREOSOTE v0.3.0."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
