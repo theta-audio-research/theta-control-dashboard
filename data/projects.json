@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v13.5",
-      "nextAction": "v0.4.6 — TEXT CONSISTENCY: value tiles (ParamSlider) now place their label + value with the EXACT same math + fonts as the selector tiles (label pinned top in a 12px band at y+5, value centered below; label 8pt, value 12pt). Selector value font unified to 12pt too (was per-LAF 11.5/13.5). So every tile — selector or value — reads identically now. DSP untouched. Remaining to fully match the mockup: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "latestVersion": "v0.4.7",
+      "nextAction": "v0.4.7 — BACKLIT LEGEND BUTTONS: every tile (selectors + value tiles) now paints as a physical backlit cap — black bezel, domed translucent cap, accent backlight, glowing 'etched' label + value — via shared EB::backlitCap + EB::glowText helpers in CreosoteTheme.h. Glow color = module accent (GRIT coral / AMBER gold / COMPRESS aqua). Value tiles keep a glowing ember level strip; constant backlight (not value-reactive) this pass. Paint-only, uniform grid + sizes UNCHANGED (buttons stay symmetric). DSP untouched. VERIFY the backlit look reads right; then tune glow intensity / whether it should react to value. Remaining structural: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.6 — TEXT CONSISTENCY: value tiles (ParamSlider) now place their label + value with the EXACT same math + fonts as the selector tiles (label pinned top in a 12px band at y+5, value centered below; label 8pt, value 12pt). Selector value font unified to 12pt too (was per-LAF 11.5/13.5). So every tile — selector or value — reads identically now. DSP untouched. Remaining to fully match the mockup: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.7 — BACKLIT LEGEND BUTTONS: every tile (selectors + value tiles) now paints as a physical backlit cap — black bezel, domed translucent cap, accent backlight, glowing 'etched' label + value — via shared EB::backlitCap + EB::glowText helpers in CreosoteTheme.h. Glow color = module accent (GRIT coral / AMBER gold / COMPRESS aqua). Value tiles keep a glowing ember level strip; constant backlight (not value-reactive) this pass. Paint-only, uniform grid + sizes UNCHANGED (buttons stay symmetric). DSP untouched. VERIFY the backlit look reads right; then tune glow intensity / whether it should react to value. Remaining structural: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v13.5",
-      "lastBuild": "v13.5",
-      "lastUpdated": "2026-07-14T22:29:47.408Z",
+      "currentVersion": "v0.4.7",
+      "lastBuild": "v0.4.7",
+      "lastUpdated": "2026-07-14T23:42:32.554Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-14T22:29:47.408Z",
+        "createdAt": "2026-07-14T23:42:32.554Z",
         "localDate": "2026-07-14",
-        "localHour": 15,
+        "localHour": 16,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v13.5."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.7."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-14T22:29:47.408Z",
+    "lastAppliedAt": "2026-07-14T23:42:32.554Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-14T23:00:19.005Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-14T23:42:32.554Z",
     "localDate": "2026-07-14",
     "localHour": 16,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
