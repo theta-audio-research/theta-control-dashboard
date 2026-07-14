@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-14",
+  "localHour": 9,
+  "timezone": "America/Los_Angeles",
+  "source": "scheduled-cron",
+  "createdAt": "2026-07-14T16:00:19.047Z",
+  "today": [
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "nextAction": "v0.4.5 — widen rolled to ALL modules: COMPRESS + AMBER now use the same tight 6/6 grid as GRIT, so every module's tiles fill their panel width. DSP untouched. Remaining to fully match the mockup: GRIT SPEED/CAL/BIAS/AGE/LFO -> TWEAK, AMBER stage labels -> vertical side-tags, top-down GR meter, raise the bottom section (summing/limiter/meter) up under COMPRESS/GRIT.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction."
+    }
+  ],
+  "blockedCount": 5,
+  "decisionCount": 4
+}
