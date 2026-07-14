@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.1",
-      "nextAction": "v0.4.1 — C1 UI, stage 2a (layout): (1) selectors now render as FILLED C1 tiles (drawC1SelectorTile on the three selector LookAndFeels) instead of hollow outlined buttons, so they read like the value tiles; (2) module row reordered COMPRESS -> GRIT -> AMBER to match the mockup. DSP untouched. Remaining to fully match the mockup (stage 2b): GRIT SPEED/CAL/BIAS/AGE -> TWEAK, AMBER stage labels -> vertical side-tags, selector labels inside the tile, top-down GR meter, bottom section raised. Confirm the selector tiles + new order look right, then I roll the rest.",
+      "latestVersion": "v0.4.2",
+      "nextAction": "v0.4.2 — C1 UNIFORM GRID (the big one): the editor now lays EVERY control (selectors + value sliders) on one shared grid per module at one cell size (CELL_H=50). COMPRESS 4-col, GRIT + AMBER 2-col. Selector labels drawn INSIDE the tile (name=top, value=center, dropdown caret). GRIT's SPEED/CAL/BIAS/AGE/LFO are HIDDEN this build (params keep values) so GRIT matches the mockup's clean 4-row grid — they relocate to TWEAK next. ModulePanel gained externalLayout + paramSliderAt()/getMixSlider() accessors. Big front-end change; DSP untouched. VERIFY: every cell is now the same size, per-module grid reads uniform. If it throws build errors, paste them — this couldn't be compiled here. Next: move GRIT deep controls into TWEAK, AMBER vertical stage-tags, raise bottom section.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.1 — C1 UI, stage 2a (layout): (1) selectors now render as FILLED C1 tiles (drawC1SelectorTile on the three selector LookAndFeels) instead of hollow outlined buttons, so they read like the value tiles; (2) module row reordered COMPRESS -> GRIT -> AMBER to match the mockup. DSP untouched. Remaining to fully match the mockup (stage 2b): GRIT SPEED/CAL/BIAS/AGE -> TWEAK, AMBER stage labels -> vertical side-tags, selector labels inside the tile, top-down GR meter, bottom section raised. Confirm the selector tiles + new order look right, then I roll the rest.",
+      "tomorrowFirstAction": "v0.4.2 — C1 UNIFORM GRID (the big one): the editor now lays EVERY control (selectors + value sliders) on one shared grid per module at one cell size (CELL_H=50). COMPRESS 4-col, GRIT + AMBER 2-col. Selector labels drawn INSIDE the tile (name=top, value=center, dropdown caret). GRIT's SPEED/CAL/BIAS/AGE/LFO are HIDDEN this build (params keep values) so GRIT matches the mockup's clean 4-row grid — they relocate to TWEAK next. ModulePanel gained externalLayout + paramSliderAt()/getMixSlider() accessors. Big front-end change; DSP untouched. VERIFY: every cell is now the same size, per-module grid reads uniform. If it throws build errors, paste them — this couldn't be compiled here. Next: move GRIT deep controls into TWEAK, AMBER vertical stage-tags, raise bottom section.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.1",
-      "lastBuild": "v0.4.1",
-      "lastUpdated": "2026-07-14T03:49:20.549Z",
+      "currentVersion": "v0.4.2",
+      "lastBuild": "v0.4.2",
+      "lastUpdated": "2026-07-14T04:16:07.003Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-14T03:49:20.549Z",
+        "createdAt": "2026-07-14T04:16:07.003Z",
         "localDate": "2026-07-13",
-        "localHour": 20,
+        "localHour": 21,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.1."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.2."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-14T03:49:20.549Z",
+    "lastAppliedAt": "2026-07-14T04:16:07.003Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-14T03:49:20.549Z",
+    "createdAt": "2026-07-14T04:16:07.003Z",
     "localDate": "2026-07-13",
-    "localHour": 20,
+    "localHour": 21,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
