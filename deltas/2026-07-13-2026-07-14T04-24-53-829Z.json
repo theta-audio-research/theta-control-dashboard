@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-13",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.3",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.3 — MODULE WIDTHS: COMPRESS is now the widest (4/10 of the row), GRIT and AMBER are EQUAL width (3/10 each) — was COMPRESS 2u / GRIT 2u / AMBER 1u. Matches the mockup: outboard widest, the two color modules the same size. Pure width-split change on top of the v0.4.2 uniform grid; DSP untouched. VERIFY: GRIT and AMBER read as the same size, COMPRESS wider. Next: move GRIT SPEED/CAL/BIAS/AGE/LFO into TWEAK, AMBER vertical stage-tags, raise the bottom section under COMPRESS/GRIT.",
+      "tomorrowFirstAction": "v0.4.3 — MODULE WIDTHS: COMPRESS is now the widest (4/10 of the row), GRIT and AMBER are EQUAL width (3/10 each) — was COMPRESS 2u / GRIT 2u / AMBER 1u. Matches the mockup: outboard widest, the two color modules the same size. Pure width-split change on top of the v0.4.2 uniform grid; DSP untouched. VERIFY: GRIT and AMBER read as the same size, COMPRESS wider. Next: move GRIT SPEED/CAL/BIAS/AGE/LFO into TWEAK, AMBER vertical stage-tags, raise the bottom section under COMPRESS/GRIT.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.3."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
