@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-13",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.5",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.5 — widen rolled to ALL modules: COMPRESS + AMBER now use the same tight 6/6 grid as GRIT, so every module's tiles fill their panel width. DSP untouched. Remaining to fully match the mockup: GRIT SPEED/CAL/BIAS/AGE/LFO -> TWEAK, AMBER stage labels -> vertical side-tags, top-down GR meter, raise the bottom section (summing/limiter/meter) up under COMPRESS/GRIT.",
+      "tomorrowFirstAction": "v0.4.5 — widen rolled to ALL modules: COMPRESS + AMBER now use the same tight 6/6 grid as GRIT, so every module's tiles fill their panel width. DSP untouched. Remaining to fully match the mockup: GRIT SPEED/CAL/BIAS/AGE/LFO -> TWEAK, AMBER stage labels -> vertical side-tags, top-down GR meter, raise the bottom section (summing/limiter/meter) up under COMPRESS/GRIT.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.5."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
