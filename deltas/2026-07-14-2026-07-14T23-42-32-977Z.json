@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-14",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.7",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.7 — BACKLIT LEGEND BUTTONS: every tile (selectors + value tiles) now paints as a physical backlit cap — black bezel, domed translucent cap, accent backlight, glowing 'etched' label + value — via shared EB::backlitCap + EB::glowText helpers in CreosoteTheme.h. Glow color = module accent (GRIT coral / AMBER gold / COMPRESS aqua). Value tiles keep a glowing ember level strip; constant backlight (not value-reactive) this pass. Paint-only, uniform grid + sizes UNCHANGED (buttons stay symmetric). DSP untouched. VERIFY the backlit look reads right; then tune glow intensity / whether it should react to value. Remaining structural: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.7 — BACKLIT LEGEND BUTTONS: every tile (selectors + value tiles) now paints as a physical backlit cap — black bezel, domed translucent cap, accent backlight, glowing 'etched' label + value — via shared EB::backlitCap + EB::glowText helpers in CreosoteTheme.h. Glow color = module accent (GRIT coral / AMBER gold / COMPRESS aqua). Value tiles keep a glowing ember level strip; constant backlight (not value-reactive) this pass. Paint-only, uniform grid + sizes UNCHANGED (buttons stay symmetric). DSP untouched. VERIFY the backlit look reads right; then tune glow intensity / whether it should react to value. Remaining structural: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.7."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
