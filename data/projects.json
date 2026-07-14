@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.4",
-      "nextAction": "v0.4.4 — GRIT tiles as WIDE as possible: layoutGrid gained a per-module padX arg; GRIT now uses tight side-padding + gap (6/6) instead of 10/8 so its tiles fill the panel width. Also ParamSlider fills its whole cell now (dropped the old 2px inset that made value tiles read narrower than selector tiles). COMPRESS/AMBER unchanged (10/8). DSP untouched. VERIFY: GRIT's tiles look maximally wide. Then apply the same widen treatment to whichever module is next. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, raise bottom section.",
+      "latestVersion": "v0.4.5",
+      "nextAction": "v0.4.5 — widen rolled to ALL modules: COMPRESS + AMBER now use the same tight 6/6 grid as GRIT, so every module's tiles fill their panel width. DSP untouched. Remaining to fully match the mockup: GRIT SPEED/CAL/BIAS/AGE/LFO -> TWEAK, AMBER stage labels -> vertical side-tags, top-down GR meter, raise the bottom section (summing/limiter/meter) up under COMPRESS/GRIT.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.4 — GRIT tiles as WIDE as possible: layoutGrid gained a per-module padX arg; GRIT now uses tight side-padding + gap (6/6) instead of 10/8 so its tiles fill the panel width. Also ParamSlider fills its whole cell now (dropped the old 2px inset that made value tiles read narrower than selector tiles). COMPRESS/AMBER unchanged (10/8). DSP untouched. VERIFY: GRIT's tiles look maximally wide. Then apply the same widen treatment to whichever module is next. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.5 — widen rolled to ALL modules: COMPRESS + AMBER now use the same tight 6/6 grid as GRIT, so every module's tiles fill their panel width. DSP untouched. Remaining to fully match the mockup: GRIT SPEED/CAL/BIAS/AGE/LFO -> TWEAK, AMBER stage labels -> vertical side-tags, top-down GR meter, raise the bottom section (summing/limiter/meter) up under COMPRESS/GRIT.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.4",
-      "lastBuild": "v0.4.4",
-      "lastUpdated": "2026-07-14T04:42:23.149Z",
+      "currentVersion": "v0.4.5",
+      "lastBuild": "v0.4.5",
+      "lastUpdated": "2026-07-14T05:51:09.508Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-14T04:42:23.149Z",
+        "createdAt": "2026-07-14T05:51:09.508Z",
         "localDate": "2026-07-13",
-        "localHour": 21,
+        "localHour": 22,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.4."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.5."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-14T04:42:23.149Z",
+    "lastAppliedAt": "2026-07-14T05:51:09.508Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-14T04:42:23.149Z",
+    "createdAt": "2026-07-14T05:51:09.508Z",
     "localDate": "2026-07-13",
-    "localHour": 21,
+    "localHour": 22,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
