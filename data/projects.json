@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.3.1",
-      "nextAction": "v0.3.0 — TAPE consolidation: new WEAR macro (one knob, fresh->worn) scales hysteresis/flutter/HF-loss + drives dropouts (GRIT v5; old presets unchanged). Validate the WEAR feel by ear and check GRIT panel layout with the added knob. Fast-follow (v0.3.1): tape-breathing modulation noise, retire the AGE LFO tab, tune the mapping.",
+      "latestVersion": "v0.3.2",
+      "nextAction": "v0.3.1 — UI hotfix: GRIT tape panel bottom cluster (DRIVE/TONE/WEAR + MIX) no longer overlaps the TAPE stock selector (compact slider rows + tighter selector spacing). DSP unchanged from v0.3.0. Validate the WEAR feel by ear now that all four controls are visible. Fast-follow (v0.3.2): tape-breathing modulation noise, retire the AGE LFO tab, tune the WEAR mapping.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.3.0 — TAPE consolidation: new WEAR macro (one knob, fresh->worn) scales hysteresis/flutter/HF-loss + drives dropouts (GRIT v5; old presets unchanged). Validate the WEAR feel by ear and check GRIT panel layout with the added knob. Fast-follow (v0.3.1): tape-breathing modulation noise, retire the AGE LFO tab, tune the mapping.",
+      "tomorrowFirstAction": "v0.3.1 — UI hotfix: GRIT tape panel bottom cluster (DRIVE/TONE/WEAR + MIX) no longer overlaps the TAPE stock selector (compact slider rows + tighter selector spacing). DSP unchanged from v0.3.0. Validate the WEAR feel by ear now that all four controls are visible. Fast-follow (v0.3.2): tape-breathing modulation noise, retire the AGE LFO tab, tune the WEAR mapping.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.3.1",
-      "lastBuild": "v0.3.1",
-      "lastUpdated": "2026-07-14T01:10:01.410Z",
+      "currentVersion": "v0.3.2",
+      "lastBuild": "v0.3.2",
+      "lastUpdated": "2026-07-14T01:18:24.025Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-14T01:10:01.410Z",
+        "createdAt": "2026-07-14T01:18:24.025Z",
         "localDate": "2026-07-13",
         "localHour": 18,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.3.1."
+        "summary": "CREOSOTE updated from Control Room delta: v0.3.2."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-14T01:10:01.410Z",
+    "lastAppliedAt": "2026-07-14T01:18:24.025Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-14T01:10:01.410Z",
+    "createdAt": "2026-07-14T01:18:24.025Z",
     "localDate": "2026-07-13",
     "localHour": 18,
     "timezone": "America/Los_Angeles",
