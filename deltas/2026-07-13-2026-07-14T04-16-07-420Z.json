@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-13",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.2",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.2 — C1 UNIFORM GRID (the big one): the editor now lays EVERY control (selectors + value sliders) on one shared grid per module at one cell size (CELL_H=50). COMPRESS 4-col, GRIT + AMBER 2-col. Selector labels drawn INSIDE the tile (name=top, value=center, dropdown caret). GRIT's SPEED/CAL/BIAS/AGE/LFO are HIDDEN this build (params keep values) so GRIT matches the mockup's clean 4-row grid — they relocate to TWEAK next. ModulePanel gained externalLayout + paramSliderAt()/getMixSlider() accessors. Big front-end change; DSP untouched. VERIFY: every cell is now the same size, per-module grid reads uniform. If it throws build errors, paste them — this couldn't be compiled here. Next: move GRIT deep controls into TWEAK, AMBER vertical stage-tags, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.2 — C1 UNIFORM GRID (the big one): the editor now lays EVERY control (selectors + value sliders) on one shared grid per module at one cell size (CELL_H=50). COMPRESS 4-col, GRIT + AMBER 2-col. Selector labels drawn INSIDE the tile (name=top, value=center, dropdown caret). GRIT's SPEED/CAL/BIAS/AGE/LFO are HIDDEN this build (params keep values) so GRIT matches the mockup's clean 4-row grid — they relocate to TWEAK next. ModulePanel gained externalLayout + paramSliderAt()/getMixSlider() accessors. Big front-end change; DSP untouched. VERIFY: every cell is now the same size, per-module grid reads uniform. If it throws build errors, paste them — this couldn't be compiled here. Next: move GRIT deep controls into TWEAK, AMBER vertical stage-tags, raise bottom section.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.2."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
