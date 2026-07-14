@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-13",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.2.5",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.2.5 — foundation catch-up: adopted the COMPLETE v19.2.7 Phase 0A (LIMITER v2 = CLEAN is strict delay-only/no 0.999 clamp; deterministic flutter+AGE RNG reseed; zero-length buffer guards; resetToCanonicalDefaults). Validate: full-scale CLEAN nulls now; old presets unchanged; offline rerenders are repeatable.",
+      "tomorrowFirstAction": "v0.2.5 — foundation catch-up: adopted the COMPLETE v19.2.7 Phase 0A (LIMITER v2 = CLEAN is strict delay-only/no 0.999 clamp; deterministic flutter+AGE RNG reseed; zero-length buffer guards; resetToCanonicalDefaults). Validate: full-scale CLEAN nulls now; old presets unchanged; offline rerenders are repeatable.",
+      "endStatus": "Build hook reported CREOSOTE v0.2.5."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
