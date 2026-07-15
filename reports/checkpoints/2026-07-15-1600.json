@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-15",
+  "localHour": 16,
+  "timezone": "America/Los_Angeles",
+  "source": "scheduled-cron",
+  "createdAt": "2026-07-15T23:00:19.041Z",
+  "today": [
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "nextAction": "v0.4.11 — BACKLIT UNIFORM + READABLE: fixes the two issues seen in v0.4.10 in the DAW. (1) TEXT WAS BLURRY: EB::glowText drew the glyphs themselves at ring offsets, which fattened/smeared them. It now renders the text once, gaussian-blurs it into a soft halo (cached per text/size/colour so the AMBER heat overlay doesn't re-blur each frame), composites that halo, then draws the CRISP text on top — a true text-shadow, sharp and readable. (2) TILES WEREN'T UNIFORM: the cap bloom was sized off each tile's WIDTH, so wide selectors read bright and even while narrow value tiles were centre-hot/edge-dark. EB::backlitCap is now a SUBTLE, EVEN, low-contrast warm panel (bloom peak alpha ~0.31 -> ~0.13) that reads the same at any tile width; the 'lit' character now comes from the glowing TEXT, as in the mockup. Still paint-only (no DSP, no layout). VERIFY IN ABLETON: legends are sharp and readable with a soft glow; every tile (wide selector or narrow value) reads uniformly lit; still zero blue (COMPRESS caps amber, aqua only in strip+rail). KNOWN (unchanged): GRIT selectors are historically EC::gold while its value tiles are EC::coral, so GRIT's lean isn't perfectly uniform yet — a small .cpp accent pass, deferred. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction."
+    }
+  ],
+  "blockedCount": 5,
+  "decisionCount": 4
+}
