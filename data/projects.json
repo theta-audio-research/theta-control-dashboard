@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.7",
-      "nextAction": "v0.4.7 — BACKLIT LEGEND BUTTONS: every tile (selectors + value tiles) now paints as a physical backlit cap — black bezel, domed translucent cap, accent backlight, glowing 'etched' label + value — via shared EB::backlitCap + EB::glowText helpers in CreosoteTheme.h. Glow color = module accent (GRIT coral / AMBER gold / COMPRESS aqua). Value tiles keep a glowing ember level strip; constant backlight (not value-reactive) this pass. Paint-only, uniform grid + sizes UNCHANGED (buttons stay symmetric). DSP untouched. VERIFY the backlit look reads right; then tune glow intensity / whether it should react to value. Remaining structural: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "latestVersion": "v0.4.8",
+      "nextAction": "v0.4.8 — BACKLIT TUNE: (1) buttons now GROW to fill each panel (cellHFor: cell height = panel height / rows) so GRIT's tiles are tall and there's no dead space — matches the mockup proportions; (2) much stronger AMBER glow + contrast: caps are near-black warm with a strong amber bloom, legends glow via a warm-amber colour (EB::glowFor/labelFor/valueFor = amber tinted toward the module accent) with a proper multi-ring halo. Paint + fill only, DSP untouched. VERIFY GRIT proportions fill the panel and the amber glow reads like the mockup. NOTE: AMBER has 5 rows so its cells are a touch shorter than GRIT/COMPRESS (4 rows) under fixed panel height — if you want them all identical, that needs the ragged-panel + raised-bottom rework. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.7 — BACKLIT LEGEND BUTTONS: every tile (selectors + value tiles) now paints as a physical backlit cap — black bezel, domed translucent cap, accent backlight, glowing 'etched' label + value — via shared EB::backlitCap + EB::glowText helpers in CreosoteTheme.h. Glow color = module accent (GRIT coral / AMBER gold / COMPRESS aqua). Value tiles keep a glowing ember level strip; constant backlight (not value-reactive) this pass. Paint-only, uniform grid + sizes UNCHANGED (buttons stay symmetric). DSP untouched. VERIFY the backlit look reads right; then tune glow intensity / whether it should react to value. Remaining structural: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.8 — BACKLIT TUNE: (1) buttons now GROW to fill each panel (cellHFor: cell height = panel height / rows) so GRIT's tiles are tall and there's no dead space — matches the mockup proportions; (2) much stronger AMBER glow + contrast: caps are near-black warm with a strong amber bloom, legends glow via a warm-amber colour (EB::glowFor/labelFor/valueFor = amber tinted toward the module accent) with a proper multi-ring halo. Paint + fill only, DSP untouched. VERIFY GRIT proportions fill the panel and the amber glow reads like the mockup. NOTE: AMBER has 5 rows so its cells are a touch shorter than GRIT/COMPRESS (4 rows) under fixed panel height — if you want them all identical, that needs the ragged-panel + raised-bottom rework. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.7",
-      "lastBuild": "v0.4.7",
-      "lastUpdated": "2026-07-14T23:42:32.554Z",
+      "currentVersion": "v0.4.8",
+      "lastBuild": "v0.4.8",
+      "lastUpdated": "2026-07-15T01:28:43.995Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-14T23:42:32.554Z",
+        "createdAt": "2026-07-15T01:28:43.995Z",
         "localDate": "2026-07-14",
-        "localHour": 16,
+        "localHour": 18,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.7."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.8."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-14T23:42:32.554Z",
+    "lastAppliedAt": "2026-07-15T01:28:43.995Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-14T23:42:32.554Z",
+    "createdAt": "2026-07-15T01:28:43.995Z",
     "localDate": "2026-07-14",
-    "localHour": 16,
+    "localHour": 18,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
