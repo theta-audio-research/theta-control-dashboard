@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-14",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.9",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.9 — BLUE FIX: the backlit glow is now ONE warm amber for EVERY module. In v0.4.8 the legend glow was tinted toward each module's accent, so COMPRESS's aqua accent threw cyan halos across the widest/leftmost module and the whole panel read 'blue'. Now EB::glowFor/labelFor/valueFor return a fixed warm amber (accent ignored); module identity survives only in the thin level strip + rail. Paint-only, DSP untouched. VERIFY: zero blue anywhere — all legends glow warm amber. ALSO CONFIRM GRIT: its tiles already fill the panel (cellHFor grew cells ~50->67px in v0.4.8); the blue cast may have masked that they resized — check the GRIT column now reads tall/even under the top button. NOTE: AMBER has 5 rows so its cells are a touch shorter than GRIT/COMPRESS (4 rows) under fixed panel height — identical-everywhere needs the ragged-panel + raised-bottom rework. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.9 — BLUE FIX: the backlit glow is now ONE warm amber for EVERY module. In v0.4.8 the legend glow was tinted toward each module's accent, so COMPRESS's aqua accent threw cyan halos across the widest/leftmost module and the whole panel read 'blue'. Now EB::glowFor/labelFor/valueFor return a fixed warm amber (accent ignored); module identity survives only in the thin level strip + rail. Paint-only, DSP untouched. VERIFY: zero blue anywhere — all legends glow warm amber. ALSO CONFIRM GRIT: its tiles already fill the panel (cellHFor grew cells ~50->67px in v0.4.8); the blue cast may have masked that they resized — check the GRIT column now reads tall/even under the top button. NOTE: AMBER has 5 rows so its cells are a touch shorter than GRIT/COMPRESS (4 rows) under fixed panel height — identical-everywhere needs the ragged-panel + raised-bottom rework. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.9."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
