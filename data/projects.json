@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.10",
-      "nextAction": "v0.4.10 — BACKLIT DEPTH: flatness fix + safe warm-accent lean. Mocked and approved vs the target before building. THREE renderer changes, all paint-only (no DSP, no layout): (1) EB::backlitCap now sizes the warm base + amber bloom off tile WIDTH (was height) and warms the base centre 0xff1d1108 -> 0xff2c190d, so caps FILL evenly instead of a hot centre with dark side-thirds. (2) EB::glowText draws a wider/softer 4-ring halo (was a tight 2-ring outline) so legends genuinely glow. (3) the ParamSlider level strip is a brighter ember with a soft accent bloom rising off it. PLUS the warm-accent lean is back but HUE-GATED: EB::glowFor/labelFor/valueFor tint toward the accent ONLY when it is warm (GRIT coral, AMBER gold); cool accents (COMPRESS aqua/blue) are gated out and stay pure amber — so the v0.4.8 blue cast CANNOT return. VERIFY IN ABLETON: (a) GRIT/AMBER caps read fuller/warmer, legends glow softly, ember strips glow; (b) still zero blue anywhere — COMPRESS caps are amber, only its level strip + rail are aqua; (c) the coral (GRIT) vs gold (AMBER) lean is visible but subtle. KNOWN: the lean follows each control's own assigned accent, and GRIT's selectors are historically coloured gold while its value tiles are coral, so GRIT's lean is not perfectly uniform yet (selectors read a hair more gold). If that reads wrong, the fix is a small .cpp accent-assignment pass, not a renderer change. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "latestVersion": "v0.31",
+      "nextAction": "v0.4.11 — BACKLIT UNIFORM + READABLE: fixes the two issues seen in v0.4.10 in the DAW. (1) TEXT WAS BLURRY: EB::glowText drew the glyphs themselves at ring offsets, which fattened/smeared them. It now renders the text once, gaussian-blurs it into a soft halo (cached per text/size/colour so the AMBER heat overlay doesn't re-blur each frame), composites that halo, then draws the CRISP text on top — a true text-shadow, sharp and readable. (2) TILES WEREN'T UNIFORM: the cap bloom was sized off each tile's WIDTH, so wide selectors read bright and even while narrow value tiles were centre-hot/edge-dark. EB::backlitCap is now a SUBTLE, EVEN, low-contrast warm panel (bloom peak alpha ~0.31 -> ~0.13) that reads the same at any tile width; the 'lit' character now comes from the glowing TEXT, as in the mockup. Still paint-only (no DSP, no layout). VERIFY IN ABLETON: legends are sharp and readable with a soft glow; every tile (wide selector or narrow value) reads uniformly lit; still zero blue (COMPRESS caps amber, aqua only in strip+rail). KNOWN (unchanged): GRIT selectors are historically EC::gold while its value tiles are EC::coral, so GRIT's lean isn't perfectly uniform yet — a small .cpp accent pass, deferred. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.10 — BACKLIT DEPTH: flatness fix + safe warm-accent lean. Mocked and approved vs the target before building. THREE renderer changes, all paint-only (no DSP, no layout): (1) EB::backlitCap now sizes the warm base + amber bloom off tile WIDTH (was height) and warms the base centre 0xff1d1108 -> 0xff2c190d, so caps FILL evenly instead of a hot centre with dark side-thirds. (2) EB::glowText draws a wider/softer 4-ring halo (was a tight 2-ring outline) so legends genuinely glow. (3) the ParamSlider level strip is a brighter ember with a soft accent bloom rising off it. PLUS the warm-accent lean is back but HUE-GATED: EB::glowFor/labelFor/valueFor tint toward the accent ONLY when it is warm (GRIT coral, AMBER gold); cool accents (COMPRESS aqua/blue) are gated out and stay pure amber — so the v0.4.8 blue cast CANNOT return. VERIFY IN ABLETON: (a) GRIT/AMBER caps read fuller/warmer, legends glow softly, ember strips glow; (b) still zero blue anywhere — COMPRESS caps are amber, only its level strip + rail are aqua; (c) the coral (GRIT) vs gold (AMBER) lean is visible but subtle. KNOWN: the lean follows each control's own assigned accent, and GRIT's selectors are historically coloured gold while its value tiles are coral, so GRIT's lean is not perfectly uniform yet (selectors read a hair more gold). If that reads wrong, the fix is a small .cpp accent-assignment pass, not a renderer change. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.11 — BACKLIT UNIFORM + READABLE: fixes the two issues seen in v0.4.10 in the DAW. (1) TEXT WAS BLURRY: EB::glowText drew the glyphs themselves at ring offsets, which fattened/smeared them. It now renders the text once, gaussian-blurs it into a soft halo (cached per text/size/colour so the AMBER heat overlay doesn't re-blur each frame), composites that halo, then draws the CRISP text on top — a true text-shadow, sharp and readable. (2) TILES WEREN'T UNIFORM: the cap bloom was sized off each tile's WIDTH, so wide selectors read bright and even while narrow value tiles were centre-hot/edge-dark. EB::backlitCap is now a SUBTLE, EVEN, low-contrast warm panel (bloom peak alpha ~0.31 -> ~0.13) that reads the same at any tile width; the 'lit' character now comes from the glowing TEXT, as in the mockup. Still paint-only (no DSP, no layout). VERIFY IN ABLETON: legends are sharp and readable with a soft glow; every tile (wide selector or narrow value) reads uniformly lit; still zero blue (COMPRESS caps amber, aqua only in strip+rail). KNOWN (unchanged): GRIT selectors are historically EC::gold while its value tiles are EC::coral, so GRIT's lean isn't perfectly uniform yet — a small .cpp accent pass, deferred. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.10",
-      "lastBuild": "v0.4.10",
-      "lastUpdated": "2026-07-15T05:24:16.296Z",
+      "currentVersion": "v0.31",
+      "lastBuild": "v0.31",
+      "lastUpdated": "2026-07-15T05:39:49.949Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-15T05:24:16.296Z",
+        "createdAt": "2026-07-15T05:39:49.949Z",
         "localDate": "2026-07-14",
         "localHour": 22,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.10."
+        "summary": "CREOSOTE updated from Control Room delta: v0.31."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-15T05:24:16.296Z",
+    "lastAppliedAt": "2026-07-15T05:39:49.949Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-15T05:24:16.296Z",
+    "createdAt": "2026-07-15T05:39:49.949Z",
     "localDate": "2026-07-14",
     "localHour": 22,
     "timezone": "America/Los_Angeles",
