@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-14",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.11",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.11 — BACKLIT UNIFORM + READABLE: fixes the two issues seen in v0.4.10 in the DAW. (1) TEXT WAS BLURRY: EB::glowText drew the glyphs themselves at ring offsets, which fattened/smeared them. It now renders the text once, gaussian-blurs it into a soft halo (cached per text/size/colour so the AMBER heat overlay doesn't re-blur each frame), composites that halo, then draws the CRISP text on top — a true text-shadow, sharp and readable. (2) TILES WEREN'T UNIFORM: the cap bloom was sized off each tile's WIDTH, so wide selectors read bright and even while narrow value tiles were centre-hot/edge-dark. EB::backlitCap is now a SUBTLE, EVEN, low-contrast warm panel (bloom peak alpha ~0.31 -> ~0.13) that reads the same at any tile width; the 'lit' character now comes from the glowing TEXT, as in the mockup. Still paint-only (no DSP, no layout). VERIFY IN ABLETON: legends are sharp and readable with a soft glow; every tile (wide selector or narrow value) reads uniformly lit; still zero blue (COMPRESS caps amber, aqua only in strip+rail). KNOWN (unchanged): GRIT selectors are historically EC::gold while its value tiles are EC::coral, so GRIT's lean isn't perfectly uniform yet — a small .cpp accent pass, deferred. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.11 — BACKLIT UNIFORM + READABLE: fixes the two issues seen in v0.4.10 in the DAW. (1) TEXT WAS BLURRY: EB::glowText drew the glyphs themselves at ring offsets, which fattened/smeared them. It now renders the text once, gaussian-blurs it into a soft halo (cached per text/size/colour so the AMBER heat overlay doesn't re-blur each frame), composites that halo, then draws the CRISP text on top — a true text-shadow, sharp and readable. (2) TILES WEREN'T UNIFORM: the cap bloom was sized off each tile's WIDTH, so wide selectors read bright and even while narrow value tiles were centre-hot/edge-dark. EB::backlitCap is now a SUBTLE, EVEN, low-contrast warm panel (bloom peak alpha ~0.31 -> ~0.13) that reads the same at any tile width; the 'lit' character now comes from the glowing TEXT, as in the mockup. Still paint-only (no DSP, no layout). VERIFY IN ABLETON: legends are sharp and readable with a soft glow; every tile (wide selector or narrow value) reads uniformly lit; still zero blue (COMPRESS caps amber, aqua only in strip+rail). KNOWN (unchanged): GRIT selectors are historically EC::gold while its value tiles are EC::coral, so GRIT's lean isn't perfectly uniform yet — a small .cpp accent pass, deferred. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.11."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
