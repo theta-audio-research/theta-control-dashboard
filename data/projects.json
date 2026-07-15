@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.9",
-      "nextAction": "v0.4.9 — BLUE FIX: the backlit glow is now ONE warm amber for EVERY module. In v0.4.8 the legend glow was tinted toward each module's accent, so COMPRESS's aqua accent threw cyan halos across the widest/leftmost module and the whole panel read 'blue'. Now EB::glowFor/labelFor/valueFor return a fixed warm amber (accent ignored); module identity survives only in the thin level strip + rail. Paint-only, DSP untouched. VERIFY: zero blue anywhere — all legends glow warm amber. ALSO CONFIRM GRIT: its tiles already fill the panel (cellHFor grew cells ~50->67px in v0.4.8); the blue cast may have masked that they resized — check the GRIT column now reads tall/even under the top button. NOTE: AMBER has 5 rows so its cells are a touch shorter than GRIT/COMPRESS (4 rows) under fixed panel height — identical-everywhere needs the ragged-panel + raised-bottom rework. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "latestVersion": "v0.4.10",
+      "nextAction": "v0.4.10 — BACKLIT DEPTH: flatness fix + safe warm-accent lean. Mocked and approved vs the target before building. THREE renderer changes, all paint-only (no DSP, no layout): (1) EB::backlitCap now sizes the warm base + amber bloom off tile WIDTH (was height) and warms the base centre 0xff1d1108 -> 0xff2c190d, so caps FILL evenly instead of a hot centre with dark side-thirds. (2) EB::glowText draws a wider/softer 4-ring halo (was a tight 2-ring outline) so legends genuinely glow. (3) the ParamSlider level strip is a brighter ember with a soft accent bloom rising off it. PLUS the warm-accent lean is back but HUE-GATED: EB::glowFor/labelFor/valueFor tint toward the accent ONLY when it is warm (GRIT coral, AMBER gold); cool accents (COMPRESS aqua/blue) are gated out and stay pure amber — so the v0.4.8 blue cast CANNOT return. VERIFY IN ABLETON: (a) GRIT/AMBER caps read fuller/warmer, legends glow softly, ember strips glow; (b) still zero blue anywhere — COMPRESS caps are amber, only its level strip + rail are aqua; (c) the coral (GRIT) vs gold (AMBER) lean is visible but subtle. KNOWN: the lean follows each control's own assigned accent, and GRIT's selectors are historically coloured gold while its value tiles are coral, so GRIT's lean is not perfectly uniform yet (selectors read a hair more gold). If that reads wrong, the fix is a small .cpp accent-assignment pass, not a renderer change. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.9 — BLUE FIX: the backlit glow is now ONE warm amber for EVERY module. In v0.4.8 the legend glow was tinted toward each module's accent, so COMPRESS's aqua accent threw cyan halos across the widest/leftmost module and the whole panel read 'blue'. Now EB::glowFor/labelFor/valueFor return a fixed warm amber (accent ignored); module identity survives only in the thin level strip + rail. Paint-only, DSP untouched. VERIFY: zero blue anywhere — all legends glow warm amber. ALSO CONFIRM GRIT: its tiles already fill the panel (cellHFor grew cells ~50->67px in v0.4.8); the blue cast may have masked that they resized — check the GRIT column now reads tall/even under the top button. NOTE: AMBER has 5 rows so its cells are a touch shorter than GRIT/COMPRESS (4 rows) under fixed panel height — identical-everywhere needs the ragged-panel + raised-bottom rework. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.10 — BACKLIT DEPTH: flatness fix + safe warm-accent lean. Mocked and approved vs the target before building. THREE renderer changes, all paint-only (no DSP, no layout): (1) EB::backlitCap now sizes the warm base + amber bloom off tile WIDTH (was height) and warms the base centre 0xff1d1108 -> 0xff2c190d, so caps FILL evenly instead of a hot centre with dark side-thirds. (2) EB::glowText draws a wider/softer 4-ring halo (was a tight 2-ring outline) so legends genuinely glow. (3) the ParamSlider level strip is a brighter ember with a soft accent bloom rising off it. PLUS the warm-accent lean is back but HUE-GATED: EB::glowFor/labelFor/valueFor tint toward the accent ONLY when it is warm (GRIT coral, AMBER gold); cool accents (COMPRESS aqua/blue) are gated out and stay pure amber — so the v0.4.8 blue cast CANNOT return. VERIFY IN ABLETON: (a) GRIT/AMBER caps read fuller/warmer, legends glow softly, ember strips glow; (b) still zero blue anywhere — COMPRESS caps are amber, only its level strip + rail are aqua; (c) the coral (GRIT) vs gold (AMBER) lean is visible but subtle. KNOWN: the lean follows each control's own assigned accent, and GRIT's selectors are historically coloured gold while its value tiles are coral, so GRIT's lean is not perfectly uniform yet (selectors read a hair more gold). If that reads wrong, the fix is a small .cpp accent-assignment pass, not a renderer change. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.9",
-      "lastBuild": "v0.4.9",
-      "lastUpdated": "2026-07-15T01:44:22.546Z",
+      "currentVersion": "v0.4.10",
+      "lastBuild": "v0.4.10",
+      "lastUpdated": "2026-07-15T05:24:16.296Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-15T01:44:22.546Z",
+        "createdAt": "2026-07-15T05:24:16.296Z",
         "localDate": "2026-07-14",
-        "localHour": 18,
+        "localHour": 22,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.9."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.10."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-15T01:44:22.546Z",
+    "lastAppliedAt": "2026-07-15T05:24:16.296Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-15T01:44:22.546Z",
+    "createdAt": "2026-07-15T05:24:16.296Z",
     "localDate": "2026-07-14",
-    "localHour": 18,
+    "localHour": 22,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
