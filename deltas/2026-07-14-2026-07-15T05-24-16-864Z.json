@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-14",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.10",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.10 — BACKLIT DEPTH: flatness fix + safe warm-accent lean. Mocked and approved vs the target before building. THREE renderer changes, all paint-only (no DSP, no layout): (1) EB::backlitCap now sizes the warm base + amber bloom off tile WIDTH (was height) and warms the base centre 0xff1d1108 -> 0xff2c190d, so caps FILL evenly instead of a hot centre with dark side-thirds. (2) EB::glowText draws a wider/softer 4-ring halo (was a tight 2-ring outline) so legends genuinely glow. (3) the ParamSlider level strip is a brighter ember with a soft accent bloom rising off it. PLUS the warm-accent lean is back but HUE-GATED: EB::glowFor/labelFor/valueFor tint toward the accent ONLY when it is warm (GRIT coral, AMBER gold); cool accents (COMPRESS aqua/blue) are gated out and stay pure amber — so the v0.4.8 blue cast CANNOT return. VERIFY IN ABLETON: (a) GRIT/AMBER caps read fuller/warmer, legends glow softly, ember strips glow; (b) still zero blue anywhere — COMPRESS caps are amber, only its level strip + rail are aqua; (c) the coral (GRIT) vs gold (AMBER) lean is visible but subtle. KNOWN: the lean follows each control's own assigned accent, and GRIT's selectors are historically coloured gold while its value tiles are coral, so GRIT's lean is not perfectly uniform yet (selectors read a hair more gold). If that reads wrong, the fix is a small .cpp accent-assignment pass, not a renderer change. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.10 — BACKLIT DEPTH: flatness fix + safe warm-accent lean. Mocked and approved vs the target before building. THREE renderer changes, all paint-only (no DSP, no layout): (1) EB::backlitCap now sizes the warm base + amber bloom off tile WIDTH (was height) and warms the base centre 0xff1d1108 -> 0xff2c190d, so caps FILL evenly instead of a hot centre with dark side-thirds. (2) EB::glowText draws a wider/softer 4-ring halo (was a tight 2-ring outline) so legends genuinely glow. (3) the ParamSlider level strip is a brighter ember with a soft accent bloom rising off it. PLUS the warm-accent lean is back but HUE-GATED: EB::glowFor/labelFor/valueFor tint toward the accent ONLY when it is warm (GRIT coral, AMBER gold); cool accents (COMPRESS aqua/blue) are gated out and stay pure amber — so the v0.4.8 blue cast CANNOT return. VERIFY IN ABLETON: (a) GRIT/AMBER caps read fuller/warmer, legends glow softly, ember strips glow; (b) still zero blue anywhere — COMPRESS caps are amber, only its level strip + rail are aqua; (c) the coral (GRIT) vs gold (AMBER) lean is visible but subtle. KNOWN: the lean follows each control's own assigned accent, and GRIT's selectors are historically coloured gold while its value tiles are coral, so GRIT's lean is not perfectly uniform yet (selectors read a hair more gold). If that reads wrong, the fix is a small .cpp accent-assignment pass, not a renderer change. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.10."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
