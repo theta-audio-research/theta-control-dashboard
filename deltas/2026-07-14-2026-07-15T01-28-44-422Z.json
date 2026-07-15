@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-14",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.8",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.8 — BACKLIT TUNE: (1) buttons now GROW to fill each panel (cellHFor: cell height = panel height / rows) so GRIT's tiles are tall and there's no dead space — matches the mockup proportions; (2) much stronger AMBER glow + contrast: caps are near-black warm with a strong amber bloom, legends glow via a warm-amber colour (EB::glowFor/labelFor/valueFor = amber tinted toward the module accent) with a proper multi-ring halo. Paint + fill only, DSP untouched. VERIFY GRIT proportions fill the panel and the amber glow reads like the mockup. NOTE: AMBER has 5 rows so its cells are a touch shorter than GRIT/COMPRESS (4 rows) under fixed panel height — if you want them all identical, that needs the ragged-panel + raised-bottom rework. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.8 — BACKLIT TUNE: (1) buttons now GROW to fill each panel (cellHFor: cell height = panel height / rows) so GRIT's tiles are tall and there's no dead space — matches the mockup proportions; (2) much stronger AMBER glow + contrast: caps are near-black warm with a strong amber bloom, legends glow via a warm-amber colour (EB::glowFor/labelFor/valueFor = amber tinted toward the module accent) with a proper multi-ring halo. Paint + fill only, DSP untouched. VERIFY GRIT proportions fill the panel and the amber glow reads like the mockup. NOTE: AMBER has 5 rows so its cells are a touch shorter than GRIT/COMPRESS (4 rows) under fixed panel height — if you want them all identical, that needs the ragged-panel + raised-bottom rework. Remaining: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.8."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
