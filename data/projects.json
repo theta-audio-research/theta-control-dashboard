@@ -881,7 +881,7 @@
       "today": true,
       "ignoreToday": false,
       "latestVersion": "v0.4.16",
-      "nextAction": "v0.4.16 — PARTS-CATALOG UNIFORM GRID (user direction: 60s console rule — design the console around the buttons; 2 button sizes, not 3+). Module row: three EQUAL-width panels, ONE standard cell (STD 46px high, 2-col) console-wide; COMPRESS folded from 4-col to 2-col (6 rows, G/R strip spans the last row); GRIT = HERO selector + 6 identical STD tiles (the image-2 face); AMBER = 5 STD rows with HARDWARE moved from header chip into the grid next to MIX; spare rows filled with screwed-on BlankPlate components; cellHFor fill-the-panel heights retired. Bottom row: ONE utility height 32 for SUMMING header tiles + LIMITER stack. VERIFY IN ABLETON: every tile on the console is one of TWO module sizes (hero/std) or the one utility size; row lines align across panels; blank plates read as unpopulated console positions; COMPRESS legends still fit at 148px-wide cells; AMBER HARDWARE selector works as a tile. OPEN: painted-metal chassis fork. Remaining UI punch-list unchanged.",
+      "nextAction": "v0.4.16 — PARTS-CATALOG UNIFORM GRID (user direction: 60s console rule — design the console around the buttons; 2 button sizes, not 3+). Module row: three EQUAL-width panels, ONE standard cell (STD 44px high, 2-col) console-wide; COMPRESS folded from 4-col to 2-col (6 rows, G/R strip spans the last row); GRIT = HERO selector + 6 identical STD tiles (the image-2 face); AMBER = 5 STD rows with HARDWARE moved from header chip into the grid next to MIX; spare rows filled with screwed-on BlankPlate components; cellHFor fill-the-panel heights retired. Bottom row: ONE utility height 32 for SUMMING header tiles + LIMITER stack. VERIFY IN ABLETON: every tile on the console is one of TWO module sizes (hero/std) or the one utility size; row lines align across panels; blank plates read as unpopulated console positions; COMPRESS legends still fit at 148px-wide cells; AMBER HARDWARE selector works as a tile. OPEN: painted-metal chassis fork. Remaining UI punch-list unchanged.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.16 — PARTS-CATALOG UNIFORM GRID (user direction: 60s console rule — design the console around the buttons; 2 button sizes, not 3+). Module row: three EQUAL-width panels, ONE standard cell (STD 46px high, 2-col) console-wide; COMPRESS folded from 4-col to 2-col (6 rows, G/R strip spans the last row); GRIT = HERO selector + 6 identical STD tiles (the image-2 face); AMBER = 5 STD rows with HARDWARE moved from header chip into the grid next to MIX; spare rows filled with screwed-on BlankPlate components; cellHFor fill-the-panel heights retired. Bottom row: ONE utility height 32 for SUMMING header tiles + LIMITER stack. VERIFY IN ABLETON: every tile on the console is one of TWO module sizes (hero/std) or the one utility size; row lines align across panels; blank plates read as unpopulated console positions; COMPRESS legends still fit at 148px-wide cells; AMBER HARDWARE selector works as a tile. OPEN: painted-metal chassis fork. Remaining UI punch-list unchanged.",
+      "tomorrowFirstAction": "v0.4.16 — PARTS-CATALOG UNIFORM GRID (user direction: 60s console rule — design the console around the buttons; 2 button sizes, not 3+). Module row: three EQUAL-width panels, ONE standard cell (STD 44px high, 2-col) console-wide; COMPRESS folded from 4-col to 2-col (6 rows, G/R strip spans the last row); GRIT = HERO selector + 6 identical STD tiles (the image-2 face); AMBER = 5 STD rows with HARDWARE moved from header chip into the grid next to MIX; spare rows filled with screwed-on BlankPlate components; cellHFor fill-the-panel heights retired. Bottom row: ONE utility height 32 for SUMMING header tiles + LIMITER stack. VERIFY IN ABLETON: every tile on the console is one of TWO module sizes (hero/std) or the one utility size; row lines align across panels; blank plates read as unpopulated console positions; COMPRESS legends still fit at 148px-wide cells; AMBER HARDWARE selector works as a tile. OPEN: painted-metal chassis fork. Remaining UI punch-list unchanged.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1496,13 +1496,13 @@
       },
       "currentVersion": "v0.4.16",
       "lastBuild": "v0.4.16",
-      "lastUpdated": "2026-07-16T17:55:27.269Z",
+      "lastUpdated": "2026-07-16T18:03:33.823Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T17:55:27.269Z",
+        "createdAt": "2026-07-16T18:03:33.823Z",
         "localDate": "2026-07-16",
-        "localHour": 10,
+        "localHour": 11,
         "timezone": "America/Los_Angeles",
         "summary": "CREOSOTE updated from Control Room delta: v0.4.16."
       }
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T17:55:27.269Z",
+    "lastAppliedAt": "2026-07-16T18:03:33.823Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-16T17:55:27.269Z",
+    "createdAt": "2026-07-16T18:03:33.823Z",
     "localDate": "2026-07-16",
-    "localHour": 10,
+    "localHour": 11,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
