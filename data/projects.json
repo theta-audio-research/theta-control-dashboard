@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.17",
-      "nextAction": "v0.4.17 — TWO SIZES ONLY + FALCON G/R (user feedback): (1) the 32px utility size is retired — SUMMING PREGAIN/WIDTH/BALANCE are full STD cells (148x44) on their own row above the VU deck; LIMITER widened to 314 and its 4 controls are a 2x2 STD grid; AUTO LEVEL pill replaced by a STD lens toggle tile (green lamp when engaged). Console-wide there are now exactly TWO button sizes: HERO and STD. (2) COMPRESS G/R meter restyled Millennium-Falcon: worn cool charcoal housing with corner grime + scratch streaks, segments are aged unevenly-bright lenses on a COOLER ramp (ice -> mint -> teal, amber only at the heavy end; smoked dead lenses). VERIFY IN ABLETON: no control anywhere except HERO/STD tiles + power/tab chrome; LIMITER 2x2 reads well; SUMMING tiles match module tiles exactly; G/R meter reads aged + cool with uneven bulbs. OPEN: painted-metal chassis fork. Remaining UI punch-list unchanged.",
+      "latestVersion": "v0.25",
+      "nextAction": "v0.4.18 — TWO MODULE BUTTON SIZES, FOR REAL. Root cause found: JUCE getSliderLayout insets a LinearHorizontal slider by getSliderThumbRadius (jmin(7,h*0.25)) on BOTH sides, so every VALUE tile (INPUT/THRESH/DRIVE/MIX...) drew 14px NARROWER than a SELECTOR button (MODE/AUTO REL/WIDTH/TAPE) in the same grid cell — two STD widths, not one. ParamSliderLAF now overrides getSliderLayout to return full localBounds: value tiles and selectors are pixel-identical, and dragging covers the whole tile (was 7px dead at each end). Modules now have EXACTLY two sizes: HERO (2-span) and STD (1-span, matches GRIT WIDTH/TAPE). ALSO REVERTED v0.4.17s out-of-scope changes: LIMITER back to its vertical stack + AUTO LEVEL pill (limW 314->138), SUMMING back to header-row tiles at utility height 32 — those are utility columns, NOT part of the module parts catalog. VERIFY IN ABLETON: in GRIT/COMPRESS/AMBER every tile is either full-row hero or the exact WIDTH/TAPE size; LIMITER + SUMMING look exactly as they did in v0.4.16. OPEN: painted-metal chassis fork.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.17 — TWO SIZES ONLY + FALCON G/R (user feedback): (1) the 32px utility size is retired — SUMMING PREGAIN/WIDTH/BALANCE are full STD cells (148x44) on their own row above the VU deck; LIMITER widened to 314 and its 4 controls are a 2x2 STD grid; AUTO LEVEL pill replaced by a STD lens toggle tile (green lamp when engaged). Console-wide there are now exactly TWO button sizes: HERO and STD. (2) COMPRESS G/R meter restyled Millennium-Falcon: worn cool charcoal housing with corner grime + scratch streaks, segments are aged unevenly-bright lenses on a COOLER ramp (ice -> mint -> teal, amber only at the heavy end; smoked dead lenses). VERIFY IN ABLETON: no control anywhere except HERO/STD tiles + power/tab chrome; LIMITER 2x2 reads well; SUMMING tiles match module tiles exactly; G/R meter reads aged + cool with uneven bulbs. OPEN: painted-metal chassis fork. Remaining UI punch-list unchanged.",
+      "tomorrowFirstAction": "v0.4.18 — TWO MODULE BUTTON SIZES, FOR REAL. Root cause found: JUCE getSliderLayout insets a LinearHorizontal slider by getSliderThumbRadius (jmin(7,h*0.25)) on BOTH sides, so every VALUE tile (INPUT/THRESH/DRIVE/MIX...) drew 14px NARROWER than a SELECTOR button (MODE/AUTO REL/WIDTH/TAPE) in the same grid cell — two STD widths, not one. ParamSliderLAF now overrides getSliderLayout to return full localBounds: value tiles and selectors are pixel-identical, and dragging covers the whole tile (was 7px dead at each end). Modules now have EXACTLY two sizes: HERO (2-span) and STD (1-span, matches GRIT WIDTH/TAPE). ALSO REVERTED v0.4.17s out-of-scope changes: LIMITER back to its vertical stack + AUTO LEVEL pill (limW 314->138), SUMMING back to header-row tiles at utility height 32 — those are utility columns, NOT part of the module parts catalog. VERIFY IN ABLETON: in GRIT/COMPRESS/AMBER every tile is either full-row hero or the exact WIDTH/TAPE size; LIMITER + SUMMING look exactly as they did in v0.4.16. OPEN: painted-metal chassis fork.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.17",
-      "lastBuild": "v0.4.17",
-      "lastUpdated": "2026-07-16T18:28:49.028Z",
+      "currentVersion": "v0.25",
+      "lastBuild": "v0.25",
+      "lastUpdated": "2026-07-16T19:37:11.122Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T18:28:49.028Z",
+        "createdAt": "2026-07-16T19:37:11.122Z",
         "localDate": "2026-07-16",
-        "localHour": 11,
+        "localHour": 12,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.17."
+        "summary": "CREOSOTE updated from Control Room delta: v0.25."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T18:28:49.028Z",
+    "lastAppliedAt": "2026-07-16T19:37:11.122Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-16T19:00:51.978Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-16T19:37:11.122Z",
     "localDate": "2026-07-16",
     "localHour": 12,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 12:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
