@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-16",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.25",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.25 — LIMITER v3: CLEAN LIMITS AT THE LIMIT KNOB (DSP CHANGE, user-approved). ROOT CAUSE of 'GR no longer working': CLEAN is the default (MASTER_DIRTY off) and under LIMITER v2 the CLEAN path called processStereoDelayOnly() — pure latency delay, NO limiting — then hard-stored limiterGR=0. So the LIMIT knob was inert and the GR meter could never move unless DIRTY was engaged (screenshot: -7.6 dB ceiling, +11.6 dB output, GR dead). Was NOT caused by the v0.4.24 metering work. FIX: DSPVersion::LIMITER 2 -> 3; CLEAN now runs the same lookahead limiter DIRTY uses, at the knob threshold, and reports real GR. processStereo is a transparent peak limiter (console colour is applied upstream), so CLEAN stays clean. FROZEN: v2 keeps delay-only, v1 keeps the 0.999-clamped transfer, keyless states still default to v1 — old sessions/presets recall unchanged. AUTO LEVEL is live again in CLEAN on v3 (only frozen v2 keeps it off). The LIMIT tile red glow was already wired to limiterGR (6 dB = full) and now lights. VERIFY IN ABLETON: with DIRTY OFF, pull LIMIT down and confirm the GR meter moves, the audio is actually limited, and the LIMIT tile burns red as it clamps; then load an OLD session/preset and confirm it recalls with its previous (non-limiting) behaviour. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "tomorrowFirstAction": "v0.4.25 — LIMITER v3: CLEAN LIMITS AT THE LIMIT KNOB (DSP CHANGE, user-approved). ROOT CAUSE of 'GR no longer working': CLEAN is the default (MASTER_DIRTY off) and under LIMITER v2 the CLEAN path called processStereoDelayOnly() — pure latency delay, NO limiting — then hard-stored limiterGR=0. So the LIMIT knob was inert and the GR meter could never move unless DIRTY was engaged (screenshot: -7.6 dB ceiling, +11.6 dB output, GR dead). Was NOT caused by the v0.4.24 metering work. FIX: DSPVersion::LIMITER 2 -> 3; CLEAN now runs the same lookahead limiter DIRTY uses, at the knob threshold, and reports real GR. processStereo is a transparent peak limiter (console colour is applied upstream), so CLEAN stays clean. FROZEN: v2 keeps delay-only, v1 keeps the 0.999-clamped transfer, keyless states still default to v1 — old sessions/presets recall unchanged. AUTO LEVEL is live again in CLEAN on v3 (only frozen v2 keeps it off). The LIMIT tile red glow was already wired to limiterGR (6 dB = full) and now lights. VERIFY IN ABLETON: with DIRTY OFF, pull LIMIT down and confirm the GR meter moves, the audio is actually limited, and the LIMIT tile burns red as it clamps; then load an OLD session/preset and confirm it recalls with its previous (non-limiting) behaviour. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.25."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
