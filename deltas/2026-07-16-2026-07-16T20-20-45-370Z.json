@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-16",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.20",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.20 — AMBER 3-GANG STAGE ASSEMBLY + EMERALD SWITCH. The per-stage enable was cheated in as a 26x12 chip drawn on top of each tube tile; it is now its own EMERALD square pushbutton at the head of each stage row: [ON square][tube][era]. New EmeraldSwitch component (UIComponents.h): Soviet-60s square illuminated pushbutton — heavy black bakelite shroud tapering to a deep-set square lens, emerald lamp with bloom/spill when ON, dead olive-black plastic when OFF, grimed crevices. Rows 4-5 (DRIVE|TONE, MIX|HARDWARE) stay on the standard 2-col STD grid (layoutGrid gained a startRow offset). Catalog is now: HERO (full row), STD (half row), and the stage assembly [SQUARE + 2x medium]. VERIFY IN ABLETON: each AMBER tube row reads [green square][tube][era]; the squares light emerald when their stage is on and go dead when off; tube/era legends still fit at the narrower width; rows 4-5 still align. OPEN: painted-metal chassis fork; should the emerald squares also die when the whole AMBER module is bypassed?",
+      "tomorrowFirstAction": "v0.4.20 — AMBER 3-GANG STAGE ASSEMBLY + EMERALD SWITCH. The per-stage enable was cheated in as a 26x12 chip drawn on top of each tube tile; it is now its own EMERALD square pushbutton at the head of each stage row: [ON square][tube][era]. New EmeraldSwitch component (UIComponents.h): Soviet-60s square illuminated pushbutton — heavy black bakelite shroud tapering to a deep-set square lens, emerald lamp with bloom/spill when ON, dead olive-black plastic when OFF, grimed crevices. Rows 4-5 (DRIVE|TONE, MIX|HARDWARE) stay on the standard 2-col STD grid (layoutGrid gained a startRow offset). Catalog is now: HERO (full row), STD (half row), and the stage assembly [SQUARE + 2x medium]. VERIFY IN ABLETON: each AMBER tube row reads [green square][tube][era]; the squares light emerald when their stage is on and go dead when off; tube/era legends still fit at the narrower width; rows 4-5 still align. OPEN: painted-metal chassis fork; should the emerald squares also die when the whole AMBER module is bypassed?",
+      "endStatus": "Build hook reported CREOSOTE v0.4.20."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
