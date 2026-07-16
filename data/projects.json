@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v1.0",
-      "nextAction": "v0.4.12 — AGED LIT-LENS: complete backlit-tile recipe change. The tiles are now vintage aerospace push-button indicators (Apollo-era MOCR / Korry): a lamp behind a yellowed frosted diffuser — the WHOLE lens face glows; legend flips to dark silkscreen ink (EB::inkText, glowText removed); lit mapping is physical (0.72 idle = lamp on, 0.92 hover, 1.0 pressed, 0.15 disabled = dead lens); aged character = off-centre lamp, tired-reflector corner, tea-stain yellowing, corner grime, worn sheen; face cached per (size, accent, lit) so richer layering stays one blit per repaint. Paint-only (no DSP, no layout). VERIFY IN ABLETON: every tile reads as a LIT LENS (face luminous, not dark-cap-plus-glow); dark legend crisp on the lit face; disabled tiles read as dead unpowered indicators; still zero blue in the lamp (COMPRESS aqua only in strip+rail). Design source: creosote_backlit_lens_variants.html V4. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "latestVersion": "v7.5",
+      "nextAction": "v0.4.13 — LIT-LENS ITERATION 2 (user feedback from Ableton audition of v0.4.12): (1) MORE AMBER: lamp ramp pushed from tea-yellow toward amber/orange. (2) MODULE-POWER LAMPS: bypassing a module now kills the lamp in ALL its tiles (value sliders via ModulePanel::updateLamps -> ParamSlider::setLampOn, editor-owned selectors + COMPRESS KNEE/SC FREQ via onPowerChanged + lampOn button property) — dead unpowered lenses that stay interactive. (3) READABILITY: 30-32px tiles (LIMITER/SUMMING) use a compact text layout (label 7.5pt, value 10pt, value area kept clear of the level strip — glyphs used to collide with it); unlit ghost ink raised ~20%->~30% legibility. VERIFY IN ABLETON: toggle each module ON/OFF and watch all its tiles + selectors go dead-lens together; LIMITER/SUMMING values fully readable, clear of the strip; overall hue reads amber not yellow. OPEN QUESTION with user: functional color-coding scheme (more colors to differentiate control types). Remaining UI punch-list unchanged.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.12 — AGED LIT-LENS: complete backlit-tile recipe change. The tiles are now vintage aerospace push-button indicators (Apollo-era MOCR / Korry): a lamp behind a yellowed frosted diffuser — the WHOLE lens face glows; legend flips to dark silkscreen ink (EB::inkText, glowText removed); lit mapping is physical (0.72 idle = lamp on, 0.92 hover, 1.0 pressed, 0.15 disabled = dead lens); aged character = off-centre lamp, tired-reflector corner, tea-stain yellowing, corner grime, worn sheen; face cached per (size, accent, lit) so richer layering stays one blit per repaint. Paint-only (no DSP, no layout). VERIFY IN ABLETON: every tile reads as a LIT LENS (face luminous, not dark-cap-plus-glow); dark legend crisp on the lit face; disabled tiles read as dead unpowered indicators; still zero blue in the lamp (COMPRESS aqua only in strip+rail). Design source: creosote_backlit_lens_variants.html V4. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.13 — LIT-LENS ITERATION 2 (user feedback from Ableton audition of v0.4.12): (1) MORE AMBER: lamp ramp pushed from tea-yellow toward amber/orange. (2) MODULE-POWER LAMPS: bypassing a module now kills the lamp in ALL its tiles (value sliders via ModulePanel::updateLamps -> ParamSlider::setLampOn, editor-owned selectors + COMPRESS KNEE/SC FREQ via onPowerChanged + lampOn button property) — dead unpowered lenses that stay interactive. (3) READABILITY: 30-32px tiles (LIMITER/SUMMING) use a compact text layout (label 7.5pt, value 10pt, value area kept clear of the level strip — glyphs used to collide with it); unlit ghost ink raised ~20%->~30% legibility. VERIFY IN ABLETON: toggle each module ON/OFF and watch all its tiles + selectors go dead-lens together; LIMITER/SUMMING values fully readable, clear of the strip; overall hue reads amber not yellow. OPEN QUESTION with user: functional color-coding scheme (more colors to differentiate control types). Remaining UI punch-list unchanged.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v1.0",
-      "lastBuild": "v1.0",
-      "lastUpdated": "2026-07-16T06:08:47.950Z",
+      "currentVersion": "v7.5",
+      "lastBuild": "v7.5",
+      "lastUpdated": "2026-07-16T06:51:06.431Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T06:08:47.950Z",
+        "createdAt": "2026-07-16T06:51:06.431Z",
         "localDate": "2026-07-15",
         "localHour": 23,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v1.0."
+        "summary": "CREOSOTE updated from Control Room delta: v7.5."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T06:08:47.950Z",
+    "lastAppliedAt": "2026-07-16T06:51:06.431Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-16T06:08:47.950Z",
+    "createdAt": "2026-07-16T06:51:06.431Z",
     "localDate": "2026-07-15",
     "localHour": 23,
     "timezone": "America/Los_Angeles",
