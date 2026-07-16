@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-16",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.18",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.18 — TWO MODULE BUTTON SIZES, FOR REAL. Root cause found: JUCE getSliderLayout insets a LinearHorizontal slider by getSliderThumbRadius (jmin(7,h*0.25)) on BOTH sides, so every VALUE tile (INPUT/THRESH/DRIVE/MIX...) drew 14px NARROWER than a SELECTOR button (MODE/AUTO REL/WIDTH/TAPE) in the same grid cell — two STD widths, not one. ParamSliderLAF now overrides getSliderLayout to return full localBounds: value tiles and selectors are pixel-identical, and dragging covers the whole tile (was 7px dead at each end). Modules now have EXACTLY two sizes: HERO (2-span) and STD (1-span, matches GRIT WIDTH/TAPE). ALSO REVERTED v0.4.17s out-of-scope changes: LIMITER back to its vertical stack + AUTO LEVEL pill (limW 314->138), SUMMING back to header-row tiles at utility height 32 — those are utility columns, NOT part of the module parts catalog. VERIFY IN ABLETON: in GRIT/COMPRESS/AMBER every tile is either full-row hero or the exact WIDTH/TAPE size; LIMITER + SUMMING look exactly as they did in v0.4.16. OPEN: painted-metal chassis fork.",
+      "tomorrowFirstAction": "v0.4.18 — TWO MODULE BUTTON SIZES, FOR REAL. Root cause found: JUCE getSliderLayout insets a LinearHorizontal slider by getSliderThumbRadius (jmin(7,h*0.25)) on BOTH sides, so every VALUE tile (INPUT/THRESH/DRIVE/MIX...) drew 14px NARROWER than a SELECTOR button (MODE/AUTO REL/WIDTH/TAPE) in the same grid cell — two STD widths, not one. ParamSliderLAF now overrides getSliderLayout to return full localBounds: value tiles and selectors are pixel-identical, and dragging covers the whole tile (was 7px dead at each end). Modules now have EXACTLY two sizes: HERO (2-span) and STD (1-span, matches GRIT WIDTH/TAPE). ALSO REVERTED v0.4.17s out-of-scope changes: LIMITER back to its vertical stack + AUTO LEVEL pill (limW 314->138), SUMMING back to header-row tiles at utility height 32 — those are utility columns, NOT part of the module parts catalog. VERIFY IN ABLETON: in GRIT/COMPRESS/AMBER every tile is either full-row hero or the exact WIDTH/TAPE size; LIMITER + SUMMING look exactly as they did in v0.4.16. OPEN: painted-metal chassis fork.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.18."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
