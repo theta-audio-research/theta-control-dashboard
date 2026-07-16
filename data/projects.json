@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v11.6",
-      "nextAction": "v0.4.25 — LIMITER v3: CLEAN LIMITS AT THE LIMIT KNOB (DSP CHANGE, user-approved). ROOT CAUSE of 'GR no longer working': CLEAN is the default (MASTER_DIRTY off) and under LIMITER v2 the CLEAN path called processStereoDelayOnly() — pure latency delay, NO limiting — then hard-stored limiterGR=0. So the LIMIT knob was inert and the GR meter could never move unless DIRTY was engaged (screenshot: -7.6 dB ceiling, +11.6 dB output, GR dead). Was NOT caused by the v0.4.24 metering work. FIX: DSPVersion::LIMITER 2 -> 3; CLEAN now runs the same lookahead limiter DIRTY uses, at the knob threshold, and reports real GR. processStereo is a transparent peak limiter (console colour is applied upstream), so CLEAN stays clean. FROZEN: v2 keeps delay-only, v1 keeps the 0.999-clamped transfer, keyless states still default to v1 — old sessions/presets recall unchanged. AUTO LEVEL is live again in CLEAN on v3 (only frozen v2 keeps it off). The LIMIT tile red glow was already wired to limiterGR (6 dB = full) and now lights. VERIFY IN ABLETON: with DIRTY OFF, pull LIMIT down and confirm the GR meter moves, the audio is actually limited, and the LIMIT tile burns red as it clamps; then load an OLD session/preset and confirm it recalls with its previous (non-limiting) behaviour. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "latestVersion": "v0.085",
+      "nextAction": "v0.4.26 — DEEPER RED + REAL VU BALLISTICS. (1) DEEP RED: new EC::deepRed (#B01410) — coral was an orange, this is an actual red. Applied to the LIMIT tile lamp (EB::Lamp::red ramp rebuilt deeper + its leak colour), the COMPRESS G/R heavy-reduction segments (were amber #d89848), and the METERING GR bar/label/readout. (2) THE VU/GR LOOKALIKE — user asked where the VU meters get their data and noticed they mirror the GR meter. They read proc.summingLevel, a post-summing (pre-EQ/limiter) tap. The tap was per-block PEAK, and peak is exactly what a compressor GR meter follows, so both chased the same transient envelope. FIXED at both ends: the tap now publishes RMS (mean-square accumulated per sample over the block, sqrt at block end — metering only, audio untouched), and McIntoshVuMeter uses true VU ballistics (~300ms, alpha 0.10/0.085 at 30Hz, was a 0.45/0.22 peak chase) with 0 VU aligned to -18 dBFS RMS. VERIFY IN ABLETON: the VU needles should now swing smoothly and average program level instead of tracking the GR meter; GR + LIMIT read deep red. OPEN: painted-metal chassis fork; deferred patina surfaces.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.25 — LIMITER v3: CLEAN LIMITS AT THE LIMIT KNOB (DSP CHANGE, user-approved). ROOT CAUSE of 'GR no longer working': CLEAN is the default (MASTER_DIRTY off) and under LIMITER v2 the CLEAN path called processStereoDelayOnly() — pure latency delay, NO limiting — then hard-stored limiterGR=0. So the LIMIT knob was inert and the GR meter could never move unless DIRTY was engaged (screenshot: -7.6 dB ceiling, +11.6 dB output, GR dead). Was NOT caused by the v0.4.24 metering work. FIX: DSPVersion::LIMITER 2 -> 3; CLEAN now runs the same lookahead limiter DIRTY uses, at the knob threshold, and reports real GR. processStereo is a transparent peak limiter (console colour is applied upstream), so CLEAN stays clean. FROZEN: v2 keeps delay-only, v1 keeps the 0.999-clamped transfer, keyless states still default to v1 — old sessions/presets recall unchanged. AUTO LEVEL is live again in CLEAN on v3 (only frozen v2 keeps it off). The LIMIT tile red glow was already wired to limiterGR (6 dB = full) and now lights. VERIFY IN ABLETON: with DIRTY OFF, pull LIMIT down and confirm the GR meter moves, the audio is actually limited, and the LIMIT tile burns red as it clamps; then load an OLD session/preset and confirm it recalls with its previous (non-limiting) behaviour. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "tomorrowFirstAction": "v0.4.26 — DEEPER RED + REAL VU BALLISTICS. (1) DEEP RED: new EC::deepRed (#B01410) — coral was an orange, this is an actual red. Applied to the LIMIT tile lamp (EB::Lamp::red ramp rebuilt deeper + its leak colour), the COMPRESS G/R heavy-reduction segments (were amber #d89848), and the METERING GR bar/label/readout. (2) THE VU/GR LOOKALIKE — user asked where the VU meters get their data and noticed they mirror the GR meter. They read proc.summingLevel, a post-summing (pre-EQ/limiter) tap. The tap was per-block PEAK, and peak is exactly what a compressor GR meter follows, so both chased the same transient envelope. FIXED at both ends: the tap now publishes RMS (mean-square accumulated per sample over the block, sqrt at block end — metering only, audio untouched), and McIntoshVuMeter uses true VU ballistics (~300ms, alpha 0.10/0.085 at 30Hz, was a 0.45/0.22 peak chase) with 0 VU aligned to -18 dBFS RMS. VERIFY IN ABLETON: the VU needles should now swing smoothly and average program level instead of tracking the GR meter; GR + LIMIT read deep red. OPEN: painted-metal chassis fork; deferred patina surfaces.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v11.6",
-      "lastBuild": "v11.6",
-      "lastUpdated": "2026-07-16T21:37:20.793Z",
+      "currentVersion": "v0.085",
+      "lastBuild": "v0.085",
+      "lastUpdated": "2026-07-16T21:44:02.781Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T21:37:20.793Z",
+        "createdAt": "2026-07-16T21:44:02.781Z",
         "localDate": "2026-07-16",
         "localHour": 14,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v11.6."
+        "summary": "CREOSOTE updated from Control Room delta: v0.085."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T21:37:20.793Z",
+    "lastAppliedAt": "2026-07-16T21:44:02.781Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-16T21:37:20.793Z",
+    "createdAt": "2026-07-16T21:44:02.781Z",
     "localDate": "2026-07-16",
     "localHour": 14,
     "timezone": "America/Los_Angeles",
