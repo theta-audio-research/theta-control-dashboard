@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-15",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.12",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.12 — AGED LIT-LENS: complete backlit-tile recipe change. The tiles are now vintage aerospace push-button indicators (Apollo-era MOCR / Korry): a lamp behind a yellowed frosted diffuser — the WHOLE lens face glows; legend flips to dark silkscreen ink (EB::inkText, glowText removed); lit mapping is physical (0.72 idle = lamp on, 0.92 hover, 1.0 pressed, 0.15 disabled = dead lens); aged character = off-centre lamp, tired-reflector corner, tea-stain yellowing, corner grime, worn sheen; face cached per (size, accent, lit) so richer layering stays one blit per repaint. Paint-only (no DSP, no layout). VERIFY IN ABLETON: every tile reads as a LIT LENS (face luminous, not dark-cap-plus-glow); dark legend crisp on the lit face; disabled tiles read as dead unpowered indicators; still zero blue in the lamp (COMPRESS aqua only in strip+rail). Design source: creosote_backlit_lens_variants.html V4. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.12 — AGED LIT-LENS: complete backlit-tile recipe change. The tiles are now vintage aerospace push-button indicators (Apollo-era MOCR / Korry): a lamp behind a yellowed frosted diffuser — the WHOLE lens face glows; legend flips to dark silkscreen ink (EB::inkText, glowText removed); lit mapping is physical (0.72 idle = lamp on, 0.92 hover, 1.0 pressed, 0.15 disabled = dead lens); aged character = off-centre lamp, tired-reflector corner, tea-stain yellowing, corner grime, worn sheen; face cached per (size, accent, lit) so richer layering stays one blit per repaint. Paint-only (no DSP, no layout). VERIFY IN ABLETON: every tile reads as a LIT LENS (face luminous, not dark-cap-plus-glow); dark legend crisp on the lit face; disabled tiles read as dead unpowered indicators; still zero blue in the lamp (COMPRESS aqua only in strip+rail). Design source: creosote_backlit_lens_variants.html V4. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.12."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
