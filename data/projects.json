@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v2.5",
-      "nextAction": "v0.4.14 — SCHEME C LENS COLOUR-CODING (user pick from creosote_lens_color_schemes.html): lenses now come in three lamp colours like the real consoles — AMBER stock, GREEN for engaged toggles (AUTO REL when on), RED for the limiter LIMIT danger tile. Selectors are stock amber with NO module lean (accLean 0, uniform everywhere); VALUE tiles lean visibly toward their module warmth (accLean 2.5 — GRIT coral, AMBER gold; cool COMPRESS still gated to amber, aqua only in strip+rail). Includes all v0.4.13 fixes (amber ramp, module-power lamps, compact-tile readability). VERIFY IN ABLETON: AUTO REL green when ON / amber when OFF; LIMIT tile reads red; GRIT vs AMBER value tiles clearly differ in warmth while selectors match; COMPRESS values stay amber with aqua strips. Remaining UI punch-list unchanged.",
+      "latestVersion": "v0.4.15",
+      "nextAction": "v0.4.15 — McINTOSH SUMMING + MESS + TEAL POWER (user picks from creosote_summing_mcintosh.html): (1) SUMMING page reworked — PREGAIN/WIDTH/BALANCE moved into the header row, panel body is now twin McIntosh blue-glass VU meters (McIntoshVuMeter.h, 30Hz, VU ballistics, cached face) fed by a NEW post-summing pre-EQ level tap (summingLevel/R atomics — metering read only, no audio change). (2) Heavier per-tile aging in EB::backlitCap: seeded variation (label/name hash) of lamp position, grime, tea stains, scuff-scratch streaks, chipped rim nicks. (3) OnOffButton restyled as weathered TEAL POWER pushbutton (lit teal lens ON / dead teal OFF) — all modules. VERIFY IN ABLETON: SUMMING tab shows twin blue VUs that move with signal and controls in the top row; every tile ages slightly differently; all module power buttons read as teal backlit pushbuttons; SUM power off kills its three tile lamps. OPEN: painted-metal chassis fork (sage/teal consoles per inspiration board) — needs its own mockup round. Remaining UI punch-list unchanged.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.14 — SCHEME C LENS COLOUR-CODING (user pick from creosote_lens_color_schemes.html): lenses now come in three lamp colours like the real consoles — AMBER stock, GREEN for engaged toggles (AUTO REL when on), RED for the limiter LIMIT danger tile. Selectors are stock amber with NO module lean (accLean 0, uniform everywhere); VALUE tiles lean visibly toward their module warmth (accLean 2.5 — GRIT coral, AMBER gold; cool COMPRESS still gated to amber, aqua only in strip+rail). Includes all v0.4.13 fixes (amber ramp, module-power lamps, compact-tile readability). VERIFY IN ABLETON: AUTO REL green when ON / amber when OFF; LIMIT tile reads red; GRIT vs AMBER value tiles clearly differ in warmth while selectors match; COMPRESS values stay amber with aqua strips. Remaining UI punch-list unchanged.",
+      "tomorrowFirstAction": "v0.4.15 — McINTOSH SUMMING + MESS + TEAL POWER (user picks from creosote_summing_mcintosh.html): (1) SUMMING page reworked — PREGAIN/WIDTH/BALANCE moved into the header row, panel body is now twin McIntosh blue-glass VU meters (McIntoshVuMeter.h, 30Hz, VU ballistics, cached face) fed by a NEW post-summing pre-EQ level tap (summingLevel/R atomics — metering read only, no audio change). (2) Heavier per-tile aging in EB::backlitCap: seeded variation (label/name hash) of lamp position, grime, tea stains, scuff-scratch streaks, chipped rim nicks. (3) OnOffButton restyled as weathered TEAL POWER pushbutton (lit teal lens ON / dead teal OFF) — all modules. VERIFY IN ABLETON: SUMMING tab shows twin blue VUs that move with signal and controls in the top row; every tile ages slightly differently; all module power buttons read as teal backlit pushbuttons; SUM power off kills its three tile lamps. OPEN: painted-metal chassis fork (sage/teal consoles per inspiration board) — needs its own mockup round. Remaining UI punch-list unchanged.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -905,7 +905,7 @@
       "shipReadiness": 10,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-07-15",
+      "lastTouched": "2026-07-16",
       "testTickets": [
         {
           "id": "creosote-eq-summing-alignment",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v2.5",
-      "lastBuild": "v2.5",
-      "lastUpdated": "2026-07-16T06:57:05.806Z",
+      "currentVersion": "v0.4.15",
+      "lastBuild": "v0.4.15",
+      "lastUpdated": "2026-07-16T16:34:39.556Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T06:57:05.806Z",
-        "localDate": "2026-07-15",
-        "localHour": 23,
+        "createdAt": "2026-07-16T16:34:39.556Z",
+        "localDate": "2026-07-16",
+        "localHour": 9,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v2.5."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.15."
       }
     },
     {
@@ -5830,14 +5830,14 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-07-15",
+    "date": "2026-07-16",
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T06:57:05.806Z",
+    "lastAppliedAt": "2026-07-16T16:34:39.556Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-16T16:00:51.985Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-16T16:34:39.556Z",
     "localDate": "2026-07-16",
     "localHour": 9,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 09:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
