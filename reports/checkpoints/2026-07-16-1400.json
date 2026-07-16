@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-16",
+  "localHour": 14,
+  "timezone": "America/Los_Angeles",
+  "source": "scheduled-cron",
+  "createdAt": "2026-07-16T21:00:52.099Z",
+  "today": [
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "nextAction": "v0.4.23 — PATINA PASS (user: meters look too clean, do a patina pass on the whole plugin). NEW namespace EP (Creosote Patina) in CreosoteTheme.h, placed above EU so EU::paintModuleShell can call it: reusable low-alpha grime/scuffs/dust/edgeWear/panel helpers, deterministic per-surface RNG (house pattern from EB::backlitCap), every layer clipped to the surface rounded-rect. APPLIED to every always-visible clean surface found by an audit of all 25: the McIntosh VU meters (yellowed haze blotches, water/heat stain, dust settled inside along the bottom glass, tarnished+worn-through frame line, faded patchy markings, fine scratches + cleaning swirls — all inside the CACHED renderFace so it costs nothing), the chassis background (biggest surface), the header bar (lighter 0.65 amount), module shells (seeded per module name so COMPRESS/GRIT/AMBER differ), LIMITER panel, METERING panel, and the BlankPlates. VERIFY IN ABLETON: VU meters read aged-but-still-beautiful McIntosh blue (not muddy); chassis/panels have subtle grime without muddying the lit controls; each module wears differently. DEFERRED (not visible on the default screen): TweakWindow chrome, OutputEq graph+knobs, AgeLfo scope+knobs, LicenseOverlay, ThetaLogo, header utility buttons, preset combo, bottom tabs — see the audit list. OPEN: painted-metal chassis fork.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction."
+    }
+  ],
+  "blockedCount": 5,
+  "decisionCount": 4
+}
