@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.65",
-      "nextAction": "v0.4.23 — PATINA PASS (user: meters look too clean, do a patina pass on the whole plugin). NEW namespace EP (Creosote Patina) in CreosoteTheme.h, placed above EU so EU::paintModuleShell can call it: reusable low-alpha grime/scuffs/dust/edgeWear/panel helpers, deterministic per-surface RNG (house pattern from EB::backlitCap), every layer clipped to the surface rounded-rect. APPLIED to every always-visible clean surface found by an audit of all 25: the McIntosh VU meters (yellowed haze blotches, water/heat stain, dust settled inside along the bottom glass, tarnished+worn-through frame line, faded patchy markings, fine scratches + cleaning swirls — all inside the CACHED renderFace so it costs nothing), the chassis background (biggest surface), the header bar (lighter 0.65 amount), module shells (seeded per module name so COMPRESS/GRIT/AMBER differ), LIMITER panel, METERING panel, and the BlankPlates. VERIFY IN ABLETON: VU meters read aged-but-still-beautiful McIntosh blue (not muddy); chassis/panels have subtle grime without muddying the lit controls; each module wears differently. DEFERRED (not visible on the default screen): TweakWindow chrome, OutputEq graph+knobs, AgeLfo scope+knobs, LicenseOverlay, ThetaLogo, header utility buttons, preset combo, bottom tabs — see the audit list. OPEN: painted-metal chassis fork.",
+      "latestVersion": "v0.88",
+      "nextAction": "v0.4.24 — three user notes. (1) EMERALD SWITCH darker + TRANSLUCENT: the cap is deep tinted plastic (alpha ~0.85-0.88) so the dark housing reads through it instead of a bright opaque green; specular/spill pulled back to match. (2) MODULE POWER CAPS are now DEEP WORN TRANSLUCENT PURPLE (was teal): dark violet tinted plastic, housing reading through, dulled face, purple spill. (3) LIMITER DRIVE GLOW: INPUT/LEVEL/LIMIT tiles burn brighter the harder that stage works. NEW proc.limiterInLevel atomic taps the level arriving AT the limiter (post glue/output-gain, pre limiter/clip — read-only, audio untouched); LEVEL reads outputTruePeakL; LIMIT reads limiterGR (6 dB reduction = full glow). ParamSlider gained setHeat() (same pattern as the AMBER tubes; quantised 1/20 so cached lamp faces are reused); LimiterPanel drives it at 30Hz, only while showing. VERIFY IN ABLETON: push the mix and watch LIMITER INPUT/LEVEL light up, and LIMIT burn as it clamps; emerald squares read deep translucent green not bright; module ON caps read worn purple. OPEN: painted-metal chassis fork; deferred patina surfaces (TWEAK/EQ/AgeLfo/license/logo/header buttons).",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.23 — PATINA PASS (user: meters look too clean, do a patina pass on the whole plugin). NEW namespace EP (Creosote Patina) in CreosoteTheme.h, placed above EU so EU::paintModuleShell can call it: reusable low-alpha grime/scuffs/dust/edgeWear/panel helpers, deterministic per-surface RNG (house pattern from EB::backlitCap), every layer clipped to the surface rounded-rect. APPLIED to every always-visible clean surface found by an audit of all 25: the McIntosh VU meters (yellowed haze blotches, water/heat stain, dust settled inside along the bottom glass, tarnished+worn-through frame line, faded patchy markings, fine scratches + cleaning swirls — all inside the CACHED renderFace so it costs nothing), the chassis background (biggest surface), the header bar (lighter 0.65 amount), module shells (seeded per module name so COMPRESS/GRIT/AMBER differ), LIMITER panel, METERING panel, and the BlankPlates. VERIFY IN ABLETON: VU meters read aged-but-still-beautiful McIntosh blue (not muddy); chassis/panels have subtle grime without muddying the lit controls; each module wears differently. DEFERRED (not visible on the default screen): TweakWindow chrome, OutputEq graph+knobs, AgeLfo scope+knobs, LicenseOverlay, ThetaLogo, header utility buttons, preset combo, bottom tabs — see the audit list. OPEN: painted-metal chassis fork.",
+      "tomorrowFirstAction": "v0.4.24 — three user notes. (1) EMERALD SWITCH darker + TRANSLUCENT: the cap is deep tinted plastic (alpha ~0.85-0.88) so the dark housing reads through it instead of a bright opaque green; specular/spill pulled back to match. (2) MODULE POWER CAPS are now DEEP WORN TRANSLUCENT PURPLE (was teal): dark violet tinted plastic, housing reading through, dulled face, purple spill. (3) LIMITER DRIVE GLOW: INPUT/LEVEL/LIMIT tiles burn brighter the harder that stage works. NEW proc.limiterInLevel atomic taps the level arriving AT the limiter (post glue/output-gain, pre limiter/clip — read-only, audio untouched); LEVEL reads outputTruePeakL; LIMIT reads limiterGR (6 dB reduction = full glow). ParamSlider gained setHeat() (same pattern as the AMBER tubes; quantised 1/20 so cached lamp faces are reused); LimiterPanel drives it at 30Hz, only while showing. VERIFY IN ABLETON: push the mix and watch LIMITER INPUT/LEVEL light up, and LIMIT burn as it clamps; emerald squares read deep translucent green not bright; module ON caps read worn purple. OPEN: painted-metal chassis fork; deferred patina surfaces (TWEAK/EQ/AgeLfo/license/logo/header buttons).",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.65",
-      "lastBuild": "v0.65",
-      "lastUpdated": "2026-07-16T20:58:12.972Z",
+      "currentVersion": "v0.88",
+      "lastBuild": "v0.88",
+      "lastUpdated": "2026-07-16T21:07:33.381Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T20:58:12.972Z",
+        "createdAt": "2026-07-16T21:07:33.381Z",
         "localDate": "2026-07-16",
-        "localHour": 13,
+        "localHour": 14,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.65."
+        "summary": "CREOSOTE updated from Control Room delta: v0.88."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T20:58:12.972Z",
+    "lastAppliedAt": "2026-07-16T21:07:33.381Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-16T21:00:52.099Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-16T21:07:33.381Z",
     "localDate": "2026-07-16",
     "localHour": 14,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 14:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
