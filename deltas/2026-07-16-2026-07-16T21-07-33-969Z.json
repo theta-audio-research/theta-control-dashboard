@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-16",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.24",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.24 — three user notes. (1) EMERALD SWITCH darker + TRANSLUCENT: the cap is deep tinted plastic (alpha ~0.85-0.88) so the dark housing reads through it instead of a bright opaque green; specular/spill pulled back to match. (2) MODULE POWER CAPS are now DEEP WORN TRANSLUCENT PURPLE (was teal): dark violet tinted plastic, housing reading through, dulled face, purple spill. (3) LIMITER DRIVE GLOW: INPUT/LEVEL/LIMIT tiles burn brighter the harder that stage works. NEW proc.limiterInLevel atomic taps the level arriving AT the limiter (post glue/output-gain, pre limiter/clip — read-only, audio untouched); LEVEL reads outputTruePeakL; LIMIT reads limiterGR (6 dB reduction = full glow). ParamSlider gained setHeat() (same pattern as the AMBER tubes; quantised 1/20 so cached lamp faces are reused); LimiterPanel drives it at 30Hz, only while showing. VERIFY IN ABLETON: push the mix and watch LIMITER INPUT/LEVEL light up, and LIMIT burn as it clamps; emerald squares read deep translucent green not bright; module ON caps read worn purple. OPEN: painted-metal chassis fork; deferred patina surfaces (TWEAK/EQ/AgeLfo/license/logo/header buttons).",
+      "tomorrowFirstAction": "v0.4.24 — three user notes. (1) EMERALD SWITCH darker + TRANSLUCENT: the cap is deep tinted plastic (alpha ~0.85-0.88) so the dark housing reads through it instead of a bright opaque green; specular/spill pulled back to match. (2) MODULE POWER CAPS are now DEEP WORN TRANSLUCENT PURPLE (was teal): dark violet tinted plastic, housing reading through, dulled face, purple spill. (3) LIMITER DRIVE GLOW: INPUT/LEVEL/LIMIT tiles burn brighter the harder that stage works. NEW proc.limiterInLevel atomic taps the level arriving AT the limiter (post glue/output-gain, pre limiter/clip — read-only, audio untouched); LEVEL reads outputTruePeakL; LIMIT reads limiterGR (6 dB reduction = full glow). ParamSlider gained setHeat() (same pattern as the AMBER tubes; quantised 1/20 so cached lamp faces are reused); LimiterPanel drives it at 30Hz, only while showing. VERIFY IN ABLETON: push the mix and watch LIMITER INPUT/LEVEL light up, and LIMIT burn as it clamps; emerald squares read deep translucent green not bright; module ON caps read worn purple. OPEN: painted-metal chassis fork; deferred patina surfaces (TWEAK/EQ/AgeLfo/license/logo/header buttons).",
+      "endStatus": "Build hook reported CREOSOTE v0.4.24."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
