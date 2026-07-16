@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-15",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.13",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.13 — LIT-LENS ITERATION 2 (user feedback from Ableton audition of v0.4.12): (1) MORE AMBER: lamp ramp pushed from tea-yellow toward amber/orange. (2) MODULE-POWER LAMPS: bypassing a module now kills the lamp in ALL its tiles (value sliders via ModulePanel::updateLamps -> ParamSlider::setLampOn, editor-owned selectors + COMPRESS KNEE/SC FREQ via onPowerChanged + lampOn button property) — dead unpowered lenses that stay interactive. (3) READABILITY: 30-32px tiles (LIMITER/SUMMING) use a compact text layout (label 7.5pt, value 10pt, value area kept clear of the level strip — glyphs used to collide with it); unlit ghost ink raised ~20%->~30% legibility. VERIFY IN ABLETON: toggle each module ON/OFF and watch all its tiles + selectors go dead-lens together; LIMITER/SUMMING values fully readable, clear of the strip; overall hue reads amber not yellow. OPEN QUESTION with user: functional color-coding scheme (more colors to differentiate control types). Remaining UI punch-list unchanged.",
+      "tomorrowFirstAction": "v0.4.13 — LIT-LENS ITERATION 2 (user feedback from Ableton audition of v0.4.12): (1) MORE AMBER: lamp ramp pushed from tea-yellow toward amber/orange. (2) MODULE-POWER LAMPS: bypassing a module now kills the lamp in ALL its tiles (value sliders via ModulePanel::updateLamps -> ParamSlider::setLampOn, editor-owned selectors + COMPRESS KNEE/SC FREQ via onPowerChanged + lampOn button property) — dead unpowered lenses that stay interactive. (3) READABILITY: 30-32px tiles (LIMITER/SUMMING) use a compact text layout (label 7.5pt, value 10pt, value area kept clear of the level strip — glyphs used to collide with it); unlit ghost ink raised ~20%->~30% legibility. VERIFY IN ABLETON: toggle each module ON/OFF and watch all its tiles + selectors go dead-lens together; LIMITER/SUMMING values fully readable, clear of the strip; overall hue reads amber not yellow. OPEN QUESTION with user: functional color-coding scheme (more colors to differentiate control types). Remaining UI punch-list unchanged.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.13."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
