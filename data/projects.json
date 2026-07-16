@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.31",
-      "nextAction": "v0.4.11 — BACKLIT UNIFORM + READABLE: fixes the two issues seen in v0.4.10 in the DAW. (1) TEXT WAS BLURRY: EB::glowText drew the glyphs themselves at ring offsets, which fattened/smeared them. It now renders the text once, gaussian-blurs it into a soft halo (cached per text/size/colour so the AMBER heat overlay doesn't re-blur each frame), composites that halo, then draws the CRISP text on top — a true text-shadow, sharp and readable. (2) TILES WEREN'T UNIFORM: the cap bloom was sized off each tile's WIDTH, so wide selectors read bright and even while narrow value tiles were centre-hot/edge-dark. EB::backlitCap is now a SUBTLE, EVEN, low-contrast warm panel (bloom peak alpha ~0.31 -> ~0.13) that reads the same at any tile width; the 'lit' character now comes from the glowing TEXT, as in the mockup. Still paint-only (no DSP, no layout). VERIFY IN ABLETON: legends are sharp and readable with a soft glow; every tile (wide selector or narrow value) reads uniformly lit; still zero blue (COMPRESS caps amber, aqua only in strip+rail). KNOWN (unchanged): GRIT selectors are historically EC::gold while its value tiles are EC::coral, so GRIT's lean isn't perfectly uniform yet — a small .cpp accent pass, deferred. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "latestVersion": "v1.0",
+      "nextAction": "v0.4.12 — AGED LIT-LENS: complete backlit-tile recipe change. The tiles are now vintage aerospace push-button indicators (Apollo-era MOCR / Korry): a lamp behind a yellowed frosted diffuser — the WHOLE lens face glows; legend flips to dark silkscreen ink (EB::inkText, glowText removed); lit mapping is physical (0.72 idle = lamp on, 0.92 hover, 1.0 pressed, 0.15 disabled = dead lens); aged character = off-centre lamp, tired-reflector corner, tea-stain yellowing, corner grime, worn sheen; face cached per (size, accent, lit) so richer layering stays one blit per repaint. Paint-only (no DSP, no layout). VERIFY IN ABLETON: every tile reads as a LIT LENS (face luminous, not dark-cap-plus-glow); dark legend crisp on the lit face; disabled tiles read as dead unpowered indicators; still zero blue in the lamp (COMPRESS aqua only in strip+rail). Design source: creosote_backlit_lens_variants.html V4. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.11 — BACKLIT UNIFORM + READABLE: fixes the two issues seen in v0.4.10 in the DAW. (1) TEXT WAS BLURRY: EB::glowText drew the glyphs themselves at ring offsets, which fattened/smeared them. It now renders the text once, gaussian-blurs it into a soft halo (cached per text/size/colour so the AMBER heat overlay doesn't re-blur each frame), composites that halo, then draws the CRISP text on top — a true text-shadow, sharp and readable. (2) TILES WEREN'T UNIFORM: the cap bloom was sized off each tile's WIDTH, so wide selectors read bright and even while narrow value tiles were centre-hot/edge-dark. EB::backlitCap is now a SUBTLE, EVEN, low-contrast warm panel (bloom peak alpha ~0.31 -> ~0.13) that reads the same at any tile width; the 'lit' character now comes from the glowing TEXT, as in the mockup. Still paint-only (no DSP, no layout). VERIFY IN ABLETON: legends are sharp and readable with a soft glow; every tile (wide selector or narrow value) reads uniformly lit; still zero blue (COMPRESS caps amber, aqua only in strip+rail). KNOWN (unchanged): GRIT selectors are historically EC::gold while its value tiles are EC::coral, so GRIT's lean isn't perfectly uniform yet — a small .cpp accent pass, deferred. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
+      "tomorrowFirstAction": "v0.4.12 — AGED LIT-LENS: complete backlit-tile recipe change. The tiles are now vintage aerospace push-button indicators (Apollo-era MOCR / Korry): a lamp behind a yellowed frosted diffuser — the WHOLE lens face glows; legend flips to dark silkscreen ink (EB::inkText, glowText removed); lit mapping is physical (0.72 idle = lamp on, 0.92 hover, 1.0 pressed, 0.15 disabled = dead lens); aged character = off-centre lamp, tired-reflector corner, tea-stain yellowing, corner grime, worn sheen; face cached per (size, accent, lit) so richer layering stays one blit per repaint. Paint-only (no DSP, no layout). VERIFY IN ABLETON: every tile reads as a LIT LENS (face luminous, not dark-cap-plus-glow); dark legend crisp on the lit face; disabled tiles read as dead unpowered indicators; still zero blue in the lamp (COMPRESS aqua only in strip+rail). Design source: creosote_backlit_lens_variants.html V4. Remaining UI punch-list unchanged: GRIT deep controls -> TWEAK, AMBER vertical stage-tags, top-down GR meter, raise bottom section.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -905,7 +905,7 @@
       "shipReadiness": 10,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-07-14",
+      "lastTouched": "2026-07-15",
       "testTickets": [
         {
           "id": "creosote-eq-summing-alignment",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.31",
-      "lastBuild": "v0.31",
-      "lastUpdated": "2026-07-15T05:39:49.949Z",
+      "currentVersion": "v1.0",
+      "lastBuild": "v1.0",
+      "lastUpdated": "2026-07-16T05:54:58.963Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-15T05:39:49.949Z",
-        "localDate": "2026-07-14",
+        "createdAt": "2026-07-16T05:54:58.963Z",
+        "localDate": "2026-07-15",
         "localHour": 22,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.31."
+        "summary": "CREOSOTE updated from Control Room delta: v1.0."
       }
     },
     {
@@ -5830,14 +5830,14 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-07-14",
+    "date": "2026-07-15",
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-15T05:39:49.949Z",
+    "lastAppliedAt": "2026-07-16T05:54:58.963Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-15T23:00:19.041Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-16T05:54:58.963Z",
     "localDate": "2026-07-15",
-    "localHour": 16,
+    "localHour": 22,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
