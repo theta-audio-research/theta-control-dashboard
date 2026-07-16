@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-16",
+  "localHour": 16,
+  "timezone": "America/Los_Angeles",
+  "source": "scheduled-cron",
+  "createdAt": "2026-07-16T23:00:52.185Z",
+  "today": [
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "nextAction": "v0.4.27 — VU METERS NOW READ THE OUTPUT + real ballistics. ROOT CAUSE (user: output differs between two shots but the VU reads the same): the VUs were fed summingLevel, tapped AFTER the summing amp but BEFORE EQ and the limiter. LIMIT is downstream of that tap, so pulling it from 0 to -18 dB moved the real output ~18 dB while the summing bus never changed — the needles were faithfully showing a point in the chain that did not move. FIX: the atomics are now outputRmsL/R, accumulated at the FINAL OUTPUT (post EQ/clip/limiter/master-bypass — literally what leaves the plugin), which is what a POWER OUTPUT meter must show. Still RMS, still metering-only. BALLISTICS also fixed: a VU hits 99pct of a step in 300ms = ~4.6 tau => tau 65ms => alpha 0.40 at 30Hz. v0.4.26 used 0.10 = tau 316ms = ~1.5s to settle, far too sluggish. Now 0.40 rise / 0.36 fall (near-symmetric, like a real movement). 0 VU stays aligned to -18 dBFS RMS. VERIFY IN ABLETON: move LIMIT and the needles must now follow the output; needles should settle in about a third of a second, not crawl. NOTE: a loud master will pin the needles near +3 — that is authentic VU behaviour; the -18 dBFS alignment is one constant in McIntoshVuMeter if you want them resting lower. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction."
+    }
+  ],
+  "blockedCount": 5,
+  "decisionCount": 4
+}
