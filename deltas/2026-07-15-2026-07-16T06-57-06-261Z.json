@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-15",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.14",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.14 — SCHEME C LENS COLOUR-CODING (user pick from creosote_lens_color_schemes.html): lenses now come in three lamp colours like the real consoles — AMBER stock, GREEN for engaged toggles (AUTO REL when on), RED for the limiter LIMIT danger tile. Selectors are stock amber with NO module lean (accLean 0, uniform everywhere); VALUE tiles lean visibly toward their module warmth (accLean 2.5 — GRIT coral, AMBER gold; cool COMPRESS still gated to amber, aqua only in strip+rail). Includes all v0.4.13 fixes (amber ramp, module-power lamps, compact-tile readability). VERIFY IN ABLETON: AUTO REL green when ON / amber when OFF; LIMIT tile reads red; GRIT vs AMBER value tiles clearly differ in warmth while selectors match; COMPRESS values stay amber with aqua strips. Remaining UI punch-list unchanged.",
+      "tomorrowFirstAction": "v0.4.14 — SCHEME C LENS COLOUR-CODING (user pick from creosote_lens_color_schemes.html): lenses now come in three lamp colours like the real consoles — AMBER stock, GREEN for engaged toggles (AUTO REL when on), RED for the limiter LIMIT danger tile. Selectors are stock amber with NO module lean (accLean 0, uniform everywhere); VALUE tiles lean visibly toward their module warmth (accLean 2.5 — GRIT coral, AMBER gold; cool COMPRESS still gated to amber, aqua only in strip+rail). Includes all v0.4.13 fixes (amber ramp, module-power lamps, compact-tile readability). VERIFY IN ABLETON: AUTO REL green when ON / amber when OFF; LIMIT tile reads red; GRIT vs AMBER value tiles clearly differ in warmth while selectors match; COMPRESS values stay amber with aqua strips. Remaining UI punch-list unchanged.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.14."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
