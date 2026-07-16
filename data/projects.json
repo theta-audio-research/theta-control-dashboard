@@ -881,7 +881,7 @@
       "today": true,
       "ignoreToday": false,
       "latestVersion": "v0.65",
-      "nextAction": "v0.4.22 — PATINA PASS (user: meters look too clean, do a patina pass on the whole plugin). NEW namespace EP (Creosote Patina) in CreosoteTheme.h, placed above EU so EU::paintModuleShell can call it: reusable low-alpha grime/scuffs/dust/edgeWear/panel helpers, deterministic per-surface RNG (house pattern from EB::backlitCap), every layer clipped to the surface rounded-rect. APPLIED to every always-visible clean surface found by an audit of all 25: the McIntosh VU meters (yellowed haze blotches, water/heat stain, dust settled inside along the bottom glass, tarnished+worn-through frame line, faded patchy markings, fine scratches + cleaning swirls — all inside the CACHED renderFace so it costs nothing), the chassis background (biggest surface), the header bar (lighter 0.65 amount), module shells (seeded per module name so COMPRESS/GRIT/AMBER differ), LIMITER panel, METERING panel, and the BlankPlates. VERIFY IN ABLETON: VU meters read aged-but-still-beautiful McIntosh blue (not muddy); chassis/panels have subtle grime without muddying the lit controls; each module wears differently. DEFERRED (not visible on the default screen): TweakWindow chrome, OutputEq graph+knobs, AgeLfo scope+knobs, LicenseOverlay, ThetaLogo, header utility buttons, preset combo, bottom tabs — see the audit list. OPEN: painted-metal chassis fork.",
+      "nextAction": "v0.4.23 — PATINA PASS (user: meters look too clean, do a patina pass on the whole plugin). NEW namespace EP (Creosote Patina) in CreosoteTheme.h, placed above EU so EU::paintModuleShell can call it: reusable low-alpha grime/scuffs/dust/edgeWear/panel helpers, deterministic per-surface RNG (house pattern from EB::backlitCap), every layer clipped to the surface rounded-rect. APPLIED to every always-visible clean surface found by an audit of all 25: the McIntosh VU meters (yellowed haze blotches, water/heat stain, dust settled inside along the bottom glass, tarnished+worn-through frame line, faded patchy markings, fine scratches + cleaning swirls — all inside the CACHED renderFace so it costs nothing), the chassis background (biggest surface), the header bar (lighter 0.65 amount), module shells (seeded per module name so COMPRESS/GRIT/AMBER differ), LIMITER panel, METERING panel, and the BlankPlates. VERIFY IN ABLETON: VU meters read aged-but-still-beautiful McIntosh blue (not muddy); chassis/panels have subtle grime without muddying the lit controls; each module wears differently. DEFERRED (not visible on the default screen): TweakWindow chrome, OutputEq graph+knobs, AgeLfo scope+knobs, LicenseOverlay, ThetaLogo, header utility buttons, preset combo, bottom tabs — see the audit list. OPEN: painted-metal chassis fork.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.22 — PATINA PASS (user: meters look too clean, do a patina pass on the whole plugin). NEW namespace EP (Creosote Patina) in CreosoteTheme.h, placed above EU so EU::paintModuleShell can call it: reusable low-alpha grime/scuffs/dust/edgeWear/panel helpers, deterministic per-surface RNG (house pattern from EB::backlitCap), every layer clipped to the surface rounded-rect. APPLIED to every always-visible clean surface found by an audit of all 25: the McIntosh VU meters (yellowed haze blotches, water/heat stain, dust settled inside along the bottom glass, tarnished+worn-through frame line, faded patchy markings, fine scratches + cleaning swirls — all inside the CACHED renderFace so it costs nothing), the chassis background (biggest surface), the header bar (lighter 0.65 amount), module shells (seeded per module name so COMPRESS/GRIT/AMBER differ), LIMITER panel, METERING panel, and the BlankPlates. VERIFY IN ABLETON: VU meters read aged-but-still-beautiful McIntosh blue (not muddy); chassis/panels have subtle grime without muddying the lit controls; each module wears differently. DEFERRED (not visible on the default screen): TweakWindow chrome, OutputEq graph+knobs, AgeLfo scope+knobs, LicenseOverlay, ThetaLogo, header utility buttons, preset combo, bottom tabs — see the audit list. OPEN: painted-metal chassis fork.",
+      "tomorrowFirstAction": "v0.4.23 — PATINA PASS (user: meters look too clean, do a patina pass on the whole plugin). NEW namespace EP (Creosote Patina) in CreosoteTheme.h, placed above EU so EU::paintModuleShell can call it: reusable low-alpha grime/scuffs/dust/edgeWear/panel helpers, deterministic per-surface RNG (house pattern from EB::backlitCap), every layer clipped to the surface rounded-rect. APPLIED to every always-visible clean surface found by an audit of all 25: the McIntosh VU meters (yellowed haze blotches, water/heat stain, dust settled inside along the bottom glass, tarnished+worn-through frame line, faded patchy markings, fine scratches + cleaning swirls — all inside the CACHED renderFace so it costs nothing), the chassis background (biggest surface), the header bar (lighter 0.65 amount), module shells (seeded per module name so COMPRESS/GRIT/AMBER differ), LIMITER panel, METERING panel, and the BlankPlates. VERIFY IN ABLETON: VU meters read aged-but-still-beautiful McIntosh blue (not muddy); chassis/panels have subtle grime without muddying the lit controls; each module wears differently. DEFERRED (not visible on the default screen): TweakWindow chrome, OutputEq graph+knobs, AgeLfo scope+knobs, LicenseOverlay, ThetaLogo, header utility buttons, preset combo, bottom tabs — see the audit list. OPEN: painted-metal chassis fork.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1496,11 +1496,11 @@
       },
       "currentVersion": "v0.65",
       "lastBuild": "v0.65",
-      "lastUpdated": "2026-07-16T20:56:04.161Z",
+      "lastUpdated": "2026-07-16T20:58:12.972Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T20:56:04.161Z",
+        "createdAt": "2026-07-16T20:58:12.972Z",
         "localDate": "2026-07-16",
         "localHour": 13,
         "timezone": "America/Los_Angeles",
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T20:56:04.161Z",
+    "lastAppliedAt": "2026-07-16T20:58:12.972Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-16T20:56:04.161Z",
+    "createdAt": "2026-07-16T20:58:12.972Z",
     "localDate": "2026-07-16",
     "localHour": 13,
     "timezone": "America/Los_Angeles",
