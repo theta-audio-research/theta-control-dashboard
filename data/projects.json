@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.25",
-      "nextAction": "v0.4.18 — TWO MODULE BUTTON SIZES, FOR REAL. Root cause found: JUCE getSliderLayout insets a LinearHorizontal slider by getSliderThumbRadius (jmin(7,h*0.25)) on BOTH sides, so every VALUE tile (INPUT/THRESH/DRIVE/MIX...) drew 14px NARROWER than a SELECTOR button (MODE/AUTO REL/WIDTH/TAPE) in the same grid cell — two STD widths, not one. ParamSliderLAF now overrides getSliderLayout to return full localBounds: value tiles and selectors are pixel-identical, and dragging covers the whole tile (was 7px dead at each end). Modules now have EXACTLY two sizes: HERO (2-span) and STD (1-span, matches GRIT WIDTH/TAPE). ALSO REVERTED v0.4.17s out-of-scope changes: LIMITER back to its vertical stack + AUTO LEVEL pill (limW 314->138), SUMMING back to header-row tiles at utility height 32 — those are utility columns, NOT part of the module parts catalog. VERIFY IN ABLETON: in GRIT/COMPRESS/AMBER every tile is either full-row hero or the exact WIDTH/TAPE size; LIMITER + SUMMING look exactly as they did in v0.4.16. OPEN: painted-metal chassis fork.",
+      "latestVersion": "v0.4.19",
+      "nextAction": "v0.4.19 — AMBER 3-GANG STAGE ASSEMBLY + EMERALD SWITCH. The per-stage enable was cheated in as a 26x12 chip drawn on top of each tube tile; it is now its own EMERALD square pushbutton at the head of each stage row: [ON square][tube][era]. New EmeraldSwitch component (UIComponents.h): Soviet-60s square illuminated pushbutton — heavy black bakelite shroud tapering to a deep-set square lens, emerald lamp with bloom/spill when ON, dead olive-black plastic when OFF, grimed crevices. Rows 4-5 (DRIVE|TONE, MIX|HARDWARE) stay on the standard 2-col STD grid (layoutGrid gained a startRow offset). Catalog is now: HERO (full row), STD (half row), and the stage assembly [SQUARE + 2x medium]. VERIFY IN ABLETON: each AMBER tube row reads [green square][tube][era]; the squares light emerald when their stage is on and go dead when off; tube/era legends still fit at the narrower width; rows 4-5 still align. OPEN: painted-metal chassis fork; should the emerald squares also die when the whole AMBER module is bypassed?",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.18 — TWO MODULE BUTTON SIZES, FOR REAL. Root cause found: JUCE getSliderLayout insets a LinearHorizontal slider by getSliderThumbRadius (jmin(7,h*0.25)) on BOTH sides, so every VALUE tile (INPUT/THRESH/DRIVE/MIX...) drew 14px NARROWER than a SELECTOR button (MODE/AUTO REL/WIDTH/TAPE) in the same grid cell — two STD widths, not one. ParamSliderLAF now overrides getSliderLayout to return full localBounds: value tiles and selectors are pixel-identical, and dragging covers the whole tile (was 7px dead at each end). Modules now have EXACTLY two sizes: HERO (2-span) and STD (1-span, matches GRIT WIDTH/TAPE). ALSO REVERTED v0.4.17s out-of-scope changes: LIMITER back to its vertical stack + AUTO LEVEL pill (limW 314->138), SUMMING back to header-row tiles at utility height 32 — those are utility columns, NOT part of the module parts catalog. VERIFY IN ABLETON: in GRIT/COMPRESS/AMBER every tile is either full-row hero or the exact WIDTH/TAPE size; LIMITER + SUMMING look exactly as they did in v0.4.16. OPEN: painted-metal chassis fork.",
+      "tomorrowFirstAction": "v0.4.19 — AMBER 3-GANG STAGE ASSEMBLY + EMERALD SWITCH. The per-stage enable was cheated in as a 26x12 chip drawn on top of each tube tile; it is now its own EMERALD square pushbutton at the head of each stage row: [ON square][tube][era]. New EmeraldSwitch component (UIComponents.h): Soviet-60s square illuminated pushbutton — heavy black bakelite shroud tapering to a deep-set square lens, emerald lamp with bloom/spill when ON, dead olive-black plastic when OFF, grimed crevices. Rows 4-5 (DRIVE|TONE, MIX|HARDWARE) stay on the standard 2-col STD grid (layoutGrid gained a startRow offset). Catalog is now: HERO (full row), STD (half row), and the stage assembly [SQUARE + 2x medium]. VERIFY IN ABLETON: each AMBER tube row reads [green square][tube][era]; the squares light emerald when their stage is on and go dead when off; tube/era legends still fit at the narrower width; rows 4-5 still align. OPEN: painted-metal chassis fork; should the emerald squares also die when the whole AMBER module is bypassed?",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.25",
-      "lastBuild": "v0.25",
-      "lastUpdated": "2026-07-16T19:37:11.122Z",
+      "currentVersion": "v0.4.19",
+      "lastBuild": "v0.4.19",
+      "lastUpdated": "2026-07-16T20:07:59.966Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T19:37:11.122Z",
+        "createdAt": "2026-07-16T20:07:59.966Z",
         "localDate": "2026-07-16",
-        "localHour": 12,
+        "localHour": 13,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.25."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.19."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T19:37:11.122Z",
+    "lastAppliedAt": "2026-07-16T20:07:59.966Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-16T19:37:11.122Z",
+    "createdAt": "2026-07-16T20:07:59.966Z",
     "localDate": "2026-07-16",
-    "localHour": 12,
+    "localHour": 13,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
