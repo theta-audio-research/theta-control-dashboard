@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v7.5",
-      "nextAction": "v0.4.13 — LIT-LENS ITERATION 2 (user feedback from Ableton audition of v0.4.12): (1) MORE AMBER: lamp ramp pushed from tea-yellow toward amber/orange. (2) MODULE-POWER LAMPS: bypassing a module now kills the lamp in ALL its tiles (value sliders via ModulePanel::updateLamps -> ParamSlider::setLampOn, editor-owned selectors + COMPRESS KNEE/SC FREQ via onPowerChanged + lampOn button property) — dead unpowered lenses that stay interactive. (3) READABILITY: 30-32px tiles (LIMITER/SUMMING) use a compact text layout (label 7.5pt, value 10pt, value area kept clear of the level strip — glyphs used to collide with it); unlit ghost ink raised ~20%->~30% legibility. VERIFY IN ABLETON: toggle each module ON/OFF and watch all its tiles + selectors go dead-lens together; LIMITER/SUMMING values fully readable, clear of the strip; overall hue reads amber not yellow. OPEN QUESTION with user: functional color-coding scheme (more colors to differentiate control types). Remaining UI punch-list unchanged.",
+      "latestVersion": "v2.5",
+      "nextAction": "v0.4.14 — SCHEME C LENS COLOUR-CODING (user pick from creosote_lens_color_schemes.html): lenses now come in three lamp colours like the real consoles — AMBER stock, GREEN for engaged toggles (AUTO REL when on), RED for the limiter LIMIT danger tile. Selectors are stock amber with NO module lean (accLean 0, uniform everywhere); VALUE tiles lean visibly toward their module warmth (accLean 2.5 — GRIT coral, AMBER gold; cool COMPRESS still gated to amber, aqua only in strip+rail). Includes all v0.4.13 fixes (amber ramp, module-power lamps, compact-tile readability). VERIFY IN ABLETON: AUTO REL green when ON / amber when OFF; LIMIT tile reads red; GRIT vs AMBER value tiles clearly differ in warmth while selectors match; COMPRESS values stay amber with aqua strips. Remaining UI punch-list unchanged.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.13 — LIT-LENS ITERATION 2 (user feedback from Ableton audition of v0.4.12): (1) MORE AMBER: lamp ramp pushed from tea-yellow toward amber/orange. (2) MODULE-POWER LAMPS: bypassing a module now kills the lamp in ALL its tiles (value sliders via ModulePanel::updateLamps -> ParamSlider::setLampOn, editor-owned selectors + COMPRESS KNEE/SC FREQ via onPowerChanged + lampOn button property) — dead unpowered lenses that stay interactive. (3) READABILITY: 30-32px tiles (LIMITER/SUMMING) use a compact text layout (label 7.5pt, value 10pt, value area kept clear of the level strip — glyphs used to collide with it); unlit ghost ink raised ~20%->~30% legibility. VERIFY IN ABLETON: toggle each module ON/OFF and watch all its tiles + selectors go dead-lens together; LIMITER/SUMMING values fully readable, clear of the strip; overall hue reads amber not yellow. OPEN QUESTION with user: functional color-coding scheme (more colors to differentiate control types). Remaining UI punch-list unchanged.",
+      "tomorrowFirstAction": "v0.4.14 — SCHEME C LENS COLOUR-CODING (user pick from creosote_lens_color_schemes.html): lenses now come in three lamp colours like the real consoles — AMBER stock, GREEN for engaged toggles (AUTO REL when on), RED for the limiter LIMIT danger tile. Selectors are stock amber with NO module lean (accLean 0, uniform everywhere); VALUE tiles lean visibly toward their module warmth (accLean 2.5 — GRIT coral, AMBER gold; cool COMPRESS still gated to amber, aqua only in strip+rail). Includes all v0.4.13 fixes (amber ramp, module-power lamps, compact-tile readability). VERIFY IN ABLETON: AUTO REL green when ON / amber when OFF; LIMIT tile reads red; GRIT vs AMBER value tiles clearly differ in warmth while selectors match; COMPRESS values stay amber with aqua strips. Remaining UI punch-list unchanged.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v7.5",
-      "lastBuild": "v7.5",
-      "lastUpdated": "2026-07-16T06:51:06.431Z",
+      "currentVersion": "v2.5",
+      "lastBuild": "v2.5",
+      "lastUpdated": "2026-07-16T06:57:05.806Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T06:51:06.431Z",
+        "createdAt": "2026-07-16T06:57:05.806Z",
         "localDate": "2026-07-15",
         "localHour": 23,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v7.5."
+        "summary": "CREOSOTE updated from Control Room delta: v2.5."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T06:51:06.431Z",
+    "lastAppliedAt": "2026-07-16T06:57:05.806Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-16T06:51:06.431Z",
+    "createdAt": "2026-07-16T06:57:05.806Z",
     "localDate": "2026-07-15",
     "localHour": 23,
     "timezone": "America/Los_Angeles",
