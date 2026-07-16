@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.085",
-      "nextAction": "v0.4.26 — DEEPER RED + REAL VU BALLISTICS. (1) DEEP RED: new EC::deepRed (#B01410) — coral was an orange, this is an actual red. Applied to the LIMIT tile lamp (EB::Lamp::red ramp rebuilt deeper + its leak colour), the COMPRESS G/R heavy-reduction segments (were amber #d89848), and the METERING GR bar/label/readout. (2) THE VU/GR LOOKALIKE — user asked where the VU meters get their data and noticed they mirror the GR meter. They read proc.summingLevel, a post-summing (pre-EQ/limiter) tap. The tap was per-block PEAK, and peak is exactly what a compressor GR meter follows, so both chased the same transient envelope. FIXED at both ends: the tap now publishes RMS (mean-square accumulated per sample over the block, sqrt at block end — metering only, audio untouched), and McIntoshVuMeter uses true VU ballistics (~300ms, alpha 0.10/0.085 at 30Hz, was a 0.45/0.22 peak chase) with 0 VU aligned to -18 dBFS RMS. VERIFY IN ABLETON: the VU needles should now swing smoothly and average program level instead of tracking the GR meter; GR + LIMIT read deep red. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "latestVersion": "v4.6",
+      "nextAction": "v0.4.27 — VU METERS NOW READ THE OUTPUT + real ballistics. ROOT CAUSE (user: output differs between two shots but the VU reads the same): the VUs were fed summingLevel, tapped AFTER the summing amp but BEFORE EQ and the limiter. LIMIT is downstream of that tap, so pulling it from 0 to -18 dB moved the real output ~18 dB while the summing bus never changed — the needles were faithfully showing a point in the chain that did not move. FIX: the atomics are now outputRmsL/R, accumulated at the FINAL OUTPUT (post EQ/clip/limiter/master-bypass — literally what leaves the plugin), which is what a POWER OUTPUT meter must show. Still RMS, still metering-only. BALLISTICS also fixed: a VU hits 99pct of a step in 300ms = ~4.6 tau => tau 65ms => alpha 0.40 at 30Hz. v0.4.26 used 0.10 = tau 316ms = ~1.5s to settle, far too sluggish. Now 0.40 rise / 0.36 fall (near-symmetric, like a real movement). 0 VU stays aligned to -18 dBFS RMS. VERIFY IN ABLETON: move LIMIT and the needles must now follow the output; needles should settle in about a third of a second, not crawl. NOTE: a loud master will pin the needles near +3 — that is authentic VU behaviour; the -18 dBFS alignment is one constant in McIntoshVuMeter if you want them resting lower. OPEN: painted-metal chassis fork; deferred patina surfaces.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.26 — DEEPER RED + REAL VU BALLISTICS. (1) DEEP RED: new EC::deepRed (#B01410) — coral was an orange, this is an actual red. Applied to the LIMIT tile lamp (EB::Lamp::red ramp rebuilt deeper + its leak colour), the COMPRESS G/R heavy-reduction segments (were amber #d89848), and the METERING GR bar/label/readout. (2) THE VU/GR LOOKALIKE — user asked where the VU meters get their data and noticed they mirror the GR meter. They read proc.summingLevel, a post-summing (pre-EQ/limiter) tap. The tap was per-block PEAK, and peak is exactly what a compressor GR meter follows, so both chased the same transient envelope. FIXED at both ends: the tap now publishes RMS (mean-square accumulated per sample over the block, sqrt at block end — metering only, audio untouched), and McIntoshVuMeter uses true VU ballistics (~300ms, alpha 0.10/0.085 at 30Hz, was a 0.45/0.22 peak chase) with 0 VU aligned to -18 dBFS RMS. VERIFY IN ABLETON: the VU needles should now swing smoothly and average program level instead of tracking the GR meter; GR + LIMIT read deep red. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "tomorrowFirstAction": "v0.4.27 — VU METERS NOW READ THE OUTPUT + real ballistics. ROOT CAUSE (user: output differs between two shots but the VU reads the same): the VUs were fed summingLevel, tapped AFTER the summing amp but BEFORE EQ and the limiter. LIMIT is downstream of that tap, so pulling it from 0 to -18 dB moved the real output ~18 dB while the summing bus never changed — the needles were faithfully showing a point in the chain that did not move. FIX: the atomics are now outputRmsL/R, accumulated at the FINAL OUTPUT (post EQ/clip/limiter/master-bypass — literally what leaves the plugin), which is what a POWER OUTPUT meter must show. Still RMS, still metering-only. BALLISTICS also fixed: a VU hits 99pct of a step in 300ms = ~4.6 tau => tau 65ms => alpha 0.40 at 30Hz. v0.4.26 used 0.10 = tau 316ms = ~1.5s to settle, far too sluggish. Now 0.40 rise / 0.36 fall (near-symmetric, like a real movement). 0 VU stays aligned to -18 dBFS RMS. VERIFY IN ABLETON: move LIMIT and the needles must now follow the output; needles should settle in about a third of a second, not crawl. NOTE: a loud master will pin the needles near +3 — that is authentic VU behaviour; the -18 dBFS alignment is one constant in McIntoshVuMeter if you want them resting lower. OPEN: painted-metal chassis fork; deferred patina surfaces.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.085",
-      "lastBuild": "v0.085",
-      "lastUpdated": "2026-07-16T21:44:02.781Z",
+      "currentVersion": "v4.6",
+      "lastBuild": "v4.6",
+      "lastUpdated": "2026-07-16T22:33:16.839Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-16T21:44:02.781Z",
+        "createdAt": "2026-07-16T22:33:16.839Z",
         "localDate": "2026-07-16",
-        "localHour": 14,
+        "localHour": 15,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.085."
+        "summary": "CREOSOTE updated from Control Room delta: v4.6."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-16T21:44:02.781Z",
+    "lastAppliedAt": "2026-07-16T22:33:16.839Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-16T21:44:02.781Z",
+    "createdAt": "2026-07-16T22:33:16.839Z",
     "localDate": "2026-07-16",
-    "localHour": 14,
+    "localHour": 15,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
