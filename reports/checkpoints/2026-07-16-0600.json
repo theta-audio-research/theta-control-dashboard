@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-16",
+  "localHour": 6,
+  "timezone": "America/Los_Angeles",
+  "source": "scheduled-cron",
+  "createdAt": "2026-07-16T13:00:51.961Z",
+  "today": [
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "nextAction": "v0.4.14 — SCHEME C LENS COLOUR-CODING (user pick from creosote_lens_color_schemes.html): lenses now come in three lamp colours like the real consoles — AMBER stock, GREEN for engaged toggles (AUTO REL when on), RED for the limiter LIMIT danger tile. Selectors are stock amber with NO module lean (accLean 0, uniform everywhere); VALUE tiles lean visibly toward their module warmth (accLean 2.5 — GRIT coral, AMBER gold; cool COMPRESS still gated to amber, aqua only in strip+rail). Includes all v0.4.13 fixes (amber ramp, module-power lamps, compact-tile readability). VERIFY IN ABLETON: AUTO REL green when ON / amber when OFF; LIMIT tile reads red; GRIT vs AMBER value tiles clearly differ in warmth while selectors match; COMPRESS values stay amber with aqua strips. Remaining UI punch-list unchanged.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction."
+    }
+  ],
+  "blockedCount": 5,
+  "decisionCount": 4
+}
