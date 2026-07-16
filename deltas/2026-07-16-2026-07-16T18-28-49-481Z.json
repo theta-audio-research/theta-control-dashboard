@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-16",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.17",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.17 — TWO SIZES ONLY + FALCON G/R (user feedback): (1) the 32px utility size is retired — SUMMING PREGAIN/WIDTH/BALANCE are full STD cells (148x44) on their own row above the VU deck; LIMITER widened to 314 and its 4 controls are a 2x2 STD grid; AUTO LEVEL pill replaced by a STD lens toggle tile (green lamp when engaged). Console-wide there are now exactly TWO button sizes: HERO and STD. (2) COMPRESS G/R meter restyled Millennium-Falcon: worn cool charcoal housing with corner grime + scratch streaks, segments are aged unevenly-bright lenses on a COOLER ramp (ice -> mint -> teal, amber only at the heavy end; smoked dead lenses). VERIFY IN ABLETON: no control anywhere except HERO/STD tiles + power/tab chrome; LIMITER 2x2 reads well; SUMMING tiles match module tiles exactly; G/R meter reads aged + cool with uneven bulbs. OPEN: painted-metal chassis fork. Remaining UI punch-list unchanged.",
+      "tomorrowFirstAction": "v0.4.17 — TWO SIZES ONLY + FALCON G/R (user feedback): (1) the 32px utility size is retired — SUMMING PREGAIN/WIDTH/BALANCE are full STD cells (148x44) on their own row above the VU deck; LIMITER widened to 314 and its 4 controls are a 2x2 STD grid; AUTO LEVEL pill replaced by a STD lens toggle tile (green lamp when engaged). Console-wide there are now exactly TWO button sizes: HERO and STD. (2) COMPRESS G/R meter restyled Millennium-Falcon: worn cool charcoal housing with corner grime + scratch streaks, segments are aged unevenly-bright lenses on a COOLER ramp (ice -> mint -> teal, amber only at the heavy end; smoked dead lenses). VERIFY IN ABLETON: no control anywhere except HERO/STD tiles + power/tab chrome; LIMITER 2x2 reads well; SUMMING tiles match module tiles exactly; G/R meter reads aged + cool with uneven bulbs. OPEN: painted-metal chassis fork. Remaining UI punch-list unchanged.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.17."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
