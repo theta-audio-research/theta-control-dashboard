@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-16",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.28",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.28 — VU METERS NOW AGREE WITH THE VERTICAL METERS. User: the VU readings should match the L/R bars. They could not: the bars read dBFS TRUE PEAK off outputTruePeakL/R with instant attack + 0.82/frame decay over -60..0, while the VU read RMS against a 0 VU = -18 dBFS reference — a different quantity AND a different reference, so a -11.3 dBFS signal showed -11.3 on the bar and about -2 on the needle. FIX: the VUs now read the SAME outputTruePeakL/R atomics with the SAME ballistics (instant attack, disp = max(in, disp*0.82)) and report plain dBFS, so both displays print the same number. FACE RESCALED to -50..+3 dBFS via one shared dbToDeg() used by BOTH the needle and the printed marks (they cannot drift apart). WATTS ARC FIXED: its marks were evenly spaced, which a power scale does not do — audio power is 10 dB/decade, so they now sit at their true angles (100 W at 0 dBFS, 10 at -10, 1 at -20, .1 at -30, .01 at -40, .001 at -50). DECIBELS arc relabelled -50..+3 dBFS. Dead RMS plumbing (outputRmsL/R, outSq accumulators) removed. VERIFY IN ABLETON: needle and bar should now read the same dB for the same signal; watt marks line up with their dB marks a decade per 10 dB. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "tomorrowFirstAction": "v0.4.28 — VU METERS NOW AGREE WITH THE VERTICAL METERS. User: the VU readings should match the L/R bars. They could not: the bars read dBFS TRUE PEAK off outputTruePeakL/R with instant attack + 0.82/frame decay over -60..0, while the VU read RMS against a 0 VU = -18 dBFS reference — a different quantity AND a different reference, so a -11.3 dBFS signal showed -11.3 on the bar and about -2 on the needle. FIX: the VUs now read the SAME outputTruePeakL/R atomics with the SAME ballistics (instant attack, disp = max(in, disp*0.82)) and report plain dBFS, so both displays print the same number. FACE RESCALED to -50..+3 dBFS via one shared dbToDeg() used by BOTH the needle and the printed marks (they cannot drift apart). WATTS ARC FIXED: its marks were evenly spaced, which a power scale does not do — audio power is 10 dB/decade, so they now sit at their true angles (100 W at 0 dBFS, 10 at -10, 1 at -20, .1 at -30, .01 at -40, .001 at -50). DECIBELS arc relabelled -50..+3 dBFS. Dead RMS plumbing (outputRmsL/R, outSq accumulators) removed. VERIFY IN ABLETON: needle and bar should now read the same dB for the same signal; watt marks line up with their dB marks a decade per 10 dB. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.28."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
