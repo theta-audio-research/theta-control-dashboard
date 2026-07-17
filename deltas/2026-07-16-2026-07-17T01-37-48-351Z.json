@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-16",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.30",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.30 — LIMITER IN/OUT (new LIM_ON param). Needed because v0.4.25 made CLEAN limit at the knob, which removed the only way to NOT limit (CLEAN used to double as limiter-off). IMPORTANT SCOPE FINDING: the LIMITER panel is misleadingly named — LIM_INPUT is applied at PluginProcessor.cpp:927, the VERY START of the chain (it is the plugin input drive feeding GRIT/AMBER/COMPRESS), and LEVEL/TONE are the output stage. Only LIMIT + AUTO LEVEL are actually the limiter. So the power button gates ONLY the limiting, NOT the panel: INPUT/LEVEL/TONE keep working and stay lit; only the LIMIT tile goes dead-lens and AUTO LEVEL disables. LATENCY IS CONSTANT: when out, the lookahead delay line still runs (processStereoDelayOnly), so toggling never forces a PDC change. OUT CLIP is a separate stage with its own TWEAK control and still applies in DIRTY (a pure delay and a memoryless clip commute, so order is equivalent). GR reports 0 when out, so the GR meter empties and the LIMIT red glow goes cold. Defaults ON => existing sessions/presets recall unchanged; no DSPVersion bump needed. VERIFY IN ABLETON: toggle the LIMITER power and confirm limiting stops but INPUT still drives the plugin and LEVEL/TONE still work; confirm the host reports the same latency both ways. OPEN: the panel arguably wants renaming (it is an output stage with a limiter in it); painted-metal chassis fork; deferred patina surfaces.",
+      "tomorrowFirstAction": "v0.4.30 — LIMITER IN/OUT (new LIM_ON param). Needed because v0.4.25 made CLEAN limit at the knob, which removed the only way to NOT limit (CLEAN used to double as limiter-off). IMPORTANT SCOPE FINDING: the LIMITER panel is misleadingly named — LIM_INPUT is applied at PluginProcessor.cpp:927, the VERY START of the chain (it is the plugin input drive feeding GRIT/AMBER/COMPRESS), and LEVEL/TONE are the output stage. Only LIMIT + AUTO LEVEL are actually the limiter. So the power button gates ONLY the limiting, NOT the panel: INPUT/LEVEL/TONE keep working and stay lit; only the LIMIT tile goes dead-lens and AUTO LEVEL disables. LATENCY IS CONSTANT: when out, the lookahead delay line still runs (processStereoDelayOnly), so toggling never forces a PDC change. OUT CLIP is a separate stage with its own TWEAK control and still applies in DIRTY (a pure delay and a memoryless clip commute, so order is equivalent). GR reports 0 when out, so the GR meter empties and the LIMIT red glow goes cold. Defaults ON => existing sessions/presets recall unchanged; no DSPVersion bump needed. VERIFY IN ABLETON: toggle the LIMITER power and confirm limiting stops but INPUT still drives the plugin and LEVEL/TONE still work; confirm the host reports the same latency both ways. OPEN: the panel arguably wants renaming (it is an output stage with a limiter in it); painted-metal chassis fork; deferred patina surfaces.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.30."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
