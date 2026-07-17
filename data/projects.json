@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v11.3",
-      "nextAction": "v0.4.28 — VU METERS NOW AGREE WITH THE VERTICAL METERS. User: the VU readings should match the L/R bars. They could not: the bars read dBFS TRUE PEAK off outputTruePeakL/R with instant attack + 0.82/frame decay over -60..0, while the VU read RMS against a 0 VU = -18 dBFS reference — a different quantity AND a different reference, so a -11.3 dBFS signal showed -11.3 on the bar and about -2 on the needle. FIX: the VUs now read the SAME outputTruePeakL/R atomics with the SAME ballistics (instant attack, disp = max(in, disp*0.82)) and report plain dBFS, so both displays print the same number. FACE RESCALED to -50..+3 dBFS via one shared dbToDeg() used by BOTH the needle and the printed marks (they cannot drift apart). WATTS ARC FIXED: its marks were evenly spaced, which a power scale does not do — audio power is 10 dB/decade, so they now sit at their true angles (100 W at 0 dBFS, 10 at -10, 1 at -20, .1 at -30, .01 at -40, .001 at -50). DECIBELS arc relabelled -50..+3 dBFS. Dead RMS plumbing (outputRmsL/R, outSq accumulators) removed. VERIFY IN ABLETON: needle and bar should now read the same dB for the same signal; watt marks line up with their dB marks a decade per 10 dB. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "latestVersion": "v0.4.29",
+      "nextAction": "v0.4.29 — VU SCALE MOVED DOWN, RED HEADROOM ABOVE 0 dB (user ref: classic Hoyt VU face). The scale ran -50..+3 dBFS, which parked 0 dBFS at 94pct of the sweep — effectively nowhere to show over. Like a real VU, 0 now sits at 80pct with red above it. New range -40..+10 dBFS: 0 dB lands at exactly 80pct, the red over-zone owns the top 20pct, and the WATTS decades fall on even 20pct steps (.01@-40, .1@-30, 1@-20, 10@-10, 100@0 dBFS; .001 dropped as it fell off the new low end). RED ZONE drawn as a thick band on BOTH arcs from 0 dB to +10, with the +5/+10 ticks and labels in red. Needle + printed marks still share one dbToDeg(), so they cannot drift. Readings stay dBFS true-peak matching the METERING bars (v0.4.28). VERIFY IN ABLETON: 0 dB should sit ~80pct across with a clear red band above; watt marks evenly spaced a decade per 10 dB; needle into the red only when the output is genuinely over 0 dBFS. OPEN: painted-metal chassis fork; deferred patina surfaces.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.28 — VU METERS NOW AGREE WITH THE VERTICAL METERS. User: the VU readings should match the L/R bars. They could not: the bars read dBFS TRUE PEAK off outputTruePeakL/R with instant attack + 0.82/frame decay over -60..0, while the VU read RMS against a 0 VU = -18 dBFS reference — a different quantity AND a different reference, so a -11.3 dBFS signal showed -11.3 on the bar and about -2 on the needle. FIX: the VUs now read the SAME outputTruePeakL/R atomics with the SAME ballistics (instant attack, disp = max(in, disp*0.82)) and report plain dBFS, so both displays print the same number. FACE RESCALED to -50..+3 dBFS via one shared dbToDeg() used by BOTH the needle and the printed marks (they cannot drift apart). WATTS ARC FIXED: its marks were evenly spaced, which a power scale does not do — audio power is 10 dB/decade, so they now sit at their true angles (100 W at 0 dBFS, 10 at -10, 1 at -20, .1 at -30, .01 at -40, .001 at -50). DECIBELS arc relabelled -50..+3 dBFS. Dead RMS plumbing (outputRmsL/R, outSq accumulators) removed. VERIFY IN ABLETON: needle and bar should now read the same dB for the same signal; watt marks line up with their dB marks a decade per 10 dB. OPEN: painted-metal chassis fork; deferred patina surfaces.",
+      "tomorrowFirstAction": "v0.4.29 — VU SCALE MOVED DOWN, RED HEADROOM ABOVE 0 dB (user ref: classic Hoyt VU face). The scale ran -50..+3 dBFS, which parked 0 dBFS at 94pct of the sweep — effectively nowhere to show over. Like a real VU, 0 now sits at 80pct with red above it. New range -40..+10 dBFS: 0 dB lands at exactly 80pct, the red over-zone owns the top 20pct, and the WATTS decades fall on even 20pct steps (.01@-40, .1@-30, 1@-20, 10@-10, 100@0 dBFS; .001 dropped as it fell off the new low end). RED ZONE drawn as a thick band on BOTH arcs from 0 dB to +10, with the +5/+10 ticks and labels in red. Needle + printed marks still share one dbToDeg(), so they cannot drift. Readings stay dBFS true-peak matching the METERING bars (v0.4.28). VERIFY IN ABLETON: 0 dB should sit ~80pct across with a clear red band above; watt marks evenly spaced a decade per 10 dB; needle into the red only when the output is genuinely over 0 dBFS. OPEN: painted-metal chassis fork; deferred patina surfaces.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v11.3",
-      "lastBuild": "v11.3",
-      "lastUpdated": "2026-07-17T00:42:25.364Z",
+      "currentVersion": "v0.4.29",
+      "lastBuild": "v0.4.29",
+      "lastUpdated": "2026-07-17T00:51:09.426Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-17T00:42:25.364Z",
+        "createdAt": "2026-07-17T00:51:09.426Z",
         "localDate": "2026-07-16",
         "localHour": 17,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v11.3."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.29."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-17T00:42:25.364Z",
+    "lastAppliedAt": "2026-07-17T00:51:09.426Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-17T00:42:25.364Z",
+    "createdAt": "2026-07-17T00:51:09.426Z",
     "localDate": "2026-07-16",
     "localHour": 17,
     "timezone": "America/Los_Angeles",
