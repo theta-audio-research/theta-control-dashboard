@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-17",
+  "localHour": 9,
+  "timezone": "America/Los_Angeles",
+  "source": "scheduled-cron",
+  "createdAt": "2026-07-17T16:00:52.455Z",
+  "today": [
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "nextAction": "v0.4.30 — LIMITER IN/OUT (new LIM_ON param). Needed because v0.4.25 made CLEAN limit at the knob, which removed the only way to NOT limit (CLEAN used to double as limiter-off). IMPORTANT SCOPE FINDING: the LIMITER panel is misleadingly named — LIM_INPUT is applied at PluginProcessor.cpp:927, the VERY START of the chain (it is the plugin input drive feeding GRIT/AMBER/COMPRESS), and LEVEL/TONE are the output stage. Only LIMIT + AUTO LEVEL are actually the limiter. So the power button gates ONLY the limiting, NOT the panel: INPUT/LEVEL/TONE keep working and stay lit; only the LIMIT tile goes dead-lens and AUTO LEVEL disables. LATENCY IS CONSTANT: when out, the lookahead delay line still runs (processStereoDelayOnly), so toggling never forces a PDC change. OUT CLIP is a separate stage with its own TWEAK control and still applies in DIRTY (a pure delay and a memoryless clip commute, so order is equivalent). GR reports 0 when out, so the GR meter empties and the LIMIT red glow goes cold. Defaults ON => existing sessions/presets recall unchanged; no DSPVersion bump needed. VERIFY IN ABLETON: toggle the LIMITER power and confirm limiting stops but INPUT still drives the plugin and LEVEL/TONE still work; confirm the host reports the same latency both ways. OPEN: the panel arguably wants renaming (it is an output stage with a limiter in it); painted-metal chassis fork; deferred patina surfaces.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction."
+    }
+  ],
+  "blockedCount": 5,
+  "decisionCount": 4
+}
