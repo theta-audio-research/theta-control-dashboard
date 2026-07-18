@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.36",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.36 — DECRAMPED (ANALOG-MATCHED) HF FILTERS, round 1 of the Analog Warmth Playbook adoption (user: 'go with your recommendations'). MEASURED DAMAGE at 48k (RBJ bilinear vs own analog prototype): GRIT 16k IPS rolloff -8.2dB@20k, AMBER PULTEC-mode 14k output-tx rolloff -10.8dB@20k, 22k corners read +2 to +2.4dB then crash to -inf at Nyquist (bilinear LP forces a zero there); shelves squash +/-0.2-0.5dB in the top octave. Also found: ThetaDSP setLowShelf hardcoded S=1 while setHighShelf S=0.5 — every TONE tilt's two halves had different slopes. FIX: four matched designs added to Biquad (double-precision internals): setHighShelfMatched/setLowShelfMatched (Vicanek 2024 'Matched Two-Pole Digital Shelving Filters', Butterworth, supports hinge>Nyquist, dev<=0.03dB), setPeakEQMatched (Vicanek 2016 sec 4.4, impulse-invariant poles + matched zeros), setLowpassMatched (impulse-invariant poles + closed-form 2x2 least-squares numerator fit over 1k-20k, 24 log points — beats Vicanek's own b2=0 corner match ~0.5dB and an exact-Nyquist 3-point match that rings +2.4dB; measured dev<=0.16dB@48k on every shipped corner/Q, exact@96k, worst 0.38dB anywhere on the 44.1-96k grid). C++ port cross-checked vs Python reference to 5e-8. Gated GRIT>=8 (_hs/_ls/_lp helpers: pre/de-emph, IPS LP, bias shelf, tilt) / AMBER>=5 (_hs1/_ls1/_lp1/_pk1: era air, Pultec hi, in/out-tx HF, preamp LP, presence, tilt); low-hinged filters (head bump etc.) stay bilinear — no cramping below ~2k. Older stamps recall the frozen bilinear voicing bit-identically. All 23 presets restamped 8/5. VERIFY IN ABLETON: 48k, GRIT 15ips or AMBER PULTEC/TWEED hardware — the top octave (16-20k) should open up vs v0.4.35; A/B a pre-v8 session for the frozen old voicing. NEXT (round 2, agreed): ADAA (ln-cosh antiderivative) on the un-oversampled master-bus tanh stages (OUT CLIP, CHARACTER, STEREO GLUE, limiter) — they currently alias at base rate. Round 3: flux-integrator iron for SUMMING (currently NO nonlinearity at all in v3 path). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.36 — DECRAMPED (ANALOG-MATCHED) HF FILTERS, round 1 of the Analog Warmth Playbook adoption (user: 'go with your recommendations'). MEASURED DAMAGE at 48k (RBJ bilinear vs own analog prototype): GRIT 16k IPS rolloff -8.2dB@20k, AMBER PULTEC-mode 14k output-tx rolloff -10.8dB@20k, 22k corners read +2 to +2.4dB then crash to -inf at Nyquist (bilinear LP forces a zero there); shelves squash +/-0.2-0.5dB in the top octave. Also found: ThetaDSP setLowShelf hardcoded S=1 while setHighShelf S=0.5 — every TONE tilt's two halves had different slopes. FIX: four matched designs added to Biquad (double-precision internals): setHighShelfMatched/setLowShelfMatched (Vicanek 2024 'Matched Two-Pole Digital Shelving Filters', Butterworth, supports hinge>Nyquist, dev<=0.03dB), setPeakEQMatched (Vicanek 2016 sec 4.4, impulse-invariant poles + matched zeros), setLowpassMatched (impulse-invariant poles + closed-form 2x2 least-squares numerator fit over 1k-20k, 24 log points — beats Vicanek's own b2=0 corner match ~0.5dB and an exact-Nyquist 3-point match that rings +2.4dB; measured dev<=0.16dB@48k on every shipped corner/Q, exact@96k, worst 0.38dB anywhere on the 44.1-96k grid). C++ port cross-checked vs Python reference to 5e-8. Gated GRIT>=8 (_hs/_ls/_lp helpers: pre/de-emph, IPS LP, bias shelf, tilt) / AMBER>=5 (_hs1/_ls1/_lp1/_pk1: era air, Pultec hi, in/out-tx HF, preamp LP, presence, tilt); low-hinged filters (head bump etc.) stay bilinear — no cramping below ~2k. Older stamps recall the frozen bilinear voicing bit-identically. All 23 presets restamped 8/5. VERIFY IN ABLETON: 48k, GRIT 15ips or AMBER PULTEC/TWEED hardware — the top octave (16-20k) should open up vs v0.4.35; A/B a pre-v8 session for the frozen old voicing. NEXT (round 2, agreed): ADAA (ln-cosh antiderivative) on the un-oversampled master-bus tanh stages (OUT CLIP, CHARACTER, STEREO GLUE, limiter) — they currently alias at base rate. Round 3: flux-integrator iron for SUMMING (currently NO nonlinearity at all in v3 path). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.36."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
