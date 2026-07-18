@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-17",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.33",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.33 — NEAL presets moved to the ARTIST section (correcting v0.4.32). The preset menu already has three sections — FACTORY / ARTIST / USER — via kFactoryRegistry, kArtistRegistry (was empty), and the user preset dir; loadById already maps id ranges across them. v0.4.32 wrongly put the 6 NEAL presets in kFactoryRegistry alongside the albums. Now: kFactoryRegistry = the 17 album presets only; kArtistRegistry = the 6 NEAL presets (DEF first). NEAL - DEF stays the first-open default (loadEmbeddedPreset stays symbol-based, section-independent) and its combo id is now kFactoryRegistrySize+1 (first artist slot) with a syncComboBox so the box shows it selected. The 6 NEAL files retagged sourceEra User preset -> Artist preset. VERIFY IN ABLETON: preset menu shows -- FACTORY -- (17 albums), -- ARTIST -- (6 NEAL, DEF first), -- USER --; a fresh instance opens on NEAL - DEF and the box reads NEAL - DEF. OPEN: painted-metal chassis fork; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.33 — NEAL presets moved to the ARTIST section (correcting v0.4.32). The preset menu already has three sections — FACTORY / ARTIST / USER — via kFactoryRegistry, kArtistRegistry (was empty), and the user preset dir; loadById already maps id ranges across them. v0.4.32 wrongly put the 6 NEAL presets in kFactoryRegistry alongside the albums. Now: kFactoryRegistry = the 17 album presets only; kArtistRegistry = the 6 NEAL presets (DEF first). NEAL - DEF stays the first-open default (loadEmbeddedPreset stays symbol-based, section-independent) and its combo id is now kFactoryRegistrySize+1 (first artist slot) with a syncComboBox so the box shows it selected. The 6 NEAL files retagged sourceEra User preset -> Artist preset. VERIFY IN ABLETON: preset menu shows -- FACTORY -- (17 albums), -- ARTIST -- (6 NEAL, DEF first), -- USER --; a fresh instance opens on NEAL - DEF and the box reads NEAL - DEF. OPEN: painted-metal chassis fork; deferred patina; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.33."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
