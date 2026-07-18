@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v1.02",
-      "nextAction": "v0.4.41 — NEW FIRST-OPEN DEFAULT: NEAL - DEF - NEVE SUMM (user-authored: SUMMING amp with RICH NEVE iron only, everything else off, limiter off, CLEAN, 8x CLEAN OS — 'a good start'). Shipped: copied into Resources/Presets/NEAL_DEF_NEVE_SUMM.creosote, restamped to current DSP versions (9/6/4 — inert for this preset since those modules are OFF, keeps the presets-are-current-gen convention), added FIRST in kArtistRegistry + BinaryData accessor + CMake, editor first-open now loads it. Probe-measured +0.97dB vs bypass (the SUM_PREGAIN 0.5 = +1.02dB into the iron); trimmed LIM_LEVEL 0.5 -> 0.4731 (post-summing, iron drive untouched) -> -0.11dB = unity, consistent with the v0.4.40 matched library (now 24 presets). VERIFY IN ABLETON: fresh instance opens as NEAL - DEF - NEVE SUMM with SUMMING lit + IRON RICH; loudness matches bypass. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "latestVersion": "v0.55",
+      "nextAction": "v0.4.42 — DEFERRED PATINA SURFACES + CHASSIS MOCKUP ROUND 1 (user: 'the painted-metal chassis mockup round, the deferred patina surfaces'). PATINA (UI-only, no version gates): the EP:: aging pass now covers every surface from the deferred-audit list — TweakWindow chrome (EP::panel 'TWEK' 0.8), OUTPUT EQ shell (EP::panel 'OEQ1' 0.9) + graph GLASS treatment (grime 0.40 + dust 0.50 — screens dust, they don't chip; curve stays readable), AGE LFO scope glass (grime 0.35 + dust 0.45), LicenseOverlay scrim (grime 0.35), ThetaLogo badge (dust 0.40), preset combo (edgeWear+dust in CreosoteLAF::drawComboBox), and a new WornButtonLAF (PluginEditor.h) on the 4 header buttons + 3 bottom tabs — stock fill/hover behavior plus edgeWear 0.55 + dust 0.45, seeded per button name, dosed to keep 9px labels legible; attached in ctor, detached in dtor per the existing LAF teardown pattern. The EQ inspector knobs and AGE LFO knobs deliberately stay clean (their ring/halo language is a display instrument, not chassis). CHASSIS: 4 painted-metal finishes mocked as an HTML artifact (V1 Reactor Sage / V2 Naval Teal / V3 MOCR Grey-Green / V4 Two-Tone teal+sage), each rendered with the real hardware (lit-lens tiles, emerald, purple ON, blank plate) + static baked enamel grain/chip maps — AWAITING STEVE'S PICK before any JUCE port. OPEN: chassis pick -> port with EP:: aging; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.41 — NEW FIRST-OPEN DEFAULT: NEAL - DEF - NEVE SUMM (user-authored: SUMMING amp with RICH NEVE iron only, everything else off, limiter off, CLEAN, 8x CLEAN OS — 'a good start'). Shipped: copied into Resources/Presets/NEAL_DEF_NEVE_SUMM.creosote, restamped to current DSP versions (9/6/4 — inert for this preset since those modules are OFF, keeps the presets-are-current-gen convention), added FIRST in kArtistRegistry + BinaryData accessor + CMake, editor first-open now loads it. Probe-measured +0.97dB vs bypass (the SUM_PREGAIN 0.5 = +1.02dB into the iron); trimmed LIM_LEVEL 0.5 -> 0.4731 (post-summing, iron drive untouched) -> -0.11dB = unity, consistent with the v0.4.40 matched library (now 24 presets). VERIFY IN ABLETON: fresh instance opens as NEAL - DEF - NEVE SUMM with SUMMING lit + IRON RICH; loudness matches bypass. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.42 — DEFERRED PATINA SURFACES + CHASSIS MOCKUP ROUND 1 (user: 'the painted-metal chassis mockup round, the deferred patina surfaces'). PATINA (UI-only, no version gates): the EP:: aging pass now covers every surface from the deferred-audit list — TweakWindow chrome (EP::panel 'TWEK' 0.8), OUTPUT EQ shell (EP::panel 'OEQ1' 0.9) + graph GLASS treatment (grime 0.40 + dust 0.50 — screens dust, they don't chip; curve stays readable), AGE LFO scope glass (grime 0.35 + dust 0.45), LicenseOverlay scrim (grime 0.35), ThetaLogo badge (dust 0.40), preset combo (edgeWear+dust in CreosoteLAF::drawComboBox), and a new WornButtonLAF (PluginEditor.h) on the 4 header buttons + 3 bottom tabs — stock fill/hover behavior plus edgeWear 0.55 + dust 0.45, seeded per button name, dosed to keep 9px labels legible; attached in ctor, detached in dtor per the existing LAF teardown pattern. The EQ inspector knobs and AGE LFO knobs deliberately stay clean (their ring/halo language is a display instrument, not chassis). CHASSIS: 4 painted-metal finishes mocked as an HTML artifact (V1 Reactor Sage / V2 Naval Teal / V3 MOCR Grey-Green / V4 Two-Tone teal+sage), each rendered with the real hardware (lit-lens tiles, emerald, purple ON, blank plate) + static baked enamel grain/chip maps — AWAITING STEVE'S PICK before any JUCE port. OPEN: chassis pick -> port with EP:: aging; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v1.02",
-      "lastBuild": "v1.02",
-      "lastUpdated": "2026-07-18T18:21:39.284Z",
+      "currentVersion": "v0.55",
+      "lastBuild": "v0.55",
+      "lastUpdated": "2026-07-18T19:17:11.392Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T18:21:39.284Z",
+        "createdAt": "2026-07-18T19:17:11.392Z",
         "localDate": "2026-07-18",
-        "localHour": 11,
+        "localHour": 12,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v1.02."
+        "summary": "CREOSOTE updated from Control Room delta: v0.55."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T18:21:39.284Z",
+    "lastAppliedAt": "2026-07-18T19:17:11.392Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-18T19:00:11.853Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-18T19:17:11.392Z",
     "localDate": "2026-07-18",
     "localHour": 12,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 12:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
