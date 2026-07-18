@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v44.1",
-      "nextAction": "v0.4.36 — DECRAMPED (ANALOG-MATCHED) HF FILTERS, round 1 of the Analog Warmth Playbook adoption (user: 'go with your recommendations'). MEASURED DAMAGE at 48k (RBJ bilinear vs own analog prototype): GRIT 16k IPS rolloff -8.2dB@20k, AMBER PULTEC-mode 14k output-tx rolloff -10.8dB@20k, 22k corners read +2 to +2.4dB then crash to -inf at Nyquist (bilinear LP forces a zero there); shelves squash +/-0.2-0.5dB in the top octave. Also found: ThetaDSP setLowShelf hardcoded S=1 while setHighShelf S=0.5 — every TONE tilt's two halves had different slopes. FIX: four matched designs added to Biquad (double-precision internals): setHighShelfMatched/setLowShelfMatched (Vicanek 2024 'Matched Two-Pole Digital Shelving Filters', Butterworth, supports hinge>Nyquist, dev<=0.03dB), setPeakEQMatched (Vicanek 2016 sec 4.4, impulse-invariant poles + matched zeros), setLowpassMatched (impulse-invariant poles + closed-form 2x2 least-squares numerator fit over 1k-20k, 24 log points — beats Vicanek's own b2=0 corner match ~0.5dB and an exact-Nyquist 3-point match that rings +2.4dB; measured dev<=0.16dB@48k on every shipped corner/Q, exact@96k, worst 0.38dB anywhere on the 44.1-96k grid). C++ port cross-checked vs Python reference to 5e-8. Gated GRIT>=8 (_hs/_ls/_lp helpers: pre/de-emph, IPS LP, bias shelf, tilt) / AMBER>=5 (_hs1/_ls1/_lp1/_pk1: era air, Pultec hi, in/out-tx HF, preamp LP, presence, tilt); low-hinged filters (head bump etc.) stay bilinear — no cramping below ~2k. Older stamps recall the frozen bilinear voicing bit-identically. All 23 presets restamped 8/5. VERIFY IN ABLETON: 48k, GRIT 15ips or AMBER PULTEC/TWEED hardware — the top octave (16-20k) should open up vs v0.4.35; A/B a pre-v8 session for the frozen old voicing. NEXT (round 2, agreed): ADAA (ln-cosh antiderivative) on the un-oversampled master-bus tanh stages (OUT CLIP, CHARACTER, STEREO GLUE, limiter) — they currently alias at base rate. Round 3: flux-integrator iron for SUMMING (currently NO nonlinearity at all in v3 path). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "latestVersion": "v0.16",
+      "nextAction": "v0.4.36+37 — PLAYBOOK ROUNDS 1+2: DECRAMPED FILTERS + MASTER-BUS ADAA (user: 'go with your recommendations and start building'). ROUND 1 (v0.4.36, GRIT v8 / AMBER v5): four analog-matched designs added to Biquad — Vicanek 2024 matched shelves (dev<=0.03dB, supports hinge>Nyquist), Vicanek 2016 matched peak, and a custom LS-fit matched lowpass (impulse-invariant poles + closed-form 2x2 least-squares numerator over 1k-20k: dev<=0.16dB@48k vs the bilinear versions' MEASURED -8dB@20k on GRIT's 16k IPS rolloff and -11dB@20k on AMBER PULTEC's 14k output-tx rolloff). Also fixed in-gate: setLowShelf/setHighShelf had INCONSISTENT hardcoded slopes (S=1 vs S=0.5) — matched shelves are both Butterworth so TONE tilts are finally symmetric. All HF-hinged GRIT/AMBER filters route through version-gated helpers (_hs/_ls/_lp, _hs1/_ls1/_lp1/_pk1); head bump etc. stay bilinear (no cramping <2k). C++ cross-checked vs Python reference to 5e-8. ROUND 2 (v0.4.37, CHARACTER v3 / STEREO_GLUE v3 / OUT_CLIP v3): first-order ADAA (AdaaTanh in ThetaDSP.h, ln-cosh antiderivative, stable large-x form) on the base-rate master-bus tanh stages which measured -28 to -31dB worst alias lines at 48k on bright content — now -45 to -57dB at realistic drive (~16dB better; ~30dB at gentle drive). GLUE is a PARALLEL blend so v3 uses exact-linear preservation: delta = [adaa - K*halfsample-interp(mid)] + (K-1)*mid — measured 0.0000dB linear dev vs v2 at 1k-20k (avoids the comb bug class fixed in v0.4.35). CHARACTER's subtracted bias term stays pointwise (|u|<0.2, no measurable aliasing). LIMITER needs NO ADAA (gain-based, no waveshaper). All 23 presets restamped 8/5/3/3/3/3. VERIFY IN ABLETON: 48k — (a) GRIT 15ips or AMBER PULTEC/TWEED: top octave opens up vs v0.4.35; (b) bright content into OUT CLIP -2/-3dB driven hard: less fizz/harshness; (c) old sessions recall the frozen voicings exactly. NEXT (round 3, agreed): flux-integrator iron for SUMMING (v3 path currently has NO nonlinearity). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.36 — DECRAMPED (ANALOG-MATCHED) HF FILTERS, round 1 of the Analog Warmth Playbook adoption (user: 'go with your recommendations'). MEASURED DAMAGE at 48k (RBJ bilinear vs own analog prototype): GRIT 16k IPS rolloff -8.2dB@20k, AMBER PULTEC-mode 14k output-tx rolloff -10.8dB@20k, 22k corners read +2 to +2.4dB then crash to -inf at Nyquist (bilinear LP forces a zero there); shelves squash +/-0.2-0.5dB in the top octave. Also found: ThetaDSP setLowShelf hardcoded S=1 while setHighShelf S=0.5 — every TONE tilt's two halves had different slopes. FIX: four matched designs added to Biquad (double-precision internals): setHighShelfMatched/setLowShelfMatched (Vicanek 2024 'Matched Two-Pole Digital Shelving Filters', Butterworth, supports hinge>Nyquist, dev<=0.03dB), setPeakEQMatched (Vicanek 2016 sec 4.4, impulse-invariant poles + matched zeros), setLowpassMatched (impulse-invariant poles + closed-form 2x2 least-squares numerator fit over 1k-20k, 24 log points — beats Vicanek's own b2=0 corner match ~0.5dB and an exact-Nyquist 3-point match that rings +2.4dB; measured dev<=0.16dB@48k on every shipped corner/Q, exact@96k, worst 0.38dB anywhere on the 44.1-96k grid). C++ port cross-checked vs Python reference to 5e-8. Gated GRIT>=8 (_hs/_ls/_lp helpers: pre/de-emph, IPS LP, bias shelf, tilt) / AMBER>=5 (_hs1/_ls1/_lp1/_pk1: era air, Pultec hi, in/out-tx HF, preamp LP, presence, tilt); low-hinged filters (head bump etc.) stay bilinear — no cramping below ~2k. Older stamps recall the frozen bilinear voicing bit-identically. All 23 presets restamped 8/5. VERIFY IN ABLETON: 48k, GRIT 15ips or AMBER PULTEC/TWEED hardware — the top octave (16-20k) should open up vs v0.4.35; A/B a pre-v8 session for the frozen old voicing. NEXT (round 2, agreed): ADAA (ln-cosh antiderivative) on the un-oversampled master-bus tanh stages (OUT CLIP, CHARACTER, STEREO GLUE, limiter) — they currently alias at base rate. Round 3: flux-integrator iron for SUMMING (currently NO nonlinearity at all in v3 path). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.36+37 — PLAYBOOK ROUNDS 1+2: DECRAMPED FILTERS + MASTER-BUS ADAA (user: 'go with your recommendations and start building'). ROUND 1 (v0.4.36, GRIT v8 / AMBER v5): four analog-matched designs added to Biquad — Vicanek 2024 matched shelves (dev<=0.03dB, supports hinge>Nyquist), Vicanek 2016 matched peak, and a custom LS-fit matched lowpass (impulse-invariant poles + closed-form 2x2 least-squares numerator over 1k-20k: dev<=0.16dB@48k vs the bilinear versions' MEASURED -8dB@20k on GRIT's 16k IPS rolloff and -11dB@20k on AMBER PULTEC's 14k output-tx rolloff). Also fixed in-gate: setLowShelf/setHighShelf had INCONSISTENT hardcoded slopes (S=1 vs S=0.5) — matched shelves are both Butterworth so TONE tilts are finally symmetric. All HF-hinged GRIT/AMBER filters route through version-gated helpers (_hs/_ls/_lp, _hs1/_ls1/_lp1/_pk1); head bump etc. stay bilinear (no cramping <2k). C++ cross-checked vs Python reference to 5e-8. ROUND 2 (v0.4.37, CHARACTER v3 / STEREO_GLUE v3 / OUT_CLIP v3): first-order ADAA (AdaaTanh in ThetaDSP.h, ln-cosh antiderivative, stable large-x form) on the base-rate master-bus tanh stages which measured -28 to -31dB worst alias lines at 48k on bright content — now -45 to -57dB at realistic drive (~16dB better; ~30dB at gentle drive). GLUE is a PARALLEL blend so v3 uses exact-linear preservation: delta = [adaa - K*halfsample-interp(mid)] + (K-1)*mid — measured 0.0000dB linear dev vs v2 at 1k-20k (avoids the comb bug class fixed in v0.4.35). CHARACTER's subtracted bias term stays pointwise (|u|<0.2, no measurable aliasing). LIMITER needs NO ADAA (gain-based, no waveshaper). All 23 presets restamped 8/5/3/3/3/3. VERIFY IN ABLETON: 48k — (a) GRIT 15ips or AMBER PULTEC/TWEED: top octave opens up vs v0.4.35; (b) bright content into OUT CLIP -2/-3dB driven hard: less fizz/harshness; (c) old sessions recall the frozen voicings exactly. NEXT (round 3, agreed): flux-integrator iron for SUMMING (v3 path currently has NO nonlinearity). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v44.1",
-      "lastBuild": "v44.1",
-      "lastUpdated": "2026-07-18T07:14:35.293Z",
+      "currentVersion": "v0.16",
+      "lastBuild": "v0.16",
+      "lastUpdated": "2026-07-18T07:21:25.758Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T07:14:35.293Z",
+        "createdAt": "2026-07-18T07:21:25.758Z",
         "localDate": "2026-07-18",
         "localHour": 0,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v44.1."
+        "summary": "CREOSOTE updated from Control Room delta: v0.16."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T07:14:35.293Z",
+    "lastAppliedAt": "2026-07-18T07:21:25.758Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-18T07:14:35.293Z",
+    "createdAt": "2026-07-18T07:21:25.758Z",
     "localDate": "2026-07-18",
     "localHour": 0,
     "timezone": "America/Los_Angeles",
