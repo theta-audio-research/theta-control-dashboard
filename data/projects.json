@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v19.8",
-      "nextAction": "v0.4.40 — PRESET LOUDNESS MATCHING + HEADLESS RENDER RIG (user: 'each preset is a different output level'; chose bake-trims / unity-vs-bypass / headless rig via interactive Qs; also DECIDED: all 3 IRON voices permanent). NEW: creosote_probe (Tests/render_probe.cpp + CMake console target) — loads the REAL CreosoteProcessor + PresetManager, renders deterministic pink noise at -18dBFS RMS (4s warmup discarded for PDC/envelopes, 8s measured), reports per-preset RMS delta vs bypass. MEASURED BEFORE: presets spanned -3.8dB (PHOENIX) to +7.9dB (JUNGLE_IS_MASV) vs bypass — an 11.7dB spread; NEAL_DEF read exactly 0.00 (clean chain = unity, rig validated). FIX: iterated LIM_LEVEL trims per preset (36dB/unit) to unity; limiter-pinned presets converge slowly (output RMS is ceiling-determined while deep in GR — SLAMMM needed 3 rounds, JUNGLE floored LIM_LEVEL at -18dB and took its last 1.4dB from CMP_MAKEUP, which was +19.8dB!). FINAL: all 23 presets within +/-0.3dB of unity. NOTE: SLAMMM/JUNGLE hit their limiters less hard now (level-matching necessarily reduced limiter drive) — if their slam character wants restoring, lower their LIM_LIMIT ceilings instead of raising level. Preset value changes only, no DSP: no version bumps (per contract). The probe stays as the permanent phase2 audio harness (cmake --build build --target creosote_probe). VERIFY IN ABLETON: preset browsing at constant monitor level — every preset should now sit at the same loudness as bypass; A/B toggling never fools you with level. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "latestVersion": "v1.02",
+      "nextAction": "v0.4.41 — NEW FIRST-OPEN DEFAULT: NEAL - DEF - NEVE SUMM (user-authored: SUMMING amp with RICH NEVE iron only, everything else off, limiter off, CLEAN, 8x CLEAN OS — 'a good start'). Shipped: copied into Resources/Presets/NEAL_DEF_NEVE_SUMM.creosote, restamped to current DSP versions (9/6/4 — inert for this preset since those modules are OFF, keeps the presets-are-current-gen convention), added FIRST in kArtistRegistry + BinaryData accessor + CMake, editor first-open now loads it. Probe-measured +0.97dB vs bypass (the SUM_PREGAIN 0.5 = +1.02dB into the iron); trimmed LIM_LEVEL 0.5 -> 0.4731 (post-summing, iron drive untouched) -> -0.11dB = unity, consistent with the v0.4.40 matched library (now 24 presets). VERIFY IN ABLETON: fresh instance opens as NEAL - DEF - NEVE SUMM with SUMMING lit + IRON RICH; loudness matches bypass. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.40 — PRESET LOUDNESS MATCHING + HEADLESS RENDER RIG (user: 'each preset is a different output level'; chose bake-trims / unity-vs-bypass / headless rig via interactive Qs; also DECIDED: all 3 IRON voices permanent). NEW: creosote_probe (Tests/render_probe.cpp + CMake console target) — loads the REAL CreosoteProcessor + PresetManager, renders deterministic pink noise at -18dBFS RMS (4s warmup discarded for PDC/envelopes, 8s measured), reports per-preset RMS delta vs bypass. MEASURED BEFORE: presets spanned -3.8dB (PHOENIX) to +7.9dB (JUNGLE_IS_MASV) vs bypass — an 11.7dB spread; NEAL_DEF read exactly 0.00 (clean chain = unity, rig validated). FIX: iterated LIM_LEVEL trims per preset (36dB/unit) to unity; limiter-pinned presets converge slowly (output RMS is ceiling-determined while deep in GR — SLAMMM needed 3 rounds, JUNGLE floored LIM_LEVEL at -18dB and took its last 1.4dB from CMP_MAKEUP, which was +19.8dB!). FINAL: all 23 presets within +/-0.3dB of unity. NOTE: SLAMMM/JUNGLE hit their limiters less hard now (level-matching necessarily reduced limiter drive) — if their slam character wants restoring, lower their LIM_LIMIT ceilings instead of raising level. Preset value changes only, no DSP: no version bumps (per contract). The probe stays as the permanent phase2 audio harness (cmake --build build --target creosote_probe). VERIFY IN ABLETON: preset browsing at constant monitor level — every preset should now sit at the same loudness as bypass; A/B toggling never fools you with level. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.41 — NEW FIRST-OPEN DEFAULT: NEAL - DEF - NEVE SUMM (user-authored: SUMMING amp with RICH NEVE iron only, everything else off, limiter off, CLEAN, 8x CLEAN OS — 'a good start'). Shipped: copied into Resources/Presets/NEAL_DEF_NEVE_SUMM.creosote, restamped to current DSP versions (9/6/4 — inert for this preset since those modules are OFF, keeps the presets-are-current-gen convention), added FIRST in kArtistRegistry + BinaryData accessor + CMake, editor first-open now loads it. Probe-measured +0.97dB vs bypass (the SUM_PREGAIN 0.5 = +1.02dB into the iron); trimmed LIM_LEVEL 0.5 -> 0.4731 (post-summing, iron drive untouched) -> -0.11dB = unity, consistent with the v0.4.40 matched library (now 24 presets). VERIFY IN ABLETON: fresh instance opens as NEAL - DEF - NEVE SUMM with SUMMING lit + IRON RICH; loudness matches bypass. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v19.8",
-      "lastBuild": "v19.8",
-      "lastUpdated": "2026-07-18T18:16:16.116Z",
+      "currentVersion": "v1.02",
+      "lastBuild": "v1.02",
+      "lastUpdated": "2026-07-18T18:21:39.284Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T18:16:16.116Z",
+        "createdAt": "2026-07-18T18:21:39.284Z",
         "localDate": "2026-07-18",
         "localHour": 11,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v19.8."
+        "summary": "CREOSOTE updated from Control Room delta: v1.02."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T18:16:16.116Z",
+    "lastAppliedAt": "2026-07-18T18:21:39.284Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-18T18:16:16.116Z",
+    "createdAt": "2026-07-18T18:21:39.284Z",
     "localDate": "2026-07-18",
     "localHour": 11,
     "timezone": "America/Los_Angeles",
