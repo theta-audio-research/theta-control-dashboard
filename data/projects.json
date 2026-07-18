@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.33",
-      "nextAction": "v0.4.33 — NEAL presets moved to the ARTIST section (correcting v0.4.32). The preset menu already has three sections — FACTORY / ARTIST / USER — via kFactoryRegistry, kArtistRegistry (was empty), and the user preset dir; loadById already maps id ranges across them. v0.4.32 wrongly put the 6 NEAL presets in kFactoryRegistry alongside the albums. Now: kFactoryRegistry = the 17 album presets only; kArtistRegistry = the 6 NEAL presets (DEF first). NEAL - DEF stays the first-open default (loadEmbeddedPreset stays symbol-based, section-independent) and its combo id is now kFactoryRegistrySize+1 (first artist slot) with a syncComboBox so the box shows it selected. The 6 NEAL files retagged sourceEra User preset -> Artist preset. VERIFY IN ABLETON: preset menu shows -- FACTORY -- (17 albums), -- ARTIST -- (6 NEAL, DEF first), -- USER --; a fresh instance opens on NEAL - DEF and the box reads NEAL - DEF. OPEN: painted-metal chassis fork; deferred patina; LIMITER rename.",
+      "latestVersion": "v80.5",
+      "nextAction": "v0.4.34 — CLEAN-HQ OVERSAMPLER + LO-FI RELABEL (user: oversampling rolls off highs). MEASURED ROOT CAUSE: the VINTAGE OS decimator is [1,2,1]/4 (cos^2) — -2dB@10k/-15dB@20k at 44.1k AND alias rejection that WORSENS at 4x/8x (-44 -> -29dB); it is a lo-fi character, not a quality tool. The 47-tap CLEAN was flat at 48k+ but -0.4dB@18k/-3dB@20k at 44.1k. FIX 1: new kCleanHQ119 (119-tap Kaiser-beta8 min-phase halfband, cepstral factorization) as the BASE-RATE stage only (deeper stages keep 47 taps — their bands sit far above audio): measured +/-0.002dB to 20kHz@44.1k, -80.5dB stopband, -98dB alias @4x/8x, unity DC, ~4-base-smp latency (vs 3). Gated GRIT>=6 / AMBER>=3 / COMPRESS>=3 (DSPVersion bumps; older states keep the frozen 47-tap CLEAN bit-identically; keyless sessions still freeze old). All 23 shipped presets restamped 6/3/3. FIX 2: TWEAK OS CHARACTER label VINTAGE -> LO-FI so nobody mistakes it for a quality setting. VERIFY IN ABLETON: at 44.1k with CLEAN, toggling 2x/4x/8x should no longer dull the top end at all; LO-FI still sounds like the old vintage grit; old sessions render unchanged. NOTE: on CLEAN, 2x is transparent; 4x/8x only add alias margin under heavy drive. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.33 — NEAL presets moved to the ARTIST section (correcting v0.4.32). The preset menu already has three sections — FACTORY / ARTIST / USER — via kFactoryRegistry, kArtistRegistry (was empty), and the user preset dir; loadById already maps id ranges across them. v0.4.32 wrongly put the 6 NEAL presets in kFactoryRegistry alongside the albums. Now: kFactoryRegistry = the 17 album presets only; kArtistRegistry = the 6 NEAL presets (DEF first). NEAL - DEF stays the first-open default (loadEmbeddedPreset stays symbol-based, section-independent) and its combo id is now kFactoryRegistrySize+1 (first artist slot) with a syncComboBox so the box shows it selected. The 6 NEAL files retagged sourceEra User preset -> Artist preset. VERIFY IN ABLETON: preset menu shows -- FACTORY -- (17 albums), -- ARTIST -- (6 NEAL, DEF first), -- USER --; a fresh instance opens on NEAL - DEF and the box reads NEAL - DEF. OPEN: painted-metal chassis fork; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.34 — CLEAN-HQ OVERSAMPLER + LO-FI RELABEL (user: oversampling rolls off highs). MEASURED ROOT CAUSE: the VINTAGE OS decimator is [1,2,1]/4 (cos^2) — -2dB@10k/-15dB@20k at 44.1k AND alias rejection that WORSENS at 4x/8x (-44 -> -29dB); it is a lo-fi character, not a quality tool. The 47-tap CLEAN was flat at 48k+ but -0.4dB@18k/-3dB@20k at 44.1k. FIX 1: new kCleanHQ119 (119-tap Kaiser-beta8 min-phase halfband, cepstral factorization) as the BASE-RATE stage only (deeper stages keep 47 taps — their bands sit far above audio): measured +/-0.002dB to 20kHz@44.1k, -80.5dB stopband, -98dB alias @4x/8x, unity DC, ~4-base-smp latency (vs 3). Gated GRIT>=6 / AMBER>=3 / COMPRESS>=3 (DSPVersion bumps; older states keep the frozen 47-tap CLEAN bit-identically; keyless sessions still freeze old). All 23 shipped presets restamped 6/3/3. FIX 2: TWEAK OS CHARACTER label VINTAGE -> LO-FI so nobody mistakes it for a quality setting. VERIFY IN ABLETON: at 44.1k with CLEAN, toggling 2x/4x/8x should no longer dull the top end at all; LO-FI still sounds like the old vintage grit; old sessions render unchanged. NOTE: on CLEAN, 2x is transparent; 4x/8x only add alias margin under heavy drive. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.33",
-      "lastBuild": "v0.4.33",
-      "lastUpdated": "2026-07-18T05:47:51.202Z",
+      "currentVersion": "v80.5",
+      "lastBuild": "v80.5",
+      "lastUpdated": "2026-07-18T06:10:44.819Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T05:47:51.202Z",
+        "createdAt": "2026-07-18T06:10:44.819Z",
         "localDate": "2026-07-17",
-        "localHour": 22,
+        "localHour": 23,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.33."
+        "summary": "CREOSOTE updated from Control Room delta: v80.5."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T05:47:51.202Z",
+    "lastAppliedAt": "2026-07-18T06:10:44.819Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-18T06:00:11.887Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-18T06:10:44.819Z",
     "localDate": "2026-07-17",
     "localHour": 23,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 23:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
