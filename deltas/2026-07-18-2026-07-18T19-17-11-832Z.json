@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.42",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.42 — DEFERRED PATINA SURFACES + CHASSIS MOCKUP ROUND 1 (user: 'the painted-metal chassis mockup round, the deferred patina surfaces'). PATINA (UI-only, no version gates): the EP:: aging pass now covers every surface from the deferred-audit list — TweakWindow chrome (EP::panel 'TWEK' 0.8), OUTPUT EQ shell (EP::panel 'OEQ1' 0.9) + graph GLASS treatment (grime 0.40 + dust 0.50 — screens dust, they don't chip; curve stays readable), AGE LFO scope glass (grime 0.35 + dust 0.45), LicenseOverlay scrim (grime 0.35), ThetaLogo badge (dust 0.40), preset combo (edgeWear+dust in CreosoteLAF::drawComboBox), and a new WornButtonLAF (PluginEditor.h) on the 4 header buttons + 3 bottom tabs — stock fill/hover behavior plus edgeWear 0.55 + dust 0.45, seeded per button name, dosed to keep 9px labels legible; attached in ctor, detached in dtor per the existing LAF teardown pattern. The EQ inspector knobs and AGE LFO knobs deliberately stay clean (their ring/halo language is a display instrument, not chassis). CHASSIS: 4 painted-metal finishes mocked as an HTML artifact (V1 Reactor Sage / V2 Naval Teal / V3 MOCR Grey-Green / V4 Two-Tone teal+sage), each rendered with the real hardware (lit-lens tiles, emerald, purple ON, blank plate) + static baked enamel grain/chip maps — AWAITING STEVE'S PICK before any JUCE port. OPEN: chassis pick -> port with EP:: aging; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.42 — DEFERRED PATINA SURFACES + CHASSIS MOCKUP ROUND 1 (user: 'the painted-metal chassis mockup round, the deferred patina surfaces'). PATINA (UI-only, no version gates): the EP:: aging pass now covers every surface from the deferred-audit list — TweakWindow chrome (EP::panel 'TWEK' 0.8), OUTPUT EQ shell (EP::panel 'OEQ1' 0.9) + graph GLASS treatment (grime 0.40 + dust 0.50 — screens dust, they don't chip; curve stays readable), AGE LFO scope glass (grime 0.35 + dust 0.45), LicenseOverlay scrim (grime 0.35), ThetaLogo badge (dust 0.40), preset combo (edgeWear+dust in CreosoteLAF::drawComboBox), and a new WornButtonLAF (PluginEditor.h) on the 4 header buttons + 3 bottom tabs — stock fill/hover behavior plus edgeWear 0.55 + dust 0.45, seeded per button name, dosed to keep 9px labels legible; attached in ctor, detached in dtor per the existing LAF teardown pattern. The EQ inspector knobs and AGE LFO knobs deliberately stay clean (their ring/halo language is a display instrument, not chassis). CHASSIS: 4 painted-metal finishes mocked as an HTML artifact (V1 Reactor Sage / V2 Naval Teal / V3 MOCR Grey-Green / V4 Two-Tone teal+sage), each rendered with the real hardware (lit-lens tiles, emerald, purple ON, blank plate) + static baked enamel grain/chip maps — AWAITING STEVE'S PICK before any JUCE port. OPEN: chassis pick -> port with EP:: aging; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.42."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
