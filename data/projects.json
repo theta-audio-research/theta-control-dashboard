@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v17.1.3",
-      "nextAction": "v0.4.31 — NEW FACTORY PRESET SET (17 album-anchored). Replaced the 12 v17.1.3 research presets with 17 voiced from the recording-chain research (album_presets.json + PLUGIN_BUILD_GUIDE.md): Thriller, Dark Side of the Moon, Rumours, Aja, Brothers in Arms, Kind of Blue, Random Access Memories, The Nightfly, What is Going On, Pet Sounds, Crime of the Century, Toto IV, Famous Blue Raincoat, Songs in the Key of Life, Court and Spark, Welcome to the Machine, Wolfgang Amadeus Phoenix. The two NEAL_ personal presets are preserved. Each maps the album chain onto exact enums (machine/formula/IPS/width, tube preamp/power/rect+era+hardware, CMP_MODE) and stamps CURRENT DSP versions (GRIT5 AMBER2 COMPRESS2 SUMMING3 LIMITER3). Wired in 3 places: CMake binary-data SOURCES, kFactoryRegistry[], BinaryData accessor table. Digital-era records (Brothers in Arms, Nightfly, Famous Blue Raincoat) keep tape subtle per the research; Kind of Blue/Pet Sounds are the heavy-tube showcases; Pet Sounds narrows to mono. VERIFY IN ABLETON: open the preset menu, load several, confirm each recalls the intended machine/tube/comp and sounds distinct; confirm the NEAL presets still load. OPEN: painted-metal chassis fork; deferred patina surfaces; LIMITER panel rename.",
+      "latestVersion": "v0.4.32",
+      "nextAction": "v0.4.32 — 6 NEAL PERSONAL PRESETS BUNDLED + NEAL - DEF IS THE DEFAULT. Added the users 6 presets (UNDRWTR, 808 DUSTTT, DEF, JUNGLE IS MASV, SLAMMM, SYNTH DIRT) from ~/Library/THETA/CREOSOTE/presets to the factory bundle. They were in MIXED formats (DEF/SLAMMM already schema-v3; the other 4 legacy bare <CREOSOTE_STATE> with dead A/B routing params PAR_/SUMA_/SUMB_/SUM_MODE/SUM_BLEND and some empty-value PARAMs) — normalized all 6 to schema-v3 wrappers, preserving every real PARAM value, dropping the dead/empty ones, stamping CURRENT DSP versions. NEAL - DEF is now the first-open default: the editor loads loadEmbeddedPreset(NEAL_DEF_creosote) on a fresh instance (there was no INIT preset bundled before, so fresh instances used canonical defaults), and DEF is registry id=1 (personal presets lead, then the 17 albums). Wired in 3 sites (CMake SOURCES, kFactoryRegistry, BinaryData accessor). NOTE: the .initialized flag means existing installs wont re-trigger first-open — delete ~/Library/Application Support/THETA/CREOSOTE/.initialized to see DEF autoload. VERIFY IN ABLETON: preset menu lists NEAL - DEF first then the other 5 NEAL then the 17 albums; each NEAL recalls its saved state; a truly fresh instance opens on DEF. OPEN: painted-metal chassis fork; deferred patina surfaces; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.31 — NEW FACTORY PRESET SET (17 album-anchored). Replaced the 12 v17.1.3 research presets with 17 voiced from the recording-chain research (album_presets.json + PLUGIN_BUILD_GUIDE.md): Thriller, Dark Side of the Moon, Rumours, Aja, Brothers in Arms, Kind of Blue, Random Access Memories, The Nightfly, What is Going On, Pet Sounds, Crime of the Century, Toto IV, Famous Blue Raincoat, Songs in the Key of Life, Court and Spark, Welcome to the Machine, Wolfgang Amadeus Phoenix. The two NEAL_ personal presets are preserved. Each maps the album chain onto exact enums (machine/formula/IPS/width, tube preamp/power/rect+era+hardware, CMP_MODE) and stamps CURRENT DSP versions (GRIT5 AMBER2 COMPRESS2 SUMMING3 LIMITER3). Wired in 3 places: CMake binary-data SOURCES, kFactoryRegistry[], BinaryData accessor table. Digital-era records (Brothers in Arms, Nightfly, Famous Blue Raincoat) keep tape subtle per the research; Kind of Blue/Pet Sounds are the heavy-tube showcases; Pet Sounds narrows to mono. VERIFY IN ABLETON: open the preset menu, load several, confirm each recalls the intended machine/tube/comp and sounds distinct; confirm the NEAL presets still load. OPEN: painted-metal chassis fork; deferred patina surfaces; LIMITER panel rename.",
+      "tomorrowFirstAction": "v0.4.32 — 6 NEAL PERSONAL PRESETS BUNDLED + NEAL - DEF IS THE DEFAULT. Added the users 6 presets (UNDRWTR, 808 DUSTTT, DEF, JUNGLE IS MASV, SLAMMM, SYNTH DIRT) from ~/Library/THETA/CREOSOTE/presets to the factory bundle. They were in MIXED formats (DEF/SLAMMM already schema-v3; the other 4 legacy bare <CREOSOTE_STATE> with dead A/B routing params PAR_/SUMA_/SUMB_/SUM_MODE/SUM_BLEND and some empty-value PARAMs) — normalized all 6 to schema-v3 wrappers, preserving every real PARAM value, dropping the dead/empty ones, stamping CURRENT DSP versions. NEAL - DEF is now the first-open default: the editor loads loadEmbeddedPreset(NEAL_DEF_creosote) on a fresh instance (there was no INIT preset bundled before, so fresh instances used canonical defaults), and DEF is registry id=1 (personal presets lead, then the 17 albums). Wired in 3 sites (CMake SOURCES, kFactoryRegistry, BinaryData accessor). NOTE: the .initialized flag means existing installs wont re-trigger first-open — delete ~/Library/Application Support/THETA/CREOSOTE/.initialized to see DEF autoload. VERIFY IN ABLETON: preset menu lists NEAL - DEF first then the other 5 NEAL then the 17 albums; each NEAL recalls its saved state; a truly fresh instance opens on DEF. OPEN: painted-metal chassis fork; deferred patina surfaces; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v17.1.3",
-      "lastBuild": "v17.1.3",
-      "lastUpdated": "2026-07-18T05:02:35.339Z",
+      "currentVersion": "v0.4.32",
+      "lastBuild": "v0.4.32",
+      "lastUpdated": "2026-07-18T05:11:51.570Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T05:02:35.339Z",
+        "createdAt": "2026-07-18T05:11:51.570Z",
         "localDate": "2026-07-17",
         "localHour": 22,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v17.1.3."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.32."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T05:02:35.339Z",
+    "lastAppliedAt": "2026-07-18T05:11:51.570Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-18T05:02:35.339Z",
+    "createdAt": "2026-07-18T05:11:51.570Z",
     "localDate": "2026-07-17",
     "localHour": 22,
     "timezone": "America/Los_Angeles",
