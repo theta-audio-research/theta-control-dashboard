@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v80.5",
-      "nextAction": "v0.4.34 — CLEAN-HQ OVERSAMPLER + LO-FI RELABEL (user: oversampling rolls off highs). MEASURED ROOT CAUSE: the VINTAGE OS decimator is [1,2,1]/4 (cos^2) — -2dB@10k/-15dB@20k at 44.1k AND alias rejection that WORSENS at 4x/8x (-44 -> -29dB); it is a lo-fi character, not a quality tool. The 47-tap CLEAN was flat at 48k+ but -0.4dB@18k/-3dB@20k at 44.1k. FIX 1: new kCleanHQ119 (119-tap Kaiser-beta8 min-phase halfband, cepstral factorization) as the BASE-RATE stage only (deeper stages keep 47 taps — their bands sit far above audio): measured +/-0.002dB to 20kHz@44.1k, -80.5dB stopband, -98dB alias @4x/8x, unity DC, ~4-base-smp latency (vs 3). Gated GRIT>=6 / AMBER>=3 / COMPRESS>=3 (DSPVersion bumps; older states keep the frozen 47-tap CLEAN bit-identically; keyless sessions still freeze old). All 23 shipped presets restamped 6/3/3. FIX 2: TWEAK OS CHARACTER label VINTAGE -> LO-FI so nobody mistakes it for a quality setting. VERIFY IN ABLETON: at 44.1k with CLEAN, toggling 2x/4x/8x should no longer dull the top end at all; LO-FI still sounds like the old vintage grit; old sessions render unchanged. NOTE: on CLEAN, 2x is transparent; 4x/8x only add alias margin under heavy drive. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "latestVersion": "v18.7.0",
+      "nextAction": "v0.4.35 — OS DRY-LEG ALIGNMENT (user: in OS CLEAN + clean mode, raising OS ALSO cuts the highs — v0.4.34's flat FIR wasn't enough). MEASURED ROOT CAUSE: wet/dry COMB, not filter rolloff. The CLEAN OS FIR delays the WET path 4/5/6 base samples at 2x/4x/8x; GRIT and AMBER's internal MIX blends (l = l*(1-mix) + wetL*mix) used an UNDELAYED dry, so partial MIX (user runs GRIT 35% / AMBER 72%) combed: measured -6dB@4k at 4x, -8dB@4k at 8x (48k, 35% mix) — first notch at fs/(2d) marches DOWN as factor rises = exactly 'raising OS cuts the highs'. An integer dry delay CANNOT fix it (min-phase FIR group delay is not constant — best case still ~6dB residual at 4x). FIX: run the dry mix leg through an IDENTICAL oversampler with an identity saturator (osDryL/R in GritModule + AmberModule) — both legs share one linear response, comb cancels exactly at every frequency; module-internal, plugin latency untouched (set once in prepareToPlay, unchanged). Gated GRIT>=7 / AMBER>=4 (osDryAlign, CLEAN+HQ only — VINTAGE would LPF the dry and its ~0-1 smp never combed; older stamps keep the uncompensated blend bit-identically). COMPRESS is 100% wet when active (no comb) and PAR routing died in v18.7.0 — these two module mixes were the only exposures. All 23 presets restamped 7/4/3. VERIFY IN ABLETON: 48k, MODE CLEAN, OS CHAR CLEAN, GRIT MIX 35% + AMBER MIX 72%, toggle OFF/2x/4x/8x — top end should now be IDENTICAL across all factors; at MIX 100% behavior is unchanged (comb only existed at partial mix). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.34 — CLEAN-HQ OVERSAMPLER + LO-FI RELABEL (user: oversampling rolls off highs). MEASURED ROOT CAUSE: the VINTAGE OS decimator is [1,2,1]/4 (cos^2) — -2dB@10k/-15dB@20k at 44.1k AND alias rejection that WORSENS at 4x/8x (-44 -> -29dB); it is a lo-fi character, not a quality tool. The 47-tap CLEAN was flat at 48k+ but -0.4dB@18k/-3dB@20k at 44.1k. FIX 1: new kCleanHQ119 (119-tap Kaiser-beta8 min-phase halfband, cepstral factorization) as the BASE-RATE stage only (deeper stages keep 47 taps — their bands sit far above audio): measured +/-0.002dB to 20kHz@44.1k, -80.5dB stopband, -98dB alias @4x/8x, unity DC, ~4-base-smp latency (vs 3). Gated GRIT>=6 / AMBER>=3 / COMPRESS>=3 (DSPVersion bumps; older states keep the frozen 47-tap CLEAN bit-identically; keyless sessions still freeze old). All 23 shipped presets restamped 6/3/3. FIX 2: TWEAK OS CHARACTER label VINTAGE -> LO-FI so nobody mistakes it for a quality setting. VERIFY IN ABLETON: at 44.1k with CLEAN, toggling 2x/4x/8x should no longer dull the top end at all; LO-FI still sounds like the old vintage grit; old sessions render unchanged. NOTE: on CLEAN, 2x is transparent; 4x/8x only add alias margin under heavy drive. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.35 — OS DRY-LEG ALIGNMENT (user: in OS CLEAN + clean mode, raising OS ALSO cuts the highs — v0.4.34's flat FIR wasn't enough). MEASURED ROOT CAUSE: wet/dry COMB, not filter rolloff. The CLEAN OS FIR delays the WET path 4/5/6 base samples at 2x/4x/8x; GRIT and AMBER's internal MIX blends (l = l*(1-mix) + wetL*mix) used an UNDELAYED dry, so partial MIX (user runs GRIT 35% / AMBER 72%) combed: measured -6dB@4k at 4x, -8dB@4k at 8x (48k, 35% mix) — first notch at fs/(2d) marches DOWN as factor rises = exactly 'raising OS cuts the highs'. An integer dry delay CANNOT fix it (min-phase FIR group delay is not constant — best case still ~6dB residual at 4x). FIX: run the dry mix leg through an IDENTICAL oversampler with an identity saturator (osDryL/R in GritModule + AmberModule) — both legs share one linear response, comb cancels exactly at every frequency; module-internal, plugin latency untouched (set once in prepareToPlay, unchanged). Gated GRIT>=7 / AMBER>=4 (osDryAlign, CLEAN+HQ only — VINTAGE would LPF the dry and its ~0-1 smp never combed; older stamps keep the uncompensated blend bit-identically). COMPRESS is 100% wet when active (no comb) and PAR routing died in v18.7.0 — these two module mixes were the only exposures. All 23 presets restamped 7/4/3. VERIFY IN ABLETON: 48k, MODE CLEAN, OS CHAR CLEAN, GRIT MIX 35% + AMBER MIX 72%, toggle OFF/2x/4x/8x — top end should now be IDENTICAL across all factors; at MIX 100% behavior is unchanged (comb only existed at partial mix). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v80.5",
-      "lastBuild": "v80.5",
-      "lastUpdated": "2026-07-18T06:10:44.819Z",
+      "currentVersion": "v18.7.0",
+      "lastBuild": "v18.7.0",
+      "lastUpdated": "2026-07-18T06:35:02.870Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T06:10:44.819Z",
+        "createdAt": "2026-07-18T06:35:02.870Z",
         "localDate": "2026-07-17",
         "localHour": 23,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v80.5."
+        "summary": "CREOSOTE updated from Control Room delta: v18.7.0."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T06:10:44.819Z",
+    "lastAppliedAt": "2026-07-18T06:35:02.870Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-18T06:10:44.819Z",
+    "createdAt": "2026-07-18T06:35:02.870Z",
     "localDate": "2026-07-17",
     "localHour": 23,
     "timezone": "America/Los_Angeles",
