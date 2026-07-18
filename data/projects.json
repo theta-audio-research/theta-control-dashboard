@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.16",
-      "nextAction": "v0.4.36+37 — PLAYBOOK ROUNDS 1+2: DECRAMPED FILTERS + MASTER-BUS ADAA (user: 'go with your recommendations and start building'). ROUND 1 (v0.4.36, GRIT v8 / AMBER v5): four analog-matched designs added to Biquad — Vicanek 2024 matched shelves (dev<=0.03dB, supports hinge>Nyquist), Vicanek 2016 matched peak, and a custom LS-fit matched lowpass (impulse-invariant poles + closed-form 2x2 least-squares numerator over 1k-20k: dev<=0.16dB@48k vs the bilinear versions' MEASURED -8dB@20k on GRIT's 16k IPS rolloff and -11dB@20k on AMBER PULTEC's 14k output-tx rolloff). Also fixed in-gate: setLowShelf/setHighShelf had INCONSISTENT hardcoded slopes (S=1 vs S=0.5) — matched shelves are both Butterworth so TONE tilts are finally symmetric. All HF-hinged GRIT/AMBER filters route through version-gated helpers (_hs/_ls/_lp, _hs1/_ls1/_lp1/_pk1); head bump etc. stay bilinear (no cramping <2k). C++ cross-checked vs Python reference to 5e-8. ROUND 2 (v0.4.37, CHARACTER v3 / STEREO_GLUE v3 / OUT_CLIP v3): first-order ADAA (AdaaTanh in ThetaDSP.h, ln-cosh antiderivative, stable large-x form) on the base-rate master-bus tanh stages which measured -28 to -31dB worst alias lines at 48k on bright content — now -45 to -57dB at realistic drive (~16dB better; ~30dB at gentle drive). GLUE is a PARALLEL blend so v3 uses exact-linear preservation: delta = [adaa - K*halfsample-interp(mid)] + (K-1)*mid — measured 0.0000dB linear dev vs v2 at 1k-20k (avoids the comb bug class fixed in v0.4.35). CHARACTER's subtracted bias term stays pointwise (|u|<0.2, no measurable aliasing). LIMITER needs NO ADAA (gain-based, no waveshaper). All 23 presets restamped 8/5/3/3/3/3. VERIFY IN ABLETON: 48k — (a) GRIT 15ips or AMBER PULTEC/TWEED: top octave opens up vs v0.4.35; (b) bright content into OUT CLIP -2/-3dB driven hard: less fizz/harshness; (c) old sessions recall the frozen voicings exactly. NEXT (round 3, agreed): flux-integrator iron for SUMMING (v3 path currently has NO nonlinearity). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "latestVersion": "v1.0",
+      "nextAction": "v0.4.38 — SUMMING IRON, Playbook round 3 (user chose via interactive Qs: tier switch + all-3-voices audition + full model + NEAL-presets-only). NEW: IronTx (ThetaDSP.h) — console output-transformer model: flux integrator (distortion rises as freq falls, physically correct), remanence-biased residue with constant+linear terms CANCELLED (2nd-harmonic warmth, exactly flat linear response, no DC), 40ms magnetic memory (program-dependent density), coercivity 'stick' tanh(u)-u/sqrt(1+u^2) (zero linear slope — constant-absolute odd component whose relative size GROWS as level falls = decay tails thicken), 8Hz DC blocker on the injection path (biased rectification pumped -28dB DC without it), plus per-voice HF leakage-resonance 'air' via matched shelf hinged ABOVE Nyquist (24-32k, skirt-only, needs v0.4.36 decramping). MEASURED (RICH @100Hz/-18dBFS/48k): NEVE 1.0% THD 2nd-dominant / API 0.8% 3rd-dominant / TG 0.45% polished; flat to 0.001dB; DC <= -122dB; worst alias -114dB (no ADAA/OS needed — flux is LF-weighted); C++ x-checked vs Python to 1e-7. CONTROLS: IRON tier tile (OFF/SUBTLE/RICH lit-lens cycle, compact 92px, SUMMING header row; title 130->110) + IRON VOICE selector (NEVE/API/TG) on TWEAK>MASTER at +650 (dims while tier OFF). AUDITION BUILD: all 3 voices shipped for A/B; the keeper gets frozen later (voice param may then be removed — sessions saved with a non-default voice during audition would revert to the keeper). FREEZE CONTRACT: no SUMMING bump — SUM_IRON default OFF is a true no-op (new-param clause); IronTx constants frozen from birth (changing them later = SUMMING v4). The 6 NEAL presets get SUM_IRON=1 (SUBTLE, NEVE); the 17 album presets untouched. VERIFY IN ABLETON: 48k, SUMMING ON, IRON SUBTLE->RICH on the mixbus: LF thickens and decay tails gain density with no top-octave loss; cycle NEVE/API/TG in TWEAK; IRON OFF must null against v0.4.37. OPEN: freeze iron voice after audition; painted-metal chassis; deferred patina; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.36+37 — PLAYBOOK ROUNDS 1+2: DECRAMPED FILTERS + MASTER-BUS ADAA (user: 'go with your recommendations and start building'). ROUND 1 (v0.4.36, GRIT v8 / AMBER v5): four analog-matched designs added to Biquad — Vicanek 2024 matched shelves (dev<=0.03dB, supports hinge>Nyquist), Vicanek 2016 matched peak, and a custom LS-fit matched lowpass (impulse-invariant poles + closed-form 2x2 least-squares numerator over 1k-20k: dev<=0.16dB@48k vs the bilinear versions' MEASURED -8dB@20k on GRIT's 16k IPS rolloff and -11dB@20k on AMBER PULTEC's 14k output-tx rolloff). Also fixed in-gate: setLowShelf/setHighShelf had INCONSISTENT hardcoded slopes (S=1 vs S=0.5) — matched shelves are both Butterworth so TONE tilts are finally symmetric. All HF-hinged GRIT/AMBER filters route through version-gated helpers (_hs/_ls/_lp, _hs1/_ls1/_lp1/_pk1); head bump etc. stay bilinear (no cramping <2k). C++ cross-checked vs Python reference to 5e-8. ROUND 2 (v0.4.37, CHARACTER v3 / STEREO_GLUE v3 / OUT_CLIP v3): first-order ADAA (AdaaTanh in ThetaDSP.h, ln-cosh antiderivative, stable large-x form) on the base-rate master-bus tanh stages which measured -28 to -31dB worst alias lines at 48k on bright content — now -45 to -57dB at realistic drive (~16dB better; ~30dB at gentle drive). GLUE is a PARALLEL blend so v3 uses exact-linear preservation: delta = [adaa - K*halfsample-interp(mid)] + (K-1)*mid — measured 0.0000dB linear dev vs v2 at 1k-20k (avoids the comb bug class fixed in v0.4.35). CHARACTER's subtracted bias term stays pointwise (|u|<0.2, no measurable aliasing). LIMITER needs NO ADAA (gain-based, no waveshaper). All 23 presets restamped 8/5/3/3/3/3. VERIFY IN ABLETON: 48k — (a) GRIT 15ips or AMBER PULTEC/TWEED: top octave opens up vs v0.4.35; (b) bright content into OUT CLIP -2/-3dB driven hard: less fizz/harshness; (c) old sessions recall the frozen voicings exactly. NEXT (round 3, agreed): flux-integrator iron for SUMMING (v3 path currently has NO nonlinearity). OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.38 — SUMMING IRON, Playbook round 3 (user chose via interactive Qs: tier switch + all-3-voices audition + full model + NEAL-presets-only). NEW: IronTx (ThetaDSP.h) — console output-transformer model: flux integrator (distortion rises as freq falls, physically correct), remanence-biased residue with constant+linear terms CANCELLED (2nd-harmonic warmth, exactly flat linear response, no DC), 40ms magnetic memory (program-dependent density), coercivity 'stick' tanh(u)-u/sqrt(1+u^2) (zero linear slope — constant-absolute odd component whose relative size GROWS as level falls = decay tails thicken), 8Hz DC blocker on the injection path (biased rectification pumped -28dB DC without it), plus per-voice HF leakage-resonance 'air' via matched shelf hinged ABOVE Nyquist (24-32k, skirt-only, needs v0.4.36 decramping). MEASURED (RICH @100Hz/-18dBFS/48k): NEVE 1.0% THD 2nd-dominant / API 0.8% 3rd-dominant / TG 0.45% polished; flat to 0.001dB; DC <= -122dB; worst alias -114dB (no ADAA/OS needed — flux is LF-weighted); C++ x-checked vs Python to 1e-7. CONTROLS: IRON tier tile (OFF/SUBTLE/RICH lit-lens cycle, compact 92px, SUMMING header row; title 130->110) + IRON VOICE selector (NEVE/API/TG) on TWEAK>MASTER at +650 (dims while tier OFF). AUDITION BUILD: all 3 voices shipped for A/B; the keeper gets frozen later (voice param may then be removed — sessions saved with a non-default voice during audition would revert to the keeper). FREEZE CONTRACT: no SUMMING bump — SUM_IRON default OFF is a true no-op (new-param clause); IronTx constants frozen from birth (changing them later = SUMMING v4). The 6 NEAL presets get SUM_IRON=1 (SUBTLE, NEVE); the 17 album presets untouched. VERIFY IN ABLETON: 48k, SUMMING ON, IRON SUBTLE->RICH on the mixbus: LF thickens and decay tails gain density with no top-octave loss; cycle NEVE/API/TG in TWEAK; IRON OFF must null against v0.4.37. OPEN: freeze iron voice after audition; painted-metal chassis; deferred patina; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.16",
-      "lastBuild": "v0.16",
-      "lastUpdated": "2026-07-18T07:21:25.758Z",
+      "currentVersion": "v1.0",
+      "lastBuild": "v1.0",
+      "lastUpdated": "2026-07-18T07:41:48.595Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T07:21:25.758Z",
+        "createdAt": "2026-07-18T07:41:48.595Z",
         "localDate": "2026-07-18",
         "localHour": 0,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.16."
+        "summary": "CREOSOTE updated from Control Room delta: v1.0."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T07:21:25.758Z",
+    "lastAppliedAt": "2026-07-18T07:41:48.595Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-18T07:21:25.758Z",
+    "createdAt": "2026-07-18T07:41:48.595Z",
     "localDate": "2026-07-18",
     "localHour": 0,
     "timezone": "America/Los_Angeles",
