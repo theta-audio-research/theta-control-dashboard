@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.30",
-      "nextAction": "v0.4.30 — LIMITER IN/OUT (new LIM_ON param). Needed because v0.4.25 made CLEAN limit at the knob, which removed the only way to NOT limit (CLEAN used to double as limiter-off). IMPORTANT SCOPE FINDING: the LIMITER panel is misleadingly named — LIM_INPUT is applied at PluginProcessor.cpp:927, the VERY START of the chain (it is the plugin input drive feeding GRIT/AMBER/COMPRESS), and LEVEL/TONE are the output stage. Only LIMIT + AUTO LEVEL are actually the limiter. So the power button gates ONLY the limiting, NOT the panel: INPUT/LEVEL/TONE keep working and stay lit; only the LIMIT tile goes dead-lens and AUTO LEVEL disables. LATENCY IS CONSTANT: when out, the lookahead delay line still runs (processStereoDelayOnly), so toggling never forces a PDC change. OUT CLIP is a separate stage with its own TWEAK control and still applies in DIRTY (a pure delay and a memoryless clip commute, so order is equivalent). GR reports 0 when out, so the GR meter empties and the LIMIT red glow goes cold. Defaults ON => existing sessions/presets recall unchanged; no DSPVersion bump needed. VERIFY IN ABLETON: toggle the LIMITER power and confirm limiting stops but INPUT still drives the plugin and LEVEL/TONE still work; confirm the host reports the same latency both ways. OPEN: the panel arguably wants renaming (it is an output stage with a limiter in it); painted-metal chassis fork; deferred patina surfaces.",
+      "latestVersion": "v17.1.3",
+      "nextAction": "v0.4.31 — NEW FACTORY PRESET SET (17 album-anchored). Replaced the 12 v17.1.3 research presets with 17 voiced from the recording-chain research (album_presets.json + PLUGIN_BUILD_GUIDE.md): Thriller, Dark Side of the Moon, Rumours, Aja, Brothers in Arms, Kind of Blue, Random Access Memories, The Nightfly, What is Going On, Pet Sounds, Crime of the Century, Toto IV, Famous Blue Raincoat, Songs in the Key of Life, Court and Spark, Welcome to the Machine, Wolfgang Amadeus Phoenix. The two NEAL_ personal presets are preserved. Each maps the album chain onto exact enums (machine/formula/IPS/width, tube preamp/power/rect+era+hardware, CMP_MODE) and stamps CURRENT DSP versions (GRIT5 AMBER2 COMPRESS2 SUMMING3 LIMITER3). Wired in 3 places: CMake binary-data SOURCES, kFactoryRegistry[], BinaryData accessor table. Digital-era records (Brothers in Arms, Nightfly, Famous Blue Raincoat) keep tape subtle per the research; Kind of Blue/Pet Sounds are the heavy-tube showcases; Pet Sounds narrows to mono. VERIFY IN ABLETON: open the preset menu, load several, confirm each recalls the intended machine/tube/comp and sounds distinct; confirm the NEAL presets still load. OPEN: painted-metal chassis fork; deferred patina surfaces; LIMITER panel rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.30 — LIMITER IN/OUT (new LIM_ON param). Needed because v0.4.25 made CLEAN limit at the knob, which removed the only way to NOT limit (CLEAN used to double as limiter-off). IMPORTANT SCOPE FINDING: the LIMITER panel is misleadingly named — LIM_INPUT is applied at PluginProcessor.cpp:927, the VERY START of the chain (it is the plugin input drive feeding GRIT/AMBER/COMPRESS), and LEVEL/TONE are the output stage. Only LIMIT + AUTO LEVEL are actually the limiter. So the power button gates ONLY the limiting, NOT the panel: INPUT/LEVEL/TONE keep working and stay lit; only the LIMIT tile goes dead-lens and AUTO LEVEL disables. LATENCY IS CONSTANT: when out, the lookahead delay line still runs (processStereoDelayOnly), so toggling never forces a PDC change. OUT CLIP is a separate stage with its own TWEAK control and still applies in DIRTY (a pure delay and a memoryless clip commute, so order is equivalent). GR reports 0 when out, so the GR meter empties and the LIMIT red glow goes cold. Defaults ON => existing sessions/presets recall unchanged; no DSPVersion bump needed. VERIFY IN ABLETON: toggle the LIMITER power and confirm limiting stops but INPUT still drives the plugin and LEVEL/TONE still work; confirm the host reports the same latency both ways. OPEN: the panel arguably wants renaming (it is an output stage with a limiter in it); painted-metal chassis fork; deferred patina surfaces.",
+      "tomorrowFirstAction": "v0.4.31 — NEW FACTORY PRESET SET (17 album-anchored). Replaced the 12 v17.1.3 research presets with 17 voiced from the recording-chain research (album_presets.json + PLUGIN_BUILD_GUIDE.md): Thriller, Dark Side of the Moon, Rumours, Aja, Brothers in Arms, Kind of Blue, Random Access Memories, The Nightfly, What is Going On, Pet Sounds, Crime of the Century, Toto IV, Famous Blue Raincoat, Songs in the Key of Life, Court and Spark, Welcome to the Machine, Wolfgang Amadeus Phoenix. The two NEAL_ personal presets are preserved. Each maps the album chain onto exact enums (machine/formula/IPS/width, tube preamp/power/rect+era+hardware, CMP_MODE) and stamps CURRENT DSP versions (GRIT5 AMBER2 COMPRESS2 SUMMING3 LIMITER3). Wired in 3 places: CMake binary-data SOURCES, kFactoryRegistry[], BinaryData accessor table. Digital-era records (Brothers in Arms, Nightfly, Famous Blue Raincoat) keep tape subtle per the research; Kind of Blue/Pet Sounds are the heavy-tube showcases; Pet Sounds narrows to mono. VERIFY IN ABLETON: open the preset menu, load several, confirm each recalls the intended machine/tube/comp and sounds distinct; confirm the NEAL presets still load. OPEN: painted-metal chassis fork; deferred patina surfaces; LIMITER panel rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -905,7 +905,7 @@
       "shipReadiness": 10,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-07-16",
+      "lastTouched": "2026-07-17",
       "testTickets": [
         {
           "id": "creosote-eq-summing-alignment",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.30",
-      "lastBuild": "v0.4.30",
-      "lastUpdated": "2026-07-17T01:37:47.655Z",
+      "currentVersion": "v17.1.3",
+      "lastBuild": "v17.1.3",
+      "lastUpdated": "2026-07-18T05:02:16.749Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-17T01:37:47.655Z",
-        "localDate": "2026-07-16",
-        "localHour": 18,
+        "createdAt": "2026-07-18T05:02:16.749Z",
+        "localDate": "2026-07-17",
+        "localHour": 22,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.30."
+        "summary": "CREOSOTE updated from Control Room delta: v17.1.3."
       }
     },
     {
@@ -5830,14 +5830,14 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-07-16",
+    "date": "2026-07-17",
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-17T01:37:47.655Z",
+    "lastAppliedAt": "2026-07-18T05:02:16.749Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-17T23:00:11.885Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-18T05:02:16.749Z",
     "localDate": "2026-07-17",
-    "localHour": 16,
+    "localHour": 22,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
