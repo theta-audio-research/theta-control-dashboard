@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-17",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.32",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.32 — 6 NEAL PERSONAL PRESETS BUNDLED + NEAL - DEF IS THE DEFAULT. Added the users 6 presets (UNDRWTR, 808 DUSTTT, DEF, JUNGLE IS MASV, SLAMMM, SYNTH DIRT) from ~/Library/THETA/CREOSOTE/presets to the factory bundle. They were in MIXED formats (DEF/SLAMMM already schema-v3; the other 4 legacy bare <CREOSOTE_STATE> with dead A/B routing params PAR_/SUMA_/SUMB_/SUM_MODE/SUM_BLEND and some empty-value PARAMs) — normalized all 6 to schema-v3 wrappers, preserving every real PARAM value, dropping the dead/empty ones, stamping CURRENT DSP versions. NEAL - DEF is now the first-open default: the editor loads loadEmbeddedPreset(NEAL_DEF_creosote) on a fresh instance (there was no INIT preset bundled before, so fresh instances used canonical defaults), and DEF is registry id=1 (personal presets lead, then the 17 albums). Wired in 3 sites (CMake SOURCES, kFactoryRegistry, BinaryData accessor). NOTE: the .initialized flag means existing installs wont re-trigger first-open — delete ~/Library/Application Support/THETA/CREOSOTE/.initialized to see DEF autoload. VERIFY IN ABLETON: preset menu lists NEAL - DEF first then the other 5 NEAL then the 17 albums; each NEAL recalls its saved state; a truly fresh instance opens on DEF. OPEN: painted-metal chassis fork; deferred patina surfaces; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.32 — 6 NEAL PERSONAL PRESETS BUNDLED + NEAL - DEF IS THE DEFAULT. Added the users 6 presets (UNDRWTR, 808 DUSTTT, DEF, JUNGLE IS MASV, SLAMMM, SYNTH DIRT) from ~/Library/THETA/CREOSOTE/presets to the factory bundle. They were in MIXED formats (DEF/SLAMMM already schema-v3; the other 4 legacy bare <CREOSOTE_STATE> with dead A/B routing params PAR_/SUMA_/SUMB_/SUM_MODE/SUM_BLEND and some empty-value PARAMs) — normalized all 6 to schema-v3 wrappers, preserving every real PARAM value, dropping the dead/empty ones, stamping CURRENT DSP versions. NEAL - DEF is now the first-open default: the editor loads loadEmbeddedPreset(NEAL_DEF_creosote) on a fresh instance (there was no INIT preset bundled before, so fresh instances used canonical defaults), and DEF is registry id=1 (personal presets lead, then the 17 albums). Wired in 3 sites (CMake SOURCES, kFactoryRegistry, BinaryData accessor). NOTE: the .initialized flag means existing installs wont re-trigger first-open — delete ~/Library/Application Support/THETA/CREOSOTE/.initialized to see DEF autoload. VERIFY IN ABLETON: preset menu lists NEAL - DEF first then the other 5 NEAL then the 17 albums; each NEAL recalls its saved state; a truly fresh instance opens on DEF. OPEN: painted-metal chassis fork; deferred patina surfaces; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.32."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
