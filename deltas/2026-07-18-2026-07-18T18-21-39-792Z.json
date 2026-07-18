@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.41",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.41 — NEW FIRST-OPEN DEFAULT: NEAL - DEF - NEVE SUMM (user-authored: SUMMING amp with RICH NEVE iron only, everything else off, limiter off, CLEAN, 8x CLEAN OS — 'a good start'). Shipped: copied into Resources/Presets/NEAL_DEF_NEVE_SUMM.creosote, restamped to current DSP versions (9/6/4 — inert for this preset since those modules are OFF, keeps the presets-are-current-gen convention), added FIRST in kArtistRegistry + BinaryData accessor + CMake, editor first-open now loads it. Probe-measured +0.97dB vs bypass (the SUM_PREGAIN 0.5 = +1.02dB into the iron); trimmed LIM_LEVEL 0.5 -> 0.4731 (post-summing, iron drive untouched) -> -0.11dB = unity, consistent with the v0.4.40 matched library (now 24 presets). VERIFY IN ABLETON: fresh instance opens as NEAL - DEF - NEVE SUMM with SUMMING lit + IRON RICH; loudness matches bypass. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.41 — NEW FIRST-OPEN DEFAULT: NEAL - DEF - NEVE SUMM (user-authored: SUMMING amp with RICH NEVE iron only, everything else off, limiter off, CLEAN, 8x CLEAN OS — 'a good start'). Shipped: copied into Resources/Presets/NEAL_DEF_NEVE_SUMM.creosote, restamped to current DSP versions (9/6/4 — inert for this preset since those modules are OFF, keeps the presets-are-current-gen convention), added FIRST in kArtistRegistry + BinaryData accessor + CMake, editor first-open now loads it. Probe-measured +0.97dB vs bypass (the SUM_PREGAIN 0.5 = +1.02dB into the iron); trimmed LIM_LEVEL 0.5 -> 0.4731 (post-summing, iron drive untouched) -> -0.11dB = unity, consistent with the v0.4.40 matched library (now 24 presets). VERIFY IN ABLETON: fresh instance opens as NEAL - DEF - NEVE SUMM with SUMMING lit + IRON RICH; loudness matches bypass. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.41."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
