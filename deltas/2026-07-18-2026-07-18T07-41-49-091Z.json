@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.38",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.38 — SUMMING IRON, Playbook round 3 (user chose via interactive Qs: tier switch + all-3-voices audition + full model + NEAL-presets-only). NEW: IronTx (ThetaDSP.h) — console output-transformer model: flux integrator (distortion rises as freq falls, physically correct), remanence-biased residue with constant+linear terms CANCELLED (2nd-harmonic warmth, exactly flat linear response, no DC), 40ms magnetic memory (program-dependent density), coercivity 'stick' tanh(u)-u/sqrt(1+u^2) (zero linear slope — constant-absolute odd component whose relative size GROWS as level falls = decay tails thicken), 8Hz DC blocker on the injection path (biased rectification pumped -28dB DC without it), plus per-voice HF leakage-resonance 'air' via matched shelf hinged ABOVE Nyquist (24-32k, skirt-only, needs v0.4.36 decramping). MEASURED (RICH @100Hz/-18dBFS/48k): NEVE 1.0% THD 2nd-dominant / API 0.8% 3rd-dominant / TG 0.45% polished; flat to 0.001dB; DC <= -122dB; worst alias -114dB (no ADAA/OS needed — flux is LF-weighted); C++ x-checked vs Python to 1e-7. CONTROLS: IRON tier tile (OFF/SUBTLE/RICH lit-lens cycle, compact 92px, SUMMING header row; title 130->110) + IRON VOICE selector (NEVE/API/TG) on TWEAK>MASTER at +650 (dims while tier OFF). AUDITION BUILD: all 3 voices shipped for A/B; the keeper gets frozen later (voice param may then be removed — sessions saved with a non-default voice during audition would revert to the keeper). FREEZE CONTRACT: no SUMMING bump — SUM_IRON default OFF is a true no-op (new-param clause); IronTx constants frozen from birth (changing them later = SUMMING v4). The 6 NEAL presets get SUM_IRON=1 (SUBTLE, NEVE); the 17 album presets untouched. VERIFY IN ABLETON: 48k, SUMMING ON, IRON SUBTLE->RICH on the mixbus: LF thickens and decay tails gain density with no top-octave loss; cycle NEVE/API/TG in TWEAK; IRON OFF must null against v0.4.37. OPEN: freeze iron voice after audition; painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.38 — SUMMING IRON, Playbook round 3 (user chose via interactive Qs: tier switch + all-3-voices audition + full model + NEAL-presets-only). NEW: IronTx (ThetaDSP.h) — console output-transformer model: flux integrator (distortion rises as freq falls, physically correct), remanence-biased residue with constant+linear terms CANCELLED (2nd-harmonic warmth, exactly flat linear response, no DC), 40ms magnetic memory (program-dependent density), coercivity 'stick' tanh(u)-u/sqrt(1+u^2) (zero linear slope — constant-absolute odd component whose relative size GROWS as level falls = decay tails thicken), 8Hz DC blocker on the injection path (biased rectification pumped -28dB DC without it), plus per-voice HF leakage-resonance 'air' via matched shelf hinged ABOVE Nyquist (24-32k, skirt-only, needs v0.4.36 decramping). MEASURED (RICH @100Hz/-18dBFS/48k): NEVE 1.0% THD 2nd-dominant / API 0.8% 3rd-dominant / TG 0.45% polished; flat to 0.001dB; DC <= -122dB; worst alias -114dB (no ADAA/OS needed — flux is LF-weighted); C++ x-checked vs Python to 1e-7. CONTROLS: IRON tier tile (OFF/SUBTLE/RICH lit-lens cycle, compact 92px, SUMMING header row; title 130->110) + IRON VOICE selector (NEVE/API/TG) on TWEAK>MASTER at +650 (dims while tier OFF). AUDITION BUILD: all 3 voices shipped for A/B; the keeper gets frozen later (voice param may then be removed — sessions saved with a non-default voice during audition would revert to the keeper). FREEZE CONTRACT: no SUMMING bump — SUM_IRON default OFF is a true no-op (new-param clause); IronTx constants frozen from birth (changing them later = SUMMING v4). The 6 NEAL presets get SUM_IRON=1 (SUBTLE, NEVE); the 17 album presets untouched. VERIFY IN ABLETON: 48k, SUMMING ON, IRON SUBTLE->RICH on the mixbus: LF thickens and decay tails gain density with no top-octave loss; cycle NEVE/API/TG in TWEAK; IRON OFF must null against v0.4.37. OPEN: freeze iron voice after audition; painted-metal chassis; deferred patina; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.38."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
