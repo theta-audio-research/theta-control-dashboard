@@ -1,0 +1,29 @@
+{
+  "date": "2026-07-18",
+  "localHour": 14,
+  "timezone": "America/Los_Angeles",
+  "source": "scheduled-cron",
+  "createdAt": "2026-07-18T21:00:11.869Z",
+  "today": [
+    {
+      "id": "creosote",
+      "name": "CREOSOTE",
+      "nextAction": "v0.4.44 — GREEN CHASSIS REVERTED TO DARK (user on v0.4.43 full-screen: 'this looks like a 90s toy plugin now... we may have to paint it all and use layers of images'). DIAGNOSIS: the mockup showed small slices on a dark page, so the lit-lens tiles still glowed; full-screen on light enamel the backlighting DIES — a lamp only reads as light against darkness. Light ground + flat fills + no cast shadows/recesses + invisible grain at UI scale = toy. The dark chassis was the lamp-room. REVERTED: chassis gradient, enamel cards/borders, silkscreen titles, enamel blank plates — all back to the dark v0.4.42 state. KEPT: naval-teal power buttons (user liked them; they read on dark), all v0.4.42 patina, EC:: chassis palette constants (unused, retained for the photoreal work). DECIDED (interactive Qs): interim = dark; deep-dive target = FULL PHOTOREAL BY ANY MEANS (UAD/Softube territory — pre-rendered image layers/3D renders, procedural only for dynamic elements). Research workflow running: industry pipelines, JUCE raster best practices (filmstrips/retina/multi-scale), Blender-to-GUI pipeline, procedural-realism ceiling. NEXT: deep-dive report -> chosen pipeline -> photoreal rebuild bringing painted-metal back as image plates. OPEN: LIMITER rename.",
+      "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline."
+    },
+    {
+      "id": "focusgrid",
+      "name": "FOCUSGRID",
+      "nextAction": "Install/build-test v0.3.1 and verify the sidechain masking relief proof loads.",
+      "firstAction": "Build/install v0.3.1 and verify host visibility."
+    },
+    {
+      "id": "prismform",
+      "name": "PRISM FORM",
+      "nextAction": "Decide engine direction: sampler-with-spectral-filtering vs true resynthesis — gates the brush/mask/engine work. Cosmetic track current through v1.17 (Halo knobs).",
+      "firstAction": "Preserve v1.4 UI and build v1.5 around safe playback/crackle reduction."
+    }
+  ],
+  "blockedCount": 5,
+  "decisionCount": 4
+}
