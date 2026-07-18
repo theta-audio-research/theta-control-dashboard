@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-17",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.34",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.34 — CLEAN-HQ OVERSAMPLER + LO-FI RELABEL (user: oversampling rolls off highs). MEASURED ROOT CAUSE: the VINTAGE OS decimator is [1,2,1]/4 (cos^2) — -2dB@10k/-15dB@20k at 44.1k AND alias rejection that WORSENS at 4x/8x (-44 -> -29dB); it is a lo-fi character, not a quality tool. The 47-tap CLEAN was flat at 48k+ but -0.4dB@18k/-3dB@20k at 44.1k. FIX 1: new kCleanHQ119 (119-tap Kaiser-beta8 min-phase halfband, cepstral factorization) as the BASE-RATE stage only (deeper stages keep 47 taps — their bands sit far above audio): measured +/-0.002dB to 20kHz@44.1k, -80.5dB stopband, -98dB alias @4x/8x, unity DC, ~4-base-smp latency (vs 3). Gated GRIT>=6 / AMBER>=3 / COMPRESS>=3 (DSPVersion bumps; older states keep the frozen 47-tap CLEAN bit-identically; keyless sessions still freeze old). All 23 shipped presets restamped 6/3/3. FIX 2: TWEAK OS CHARACTER label VINTAGE -> LO-FI so nobody mistakes it for a quality setting. VERIFY IN ABLETON: at 44.1k with CLEAN, toggling 2x/4x/8x should no longer dull the top end at all; LO-FI still sounds like the old vintage grit; old sessions render unchanged. NOTE: on CLEAN, 2x is transparent; 4x/8x only add alias margin under heavy drive. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.34 — CLEAN-HQ OVERSAMPLER + LO-FI RELABEL (user: oversampling rolls off highs). MEASURED ROOT CAUSE: the VINTAGE OS decimator is [1,2,1]/4 (cos^2) — -2dB@10k/-15dB@20k at 44.1k AND alias rejection that WORSENS at 4x/8x (-44 -> -29dB); it is a lo-fi character, not a quality tool. The 47-tap CLEAN was flat at 48k+ but -0.4dB@18k/-3dB@20k at 44.1k. FIX 1: new kCleanHQ119 (119-tap Kaiser-beta8 min-phase halfband, cepstral factorization) as the BASE-RATE stage only (deeper stages keep 47 taps — their bands sit far above audio): measured +/-0.002dB to 20kHz@44.1k, -80.5dB stopband, -98dB alias @4x/8x, unity DC, ~4-base-smp latency (vs 3). Gated GRIT>=6 / AMBER>=3 / COMPRESS>=3 (DSPVersion bumps; older states keep the frozen 47-tap CLEAN bit-identically; keyless sessions still freeze old). All 23 shipped presets restamped 6/3/3. FIX 2: TWEAK OS CHARACTER label VINTAGE -> LO-FI so nobody mistakes it for a quality setting. VERIFY IN ABLETON: at 44.1k with CLEAN, toggling 2x/4x/8x should no longer dull the top end at all; LO-FI still sounds like the old vintage grit; old sessions render unchanged. NOTE: on CLEAN, 2x is transparent; 4x/8x only add alias margin under heavy drive. OPEN: painted-metal chassis; deferred patina; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.34."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
