@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v1.0",
-      "nextAction": "v0.4.38 — SUMMING IRON, Playbook round 3 (user chose via interactive Qs: tier switch + all-3-voices audition + full model + NEAL-presets-only). NEW: IronTx (ThetaDSP.h) — console output-transformer model: flux integrator (distortion rises as freq falls, physically correct), remanence-biased residue with constant+linear terms CANCELLED (2nd-harmonic warmth, exactly flat linear response, no DC), 40ms magnetic memory (program-dependent density), coercivity 'stick' tanh(u)-u/sqrt(1+u^2) (zero linear slope — constant-absolute odd component whose relative size GROWS as level falls = decay tails thicken), 8Hz DC blocker on the injection path (biased rectification pumped -28dB DC without it), plus per-voice HF leakage-resonance 'air' via matched shelf hinged ABOVE Nyquist (24-32k, skirt-only, needs v0.4.36 decramping). MEASURED (RICH @100Hz/-18dBFS/48k): NEVE 1.0% THD 2nd-dominant / API 0.8% 3rd-dominant / TG 0.45% polished; flat to 0.001dB; DC <= -122dB; worst alias -114dB (no ADAA/OS needed — flux is LF-weighted); C++ x-checked vs Python to 1e-7. CONTROLS: IRON tier tile (OFF/SUBTLE/RICH lit-lens cycle, compact 92px, SUMMING header row; title 130->110) + IRON VOICE selector (NEVE/API/TG) on TWEAK>MASTER at +650 (dims while tier OFF). AUDITION BUILD: all 3 voices shipped for A/B; the keeper gets frozen later (voice param may then be removed — sessions saved with a non-default voice during audition would revert to the keeper). FREEZE CONTRACT: no SUMMING bump — SUM_IRON default OFF is a true no-op (new-param clause); IronTx constants frozen from birth (changing them later = SUMMING v4). The 6 NEAL presets get SUM_IRON=1 (SUBTLE, NEVE); the 17 album presets untouched. VERIFY IN ABLETON: 48k, SUMMING ON, IRON SUBTLE->RICH on the mixbus: LF thickens and decay tails gain density with no top-octave loss; cycle NEVE/API/TG in TWEAK; IRON OFF must null against v0.4.37. OPEN: freeze iron voice after audition; painted-metal chassis; deferred patina; LIMITER rename.",
+      "latestVersion": "v12.9",
+      "nextAction": "v0.4.39 — THE CALIBRATION RELEASE (user: 'every setting is always too much gain and too much distortion... instead of nice subtle saturation and color'). MEASURED ROOT CAUSES (4-agent extraction + exact Python THD map): (1) GRIT's asymmetry was SIGN-SWITCHED DRIVE (pos x1.30/neg x0.70) — a slope kink at zero, which is SCALE-INVARIANT: ~13% THD at EVERY level and EVERY knob position (12.9% @-18dBFS with DRIVE AT ZERO; real tape: 0.3-1%) plus +5.1dB linear gain on positive half-cycles. GRIT literally could not be subtle. (2) AMBER's drive law was linear over the tube's FULL maxGainDb (12AX7 28dB): default 0.3 = +8.4dB into the stage, 7.5% THD on -6dBFS peaks, all useful range in the bottom sixth of the knob. (3) COMPRESS CMP_INPUT mapped -6..+18dB so the 0.5 default = +6dB hidden input gain. (Also found: TubeProfiles.headroomDb pad column was designed but never wired; CHARACTER tiers and SUMMING iron measured correctly calibrated — iron was tuned at -18 by measurement, the template.) FIXES (user chose: hardware-true zero, -18dBFS=0VU ref, presets keep values, all at once): GRIT v9 — smooth bias-shift law u=g*(x+magBias)+tb, y=(tanh(u)-tanh(tb))/(g*(1-tanh(tb)^2)): evens from curvature (level-dependent, vanish at silence), EXACT unity small-signal gain, g=1.33*3.16^(drive*tapeScale) (10dB span), tb from machine asym ratio (H2 -50dB @0VU at zero), old compGain divisor dropped in v9 (was correcting the old law's normalization boost). MEASURED: DRIVE=0 -> 0.39% @0VU (33x cleaner), DRIVE=1 -> 2.8% @0VU / 18% @-6dB peaks = tape slam only when pushed. AMBER v6 — square taper gDb=drive^2*maxGainDb*0.828: 0 -> 0.49% @0VU, 0.5 -> 0.95%, 1.0 -> 10% driven-amp; whole knob useful. COMPRESS v4 — input map -12..+12 (0.5=unity). All gated; <v9/<v6/<v4 recall the old laws bit-identically. All 23 presets restamped 9/6/4 with knob values UNCHANGED (they get cleaner — user's choice). VERIFY IN ABLETON: 48k, peaks ~-6: GRIT at DRIVE 0-0.3 should now be SUBTLE COLOR (bump/EQ/flutter with barely-there sat), driving to 1.0 brings real tape compression; AMBER default warm not crunchy; old sessions unchanged. OPEN: freeze iron voice after audition; painted-metal chassis; deferred patina; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.38 — SUMMING IRON, Playbook round 3 (user chose via interactive Qs: tier switch + all-3-voices audition + full model + NEAL-presets-only). NEW: IronTx (ThetaDSP.h) — console output-transformer model: flux integrator (distortion rises as freq falls, physically correct), remanence-biased residue with constant+linear terms CANCELLED (2nd-harmonic warmth, exactly flat linear response, no DC), 40ms magnetic memory (program-dependent density), coercivity 'stick' tanh(u)-u/sqrt(1+u^2) (zero linear slope — constant-absolute odd component whose relative size GROWS as level falls = decay tails thicken), 8Hz DC blocker on the injection path (biased rectification pumped -28dB DC without it), plus per-voice HF leakage-resonance 'air' via matched shelf hinged ABOVE Nyquist (24-32k, skirt-only, needs v0.4.36 decramping). MEASURED (RICH @100Hz/-18dBFS/48k): NEVE 1.0% THD 2nd-dominant / API 0.8% 3rd-dominant / TG 0.45% polished; flat to 0.001dB; DC <= -122dB; worst alias -114dB (no ADAA/OS needed — flux is LF-weighted); C++ x-checked vs Python to 1e-7. CONTROLS: IRON tier tile (OFF/SUBTLE/RICH lit-lens cycle, compact 92px, SUMMING header row; title 130->110) + IRON VOICE selector (NEVE/API/TG) on TWEAK>MASTER at +650 (dims while tier OFF). AUDITION BUILD: all 3 voices shipped for A/B; the keeper gets frozen later (voice param may then be removed — sessions saved with a non-default voice during audition would revert to the keeper). FREEZE CONTRACT: no SUMMING bump — SUM_IRON default OFF is a true no-op (new-param clause); IronTx constants frozen from birth (changing them later = SUMMING v4). The 6 NEAL presets get SUM_IRON=1 (SUBTLE, NEVE); the 17 album presets untouched. VERIFY IN ABLETON: 48k, SUMMING ON, IRON SUBTLE->RICH on the mixbus: LF thickens and decay tails gain density with no top-octave loss; cycle NEVE/API/TG in TWEAK; IRON OFF must null against v0.4.37. OPEN: freeze iron voice after audition; painted-metal chassis; deferred patina; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.39 — THE CALIBRATION RELEASE (user: 'every setting is always too much gain and too much distortion... instead of nice subtle saturation and color'). MEASURED ROOT CAUSES (4-agent extraction + exact Python THD map): (1) GRIT's asymmetry was SIGN-SWITCHED DRIVE (pos x1.30/neg x0.70) — a slope kink at zero, which is SCALE-INVARIANT: ~13% THD at EVERY level and EVERY knob position (12.9% @-18dBFS with DRIVE AT ZERO; real tape: 0.3-1%) plus +5.1dB linear gain on positive half-cycles. GRIT literally could not be subtle. (2) AMBER's drive law was linear over the tube's FULL maxGainDb (12AX7 28dB): default 0.3 = +8.4dB into the stage, 7.5% THD on -6dBFS peaks, all useful range in the bottom sixth of the knob. (3) COMPRESS CMP_INPUT mapped -6..+18dB so the 0.5 default = +6dB hidden input gain. (Also found: TubeProfiles.headroomDb pad column was designed but never wired; CHARACTER tiers and SUMMING iron measured correctly calibrated — iron was tuned at -18 by measurement, the template.) FIXES (user chose: hardware-true zero, -18dBFS=0VU ref, presets keep values, all at once): GRIT v9 — smooth bias-shift law u=g*(x+magBias)+tb, y=(tanh(u)-tanh(tb))/(g*(1-tanh(tb)^2)): evens from curvature (level-dependent, vanish at silence), EXACT unity small-signal gain, g=1.33*3.16^(drive*tapeScale) (10dB span), tb from machine asym ratio (H2 -50dB @0VU at zero), old compGain divisor dropped in v9 (was correcting the old law's normalization boost). MEASURED: DRIVE=0 -> 0.39% @0VU (33x cleaner), DRIVE=1 -> 2.8% @0VU / 18% @-6dB peaks = tape slam only when pushed. AMBER v6 — square taper gDb=drive^2*maxGainDb*0.828: 0 -> 0.49% @0VU, 0.5 -> 0.95%, 1.0 -> 10% driven-amp; whole knob useful. COMPRESS v4 — input map -12..+12 (0.5=unity). All gated; <v9/<v6/<v4 recall the old laws bit-identically. All 23 presets restamped 9/6/4 with knob values UNCHANGED (they get cleaner — user's choice). VERIFY IN ABLETON: 48k, peaks ~-6: GRIT at DRIVE 0-0.3 should now be SUBTLE COLOR (bump/EQ/flutter with barely-there sat), driving to 1.0 brings real tape compression; AMBER default warm not crunchy; old sessions unchanged. OPEN: freeze iron voice after audition; painted-metal chassis; deferred patina; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v1.0",
-      "lastBuild": "v1.0",
-      "lastUpdated": "2026-07-18T07:41:48.595Z",
+      "currentVersion": "v12.9",
+      "lastBuild": "v12.9",
+      "lastUpdated": "2026-07-18T17:47:52.347Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T07:41:48.595Z",
+        "createdAt": "2026-07-18T17:47:52.347Z",
         "localDate": "2026-07-18",
-        "localHour": 0,
+        "localHour": 10,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v1.0."
+        "summary": "CREOSOTE updated from Control Room delta: v12.9."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T07:41:48.595Z",
+    "lastAppliedAt": "2026-07-18T17:47:52.347Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-18T16:00:11.886Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-18T17:47:52.347Z",
     "localDate": "2026-07-18",
-    "localHour": 9,
+    "localHour": 10,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 09:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
