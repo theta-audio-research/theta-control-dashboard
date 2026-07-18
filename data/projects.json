@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.105",
-      "nextAction": "v0.4.43 — MOCR CHASSIS + TEAL POWER (chassis round 2: user picked 'hmmm v3 but with the teal accent button from v2' then 'teal on' = H-B). PORTED: (1) chassis background is now MOCR grey-green painted steel (EC::chassisHi/Mid/Lo/Edge vertical enamel gradient, 72-660px band; header keeps its dark trim; the 'CHAS' EP:: aging pass rides on top unchanged); (2) module cards are enamel (EC::cardOn/cardOff in EU::cardFill, accent tint reduced 0.105->0.07, borders EC::chassisEdge); (3) module titles + LIMITER title + SUMMING title switch to dark silkscreen ink (EC::silkInk/silkInkDim) per the mockup; (4) blank plates are spare enamel panels; (5) OnOffButton purple lens RETIRED -> naval teal lens (all 10 colour stops remapped; every module/limiter/summing power button is now the teal accent). KEPT DARK deliberately (instrument glass, not painted steel): meter faces, EQ graph, LFO scope, TWEAK hatch, header band, METERING panel. Lit-lens tiles, emerald switches, McIntosh meters untouched. Mockup artifact (2 rounds) at claude.ai/code/artifact/b09e0df1-868f-48cf-a5db-18636eb07d90. VERIFY VISUALLY: whole console reads as one aged grey-green object; amber lamps carry the color; teal power buttons pop; check any remaining light-ink text sitting directly on enamel (labels inside tiles are self-contained and fine). OPEN: visual polish pass after Steve sees it; LIMITER rename.",
+      "latestVersion": "v0.4.44",
+      "nextAction": "v0.4.44 — GREEN CHASSIS REVERTED TO DARK (user on v0.4.43 full-screen: 'this looks like a 90s toy plugin now... we may have to paint it all and use layers of images'). DIAGNOSIS: the mockup showed small slices on a dark page, so the lit-lens tiles still glowed; full-screen on light enamel the backlighting DIES — a lamp only reads as light against darkness. Light ground + flat fills + no cast shadows/recesses + invisible grain at UI scale = toy. The dark chassis was the lamp-room. REVERTED: chassis gradient, enamel cards/borders, silkscreen titles, enamel blank plates — all back to the dark v0.4.42 state. KEPT: naval-teal power buttons (user liked them; they read on dark), all v0.4.42 patina, EC:: chassis palette constants (unused, retained for the photoreal work). DECIDED (interactive Qs): interim = dark; deep-dive target = FULL PHOTOREAL BY ANY MEANS (UAD/Softube territory — pre-rendered image layers/3D renders, procedural only for dynamic elements). Research workflow running: industry pipelines, JUCE raster best practices (filmstrips/retina/multi-scale), Blender-to-GUI pipeline, procedural-realism ceiling. NEXT: deep-dive report -> chosen pipeline -> photoreal rebuild bringing painted-metal back as image plates. OPEN: LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.43 — MOCR CHASSIS + TEAL POWER (chassis round 2: user picked 'hmmm v3 but with the teal accent button from v2' then 'teal on' = H-B). PORTED: (1) chassis background is now MOCR grey-green painted steel (EC::chassisHi/Mid/Lo/Edge vertical enamel gradient, 72-660px band; header keeps its dark trim; the 'CHAS' EP:: aging pass rides on top unchanged); (2) module cards are enamel (EC::cardOn/cardOff in EU::cardFill, accent tint reduced 0.105->0.07, borders EC::chassisEdge); (3) module titles + LIMITER title + SUMMING title switch to dark silkscreen ink (EC::silkInk/silkInkDim) per the mockup; (4) blank plates are spare enamel panels; (5) OnOffButton purple lens RETIRED -> naval teal lens (all 10 colour stops remapped; every module/limiter/summing power button is now the teal accent). KEPT DARK deliberately (instrument glass, not painted steel): meter faces, EQ graph, LFO scope, TWEAK hatch, header band, METERING panel. Lit-lens tiles, emerald switches, McIntosh meters untouched. Mockup artifact (2 rounds) at claude.ai/code/artifact/b09e0df1-868f-48cf-a5db-18636eb07d90. VERIFY VISUALLY: whole console reads as one aged grey-green object; amber lamps carry the color; teal power buttons pop; check any remaining light-ink text sitting directly on enamel (labels inside tiles are self-contained and fine). OPEN: visual polish pass after Steve sees it; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.44 — GREEN CHASSIS REVERTED TO DARK (user on v0.4.43 full-screen: 'this looks like a 90s toy plugin now... we may have to paint it all and use layers of images'). DIAGNOSIS: the mockup showed small slices on a dark page, so the lit-lens tiles still glowed; full-screen on light enamel the backlighting DIES — a lamp only reads as light against darkness. Light ground + flat fills + no cast shadows/recesses + invisible grain at UI scale = toy. The dark chassis was the lamp-room. REVERTED: chassis gradient, enamel cards/borders, silkscreen titles, enamel blank plates — all back to the dark v0.4.42 state. KEPT: naval-teal power buttons (user liked them; they read on dark), all v0.4.42 patina, EC:: chassis palette constants (unused, retained for the photoreal work). DECIDED (interactive Qs): interim = dark; deep-dive target = FULL PHOTOREAL BY ANY MEANS (UAD/Softube territory — pre-rendered image layers/3D renders, procedural only for dynamic elements). Research workflow running: industry pipelines, JUCE raster best practices (filmstrips/retina/multi-scale), Blender-to-GUI pipeline, procedural-realism ceiling. NEXT: deep-dive report -> chosen pipeline -> photoreal rebuild bringing painted-metal back as image plates. OPEN: LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.105",
-      "lastBuild": "v0.105",
-      "lastUpdated": "2026-07-18T19:41:34.999Z",
+      "currentVersion": "v0.4.44",
+      "lastBuild": "v0.4.44",
+      "lastUpdated": "2026-07-18T19:52:32.622Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T19:41:34.999Z",
+        "createdAt": "2026-07-18T19:52:32.622Z",
         "localDate": "2026-07-18",
         "localHour": 12,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.105."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.44."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T19:41:34.999Z",
+    "lastAppliedAt": "2026-07-18T19:52:32.622Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-18T19:41:34.999Z",
+    "createdAt": "2026-07-18T19:52:32.622Z",
     "localDate": "2026-07-18",
     "localHour": 12,
     "timezone": "America/Los_Angeles",
