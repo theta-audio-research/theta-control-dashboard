@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.43",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.43 — MOCR CHASSIS + TEAL POWER (chassis round 2: user picked 'hmmm v3 but with the teal accent button from v2' then 'teal on' = H-B). PORTED: (1) chassis background is now MOCR grey-green painted steel (EC::chassisHi/Mid/Lo/Edge vertical enamel gradient, 72-660px band; header keeps its dark trim; the 'CHAS' EP:: aging pass rides on top unchanged); (2) module cards are enamel (EC::cardOn/cardOff in EU::cardFill, accent tint reduced 0.105->0.07, borders EC::chassisEdge); (3) module titles + LIMITER title + SUMMING title switch to dark silkscreen ink (EC::silkInk/silkInkDim) per the mockup; (4) blank plates are spare enamel panels; (5) OnOffButton purple lens RETIRED -> naval teal lens (all 10 colour stops remapped; every module/limiter/summing power button is now the teal accent). KEPT DARK deliberately (instrument glass, not painted steel): meter faces, EQ graph, LFO scope, TWEAK hatch, header band, METERING panel. Lit-lens tiles, emerald switches, McIntosh meters untouched. Mockup artifact (2 rounds) at claude.ai/code/artifact/b09e0df1-868f-48cf-a5db-18636eb07d90. VERIFY VISUALLY: whole console reads as one aged grey-green object; amber lamps carry the color; teal power buttons pop; check any remaining light-ink text sitting directly on enamel (labels inside tiles are self-contained and fine). OPEN: visual polish pass after Steve sees it; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.43 — MOCR CHASSIS + TEAL POWER (chassis round 2: user picked 'hmmm v3 but with the teal accent button from v2' then 'teal on' = H-B). PORTED: (1) chassis background is now MOCR grey-green painted steel (EC::chassisHi/Mid/Lo/Edge vertical enamel gradient, 72-660px band; header keeps its dark trim; the 'CHAS' EP:: aging pass rides on top unchanged); (2) module cards are enamel (EC::cardOn/cardOff in EU::cardFill, accent tint reduced 0.105->0.07, borders EC::chassisEdge); (3) module titles + LIMITER title + SUMMING title switch to dark silkscreen ink (EC::silkInk/silkInkDim) per the mockup; (4) blank plates are spare enamel panels; (5) OnOffButton purple lens RETIRED -> naval teal lens (all 10 colour stops remapped; every module/limiter/summing power button is now the teal accent). KEPT DARK deliberately (instrument glass, not painted steel): meter faces, EQ graph, LFO scope, TWEAK hatch, header band, METERING panel. Lit-lens tiles, emerald switches, McIntosh meters untouched. Mockup artifact (2 rounds) at claude.ai/code/artifact/b09e0df1-868f-48cf-a5db-18636eb07d90. VERIFY VISUALLY: whole console reads as one aged grey-green object; amber lamps carry the color; teal power buttons pop; check any remaining light-ink text sitting directly on enamel (labels inside tiles are self-contained and fine). OPEN: visual polish pass after Steve sees it; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.43."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
