@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.44",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.44 — GREEN CHASSIS REVERTED TO DARK (user on v0.4.43 full-screen: 'this looks like a 90s toy plugin now... we may have to paint it all and use layers of images'). DIAGNOSIS: the mockup showed small slices on a dark page, so the lit-lens tiles still glowed; full-screen on light enamel the backlighting DIES — a lamp only reads as light against darkness. Light ground + flat fills + no cast shadows/recesses + invisible grain at UI scale = toy. The dark chassis was the lamp-room. REVERTED: chassis gradient, enamel cards/borders, silkscreen titles, enamel blank plates — all back to the dark v0.4.42 state. KEPT: naval-teal power buttons (user liked them; they read on dark), all v0.4.42 patina, EC:: chassis palette constants (unused, retained for the photoreal work). DECIDED (interactive Qs): interim = dark; deep-dive target = FULL PHOTOREAL BY ANY MEANS (UAD/Softube territory — pre-rendered image layers/3D renders, procedural only for dynamic elements). Research workflow running: industry pipelines, JUCE raster best practices (filmstrips/retina/multi-scale), Blender-to-GUI pipeline, procedural-realism ceiling. NEXT: deep-dive report -> chosen pipeline -> photoreal rebuild bringing painted-metal back as image plates. OPEN: LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.44 — GREEN CHASSIS REVERTED TO DARK (user on v0.4.43 full-screen: 'this looks like a 90s toy plugin now... we may have to paint it all and use layers of images'). DIAGNOSIS: the mockup showed small slices on a dark page, so the lit-lens tiles still glowed; full-screen on light enamel the backlighting DIES — a lamp only reads as light against darkness. Light ground + flat fills + no cast shadows/recesses + invisible grain at UI scale = toy. The dark chassis was the lamp-room. REVERTED: chassis gradient, enamel cards/borders, silkscreen titles, enamel blank plates — all back to the dark v0.4.42 state. KEPT: naval-teal power buttons (user liked them; they read on dark), all v0.4.42 patina, EC:: chassis palette constants (unused, retained for the photoreal work). DECIDED (interactive Qs): interim = dark; deep-dive target = FULL PHOTOREAL BY ANY MEANS (UAD/Softube territory — pre-rendered image layers/3D renders, procedural only for dynamic elements). Research workflow running: industry pipelines, JUCE raster best practices (filmstrips/retina/multi-scale), Blender-to-GUI pipeline, procedural-realism ceiling. NEXT: deep-dive report -> chosen pipeline -> photoreal rebuild bringing painted-metal back as image plates. OPEN: LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.44."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
