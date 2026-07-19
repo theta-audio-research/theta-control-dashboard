@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.5",
-      "nextAction": "v0.4.45 — CHASSIS THEME TOGGLE PREP + PHASE A CLOSED (user picked HYBRID R-D navy-in-green, wants a toggle to R-B reactor-green; then Phase B). PHASE A (photoreal pipeline PROVEN): Blender installed; headless bpy scene (scratchpad creosote_scene.py, backed up in CONTEXT_BACKUPS .../photoreal-phase-a/) builds a GRIT-like panel under the research rig (ONE warm shadow-casting key, cool no-shadow fill, dim warm world, AgX, ortho camera, Cycles); 4 comps rendered (navy/green/cream/HYBRID) — the SAME grey-green that failed flat in CSS reads as real painted steel under baked light, proving the v0.4.43 postmortem. Renders in the chassis artifact (label hybrid-confirmed). Scene gotcha: primitive_cube_add(size=1) spans +/-0.5 — scale by FULL extents. NEW IN BUILD: UI_THEME param (0=HYBRID default, 1=GREEN; UI-only, never read by DSP), CHASSIS toggle on TWEAK>MASTER at +745 (HYBRID/GREEN cycle), interim preview tints the dark chassis toward deep green-grey on GREEN (real plates land in Phase B), editor timer watches the param for repaint. PHASE B (next): extend the bpy scene to ALL panels using the layout-coordinate extraction (agent running), bake plate sets for BOTH themes at @1x/@2x, button-state renders + tile lit-strips, aging pass baked in, JUCE integration (ImageCache + ScaledImage + setOpaque plate components, procedural text/glow/needles on top, theme resolver keyed on UI_THEME). OPEN: LIMITER rename.",
+      "latestVersion": "v1.5",
+      "nextAction": "v0.4.46 — PHOTOREAL PLATES SHIPPED (Phase B integration). The static console is now four pre-rendered Blender plates embedded in BinaryData (Resources/Plates: hybrid/green x 1x/2x, baked by Tools/photoreal/creosote_console_scene.py --mode plates with exact-fit ortho camera 968x660, real plugin fonts (Montserrat-Bold silkscreen), aging pass in the enamel materials (mottle + roughness variation), tile WELLS only (live tiles draw bezel+cap on top — zero alignment risk), titles/brand/screws/blank plates baked, all dynamic hardware (power/emerald/glass/tabs/auto) excluded from plates). EPh::kPlates flag in CreosoteTheme.h gates the procedural painting: paintContent draws the theme+scale-selected plate via ImageCache (UI_THEME picks hybrid/green; physicalPixelScaleFactor>=1.5 picks 2x), EU::paintModuleShell keeps only the accent rail, ModulePanel/LimiterPanel/MeteringPanel skip card+patina+title (silkscreen doesn't dim — lamps carry power state now), SUMMING titleLabel hidden. Legacy painting intact behind the flag (kPlates=false reverts everything). VERIFY VISUALLY IN ABLETON: console reads as photographed hardware; tiles/buttons/meters live on top; TWEAK>MASTER CHASSIS toggles HYBRID/GREEN plates live; check tile/well alignment at all 3 UI scales and both themes; look for double-drawn or missing chrome. REMAINING PHASE B POLISH: worn-button/tab styling vs plate, header button wells?, VU meter surrounds, deeper aging (chips/scuffs), possible baked bezels for tiles later. OPEN: LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.45 — CHASSIS THEME TOGGLE PREP + PHASE A CLOSED (user picked HYBRID R-D navy-in-green, wants a toggle to R-B reactor-green; then Phase B). PHASE A (photoreal pipeline PROVEN): Blender installed; headless bpy scene (scratchpad creosote_scene.py, backed up in CONTEXT_BACKUPS .../photoreal-phase-a/) builds a GRIT-like panel under the research rig (ONE warm shadow-casting key, cool no-shadow fill, dim warm world, AgX, ortho camera, Cycles); 4 comps rendered (navy/green/cream/HYBRID) — the SAME grey-green that failed flat in CSS reads as real painted steel under baked light, proving the v0.4.43 postmortem. Renders in the chassis artifact (label hybrid-confirmed). Scene gotcha: primitive_cube_add(size=1) spans +/-0.5 — scale by FULL extents. NEW IN BUILD: UI_THEME param (0=HYBRID default, 1=GREEN; UI-only, never read by DSP), CHASSIS toggle on TWEAK>MASTER at +745 (HYBRID/GREEN cycle), interim preview tints the dark chassis toward deep green-grey on GREEN (real plates land in Phase B), editor timer watches the param for repaint. PHASE B (next): extend the bpy scene to ALL panels using the layout-coordinate extraction (agent running), bake plate sets for BOTH themes at @1x/@2x, button-state renders + tile lit-strips, aging pass baked in, JUCE integration (ImageCache + ScaledImage + setOpaque plate components, procedural text/glow/needles on top, theme resolver keyed on UI_THEME). OPEN: LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.46 — PHOTOREAL PLATES SHIPPED (Phase B integration). The static console is now four pre-rendered Blender plates embedded in BinaryData (Resources/Plates: hybrid/green x 1x/2x, baked by Tools/photoreal/creosote_console_scene.py --mode plates with exact-fit ortho camera 968x660, real plugin fonts (Montserrat-Bold silkscreen), aging pass in the enamel materials (mottle + roughness variation), tile WELLS only (live tiles draw bezel+cap on top — zero alignment risk), titles/brand/screws/blank plates baked, all dynamic hardware (power/emerald/glass/tabs/auto) excluded from plates). EPh::kPlates flag in CreosoteTheme.h gates the procedural painting: paintContent draws the theme+scale-selected plate via ImageCache (UI_THEME picks hybrid/green; physicalPixelScaleFactor>=1.5 picks 2x), EU::paintModuleShell keeps only the accent rail, ModulePanel/LimiterPanel/MeteringPanel skip card+patina+title (silkscreen doesn't dim — lamps carry power state now), SUMMING titleLabel hidden. Legacy painting intact behind the flag (kPlates=false reverts everything). VERIFY VISUALLY IN ABLETON: console reads as photographed hardware; tiles/buttons/meters live on top; TWEAK>MASTER CHASSIS toggles HYBRID/GREEN plates live; check tile/well alignment at all 3 UI scales and both themes; look for double-drawn or missing chrome. REMAINING PHASE B POLISH: worn-button/tab styling vs plate, header button wells?, VU meter surrounds, deeper aging (chips/scuffs), possible baked bezels for tiles later. OPEN: LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.5",
-      "lastBuild": "v0.5",
-      "lastUpdated": "2026-07-19T00:34:54.318Z",
+      "currentVersion": "v1.5",
+      "lastBuild": "v1.5",
+      "lastUpdated": "2026-07-19T00:41:05.954Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-19T00:34:54.318Z",
+        "createdAt": "2026-07-19T00:41:05.954Z",
         "localDate": "2026-07-18",
         "localHour": 17,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.5."
+        "summary": "CREOSOTE updated from Control Room delta: v1.5."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-19T00:34:54.318Z",
+    "lastAppliedAt": "2026-07-19T00:41:05.954Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-19T00:34:54.318Z",
+    "createdAt": "2026-07-19T00:41:05.954Z",
     "localDate": "2026-07-18",
     "localHour": 17,
     "timezone": "America/Los_Angeles",
