@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.49",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.49 — ACCENT RAILS RETIRED ON PLATES (user on the v0.4.48 fusion round: 'much better. lose the colored columns in the modules, they dont make sense now'). The per-module colored rail (blue COMPRESS / gold GRIT / coral AMBER) was the last flat procedural stripe over the baked steel — gated off under EPh::kPlates (legacy non-plate mode keeps it). Module color identity now carries via lamps + per-module lens tint (accLean), as on real consoles. No rebake needed. VERIFY: module left edges clean in both themes. OPEN: further polish per Steve; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.49 — ACCENT RAILS RETIRED ON PLATES (user on the v0.4.48 fusion round: 'much better. lose the colored columns in the modules, they dont make sense now'). The per-module colored rail (blue COMPRESS / gold GRIT / coral AMBER) was the last flat procedural stripe over the baked steel — gated off under EPh::kPlates (legacy non-plate mode keeps it). Module color identity now carries via lamps + per-module lens tint (accLean), as on real consoles. No rebake needed. VERIFY: module left edges clean in both themes. OPEN: further polish per Steve; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.49."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
