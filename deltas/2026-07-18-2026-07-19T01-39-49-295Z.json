@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.50",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.50 — LENS LEGIBILITY (user: left-aligned looks good BUT the lens shading makes text hard to read). KEPT left alignment; fixed the LIGHT: the lit-lens lamp hotspot sat at 36-48% across the cap so the left text zone fell in the dim ramp — lamp now biased left (28-38%), thrown wider (radius w*1.05 -> w*1.30), bright core stretched (gradient stop 0.22 -> 0.28). Labels switched to DejaVu BOLD (silkBold) at tile sizes; selector-tile text gained the missing 12px inset (left-justified labels were starting ON the cap edge shadow); IRON tile aligned to match. Live-layer only — no plate rebake. VERIFY: labels/values readable on every tile at a glance, lamp still reads aged/off-centre (not clinical). OPEN: further polish; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.50 — LENS LEGIBILITY (user: left-aligned looks good BUT the lens shading makes text hard to read). KEPT left alignment; fixed the LIGHT: the lit-lens lamp hotspot sat at 36-48% across the cap so the left text zone fell in the dim ramp — lamp now biased left (28-38%), thrown wider (radius w*1.05 -> w*1.30), bright core stretched (gradient stop 0.22 -> 0.28). Labels switched to DejaVu BOLD (silkBold) at tile sizes; selector-tile text gained the missing 12px inset (left-justified labels were starting ON the cap edge shadow); IRON tile aligned to match. Live-layer only — no plate rebake. VERIFY: labels/values readable on every tile at a glance, lamp still reads aged/off-centre (not clinical). OPEN: further polish; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.50."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
