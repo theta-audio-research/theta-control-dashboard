@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.49",
-      "nextAction": "v0.4.49 — ACCENT RAILS RETIRED ON PLATES (user on the v0.4.48 fusion round: 'much better. lose the colored columns in the modules, they dont make sense now'). The per-module colored rail (blue COMPRESS / gold GRIT / coral AMBER) was the last flat procedural stripe over the baked steel — gated off under EPh::kPlates (legacy non-plate mode keeps it). Module color identity now carries via lamps + per-module lens tint (accLean), as on real consoles. No rebake needed. VERIFY: module left edges clean in both themes. OPEN: further polish per Steve; LIMITER rename.",
+      "latestVersion": "v1.30",
+      "nextAction": "v0.4.50 — LENS LEGIBILITY (user: left-aligned looks good BUT the lens shading makes text hard to read). KEPT left alignment; fixed the LIGHT: the lit-lens lamp hotspot sat at 36-48% across the cap so the left text zone fell in the dim ramp — lamp now biased left (28-38%), thrown wider (radius w*1.05 -> w*1.30), bright core stretched (gradient stop 0.22 -> 0.28). Labels switched to DejaVu BOLD (silkBold) at tile sizes; selector-tile text gained the missing 12px inset (left-justified labels were starting ON the cap edge shadow); IRON tile aligned to match. Live-layer only — no plate rebake. VERIFY: labels/values readable on every tile at a glance, lamp still reads aged/off-centre (not clinical). OPEN: further polish; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.49 — ACCENT RAILS RETIRED ON PLATES (user on the v0.4.48 fusion round: 'much better. lose the colored columns in the modules, they dont make sense now'). The per-module colored rail (blue COMPRESS / gold GRIT / coral AMBER) was the last flat procedural stripe over the baked steel — gated off under EPh::kPlates (legacy non-plate mode keeps it). Module color identity now carries via lamps + per-module lens tint (accLean), as on real consoles. No rebake needed. VERIFY: module left edges clean in both themes. OPEN: further polish per Steve; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.50 — LENS LEGIBILITY (user: left-aligned looks good BUT the lens shading makes text hard to read). KEPT left alignment; fixed the LIGHT: the lit-lens lamp hotspot sat at 36-48% across the cap so the left text zone fell in the dim ramp — lamp now biased left (28-38%), thrown wider (radius w*1.05 -> w*1.30), bright core stretched (gradient stop 0.22 -> 0.28). Labels switched to DejaVu BOLD (silkBold) at tile sizes; selector-tile text gained the missing 12px inset (left-justified labels were starting ON the cap edge shadow); IRON tile aligned to match. Live-layer only — no plate rebake. VERIFY: labels/values readable on every tile at a glance, lamp still reads aged/off-centre (not clinical). OPEN: further polish; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.49",
-      "lastBuild": "v0.4.49",
-      "lastUpdated": "2026-07-19T01:31:17.468Z",
+      "currentVersion": "v1.30",
+      "lastBuild": "v1.30",
+      "lastUpdated": "2026-07-19T01:39:48.622Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-19T01:31:17.468Z",
+        "createdAt": "2026-07-19T01:39:48.622Z",
         "localDate": "2026-07-18",
         "localHour": 18,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.49."
+        "summary": "CREOSOTE updated from Control Room delta: v1.30."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-19T01:31:17.468Z",
+    "lastAppliedAt": "2026-07-19T01:39:48.622Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-19T01:31:17.468Z",
+    "createdAt": "2026-07-19T01:39:48.622Z",
     "localDate": "2026-07-18",
     "localHour": 18,
     "timezone": "America/Los_Angeles",
