@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v1.30",
-      "nextAction": "v0.4.50 — LENS LEGIBILITY (user: left-aligned looks good BUT the lens shading makes text hard to read). KEPT left alignment; fixed the LIGHT: the lit-lens lamp hotspot sat at 36-48% across the cap so the left text zone fell in the dim ramp — lamp now biased left (28-38%), thrown wider (radius w*1.05 -> w*1.30), bright core stretched (gradient stop 0.22 -> 0.28). Labels switched to DejaVu BOLD (silkBold) at tile sizes; selector-tile text gained the missing 12px inset (left-justified labels were starting ON the cap edge shadow); IRON tile aligned to match. Live-layer only — no plate rebake. VERIFY: labels/values readable on every tile at a glance, lamp still reads aged/off-centre (not clinical). OPEN: further polish; LIMITER rename.",
+      "latestVersion": "v2.2",
+      "nextAction": "v0.4.51 — OUTPUT EQ: MACHINE-TOOL CHART PLATE (user's reference: vintage lathe feed-rate nomogram — cream plate, blue graticule, red curves; picks via mockups: EQ-B pre+post display, K3 CREAM knob). SHIPPED: 4 EQ plates baked (Resources/Plates/eq_hybrid|green_1x|2x from creosote_eq_scene.py --mode plates — exact OutputEqPanel geometry 732x210, cream chart at the graph rect (6,34,494,170), graticule at the graph's OWN log-20-20k / +/-18dB mapping so baked lines land under live curves, DejaVu blue labels, screws). OutputEqPanel: panel bg -> theme+scale-selected plate (UI_THEME aware); EqGraph under kPlates skips bg/grime/grid/labels and draws NOMOGRAM INK — blue dashed PRE (staticPts), red POST 2.2px (livePts), dynamic fill red 0.14 (was purple), band nodes = numbered red silkscreen discs with cream numerals (selection = larger disc + dark ring); EqInspectorKnobLAF gained the K3 CREAM path (cream skirt+cap, black pointer, disabled dims; cyan renderer kept for legacy); inspector labels silk cream DejaVu Bold. All legacy painting intact behind kPlates. VERIFY: EQ tab reads as the chart plate; drag bands (red discs), watch dynamics duck the red curve over the blue dashed pre; knobs cream with black pointers; both themes. OPEN: header buttons/tabs polish vs plate; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.50 — LENS LEGIBILITY (user: left-aligned looks good BUT the lens shading makes text hard to read). KEPT left alignment; fixed the LIGHT: the lit-lens lamp hotspot sat at 36-48% across the cap so the left text zone fell in the dim ramp — lamp now biased left (28-38%), thrown wider (radius w*1.05 -> w*1.30), bright core stretched (gradient stop 0.22 -> 0.28). Labels switched to DejaVu BOLD (silkBold) at tile sizes; selector-tile text gained the missing 12px inset (left-justified labels were starting ON the cap edge shadow); IRON tile aligned to match. Live-layer only — no plate rebake. VERIFY: labels/values readable on every tile at a glance, lamp still reads aged/off-centre (not clinical). OPEN: further polish; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.51 — OUTPUT EQ: MACHINE-TOOL CHART PLATE (user's reference: vintage lathe feed-rate nomogram — cream plate, blue graticule, red curves; picks via mockups: EQ-B pre+post display, K3 CREAM knob). SHIPPED: 4 EQ plates baked (Resources/Plates/eq_hybrid|green_1x|2x from creosote_eq_scene.py --mode plates — exact OutputEqPanel geometry 732x210, cream chart at the graph rect (6,34,494,170), graticule at the graph's OWN log-20-20k / +/-18dB mapping so baked lines land under live curves, DejaVu blue labels, screws). OutputEqPanel: panel bg -> theme+scale-selected plate (UI_THEME aware); EqGraph under kPlates skips bg/grime/grid/labels and draws NOMOGRAM INK — blue dashed PRE (staticPts), red POST 2.2px (livePts), dynamic fill red 0.14 (was purple), band nodes = numbered red silkscreen discs with cream numerals (selection = larger disc + dark ring); EqInspectorKnobLAF gained the K3 CREAM path (cream skirt+cap, black pointer, disabled dims; cyan renderer kept for legacy); inspector labels silk cream DejaVu Bold. All legacy painting intact behind kPlates. VERIFY: EQ tab reads as the chart plate; drag bands (red discs), watch dynamics duck the red curve over the blue dashed pre; knobs cream with black pointers; both themes. OPEN: header buttons/tabs polish vs plate; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v1.30",
-      "lastBuild": "v1.30",
-      "lastUpdated": "2026-07-19T01:39:48.622Z",
+      "currentVersion": "v2.2",
+      "lastBuild": "v2.2",
+      "lastUpdated": "2026-07-19T02:02:12.380Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-19T01:39:48.622Z",
+        "createdAt": "2026-07-19T02:02:12.380Z",
         "localDate": "2026-07-18",
-        "localHour": 18,
+        "localHour": 19,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v1.30."
+        "summary": "CREOSOTE updated from Control Room delta: v2.2."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-19T01:39:48.622Z",
+    "lastAppliedAt": "2026-07-19T02:02:12.380Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-19T01:39:48.622Z",
+    "createdAt": "2026-07-19T02:02:12.380Z",
     "localDate": "2026-07-18",
-    "localHour": 18,
+    "localHour": 19,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
