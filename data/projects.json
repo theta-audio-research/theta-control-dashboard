@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v1.5",
-      "nextAction": "v0.4.46 — PHOTOREAL PLATES SHIPPED (Phase B integration). The static console is now four pre-rendered Blender plates embedded in BinaryData (Resources/Plates: hybrid/green x 1x/2x, baked by Tools/photoreal/creosote_console_scene.py --mode plates with exact-fit ortho camera 968x660, real plugin fonts (Montserrat-Bold silkscreen), aging pass in the enamel materials (mottle + roughness variation), tile WELLS only (live tiles draw bezel+cap on top — zero alignment risk), titles/brand/screws/blank plates baked, all dynamic hardware (power/emerald/glass/tabs/auto) excluded from plates). EPh::kPlates flag in CreosoteTheme.h gates the procedural painting: paintContent draws the theme+scale-selected plate via ImageCache (UI_THEME picks hybrid/green; physicalPixelScaleFactor>=1.5 picks 2x), EU::paintModuleShell keeps only the accent rail, ModulePanel/LimiterPanel/MeteringPanel skip card+patina+title (silkscreen doesn't dim — lamps carry power state now), SUMMING titleLabel hidden. Legacy painting intact behind the flag (kPlates=false reverts everything). VERIFY VISUALLY IN ABLETON: console reads as photographed hardware; tiles/buttons/meters live on top; TWEAK>MASTER CHASSIS toggles HYBRID/GREEN plates live; check tile/well alignment at all 3 UI scales and both themes; look for double-drawn or missing chrome. REMAINING PHASE B POLISH: worn-button/tab styling vs plate, header button wells?, VU meter surrounds, deeper aging (chips/scuffs), possible baked bezels for tiles later. OPEN: LIMITER rename.",
+      "latestVersion": "v0.4.47",
+      "nextAction": "v0.4.47 — PLATE POLISH ROUND 1 (user on v0.4.46: doubled SUMMING AMP title + 'I prefer the font you chose in the mockup — what is it?'). ANSWER: the mockups fell back to Blender's default text font (Bfont), a DEJAVU SANS derivative — the plugin fonts hadn't been wired into the scene yet when the comps rendered. FIXES: (1) doubled title — the v0.4.46 titleLabel.setVisible(!kPlates) ran BEFORE addAndMakeVisible re-showed it; now hidden after. (2) DejaVu Sans + Bold embedded (Bitstream Vera license file included, Resources/Fonts/DejaVu-LICENSE.txt) as EF::silk/silkBold — ALL lens text (ParamSlider tile labels+values, drawC1SelectorText selector tiles, SummingAmpPanel IronTile) switched from JetBrains Mono to EF::silk to match the renders; instrumentation numerics (meters, readouts) stay mono. (3) Plates rebaked with DejaVu silkscreen (F_TITLE=DejaVuSans-Bold, F_MONO=DejaVuSans in the scene) so baked titles/brand and live lens text share one family. VERIFY: no doubled titles anywhere; tile text reads like the mockups; both themes still swap clean. OPEN: further plate polish per Steve's eyes; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.46 — PHOTOREAL PLATES SHIPPED (Phase B integration). The static console is now four pre-rendered Blender plates embedded in BinaryData (Resources/Plates: hybrid/green x 1x/2x, baked by Tools/photoreal/creosote_console_scene.py --mode plates with exact-fit ortho camera 968x660, real plugin fonts (Montserrat-Bold silkscreen), aging pass in the enamel materials (mottle + roughness variation), tile WELLS only (live tiles draw bezel+cap on top — zero alignment risk), titles/brand/screws/blank plates baked, all dynamic hardware (power/emerald/glass/tabs/auto) excluded from plates). EPh::kPlates flag in CreosoteTheme.h gates the procedural painting: paintContent draws the theme+scale-selected plate via ImageCache (UI_THEME picks hybrid/green; physicalPixelScaleFactor>=1.5 picks 2x), EU::paintModuleShell keeps only the accent rail, ModulePanel/LimiterPanel/MeteringPanel skip card+patina+title (silkscreen doesn't dim — lamps carry power state now), SUMMING titleLabel hidden. Legacy painting intact behind the flag (kPlates=false reverts everything). VERIFY VISUALLY IN ABLETON: console reads as photographed hardware; tiles/buttons/meters live on top; TWEAK>MASTER CHASSIS toggles HYBRID/GREEN plates live; check tile/well alignment at all 3 UI scales and both themes; look for double-drawn or missing chrome. REMAINING PHASE B POLISH: worn-button/tab styling vs plate, header button wells?, VU meter surrounds, deeper aging (chips/scuffs), possible baked bezels for tiles later. OPEN: LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.47 — PLATE POLISH ROUND 1 (user on v0.4.46: doubled SUMMING AMP title + 'I prefer the font you chose in the mockup — what is it?'). ANSWER: the mockups fell back to Blender's default text font (Bfont), a DEJAVU SANS derivative — the plugin fonts hadn't been wired into the scene yet when the comps rendered. FIXES: (1) doubled title — the v0.4.46 titleLabel.setVisible(!kPlates) ran BEFORE addAndMakeVisible re-showed it; now hidden after. (2) DejaVu Sans + Bold embedded (Bitstream Vera license file included, Resources/Fonts/DejaVu-LICENSE.txt) as EF::silk/silkBold — ALL lens text (ParamSlider tile labels+values, drawC1SelectorText selector tiles, SummingAmpPanel IronTile) switched from JetBrains Mono to EF::silk to match the renders; instrumentation numerics (meters, readouts) stay mono. (3) Plates rebaked with DejaVu silkscreen (F_TITLE=DejaVuSans-Bold, F_MONO=DejaVuSans in the scene) so baked titles/brand and live lens text share one family. VERIFY: no doubled titles anywhere; tile text reads like the mockups; both themes still swap clean. OPEN: further plate polish per Steve's eyes; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v1.5",
-      "lastBuild": "v1.5",
-      "lastUpdated": "2026-07-19T00:41:05.954Z",
+      "currentVersion": "v0.4.47",
+      "lastBuild": "v0.4.47",
+      "lastUpdated": "2026-07-19T00:49:43.311Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-19T00:41:05.954Z",
+        "createdAt": "2026-07-19T00:49:43.311Z",
         "localDate": "2026-07-18",
         "localHour": 17,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v1.5."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.47."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-19T00:41:05.954Z",
+    "lastAppliedAt": "2026-07-19T00:49:43.311Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-19T00:41:05.954Z",
+    "createdAt": "2026-07-19T00:49:43.311Z",
     "localDate": "2026-07-18",
     "localHour": 17,
     "timezone": "America/Los_Angeles",
