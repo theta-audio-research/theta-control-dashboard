@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-07-18",
+  "lastUpdated": "2026-07-19",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -905,7 +905,7 @@
       "shipReadiness": 10,
       "readinessLabel": "Just begun",
       "readinessClass": "early",
-      "lastTouched": "2026-07-18",
+      "lastTouched": "2026-07-19",
       "testTickets": [
         {
           "id": "creosote-eq-summing-alignment",
@@ -1496,13 +1496,13 @@
       },
       "currentVersion": "v632.5",
       "lastBuild": "v632.5",
-      "lastUpdated": "2026-07-19T06:58:44.435Z",
+      "lastUpdated": "2026-07-19T07:00:40.898Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-19T06:58:44.435Z",
-        "localDate": "2026-07-18",
-        "localHour": 23,
+        "createdAt": "2026-07-19T07:00:40.898Z",
+        "localDate": "2026-07-19",
+        "localHour": 0,
         "timezone": "America/Los_Angeles",
         "summary": "CREOSOTE updated from Control Room delta: v632.5."
       }
@@ -5830,14 +5830,14 @@
     }
   ],
   "lastControlRoomSweep": {
-    "date": "2026-07-18",
+    "date": "2026-07-19",
     "type": "build_hook_delta",
     "source": "api",
     "changedProjects": [
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-19T06:58:44.435Z",
+    "lastAppliedAt": "2026-07-19T07:00:40.898Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,9 +5875,9 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-19T06:58:44.435Z",
-    "localDate": "2026-07-18",
-    "localHour": 23,
+    "createdAt": "2026-07-19T07:00:40.898Z",
+    "localDate": "2026-07-19",
+    "localHour": 0,
     "timezone": "America/Los_Angeles",
     "summary": "1 project delta applied: CREOSOTE."
   }
