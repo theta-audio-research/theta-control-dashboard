@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v0.4.44",
-      "nextAction": "v0.4.44 — GREEN CHASSIS REVERTED TO DARK (user on v0.4.43 full-screen: 'this looks like a 90s toy plugin now... we may have to paint it all and use layers of images'). DIAGNOSIS: the mockup showed small slices on a dark page, so the lit-lens tiles still glowed; full-screen on light enamel the backlighting DIES — a lamp only reads as light against darkness. Light ground + flat fills + no cast shadows/recesses + invisible grain at UI scale = toy. The dark chassis was the lamp-room. REVERTED: chassis gradient, enamel cards/borders, silkscreen titles, enamel blank plates — all back to the dark v0.4.42 state. KEPT: naval-teal power buttons (user liked them; they read on dark), all v0.4.42 patina, EC:: chassis palette constants (unused, retained for the photoreal work). DECIDED (interactive Qs): interim = dark; deep-dive target = FULL PHOTOREAL BY ANY MEANS (UAD/Softube territory — pre-rendered image layers/3D renders, procedural only for dynamic elements). Research workflow running: industry pipelines, JUCE raster best practices (filmstrips/retina/multi-scale), Blender-to-GUI pipeline, procedural-realism ceiling. NEXT: deep-dive report -> chosen pipeline -> photoreal rebuild bringing painted-metal back as image plates. OPEN: LIMITER rename.",
+      "latestVersion": "v0.5",
+      "nextAction": "v0.4.45 — CHASSIS THEME TOGGLE PREP + PHASE A CLOSED (user picked HYBRID R-D navy-in-green, wants a toggle to R-B reactor-green; then Phase B). PHASE A (photoreal pipeline PROVEN): Blender installed; headless bpy scene (scratchpad creosote_scene.py, backed up in CONTEXT_BACKUPS .../photoreal-phase-a/) builds a GRIT-like panel under the research rig (ONE warm shadow-casting key, cool no-shadow fill, dim warm world, AgX, ortho camera, Cycles); 4 comps rendered (navy/green/cream/HYBRID) — the SAME grey-green that failed flat in CSS reads as real painted steel under baked light, proving the v0.4.43 postmortem. Renders in the chassis artifact (label hybrid-confirmed). Scene gotcha: primitive_cube_add(size=1) spans +/-0.5 — scale by FULL extents. NEW IN BUILD: UI_THEME param (0=HYBRID default, 1=GREEN; UI-only, never read by DSP), CHASSIS toggle on TWEAK>MASTER at +745 (HYBRID/GREEN cycle), interim preview tints the dark chassis toward deep green-grey on GREEN (real plates land in Phase B), editor timer watches the param for repaint. PHASE B (next): extend the bpy scene to ALL panels using the layout-coordinate extraction (agent running), bake plate sets for BOTH themes at @1x/@2x, button-state renders + tile lit-strips, aging pass baked in, JUCE integration (ImageCache + ScaledImage + setOpaque plate components, procedural text/glow/needles on top, theme resolver keyed on UI_THEME). OPEN: LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.44 — GREEN CHASSIS REVERTED TO DARK (user on v0.4.43 full-screen: 'this looks like a 90s toy plugin now... we may have to paint it all and use layers of images'). DIAGNOSIS: the mockup showed small slices on a dark page, so the lit-lens tiles still glowed; full-screen on light enamel the backlighting DIES — a lamp only reads as light against darkness. Light ground + flat fills + no cast shadows/recesses + invisible grain at UI scale = toy. The dark chassis was the lamp-room. REVERTED: chassis gradient, enamel cards/borders, silkscreen titles, enamel blank plates — all back to the dark v0.4.42 state. KEPT: naval-teal power buttons (user liked them; they read on dark), all v0.4.42 patina, EC:: chassis palette constants (unused, retained for the photoreal work). DECIDED (interactive Qs): interim = dark; deep-dive target = FULL PHOTOREAL BY ANY MEANS (UAD/Softube territory — pre-rendered image layers/3D renders, procedural only for dynamic elements). Research workflow running: industry pipelines, JUCE raster best practices (filmstrips/retina/multi-scale), Blender-to-GUI pipeline, procedural-realism ceiling. NEXT: deep-dive report -> chosen pipeline -> photoreal rebuild bringing painted-metal back as image plates. OPEN: LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.45 — CHASSIS THEME TOGGLE PREP + PHASE A CLOSED (user picked HYBRID R-D navy-in-green, wants a toggle to R-B reactor-green; then Phase B). PHASE A (photoreal pipeline PROVEN): Blender installed; headless bpy scene (scratchpad creosote_scene.py, backed up in CONTEXT_BACKUPS .../photoreal-phase-a/) builds a GRIT-like panel under the research rig (ONE warm shadow-casting key, cool no-shadow fill, dim warm world, AgX, ortho camera, Cycles); 4 comps rendered (navy/green/cream/HYBRID) — the SAME grey-green that failed flat in CSS reads as real painted steel under baked light, proving the v0.4.43 postmortem. Renders in the chassis artifact (label hybrid-confirmed). Scene gotcha: primitive_cube_add(size=1) spans +/-0.5 — scale by FULL extents. NEW IN BUILD: UI_THEME param (0=HYBRID default, 1=GREEN; UI-only, never read by DSP), CHASSIS toggle on TWEAK>MASTER at +745 (HYBRID/GREEN cycle), interim preview tints the dark chassis toward deep green-grey on GREEN (real plates land in Phase B), editor timer watches the param for repaint. PHASE B (next): extend the bpy scene to ALL panels using the layout-coordinate extraction (agent running), bake plate sets for BOTH themes at @1x/@2x, button-state renders + tile lit-strips, aging pass baked in, JUCE integration (ImageCache + ScaledImage + setOpaque plate components, procedural text/glow/needles on top, theme resolver keyed on UI_THEME). OPEN: LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v0.4.44",
-      "lastBuild": "v0.4.44",
-      "lastUpdated": "2026-07-18T19:52:32.622Z",
+      "currentVersion": "v0.5",
+      "lastBuild": "v0.5",
+      "lastUpdated": "2026-07-19T00:06:07.320Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-18T19:52:32.622Z",
+        "createdAt": "2026-07-19T00:06:07.320Z",
         "localDate": "2026-07-18",
-        "localHour": 12,
+        "localHour": 17,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v0.4.44."
+        "summary": "CREOSOTE updated from Control Room delta: v0.5."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-18T19:52:32.622Z",
+    "lastAppliedAt": "2026-07-19T00:06:07.320Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5873,12 +5873,12 @@
     }
   },
   "lastControlRoomSync": {
-    "type": "scheduled_checkpoint",
-    "source": "scheduled-cron",
-    "createdAt": "2026-07-18T23:00:11.871Z",
+    "type": "build_hook_delta",
+    "source": "api",
+    "createdAt": "2026-07-19T00:06:07.320Z",
     "localDate": "2026-07-18",
-    "localHour": 16,
+    "localHour": 17,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 16:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "1 project delta applied: CREOSOTE."
   }
 }
