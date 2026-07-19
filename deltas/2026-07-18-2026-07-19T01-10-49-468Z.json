@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.48",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.48 — PLATE FUSION ROUND (user on v0.4.47: 'looks like it's just been copied and pasted on top... for all the big buttons' + text/spacing). ROOT CAUSE: live controls drew their own complete housings FLAT over the physically-lit plate — no baked bezels or cast shadows under them = sticker look. FIX (the full commercial pattern): plates now bake the tile BEZELS, power-button housings, emerald housings and glass decks (VU surrounds, G/R strip, metering bay) WITH their cast shadows; the live layer slims to caps-only — EB::backlitCap gained a housing param (cache-keyed; false under EPh::kPlates skips the bezel and leaves it transparent), OnOffButton and EmeraldSwitch skip their housing fills under kPlates (caps + glow spill only). TEXT: EB::inkText gained a justification param; all lens text (tile labels+values, selector tiles, IRON tile) is now LEFT-ALIGNED with 10px pad, matching the approved renders. SPACING: SUMMING AMP baked title realigned with the power row (y470, 11px). All four plates rebaked. VERIFY: controls should read as MOUNTED IN the panel (bezel + shadow from the plate, lens from the live layer); no more sticker edges; left-aligned lens text like the mockups; alignment at all 3 UI scales + both themes (cap inset 3.5px must sit inside the baked bezel ring). OPEN: further polish per Steve; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.48 — PLATE FUSION ROUND (user on v0.4.47: 'looks like it's just been copied and pasted on top... for all the big buttons' + text/spacing). ROOT CAUSE: live controls drew their own complete housings FLAT over the physically-lit plate — no baked bezels or cast shadows under them = sticker look. FIX (the full commercial pattern): plates now bake the tile BEZELS, power-button housings, emerald housings and glass decks (VU surrounds, G/R strip, metering bay) WITH their cast shadows; the live layer slims to caps-only — EB::backlitCap gained a housing param (cache-keyed; false under EPh::kPlates skips the bezel and leaves it transparent), OnOffButton and EmeraldSwitch skip their housing fills under kPlates (caps + glow spill only). TEXT: EB::inkText gained a justification param; all lens text (tile labels+values, selector tiles, IRON tile) is now LEFT-ALIGNED with 10px pad, matching the approved renders. SPACING: SUMMING AMP baked title realigned with the power row (y470, 11px). All four plates rebaked. VERIFY: controls should read as MOUNTED IN the panel (bezel + shadow from the plate, lens from the live layer); no more sticker edges; left-aligned lens text like the mockups; alignment at all 3 UI scales + both themes (cap inset 3.5px must sit inside the baked bezel ring). OPEN: further polish per Steve; LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.48."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
