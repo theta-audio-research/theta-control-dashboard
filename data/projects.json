@@ -880,8 +880,8 @@
       "priorityRank": 1,
       "today": true,
       "ignoreToday": false,
-      "latestVersion": "v3.5",
-      "nextAction": "v0.4.48 — PLATE FUSION ROUND (user on v0.4.47: 'looks like it's just been copied and pasted on top... for all the big buttons' + text/spacing). ROOT CAUSE: live controls drew their own complete housings FLAT over the physically-lit plate — no baked bezels or cast shadows under them = sticker look. FIX (the full commercial pattern): plates now bake the tile BEZELS, power-button housings, emerald housings and glass decks (VU surrounds, G/R strip, metering bay) WITH their cast shadows; the live layer slims to caps-only — EB::backlitCap gained a housing param (cache-keyed; false under EPh::kPlates skips the bezel and leaves it transparent), OnOffButton and EmeraldSwitch skip their housing fills under kPlates (caps + glow spill only). TEXT: EB::inkText gained a justification param; all lens text (tile labels+values, selector tiles, IRON tile) is now LEFT-ALIGNED with 10px pad, matching the approved renders. SPACING: SUMMING AMP baked title realigned with the power row (y470, 11px). All four plates rebaked. VERIFY: controls should read as MOUNTED IN the panel (bezel + shadow from the plate, lens from the live layer); no more sticker edges; left-aligned lens text like the mockups; alignment at all 3 UI scales + both themes (cap inset 3.5px must sit inside the baked bezel ring). OPEN: further polish per Steve; LIMITER rename.",
+      "latestVersion": "v0.4.49",
+      "nextAction": "v0.4.49 — ACCENT RAILS RETIRED ON PLATES (user on the v0.4.48 fusion round: 'much better. lose the colored columns in the modules, they dont make sense now'). The per-module colored rail (blue COMPRESS / gold GRIT / coral AMBER) was the last flat procedural stripe over the baked steel — gated off under EPh::kPlates (legacy non-plate mode keeps it). Module color identity now carries via lamps + per-module lens tint (accLean), as on real consoles. No rebake needed. VERIFY: module left edges clean in both themes. OPEN: further polish per Steve; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.48 — PLATE FUSION ROUND (user on v0.4.47: 'looks like it's just been copied and pasted on top... for all the big buttons' + text/spacing). ROOT CAUSE: live controls drew their own complete housings FLAT over the physically-lit plate — no baked bezels or cast shadows under them = sticker look. FIX (the full commercial pattern): plates now bake the tile BEZELS, power-button housings, emerald housings and glass decks (VU surrounds, G/R strip, metering bay) WITH their cast shadows; the live layer slims to caps-only — EB::backlitCap gained a housing param (cache-keyed; false under EPh::kPlates skips the bezel and leaves it transparent), OnOffButton and EmeraldSwitch skip their housing fills under kPlates (caps + glow spill only). TEXT: EB::inkText gained a justification param; all lens text (tile labels+values, selector tiles, IRON tile) is now LEFT-ALIGNED with 10px pad, matching the approved renders. SPACING: SUMMING AMP baked title realigned with the power row (y470, 11px). All four plates rebaked. VERIFY: controls should read as MOUNTED IN the panel (bezel + shadow from the plate, lens from the live layer); no more sticker edges; left-aligned lens text like the mockups; alignment at all 3 UI scales + both themes (cap inset 3.5px must sit inside the baked bezel ring). OPEN: further polish per Steve; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.49 — ACCENT RAILS RETIRED ON PLATES (user on the v0.4.48 fusion round: 'much better. lose the colored columns in the modules, they dont make sense now'). The per-module colored rail (blue COMPRESS / gold GRIT / coral AMBER) was the last flat procedural stripe over the baked steel — gated off under EPh::kPlates (legacy non-plate mode keeps it). Module color identity now carries via lamps + per-module lens tint (accLean), as on real consoles. No rebake needed. VERIFY: module left edges clean in both themes. OPEN: further polish per Steve; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1494,17 +1494,17 @@
         "PERFORMANCE / REGRESSION": "CPU, spikes, denormals, meters, graph redraws, oversampling, stability under stress.",
         "ROADMAP / EVIDENCE": "Reference recordings, tester feedback, hardware comparison notes, and return-to-chat evidence."
       },
-      "currentVersion": "v3.5",
-      "lastBuild": "v3.5",
-      "lastUpdated": "2026-07-19T01:10:49.011Z",
+      "currentVersion": "v0.4.49",
+      "lastBuild": "v0.4.49",
+      "lastUpdated": "2026-07-19T01:31:17.468Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-19T01:10:49.011Z",
+        "createdAt": "2026-07-19T01:31:17.468Z",
         "localDate": "2026-07-18",
         "localHour": 18,
         "timezone": "America/Los_Angeles",
-        "summary": "CREOSOTE updated from Control Room delta: v3.5."
+        "summary": "CREOSOTE updated from Control Room delta: v0.4.49."
       }
     },
     {
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-19T01:10:49.011Z",
+    "lastAppliedAt": "2026-07-19T01:31:17.468Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-19T01:10:49.011Z",
+    "createdAt": "2026-07-19T01:31:17.468Z",
     "localDate": "2026-07-18",
     "localHour": 18,
     "timezone": "America/Los_Angeles",
