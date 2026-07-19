@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.46",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.46 — PHOTOREAL PLATES SHIPPED (Phase B integration). The static console is now four pre-rendered Blender plates embedded in BinaryData (Resources/Plates: hybrid/green x 1x/2x, baked by Tools/photoreal/creosote_console_scene.py --mode plates with exact-fit ortho camera 968x660, real plugin fonts (Montserrat-Bold silkscreen), aging pass in the enamel materials (mottle + roughness variation), tile WELLS only (live tiles draw bezel+cap on top — zero alignment risk), titles/brand/screws/blank plates baked, all dynamic hardware (power/emerald/glass/tabs/auto) excluded from plates). EPh::kPlates flag in CreosoteTheme.h gates the procedural painting: paintContent draws the theme+scale-selected plate via ImageCache (UI_THEME picks hybrid/green; physicalPixelScaleFactor>=1.5 picks 2x), EU::paintModuleShell keeps only the accent rail, ModulePanel/LimiterPanel/MeteringPanel skip card+patina+title (silkscreen doesn't dim — lamps carry power state now), SUMMING titleLabel hidden. Legacy painting intact behind the flag (kPlates=false reverts everything). VERIFY VISUALLY IN ABLETON: console reads as photographed hardware; tiles/buttons/meters live on top; TWEAK>MASTER CHASSIS toggles HYBRID/GREEN plates live; check tile/well alignment at all 3 UI scales and both themes; look for double-drawn or missing chrome. REMAINING PHASE B POLISH: worn-button/tab styling vs plate, header button wells?, VU meter surrounds, deeper aging (chips/scuffs), possible baked bezels for tiles later. OPEN: LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.46 — PHOTOREAL PLATES SHIPPED (Phase B integration). The static console is now four pre-rendered Blender plates embedded in BinaryData (Resources/Plates: hybrid/green x 1x/2x, baked by Tools/photoreal/creosote_console_scene.py --mode plates with exact-fit ortho camera 968x660, real plugin fonts (Montserrat-Bold silkscreen), aging pass in the enamel materials (mottle + roughness variation), tile WELLS only (live tiles draw bezel+cap on top — zero alignment risk), titles/brand/screws/blank plates baked, all dynamic hardware (power/emerald/glass/tabs/auto) excluded from plates). EPh::kPlates flag in CreosoteTheme.h gates the procedural painting: paintContent draws the theme+scale-selected plate via ImageCache (UI_THEME picks hybrid/green; physicalPixelScaleFactor>=1.5 picks 2x), EU::paintModuleShell keeps only the accent rail, ModulePanel/LimiterPanel/MeteringPanel skip card+patina+title (silkscreen doesn't dim — lamps carry power state now), SUMMING titleLabel hidden. Legacy painting intact behind the flag (kPlates=false reverts everything). VERIFY VISUALLY IN ABLETON: console reads as photographed hardware; tiles/buttons/meters live on top; TWEAK>MASTER CHASSIS toggles HYBRID/GREEN plates live; check tile/well alignment at all 3 UI scales and both themes; look for double-drawn or missing chrome. REMAINING PHASE B POLISH: worn-button/tab styling vs plate, header button wells?, VU meter surrounds, deeper aging (chips/scuffs), possible baked bezels for tiles later. OPEN: LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.46."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
