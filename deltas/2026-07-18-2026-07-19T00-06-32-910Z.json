@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "type": "build_hook_delta",
+  "date": "2026-07-18",
+  "title": "THETA Control Room — Build Hook Delta",
+  "mode": "Automated build-script update.",
+  "allowNewProjects": false,
+  "changedProjects": [
+    {
+      "id": "creosote",
+      "changeType": "Build hook update",
+      "status": "active",
+      "latestVersion": "v0.4.45",
+      "shipReadiness": 10,
+      "sourceCertainty": "high",
+      "formatsNow": [
+        "VST3",
+        "AU"
+      ],
+      "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
+      "lastKnownStatus": "Build hook reported latest project state.",
+      "blocker": "Needs test result.",
+      "nextAction": "v0.4.45 — CHASSIS THEME TOGGLE PREP + PHASE A CLOSED (user picked HYBRID R-D navy-in-green, wants a toggle to R-B reactor-green; then Phase B). PHASE A (photoreal pipeline PROVEN): Blender installed; headless bpy scene (scratchpad creosote_scene.py, backed up in CONTEXT_BACKUPS .../photoreal-phase-a/) builds a GRIT-like panel under the research rig (ONE warm shadow-casting key, cool no-shadow fill, dim warm world, AgX, ortho camera, Cycles); 4 comps rendered (navy/green/cream/HYBRID) — the SAME grey-green that failed flat in CSS reads as real painted steel under baked light, proving the v0.4.43 postmortem. Renders in the chassis artifact (label hybrid-confirmed). Scene gotcha: primitive_cube_add(size=1) spans +/-0.5 — scale by FULL extents. NEW IN BUILD: UI_THEME param (0=HYBRID default, 1=GREEN; UI-only, never read by DSP), CHASSIS toggle on TWEAK>MASTER at +745 (HYBRID/GREEN cycle), interim preview tints the dark chassis toward deep green-grey on GREEN (real plates land in Phase B), editor timer watches the param for repaint. PHASE B (next): extend the bpy scene to ALL panels using the layout-coordinate extraction (agent running), bake plate sets for BOTH themes at @1x/@2x, button-state renders + tile lit-strips, aging pass baked in, JUCE integration (ImageCache + ScaledImage + setOpaque plate components, procedural text/glow/needles on top, theme resolver keyed on UI_THEME). OPEN: LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.45 — CHASSIS THEME TOGGLE PREP + PHASE A CLOSED (user picked HYBRID R-D navy-in-green, wants a toggle to R-B reactor-green; then Phase B). PHASE A (photoreal pipeline PROVEN): Blender installed; headless bpy scene (scratchpad creosote_scene.py, backed up in CONTEXT_BACKUPS .../photoreal-phase-a/) builds a GRIT-like panel under the research rig (ONE warm shadow-casting key, cool no-shadow fill, dim warm world, AgX, ortho camera, Cycles); 4 comps rendered (navy/green/cream/HYBRID) — the SAME grey-green that failed flat in CSS reads as real painted steel under baked light, proving the v0.4.43 postmortem. Renders in the chassis artifact (label hybrid-confirmed). Scene gotcha: primitive_cube_add(size=1) spans +/-0.5 — scale by FULL extents. NEW IN BUILD: UI_THEME param (0=HYBRID default, 1=GREEN; UI-only, never read by DSP), CHASSIS toggle on TWEAK>MASTER at +745 (HYBRID/GREEN cycle), interim preview tints the dark chassis toward deep green-grey on GREEN (real plates land in Phase B), editor timer watches the param for repaint. PHASE B (next): extend the bpy scene to ALL panels using the layout-coordinate extraction (agent running), bake plate sets for BOTH themes at @1x/@2x, button-state renders + tile lit-strips, aging pass baked in, JUCE integration (ImageCache + ScaledImage + setOpaque plate components, procedural text/glow/needles on top, theme resolver keyed on UI_THEME). OPEN: LIMITER rename.",
+      "endStatus": "Build hook reported CREOSOTE v0.4.45."
+    }
+  ],
+  "dashboardUpdateDecision": {
+    "dashboardDataChanged": true,
+    "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
+  }
+}
