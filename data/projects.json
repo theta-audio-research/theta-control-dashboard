@@ -881,7 +881,7 @@
       "today": true,
       "ignoreToday": false,
       "latestVersion": "v2.2",
-      "nextAction": "v0.4.51 — OUTPUT EQ: MACHINE-TOOL CHART PLATE (user's reference: vintage lathe feed-rate nomogram — cream plate, blue graticule, red curves; picks via mockups: EQ-B pre+post display, K3 CREAM knob). SHIPPED: 4 EQ plates baked (Resources/Plates/eq_hybrid|green_1x|2x from creosote_eq_scene.py --mode plates — exact OutputEqPanel geometry 732x210, cream chart at the graph rect (6,34,494,170), graticule at the graph's OWN log-20-20k / +/-18dB mapping so baked lines land under live curves, DejaVu blue labels, screws). OutputEqPanel: panel bg -> theme+scale-selected plate (UI_THEME aware); EqGraph under kPlates skips bg/grime/grid/labels and draws NOMOGRAM INK — blue dashed PRE (staticPts), red POST 2.2px (livePts), dynamic fill red 0.14 (was purple), band nodes = numbered red silkscreen discs with cream numerals (selection = larger disc + dark ring); EqInspectorKnobLAF gained the K3 CREAM path (cream skirt+cap, black pointer, disabled dims; cyan renderer kept for legacy); inspector labels silk cream DejaVu Bold. All legacy painting intact behind kPlates. VERIFY: EQ tab reads as the chart plate; drag bands (red discs), watch dynamics duck the red curve over the blue dashed pre; knobs cream with black pointers; both themes. OPEN: header buttons/tabs polish vs plate; LIMITER rename.",
+      "nextAction": "v0.4.52 — EQ FEEL PASS (user: knobs too twitchy, HPF/LPF always plain): inspector knob drag sensitivity 140 -> 300 px/full-sweep; Q removed from bands 1+8 everywhere it could be edited — inspector Q knob disabled (dims like GAIN) via inspectorSliders[2].setEnabled(useGain), node vertical-drag Q branch deleted (HPF/LPF drag is frequency-only), mouse-wheel Q gated by bandUsesGain. Q params untouched (DSP frozen, presets keep values). PREVIOUS: v0.4.51 — OUTPUT EQ: MACHINE-TOOL CHART PLATE (user's reference: vintage lathe feed-rate nomogram — cream plate, blue graticule, red curves; picks via mockups: EQ-B pre+post display, K3 CREAM knob). SHIPPED: 4 EQ plates baked (Resources/Plates/eq_hybrid|green_1x|2x from creosote_eq_scene.py --mode plates — exact OutputEqPanel geometry 732x210, cream chart at the graph rect (6,34,494,170), graticule at the graph's OWN log-20-20k / +/-18dB mapping so baked lines land under live curves, DejaVu blue labels, screws). OutputEqPanel: panel bg -> theme+scale-selected plate (UI_THEME aware); EqGraph under kPlates skips bg/grime/grid/labels and draws NOMOGRAM INK — blue dashed PRE (staticPts), red POST 2.2px (livePts), dynamic fill red 0.14 (was purple), band nodes = numbered red silkscreen discs with cream numerals (selection = larger disc + dark ring); EqInspectorKnobLAF gained the K3 CREAM path (cream skirt+cap, black pointer, disabled dims; cyan renderer kept for legacy); inspector labels silk cream DejaVu Bold. All legacy painting intact behind kPlates. VERIFY: EQ tab reads as the chart plate; drag bands (red discs), watch dynamics duck the red curve over the blue dashed pre; knobs cream with black pointers; both themes. OPEN: header buttons/tabs polish vs plate; LIMITER rename.",
       "firstAction": "Confirm v18.8.6 source/artifact is committed as the active CREOSOTE baseline.",
       "blocker": "Needs test result.",
       "decisionNeeded": "",
@@ -895,7 +895,7 @@
         "Windows"
       ],
       "lastKnownStatus": "Build hook reported latest project state.",
-      "tomorrowFirstAction": "v0.4.51 — OUTPUT EQ: MACHINE-TOOL CHART PLATE (user's reference: vintage lathe feed-rate nomogram — cream plate, blue graticule, red curves; picks via mockups: EQ-B pre+post display, K3 CREAM knob). SHIPPED: 4 EQ plates baked (Resources/Plates/eq_hybrid|green_1x|2x from creosote_eq_scene.py --mode plates — exact OutputEqPanel geometry 732x210, cream chart at the graph rect (6,34,494,170), graticule at the graph's OWN log-20-20k / +/-18dB mapping so baked lines land under live curves, DejaVu blue labels, screws). OutputEqPanel: panel bg -> theme+scale-selected plate (UI_THEME aware); EqGraph under kPlates skips bg/grime/grid/labels and draws NOMOGRAM INK — blue dashed PRE (staticPts), red POST 2.2px (livePts), dynamic fill red 0.14 (was purple), band nodes = numbered red silkscreen discs with cream numerals (selection = larger disc + dark ring); EqInspectorKnobLAF gained the K3 CREAM path (cream skirt+cap, black pointer, disabled dims; cyan renderer kept for legacy); inspector labels silk cream DejaVu Bold. All legacy painting intact behind kPlates. VERIFY: EQ tab reads as the chart plate; drag bands (red discs), watch dynamics duck the red curve over the blue dashed pre; knobs cream with black pointers; both themes. OPEN: header buttons/tabs polish vs plate; LIMITER rename.",
+      "tomorrowFirstAction": "v0.4.52 — EQ FEEL PASS (user: knobs too twitchy, HPF/LPF always plain): inspector knob drag sensitivity 140 -> 300 px/full-sweep; Q removed from bands 1+8 everywhere it could be edited — inspector Q knob disabled (dims like GAIN) via inspectorSliders[2].setEnabled(useGain), node vertical-drag Q branch deleted (HPF/LPF drag is frequency-only), mouse-wheel Q gated by bandUsesGain. Q params untouched (DSP frozen, presets keep values). PREVIOUS: v0.4.51 — OUTPUT EQ: MACHINE-TOOL CHART PLATE (user's reference: vintage lathe feed-rate nomogram — cream plate, blue graticule, red curves; picks via mockups: EQ-B pre+post display, K3 CREAM knob). SHIPPED: 4 EQ plates baked (Resources/Plates/eq_hybrid|green_1x|2x from creosote_eq_scene.py --mode plates — exact OutputEqPanel geometry 732x210, cream chart at the graph rect (6,34,494,170), graticule at the graph's OWN log-20-20k / +/-18dB mapping so baked lines land under live curves, DejaVu blue labels, screws). OutputEqPanel: panel bg -> theme+scale-selected plate (UI_THEME aware); EqGraph under kPlates skips bg/grime/grid/labels and draws NOMOGRAM INK — blue dashed PRE (staticPts), red POST 2.2px (livePts), dynamic fill red 0.14 (was purple), band nodes = numbered red silkscreen discs with cream numerals (selection = larger disc + dark ring); EqInspectorKnobLAF gained the K3 CREAM path (cream skirt+cap, black pointer, disabled dims; cyan renderer kept for legacy); inspector labels silk cream DejaVu Bold. All legacy painting intact behind kPlates. VERIFY: EQ tab reads as the chart plate; drag bands (red discs), watch dynamics duck the red curve over the blue dashed pre; knobs cream with black pointers; both themes. OPEN: header buttons/tabs polish vs plate; LIMITER rename.",
       "notToday": "Do not rely on the Claude CREOSOTE extraction as active source of truth; do not touch AAX unless scoped.",
       "artifact": "/Users/steveneal/Library/Audio/Plug-Ins/VST3/CREOSOTE.vst3",
       "sourceConfidenceNote": "ChatGPT-side delta; Claude CREOSOTE archived.",
@@ -1496,11 +1496,11 @@
       },
       "currentVersion": "v2.2",
       "lastBuild": "v2.2",
-      "lastUpdated": "2026-07-19T02:02:12.380Z",
+      "lastUpdated": "2026-07-19T02:12:26.317Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-19T02:02:12.380Z",
+        "createdAt": "2026-07-19T02:12:26.317Z",
         "localDate": "2026-07-18",
         "localHour": 19,
         "timezone": "America/Los_Angeles",
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-19T02:02:12.380Z",
+    "lastAppliedAt": "2026-07-19T02:12:26.317Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-19T02:02:12.380Z",
+    "createdAt": "2026-07-19T02:12:26.317Z",
     "localDate": "2026-07-18",
     "localHour": 19,
     "timezone": "America/Los_Angeles",
