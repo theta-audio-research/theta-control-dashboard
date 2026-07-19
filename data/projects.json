@@ -1496,11 +1496,11 @@
       },
       "currentVersion": "v2.2",
       "lastBuild": "v2.2",
-      "lastUpdated": "2026-07-19T02:12:26.317Z",
+      "lastUpdated": "2026-07-19T02:12:34.650Z",
       "lastControlRoomSync": {
         "type": "build_hook_delta",
         "source": "api",
-        "createdAt": "2026-07-19T02:12:26.317Z",
+        "createdAt": "2026-07-19T02:12:34.650Z",
         "localDate": "2026-07-18",
         "localHour": 19,
         "timezone": "America/Los_Angeles",
@@ -5837,7 +5837,7 @@
       "creosote"
     ],
     "dashboardDataChanged": true,
-    "lastAppliedAt": "2026-07-19T02:12:26.317Z",
+    "lastAppliedAt": "2026-07-19T02:12:34.650Z",
     "tomorrowFirstControlRoomAction": "Review build-hook update for CREOSOTE."
   },
   "automation": {
@@ -5875,7 +5875,7 @@
   "lastControlRoomSync": {
     "type": "build_hook_delta",
     "source": "api",
-    "createdAt": "2026-07-19T02:12:26.317Z",
+    "createdAt": "2026-07-19T02:12:34.650Z",
     "localDate": "2026-07-18",
     "localHour": 19,
     "timezone": "America/Los_Angeles",
