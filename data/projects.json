@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0",
-  "lastUpdated": "2026-07-20",
+  "lastUpdated": "2026-07-21",
   "dashboardMode": "focus",
   "todayMessage": "v3.2 adds project test tickets, notes, completion state, archive support, and return-packet generation.",
   "projects": [
@@ -5875,10 +5875,10 @@
   "lastControlRoomSync": {
     "type": "scheduled_checkpoint",
     "source": "scheduled-cron",
-    "createdAt": "2026-07-21T06:00:14.697Z",
-    "localDate": "2026-07-20",
-    "localHour": 23,
+    "createdAt": "2026-07-21T13:00:14.772Z",
+    "localDate": "2026-07-21",
+    "localHour": 6,
     "timezone": "America/Los_Angeles",
-    "summary": "Automated checkpoint at 23:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
+    "summary": "Automated checkpoint at 06:00. Today focus: CREOSOTE, FOCUSGRID, PRISM FORM."
   }
 }
